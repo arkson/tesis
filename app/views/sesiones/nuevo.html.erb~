@@ -1,0 +1,22 @@
+<div class="depot_form">
+<% if flash[:alert] %>
+<p id="notice"><%= flash[:alert] %></p>
+<% end %>
+<%= form_tag do %>
+<fieldset>
+<legend>Por favor Inicie sesion</legend>
+<div>
+<label for="name">Nombre:</label>
+<%= text_field_tag :nombre, params[:nombre] %>
+</div>
+<div>
+<label for="Clave">Password:</label>
+<%= password_field_tag :password, params[:password] %>
+</div>
+<div>
+<%= submit_tag "Ingresar" %>
+</div>
+</fieldset>
+<% end %>
+</div>
+

@@ -1,0 +1,80 @@
+<% if flash[:alert] %>
+<p id="notice"><%= flash[:alert] %></p>
+<% end %>
+
+
+
+<div class="infoinicio">
+ <%= will_paginate @noticias , :prev_label => "Anterior", :next_label => "Siguiente" %>
+
+ <table>
+<% @noticias.each do |noticia| %>
+  <tr>
+	<td><%= sanitize(noticia.titulo) %></td></br>
+	<td> <%= image_tag(noticia.imagen.url(:thumb),:class => 'list_image') %></td>
+	<td><%= sanitize(noticia.contenido) %></td>
+	 </tr>
+<% end %>
+</table>
+</div>
+
+
+
+	<script>
+	$(function() {
+		$( "#dialog:ui-dialog" ).dialog( "destroy" );		
+		
+		$( "#dialog-form" ).dialog({
+			autoOpen: false,
+			height: 300,
+			width: 350,
+			modal: true,
+		
+		});
+
+		$( "#acceder" )
+			.button()
+			.click(function() {
+				$( "#dialog-form" ).dialog( "open" );
+			});
+
+	});
+	</script>
+
+
+
+<div class="demo">
+
+<div id="dialog-form" class="login" style="border:#333333 solid 1px;background:#ffffff;width:300px;">
+
+	<%= form_tag url_for (:controller => "sesiones",:action => "crear") do %>
+	<fieldset>
+		<legend>Iniciar sesi&oacute;n</legend>
+		<div>
+			<label for="cedula">Cédula:</label>
+			<%= text_field_tag :cedula, params[:cedula] %>
+		</div>
+		<div>
+			<label for="Clave">Clave:</label>
+			<%= password_field_tag :password, params[:password] %>
+		</div>
+		<div>
+			<label>Texto de la imagen:</label>
+			<%= show_simple_captcha(:image_style => 'simply_blue', :distortion => 'medium',:label => "")  %>
+		</div>
+		<div>
+			<%= submit_tag "Ingresar" %>
+		</div>
+		<div>
+			Olvid&oacute; su clave?
+		</div>
+	</fieldset>
+<% end %>
+</div>
+
+
+
+
+
+</div><!-- End demo -->			
+

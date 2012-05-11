@@ -1,0 +1,8 @@
+class Usuario < ActiveRecord::Base
+
+  belongs_to :dependencia
+  validates :cedula, :presence => true, :uniqueness => true
+  validate :check_nice_text_captcha
+  has_secure_password
+
+end

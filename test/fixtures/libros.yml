@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  cota: MyString
+  titulo: MyString
+  autor: MyString
+  imagen: 
+  edicion: 1
+  lugar_impresion: MyString
+  ano: 1
+  isbn: MyString
+  editorial: 
+  area_conocimiento: 
+  dependencia: 
+
+two:
+  cota: MyString
+  titulo: MyString
+  autor: MyString
+  imagen: 
+  edicion: 1
+  lugar_impresion: MyString
+  ano: 1
+  isbn: MyString
+  editorial: 
+  area_conocimiento: 
+  dependencia: 

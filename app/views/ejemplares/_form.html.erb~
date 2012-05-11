@@ -1,0 +1,61 @@
+<%= form_for(@ejemplar) do |f| %>
+  <% if @ejemplar.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ejemplar.errors.count, "error") %> prohibited this ejemplar from being saved:</h2>
+
+      <ul>
+      <% @ejemplar.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :numero_ejemplar %><br />
+    <%= f.text_field :numero_ejemplar %>
+  </div>
+  <div class="field">
+    <%= f.label :costo_alquiler %><br />
+    <%= f.text_field :costo_alquiler %>
+  </div>
+  <div class="field">
+    <%= f.label :tipo_adquisicion %><br />
+    <%= f.text_field :tipo_adquisicion %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha_ingreso %><br />
+    <%= f.date_select :fecha_ingreso %>
+  </div>
+  <div class="field">
+    <%= f.label :observacion %><br />
+    <%= f.text_area :observacion %>
+  </div>
+  <div class="field">
+    <%= f.label :nro_factura %><br />
+    <%= f.text_field :nro_factura %>
+  </div>
+  <div class="field">
+    <%= f.label :en_uso %><br />
+    <%= f.text_field :en_uso %>
+  </div>
+  <div class="field">
+    <%= f.label :activo %><br />
+    <%= f.check_box :activo %>
+  </div>
+  <div class="field">
+    <%= f.label :estatus_ejemplar %><br />
+    <%= f.text_field :estatus_ejemplar %>
+  </div>
+  <div class="field">
+    <%= f.label :libro %><br />
+    <%= f.collection_select :libro_id, Libro.order(titulo_and_autor), :id, :titulo_and_autor %>
+  </div>
+  <div class="field">
+    <%= f.label :libreria %><br />
+    <%= f.collection_select :libreria_id, Libreria.all, :id, :nombre %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

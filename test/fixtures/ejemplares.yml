@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  numero_ejemplar: MyString
+  costo_alquiler: 9.99
+  tipo_adquisicion: MyString
+  fecha_ingreso: 2012-04-17
+  observacion: MyText
+  nro_factura: MyString
+  en_uso: MyString
+  activo: false
+  estatus_ejemplar: MyString
+  libro: 
+  libreria: 
+
+two:
+  numero_ejemplar: MyString
+  costo_alquiler: 9.99
+  tipo_adquisicion: MyString
+  fecha_ingreso: 2012-04-17
+  observacion: MyText
+  nro_factura: MyString
+  en_uso: MyString
+  activo: false
+  estatus_ejemplar: MyString
+  libro: 
+  libreria: 

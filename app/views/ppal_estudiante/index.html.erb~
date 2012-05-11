@@ -1,0 +1,19 @@
+<% if notice %>
+	<p id="notice"><%= notice %></p>
+<% end %>
+<p><%= render_breadcrumbs :separator => ' / ' %></p>
+<h1>Catalogo de libros</h1>
+
+<% @ejemplares.each do |ejemplar| %>
+	<div class="entry">
+		<%= image_tag ejemplar.libro.imagen.url(:thumb) %>
+		<h3><%= ejemplar.libro.titulo %></h3>
+		<div class="observ"><%= sanitize(ejemplar.observacion) %> </div>
+		<div class="price_line">
+			<span class="price"><%= number_to_currency(ejemplar.costo_alquiler) %></span>
+			<%= button_to 'Agregar', lines_items_path(:ejemplar_id => ejemplar), :remote => true  %>
+
+		</div>
+	</div>
+<% end %>
+

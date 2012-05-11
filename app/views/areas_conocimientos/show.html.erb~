@@ -1,0 +1,11 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nombre:</b>
+  <%= @area_conocimiento.nombre %>
+</p>
+
+
+<%= link_to 'Editar', edit_area_conocimiento_path(@area_conocimiento) %> |
+<%= link_to 'Regresar', areas_conocimientos_path %>

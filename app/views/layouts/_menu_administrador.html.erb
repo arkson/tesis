@@ -1,0 +1,84 @@
+<style>
+		#accordion
+		{
+		  width:200px;
+		  margin:0 40px 0 0;
+		  float:right;
+		  border-left:#bcbcbc solid 1px;
+		}
+		  #accordion div,h3
+		  {
+		    padding:10px 0 0 15px;
+			color:#bcbcbc;
+			
+		  }
+		  #accordion a
+		  {
+		   text-decoration:none;
+		   color:#bcbcbc;			
+		  }
+		  #accordion a:hover
+		  {
+		   text-decoration:none;
+		   color:#333333;			
+		  }
+	</style>
+	<script>
+	$(function() {
+		$( "#accordion" ).accordion({
+			fillSpace: true
+		})
+	});
+	$(function() {
+		$( "#accordionResizer" ).resizable({
+			minHeight: 140,
+			resize: function() {
+				$( "#accordion" ).accordion( "resize" );
+			}
+		});
+	});
+	</script>
+
+
+
+
+
+<div id="accordion">
+	<h3><%= link_to "Inicio", ppal_admin_index_path, :class => "" %></h3>
+	<div>
+		<p>
+		Menu principal del modulo de administrador
+		</p>
+	</div>
+	<h3><a href="#">Mantenimiento</a></h3>
+	<div>
+		<ul>
+
+            <li><%= link_to "Areas de Conocimiento", areas_conocimientos_index_path, :class => "" %></li>
+			<li><%= link_to "Dependencias", dependencias_index_path, :class => "" %></li>
+			<li><%= link_to "Libros", libros_index_path, :class => "" %></li>
+			<li><%= link_to "Ejemplares", ejemplares_index_path, :class => "" %></li>
+			<li><%= link_to "Librerias", librerias_index_path, :class => "" %></li>
+			<li><%= link_to "Editoriales", editoriales_index_path, :class => "" %></li>
+
+		</ul>
+	</div>
+	<h3><a href="#">Reportes</a></h3>
+	<div>
+		<p>
+		Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
+		purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
+		velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
+		suscipit faucibus urna.
+		</p>
+	</div>
+	<h3><a href="#">Usuarios</a></h3>
+	<div>
+		<ul>
+			<li>List item one</li>
+			<li>List item two</li>
+			<li>List item three</li>
+		</ul>
+	</div>
+</div>
+

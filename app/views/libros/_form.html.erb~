@@ -1,0 +1,61 @@
+<%= form_for(@libro) do |f| %>
+  <% if @libro.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@libro.errors.count, "error") %> prohibited this libro from being saved:</h2>
+
+      <ul>
+      <% @libro.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :cota %><br />
+    <%= f.text_field :cota %>
+  </div>
+  <div class="field">
+    <%= f.label :titulo %><br />
+    <%= f.text_field :titulo %>
+  </div>
+  <div class="field">
+    <%= f.label :autor %><br />
+    <%= f.text_field :autor %>
+  </div>
+  <div class="field">
+    <%= f.label :imagen %><br />
+    <%= f.text_field :imagen %>
+  </div>
+  <div class="field">
+    <%= f.label :edicion %><br />
+    <%= f.number_field :edicion %>
+  </div>
+  <div class="field">
+    <%= f.label :lugar_impresion %><br />
+    <%= f.text_field :lugar_impresion %>
+  </div>
+  <div class="field">
+    <%= f.label :ano %><br />
+    <%= f.number_field :ano %>
+  </div>
+  <div class="field">
+    <%= f.label :isbn %><br />
+    <%= f.text_field :isbn %>
+  </div>
+  <div class="field">
+    <%= f.label :editorial %><br />
+    <%= f.collection_select :editorial_id, Editorial.all, :id, :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :area_conocimiento %><br />
+    <%= f.collection_select :area_conocimiento_id, AreaConocimiento.all, :id, :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :dependencia %><br />
+    <%= f.collection_select :dependencia_id, Dependencia.all, :id, :nombre %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  periodo: 1
+  ano: 1
+  fecha_inicio: 2012-05-02
+  fecha_fin: 2012-05-02
+  max_num_libro: 1
+  libro_repetido: false
+  tiempo_prealquiler: 1
+  tipo_periodo: MyString
+
+two:
+  periodo: 1
+  ano: 1
+  fecha_inicio: 2012-05-02
+  fecha_fin: 2012-05-02
+  max_num_libro: 1
+  libro_repetido: false
+  tiempo_prealquiler: 1
+  tipo_periodo: MyString

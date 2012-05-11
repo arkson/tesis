@@ -1,0 +1,11 @@
+class PpalEstudianteController < ApplicationController
+  layout "estudiante"
+  add_breadcrumb "Inicio", :ppal_estudiante_index_path
+
+  def index
+	@ejemplares = Ejemplar.order(:costo_alquiler)
+	@cart = current_cart
+
+  end
+
+end

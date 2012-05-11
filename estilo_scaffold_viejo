@@ -1,0 +1,37 @@
+<table>
+  <tr>
+    <th>Cota</th>
+    <th>Titulo</th>
+    <th>Autor</th>
+    <th>Imagen</th>
+    <th>Edicion</th>
+    <th>Lugar impresion</th>
+    <th>Ano</th>
+    <th>Isbn</th>
+    <th>Editorial</th>
+    <th>Area conocimiento</th>
+    <th>Dependencia</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @libros.each do |libro| %>
+  <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+    <td><%= libro.cota %></td>
+    <td><%= libro.titulo %></td>
+    <td><%= libro.autor %></td>
+    <td><%= image_tag libro.imagen.url(:thumb) %> </td>
+    <td><%= libro.edicion %></td>
+    <td><%= libro.lugar_impresion %></td>
+    <td><%= libro.ano %></td>
+    <td><%= libro.isbn %></td>
+    <td><%= libro.editorial.nombre %></td>
+    <td><%= libro.area_conocimiento.nombre %></td>
+    <td><%= libro.dependencia.nombre %></td>
+    <td class ="opciones"><%= link_to 'Mostrar', libro %></td>
+    <td class ="opciones"><%= link_to 'Editar', edit_libro_path(libro) %></td>
+    <td class ="opciones"><%= link_to 'Eliminar', libro, :confirm => '¿Estas seguro?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>

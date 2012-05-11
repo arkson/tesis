@@ -1,0 +1,64 @@
+
+	<p>
+		<b>Datos del Usuario</b>
+	</p>
+
+  	<p>
+	  <b>Cedula:</b>
+	  <%= @alquiler.usuario.cedula %>
+	</p>
+
+
+	<p>
+	  <b>Nombre:</b>
+	  <%= @alquiler.usuario.nombre %>
+	</p>
+
+	
+
+
+  <p>
+ 	 <b>Libros seleccionados</b>
+  </p>
+	
+	<table>
+	  <tr>
+		 <th>Cota</th>
+		 <th>Titulo</th>
+		 <th>Autor</th>
+		 <th>Edicion</th>
+		 <th>Año</th>
+		 <th>Precio</th>
+		 <th></th>
+		 <th></th>
+	  </tr>
+
+		<% @alquiler.line_item.each do |item| %>
+			<tr>
+				<td><%= item.ejemplar.cota %></td>
+				<td><%= item.ejemplar.libro.titulo %></td>
+				<td><%= item.ejemplar.libro.autor %></td>
+				<td><%= item.ejemplar.libro.edicion %></td>
+ 				<td><%= item.ejemplar.libro.ano %></td>
+				<td><%= number_to_currency(item.ejemplar.costo_alquiler) %></td>	
+			</tr> 
+		<% end %>
+		<tr>
+			
+			<td> </td>
+			<td> </td>
+			<td> </td>
+			<td> </td>
+			<td> </td>
+			<td> <%= number_to_currency(@alquiler.total_price)  %> </td>
+			
+		<tr>		  		
+	</table>
+	
+
+  <div class="actions">
+    <%= button_to 'Alquilar', :controller => "alquileres_controller", :action => "create",:alq => @alquiler %>
+  </div>
+
+
+

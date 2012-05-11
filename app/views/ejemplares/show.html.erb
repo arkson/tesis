@@ -1,0 +1,64 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+
+<p>
+  <b>Libro:</b>
+  <%= @ejemplar.libro.titulo_and_autor %>
+</p>
+
+<p>
+  <b>Cota del ejemplar:</b>
+  <%= @ejemplar.cota %>
+</p>
+
+
+<p>
+  <b>Costo alquiler:</b>
+  <%= @ejemplar.costo_alquiler %>
+</p>
+
+<p>
+  <b>Tipo adquisicion:</b>
+  <%= @ejemplar.tipo_adquisicion %>
+</p>
+
+<p>
+  <b>Fecha ingreso:</b>
+  <%= @ejemplar.fecha_ingreso %>
+</p>
+
+<p>
+  <b>Observacion:</b>
+  <%= @ejemplar.observacion %>
+</p>
+
+<p>
+  <b>Nro factura:</b>
+  <%= @ejemplar.nro_factura %>
+</p>
+
+<p>
+  <b>En uso:</b>
+  <%= @ejemplar.en_uso %>
+</p>
+
+<p>
+  <b>Activo:</b>
+  <%= @ejemplar.activo %>
+</p>
+
+<p>
+  <b>Estatus ejemplar:</b>
+  <%= @ejemplar.estatus_ejemplar %>
+</p>
+
+<p>
+  <b>Libreria:</b>
+  <%= @ejemplar.libreria.nombre %>
+</p>
+
+
+<%= link_to 'Editar', edit_ejemplar_path(@ejemplar) %> |
+<%= link_to 'Regresar', ejemplares_path %>

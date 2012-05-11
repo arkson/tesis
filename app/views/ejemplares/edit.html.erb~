@@ -1,0 +1,6 @@
+<h1>Editing ejemplar</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @ejemplar %> |
+<%= link_to 'Back', ejemplares_path %>

@@ -1,0 +1,29 @@
+<h1>Listing alquileres</h1>
+
+<table>
+  <tr>
+    <th>Line item</th>
+    <th>Usuario</th>
+    <th>Fecha fin</th>
+    <th>Estatus</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @alquileres.each do |alquiler| %>
+  <tr>
+    <td><%= alquiler.line_item %></td>
+    <td><%= alquiler.usuario %></td>
+    <td><%= alquiler.fecha_fin %></td>
+    <td><%= alquiler.estatus %></td>
+    <td><%= link_to 'Show', alquiler %></td>
+    <td><%= link_to 'Edit', edit_alquiler_path(alquiler) %></td>
+    <td><%= link_to 'Destroy', alquiler, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Alquiler', new_alquiler_path %>

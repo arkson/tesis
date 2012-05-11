@@ -1,0 +1,8 @@
+<% form_tag url_for(:controller => 'principal', :action => 'olvido_clave')  do   %>
+
+    <b>Datos para el olvido de Clave</b><br/>	
+    <label>Cédula: </label> <br/>
+    <%= password_field_tag(:cedula, {}, :size => 30) %>
+    <br/>  
+    <input type="submit" value="Aceptar" />
+<% end %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  line_item: 
+  usuario: 
+  fecha_fin: 2012-05-09
+  estatus: MyString
+
+two:
+  line_item: 
+  usuario: 
+  fecha_fin: 2012-05-09
+  estatus: MyString

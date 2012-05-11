@@ -1,0 +1,19 @@
+
+/* Cerrar Sesion */
+	.cerrar-sesion
+	{
+	  background:none; 
+	  border:0;
+	  color:#ffffff;
+	  cursor:pointer;
+	}
+
+	.cerrar-sesion:hover
+	{
+	  text-decoration: underline;
+	}
+
+
+
+
+

@@ -1,0 +1,42 @@
+<p><%= render_breadcrumbs :separator => ' / ' %></p>
+<h1>Listado de ejemplares</h1>
+
+<table>
+  <tr>
+    <th>Cota</th>
+    <th>Libro</th>
+    <th>Costo alquiler</th>
+    <th>Tipo adquisicion</th>
+    <th>Fecha ingreso</th>
+    <th>Nro factura</th>
+    <th>En uso</th>
+    <th>Estatus ejemplar</th>
+    <th>Libro</th>
+    <th>Libreria</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @ejemplares.each do |ejemplar| %>
+  <tr>
+    <td><%= ejemplar.cota %></td>
+    <td><%= ejemplar.libro.titulo_and_autor %></td>
+    <td><%= ejemplar.costo_alquiler %></td>
+    <td><%= ejemplar.tipo_adquisicion %></td>
+    <td><%= ejemplar.fecha_ingreso %></td>
+    <td><%= ejemplar.nro_factura %></td>
+    <td><%= ejemplar.en_uso %></td>
+    <td><%= ejemplar.estatus_ejemplar %></td>
+    <td><%= ejemplar.libro.titulo_and_autor %></td>
+    <td><%= ejemplar.libreria.nombre %></td>
+    <td><%= link_to 'Mostrar', ejemplar %></td>
+    <td><%= link_to 'Editar', edit_ejemplar_path(ejemplar) %></td>
+    <td><%= link_to 'Eliminar', ejemplar, :confirm => '¿Estas seguro?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nuevo Ejemplar', new_ejemplar_path %>

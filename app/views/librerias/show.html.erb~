@@ -1,0 +1,16 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+<p>
+  <b>Nombre:</b>
+  <%= @libreria.nombre %>
+</p>
+
+<p>
+  <b>Telefono:</b>
+  <%= @libreria.telefono %>
+</p>
+
+
+<%= link_to 'Edit', edit_libreria_path(@libreria) %> |
+<%= link_to 'Back', librerias_path %>

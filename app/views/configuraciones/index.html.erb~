@@ -1,0 +1,39 @@
+<h1>Lista de configuraciones</h1>
+
+<table>
+  <tr>
+    <th>Periodo</th>
+    <th>Ano</th>
+    <th>Fecha inicio</th>
+    <th>Fecha fin</th>
+    <th>Max num libro</th>
+    <th>Libro repetido</th>
+    <th>Tiempo prealquiler</th>
+    <th>Tipo periodo</th>
+    <th>Activa</th>	
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @configuraciones.each do |configuracion| %>
+  <tr>
+    <td><%= configuracion.periodo %></td>
+    <td><%= configuracion.ano %></td>
+    <td><%= configuracion.fecha_inicio %></td>
+    <td><%= configuracion.fecha_fin %></td>
+    <td><%= configuracion.max_num_libro %></td>
+    <td><%= configuracion.libro_repetido %></td>
+    <td><%= configuracion.tiempo_prealquiler %></td>
+    <td><%= configuracion.tipo_periodo %></td>
+    <td><%= configuracion.activo %>	
+    <td><%= link_to 'Mostrar', configuracion %></td>
+    <td><%= link_to 'Editar', edit_configuracion_path(configuracion) %></td>
+    <td><%= link_to 'Eliminar', configuracion, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nueva Configuración', new_configuracion_path %>

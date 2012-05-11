@@ -1,0 +1,16 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+<p>
+  <b>Nombre:</b>
+  <%= @dependencia.nombre %>
+</p>
+
+<p>
+  <b>Tipo dependencia:</b>
+  <%= @dependencia.tipo_dependencia %>
+</p>
+
+
+<%= link_to 'Editar', edit_dependencia_path(@dependencia) %> |
+<%= link_to 'Regresar', dependencias_path %>

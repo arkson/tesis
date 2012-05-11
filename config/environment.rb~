@@ -1,0 +1,18 @@
+# Load the rails application
+require File.expand_path('../application', __FILE__)
+
+# Initialize the rails application
+Tesis::Application.initialize!
+
+  config.action_mailer.smtp_settings = {
+	:address => "smtp.gmail.com",
+	:port => 587,
+	:domain => "domain.of.sender.net",
+	:authentication => "plain",
+	:user_name => "arkson888",
+	:password => "Arcadio6668",
+	:enable_starttls_auto => true
+  }
+	
+
+

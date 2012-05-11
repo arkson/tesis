@@ -1,0 +1,6 @@
+<h1>Edición de las configuraciones</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Mostrar', @configuracion %> |
+<%= link_to 'Regresar', configuraciones_path %>

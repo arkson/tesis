@@ -1,0 +1,266 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require_self
+ *= require_tree . 
+*/
+
+/* begin Page */
+
+* 
+{
+  margin: 0;
+  font-family: Verdana, Helvetica, Arial, Sans-Serif;
+  font-size: 12px; 
+}
+
+html, body
+{
+  width:100%;
+  height: 100%;
+}
+
+a {color:#555555;}
+
+/* Start Content list */
+
+ul
+{
+  list-style: none;
+  margin:0;
+  padding:0;
+}
+
+
+/* Finish Content list */
+
+.wrapper 
+{
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -188px; /* the bottom margin es el valor negativo de la altura del footer */
+}
+
+/* begin Menu */
+.Menu
+{
+  z-index:0;
+  width: 100%;
+  height: 35px;
+}
+#nav {  padding:0 30% 0 30%; margin:0; list-style:none; height:35px; position:relative; }
+#nav li.top {float:left; height:35px;}
+#nav li a.top_link {float:left; height:35px; line-height:40px; color:#acacac; text-decoration:none; font-weight:bold; padding:0 20px 0 20px; cursor:pointer;}
+
+#nav li:hover a.top_link {color:#ffffff; background: #00508b no-repeat;}
+#nav button:visited a.top_link {color:#ffffff; background: #00508b no-repeat;border:0;}
+/* end Menu */
+
+/* begin Header */
+.Header
+{
+  margin: 0 auto;
+  position: relative;
+  z-index:0;
+  height: 203px;
+  background-image: url(bannersuperiordegradado.jpg);
+  background-repeat:repeat-x;
+}
+	.logo
+	{
+	  background-image: url(logo.png);
+	  float:left;
+	  height: 134px;
+	  width:173px;
+	  margin:30px 0 0 40px;
+	  position:absolute;	
+	}
+	
+/* begin Button */
+button.Button, a.Button
+{
+  position:relative;
+  display:inline-block;
+  width: auto;
+  outline:none;
+  border:none;
+  background:none;
+  line-height:34px;
+  margin:0;
+  padding:0;
+  overflow: visible;
+  cursor: default;
+  text-decoration: none !important;
+}
+
+
+/*This HACK needed for ie7 (button position)*/
+*:first-child+html button.Button, *:first-child+html a.Button
+{
+  display:list-item;
+  list-style-type:none;
+  float:left;
+}
+
+
+.Button .btn
+{
+  position: relative;
+  overflow: hidden;
+  display: block;
+  width: auto;
+  z-index: 0;
+  height: 34px;
+  color: #ECF6F8;
+  white-space: nowrap;
+  float: left;
+}
+
+.Button .t
+{
+  height:34px;
+  white-space: normal;
+  padding: 0 21px;
+  font-family: Verdana, Helvetica, Arial, Sans-Serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: normal;
+  text-align: left;
+  line-height: 34px;
+  text-decoration: none !important;
+}
+
+input, select
+{
+  font-family: Verdana, Helvetica, Arial, Sans-Serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: normal;
+}
+
+.Button .active
+{
+  color: #EBFBFF;
+}
+
+.Button .hover,  a.Button:hover
+{
+  color: #F1F7F8;
+  text-decoration: none !important;
+}
+
+.Button .active .r
+{
+  top: -68px;
+}
+
+.Button .hover .r
+{
+  top: -34px;
+}
+
+.Button .r
+{
+  display: block;
+  position: absolute;
+  overflow: hidden;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  width: 11px;
+  height: 102px;
+}
+
+.Button .r span
+{
+  display: block;
+  position: absolute;
+  overflow: hidden;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  width:411px;
+  height: 102px;
+}
+
+.Button .active .l
+{
+  top: -68px;
+}
+
+.Button .hover .l
+{
+  top: -34px;
+}
+
+.Button .l
+{
+  display: block;
+  position: absolute;
+  overflow: hidden;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 11px;
+  height: 102px;
+}
+
+
+.Button .l, .Button .r span
+{
+  background-image: url('../images/Button.png');
+}
+
+/* end Button */
+
+
+
+/* begin Content */
+.Content
+{
+  margin: 50px 0 50px 0;
+  border: 0;
+  /*overflow: hidden;*/
+  width: 100%;
+  min-height:250px;
+}
+	.Content h1,p,table
+	{
+	  padding:10px 20px 10px 40px;
+	}	
+/* end LayoutCell */
+
+/* begin Footer */
+
+.Footer, .push 
+{
+  height:188px; 
+  clear:both;
+  background-image: url(bannerdeabajo.jpg);
+  background-repeat:repeat-x;
+}
+.Footer-text
+{
+  padding-top: 30px;
+  color:#ffffff;
+  font-family: Verdana, Helvetica, Arial, Sans-Serif;
+  font-size: 12px;
+  float:right;
+}
+.Footer ul 
+{
+  list-style:none; 
+  float:left;
+  border-left:white solid 1px;
+  padding:0 40px 0 15px;
+}
+.Footer ul li:hover
+{
+  text-decoration: underline;
+  cursor:pointer;
+}
+
+/* end Footer */
+

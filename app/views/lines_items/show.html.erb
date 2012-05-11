@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Ejemplar:</b>
+  <%= @lin_items.ejemplar %>
+</p>
+
+<p>
+  <b>Cart:</b>
+  <%= @lin_items.cart %>
+</p>
+
+
+<%= link_to 'Edit', edit_lin_items_path(@lin_items) %> |
+<%= link_to 'Back', lines_items_path %>

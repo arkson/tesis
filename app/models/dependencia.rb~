@@ -1,0 +1,3 @@
+class Dependencia < ActiveRecord::Base
+   has_many :dependencia
+end

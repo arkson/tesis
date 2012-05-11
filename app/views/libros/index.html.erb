@@ -1,0 +1,30 @@
+<p><%= render_breadcrumbs :separator => ' / ' %></p>
+<h1>Listado de libros</h1>
+
+<table class="tabla_scaffold">
+<% @libros.each do |libro| %>
+<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+<td>
+<%= image_tag(libro.imagen.url(:thumb),:class => 'list_image') %>
+</td>
+<td class="list_description">
+<dl>
+<dt><%= libro.titulo %></dt>
+<dd><%= libro.cota %></dd>
+<dd>Autor: <%= libro.autor %></dd>
+<dd>Isbn: <%= libro.isbn %></dd>
+</dl>
+</td>
+<td class="list_actions">
+<%= link_to 'Mostrar', libro %><br />
+<%= link_to 'Editar', edit_libro_path(libro) %><br />
+<%= link_to 'Eliminar', libro, :confirm => '¿Estas seguro?', :method => :delete %>
+</td>
+</tr>
+<% end %>
+</table>
+
+
+<br />
+
+<p><%= link_to 'Nuevo Libro', new_libro_path %></p>

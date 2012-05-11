@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Periodo:</b>
+  <%= @configuracion.periodo %>
+</p>
+
+<p>
+  <b>Ano:</b>
+  <%= @configuracion.ano %>
+</p>
+
+<p>
+  <b>Fecha inicio:</b>
+  <%= @configuracion.fecha_inicio %>
+</p>
+
+<p>
+  <b>Fecha fin:</b>
+  <%= @configuracion.fecha_fin %>
+</p>
+
+<p>
+  <b>Max num libro:</b>
+  <%= @configuracion.max_num_libro %>
+</p>
+
+<p>
+  <b>Libro repetido:</b>
+  <%= @configuracion.libro_repetido %>
+</p>
+
+<p>
+  <b>Tiempo prealquiler:</b>
+  <%= @configuracion.tiempo_prealquiler %>
+</p>
+
+<p>
+  <b>Tipo periodo:</b>
+  <%= @configuracion.tipo_periodo %>
+</p>
+
+
+<%= link_to 'Editar', edit_configuracion_path(@configuracion) %> |
+<%= link_to 'Regresar', configuraciones_path %>

@@ -1,0 +1,59 @@
+<%= form_for(@configuracion) do |f| %>
+  <% if @configuracion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@configuracion.errors.count, "error") %> prohibited this configuracion from being saved:</h2>
+
+      <ul>
+      <% @configuracion.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :periodo, "Periodo: " %>
+    <%= f.select "periodo", "<option value = '1'>1</option>
+                          <option value = '2'>2</option>" %>
+  </div>
+  <div class="field">
+    <%= f.label :ano, "Año: " %>
+    <%= f.number_field :ano %>   
+  </div>
+
+  <div class="field">
+    <%= f.label :fecha_inicio %><br />
+    <%= f.date_select :fecha_inicio %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha_fin %><br />
+    <%= f.date_select :fecha_fin %>
+  </div>
+  <div class="field">
+    <%= f.label :max_num_libro , "Máximo número de libros" %><br />
+    <%= f.number_field :max_num_libro %>
+  </div>
+  <div class="field">
+    <%= f.label :libro_repetido %><br />
+    <%= f.check_box :libro_repetido %>
+  </div>
+  <div class="field">
+    <%= f.label :tiempo_prealquiler %><br />
+    <%= f.number_field :tiempo_prealquiler %>
+  </div>
+  <div class="field">
+    <%= f.label :tipo_periodo %><br />
+    <%= f.select "tipo_periodo", "<option value = 'Normal'>Normal</option>
+                          <option value = 'Extraordinario'>Extraordinario</option>" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :activo %><br />
+    <%= f.check_box :activo %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

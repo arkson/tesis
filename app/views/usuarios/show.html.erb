@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nombre:</b>
+  <%= @usuario.nombre %>
+</p>
+
+<p>
+  <b>Cedula:</b>
+  <%= @usuario.cedula %>
+</p>
+
+<p>
+  <b>Password digest:</b>
+  <%= @usuario.password_digest %>
+</p>
+
+<p>
+  <b>Correo:</b>
+  <%= @usuario.correo %>
+</p>
+
+<p>
+  <b>Unid creditos:</b>
+  <%= @usuario.unid_creditos %>
+</p>
+
+<p>
+  <b>Dependencia:</b>
+  <%= @usuario.dependencia %>
+</p>
+
+
+<%= link_to 'Edit', edit_usuario_path(@usuario) %> |
+<%= link_to 'Back', usuarios_path %>

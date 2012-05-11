@@ -1,0 +1,56 @@
+// Place all the styles related to the inicio controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+/* Estilos para la informacion del inicio */
+.panel
+	{
+	  padding: 140px 40px 0 0;
+	  float:right;
+	  color:#ffffff;
+	  text-align:right;
+	}
+	.panel #acceder,#registro,#olvido
+	{
+	  background:none; 
+	  border:0;
+	  color:#ffffff;
+	  cursor:pointer;
+	}
+	.panel button:hover
+	{
+	  text-decoration:underline;
+	}
+/* Estilos para los formularios de login */
+
+.login {
+  width: 20%;
+  float:right;
+  padding: 20px 20px 0 0;
+}
+.login fieldset {
+  border:none;
+}
+.login legend {
+  font-family: sans-serif;
+  padding: 0.2em 1em;
+}
+.login label {
+  width: 5em;
+  float: left;
+  text-align: right;
+  padding-top: 0.2em;
+  margin-right: 0.1em;
+  display: block;
+}
+.login select, .login textarea, .login input {
+  margin-left: 0.5em;
+}
+.login .submit {
+  margin-left: 5em;
+}
+.login div {
+  margin: 0.5em 0;
+}

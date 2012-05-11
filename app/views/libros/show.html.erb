@@ -1,0 +1,61 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+<p>
+  <b>Cota:</b>
+  <%= @libro.cota %>
+</p>
+
+<p>
+  <b>Titulo:</b>
+  <%= @libro.titulo %>
+</p>
+
+<p>
+  <b>Autor:</b>
+  <%= @libro.autor %>
+</p>
+
+<p>
+  <b>Imagen:</b>
+  <%= image_tag @libro.imagen.url(:thumb) %>
+</p>
+
+<p>
+  <b>Edicion:</b>
+  <%= @libro.edicion %>
+</p>
+
+<p>
+  <b>Lugar impresion:</b>
+  <%= @libro.lugar_impresion %>
+</p>
+
+<p>
+  <b>Ano:</b>
+  <%= @libro.ano %>
+</p>
+
+<p>
+  <b>Isbn:</b>
+  <%= @libro.isbn %>
+</p>
+
+<p>
+  <b>Editorial:</b>
+  <%= @libro.editorial.nombre %>
+</p>
+
+<p>
+  <b>Area conocimiento:</b>
+  <%= @libro.area_conocimiento.nombre %>
+</p>
+
+<p>
+  <b>Dependencia:</b>
+  <%= @libro.dependencia.nombre %>
+</p>
+
+
+<%= link_to 'Editar', edit_libro_path(@libro) %> |
+<%= link_to 'Regresar', libros_path %>

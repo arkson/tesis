@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>..::Bolsa del Libro::..</title>
+  <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag :application %>
+  <%= csrf_meta_tags %>
+ 
+</head>
+<body>
+
+	<div class="wrapper">
+	<% usuario =Usuario.find(session[:usuario_id]) %>
+		<%= render(:partial => "layouts/menu") %>
+		<div class="Header">
+			<div class="logo"></div> 
+			<div class="panel">
+    		<a>Usuario: <%= usuario.nombre %></a>
+			<% if session[:usuario_id] %>
+			<%= button_to 'Cerrar Sesion', logout_path, :method => :delete, :class => 'cerrar-sesion' %>
+			<% end %>
+			</div>
+		</div>
+
+        <div style="width:200px;height:20px;background:yellow;float:right; margin-right:40px;background:#0070ba;postion:absolute;"></div>
+
+		<div class="Content">
+			<%= render(:partial => "layouts/menu_administrador") %>			
+			<%= yield %>
+		</div>
+
+	<div style="width:200px;height:20px;background:yellow; margin-left:40px;background:#0071bc;postion:absolute;"></div>
+		<div class="push"></div>	
+		
+	</div>
+
+
+	<div class="Footer">
+			<div class="Footer-text">
+				<ul>
+					<li>Informaci&oacute;n General</li>
+					<li>Informes de Gesti&oacute;n</li>
+					<li>Cat&aacute;logo</li>
+					<li>Nuevas Adquisiciones</li>
+					<li>Publicaciones Peri&oacute;dicas</li>
+					<li>Bases de Datos</li>
+					<li>Sugerencia</li>
+				</ul>
+				<ul>
+					<li>Enlaces de Inter&eacute;s:</li>
+					<li>Centro de Computaci&oacute;n</li>
+					<li>Control de Estudios</li>
+					<li>Servicio Comunitario</li>
+					<li>CENEAC</li>
+					<li>LOCTI</li>
+					<li>Servicio de Orientaci&oacute;n</li>
+				</ul>
+				<ul>
+					<li>Av. Los Ilustres,</li>
+					<li>Los Chaguaramos.</li>
+					<li>Facultad de Ciencias,</li>
+					<li>Universidad Central de Venezuela.</li>
+					<li>Caracas zona postal 1040</li>
+					<li>Apartado Postal 20513</li>
+					<li>Teléfono: (58212) 6051671/ 1665 / 2136 (FAX)</li>
+				</ul>					
+			</div>
+	</div>
+
+</body>
+</html>
