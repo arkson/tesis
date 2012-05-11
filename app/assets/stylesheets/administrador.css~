@@ -8,7 +8,7 @@
 	  cursor:pointer;
 	}
 
-	.cerrar-sesion input:hover
+	.cerrar-sesion:hover
 	{
 	  text-decoration: underline;
 	}
