@@ -4,7 +4,6 @@ gem 'rails', '3.1.3'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
-# Arcadio es burda de pato
 gem 'mysql2'
 
 gem 'json'
