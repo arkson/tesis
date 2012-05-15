@@ -38,6 +38,8 @@ Tesis::Application.routes.draw do
 
   get "inicio/index"
 
+  get "inicio/catalogo"
+
   get "ppal_estudiante/index"
 
   get "ejemplares/index"

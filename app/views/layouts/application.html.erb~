@@ -16,8 +16,8 @@
 			<div class="logo"></div> 
 			<div class="panel">
     		<button id="acceder">Iniciar sesi&oacute;n</button>|
-			<button id="registro">Registrarse</button></br>
-			<button id="olvido">Olvid&oacute; su clave?</button>
+			<button id="olvido">Olvidó su clave?</button></br>
+			<%= link_to "Catálogo de libros", inicio_index_path, :id => "catalogo" %>
 			</div>
 		</div>
 
@@ -27,22 +27,40 @@
 			<%= yield %>
 		</div>
 
-	<div style="width:200px;height:20px;background:yellow; margin-left:40px;background:#0071bc;postion:absolute;"></div>
-		<div class="push"></div>	
+	
+		<!--<div class="push"></div>-->	
 		
 	</div>
 
-
+	<div style="width:200px;height:20px;background:yellow; margin-left:40px;background:#0071bc;postion:absolute;"></div>
 	<div class="Footer">
 			<div class="Footer-text">
 				<ul>
-					<li>Informaci&oacute;n General</li>
+					<li>Información General</li>
 					<li>Informes de Gesti&oacute;n</li>
-					<li>Cat&aacute;logo</li>
+					<li>Catálogo de libros</li>
 					<li>Nuevas Adquisiciones</li>
 					<li>Publicaciones Peri&oacute;dicas</li>
 					<li>Bases de Datos</li>
 					<li>Sugerencia</li>
+				</ul>
+				<ul>
+					<li>Enlaces de Inter&eacute;s:</li>
+					<li>Centro de Computaci&oacute;n</li>
+					<li>Control de Estudios</li>
+					<li>Servicio Comunitario</li>
+					<li>CENEAC</li>
+					<li>LOCTI</li>
+					<li>Servicio de Orientaci&oacute;n</li>
+				</ul>
+				<ul>
+					<li>Av. Los Ilustres,</li>
+					<li>Los Chaguaramos.</li>
+					<li>Facultad de Ciencias,</li>
+					<li>Universidad Central de Venezuela.</li>
+					<li>Caracas zona postal 1040</li>
+					<li>Apartado Postal 20513</li>
+					<li>Teléfono: (58212) 6051671/ 1665 / 2136 (FAX)</li>
 				</ul>					
 			</div>
 	</div>

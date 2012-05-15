@@ -1,5 +1,9 @@
 Tesis::Application.routes.draw do
   
+  resources :alquileres
+
+  resources :configuraciones
+
   resources :noticias
 
   controller :sesiones do
@@ -48,8 +52,6 @@ Tesis::Application.routes.draw do
 
   get "librerias/index"
 
-   get "order_notifier/shipped"
-  get "order_notifier/received"
   resources :ejemplares
 
   resources :libros

@@ -4,14 +4,20 @@ class InicioController < ApplicationController
 
   def index
 	
-	@search = Noticia.where(:tipo_contenido => 'Historia')
-	@historias =  @search.paginate(:page => params[:page], :per_page => 30)
+	@search = Noticia.where(:tipo_contenido => 'Noticia')
+	@noticias =  @search.paginate(:page => params[:page], :per_page => 30)
 	respond_to do |format|
       format.html # index.html.erb
-      format.json { render :json => @historias }
+      format.json { render :json => @noticias }
     end
-
+  end
   
+  def catalogo
+	@libros = Libro.all
+respond_to do |format|
+      format.html # index.html.erb
+      format.json { render :json => @noticias }
+    end
   end
 
 end

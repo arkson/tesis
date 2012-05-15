@@ -12,14 +12,25 @@
 	  color:#ffffff;
 	  text-align:right;
 	}
-	.panel #acceder,#registro,#olvido
+	.panel #acceder,#olvido
 	{
 	  background:none; 
 	  border:0;
 	  color:#ffffff;
 	  cursor:pointer;
 	}
+	#catalogo
+	{
+	  text-decoration:none; 
+	  border:0;
+	  color:#ffffff;
+	  cursor:pointer;
+	}
 	.panel button:hover
+	{
+	  text-decoration:underline;
+	}
+	.panel a:hover
 	{
 	  text-decoration:underline;
 	}

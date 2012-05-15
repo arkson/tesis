@@ -12,7 +12,7 @@
 	  color:#ffffff;
 	  text-align:right;
 	}
-	.panel #acceder,#registro,#olvido
+	.panel #acceder,#catalogo,#olvido
 	{
 	  background:none; 
 	  border:0;
@@ -20,6 +20,10 @@
 	  cursor:pointer;
 	}
 	.panel button:hover
+	{
+	  text-decoration:underline;
+	}
+	.panel a:hover
 	{
 	  text-decoration:underline;
 	}
@@ -34,7 +38,7 @@
   border:none;
 }
 .login legend {
-  font-family: sans-serif;
+  font-family: verdana;
   padding: 0.2em 1em;
 }
 .login label {

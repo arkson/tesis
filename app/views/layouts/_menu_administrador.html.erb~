@@ -10,7 +10,7 @@
 		  {
 		    padding:10px 0 0 15px;
 			color:#bcbcbc;
-			border:0;
+			
 		  }
 		  #accordion a
 		  {

@@ -1,0 +1,19 @@
+<h1>Listado de libros</h1>
+
+<table class="tabla_scaffold">
+<% @libros.each do |libro| %>
+<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+<td>
+<%= image_tag(libro.imagen.url(:thumb),:class => 'list_image') %>
+</td>
+<td class="list_description">
+<dl>
+<dt><%= libro.titulo %></dt>
+<dd><%= libro.cota %></dd>
+<dd>Autor: <%= libro.autor %></dd>
+<dd>Isbn: <%= libro.isbn %></dd>
+</dl>
+</td>
+</tr>
+<% end %>
+</table>

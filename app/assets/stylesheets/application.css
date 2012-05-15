@@ -40,7 +40,6 @@ ul
   min-height: 100%;
   height: auto !important;
   height: 100%;
-  margin: 0 auto -188px; /* the bottom margin es el valor negativo de la altura del footer */
 }
 
 /* begin Menu */
@@ -78,153 +77,14 @@ ul
 	  position:absolute;	
 	}
 	
-/* begin Button */
-button.Button, a.Button
-{
-  position:relative;
-  display:inline-block;
-  width: auto;
-  outline:none;
-  border:none;
-  background:none;
-  line-height:34px;
-  margin:0;
-  padding:0;
-  overflow: visible;
-  cursor: default;
-  text-decoration: none !important;
-}
-
-
-/*This HACK needed for ie7 (button position)*/
-*:first-child+html button.Button, *:first-child+html a.Button
-{
-  display:list-item;
-  list-style-type:none;
-  float:left;
-}
-
-
-.Button .btn
-{
-  position: relative;
-  overflow: hidden;
-  display: block;
-  width: auto;
-  z-index: 0;
-  height: 34px;
-  color: #ECF6F8;
-  white-space: nowrap;
-  float: left;
-}
-
-.Button .t
-{
-  height:34px;
-  white-space: normal;
-  padding: 0 21px;
-  font-family: Verdana, Helvetica, Arial, Sans-Serif;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: normal;
-  text-align: left;
-  line-height: 34px;
-  text-decoration: none !important;
-}
-
-input, select
-{
-  font-family: Verdana, Helvetica, Arial, Sans-Serif;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: normal;
-}
-
-.Button .active
-{
-  color: #EBFBFF;
-}
-
-.Button .hover,  a.Button:hover
-{
-  color: #F1F7F8;
-  text-decoration: none !important;
-}
-
-.Button .active .r
-{
-  top: -68px;
-}
-
-.Button .hover .r
-{
-  top: -34px;
-}
-
-.Button .r
-{
-  display: block;
-  position: absolute;
-  overflow: hidden;
-  z-index: -1;
-  top: 0;
-  right: 0;
-  width: 11px;
-  height: 102px;
-}
-
-.Button .r span
-{
-  display: block;
-  position: absolute;
-  overflow: hidden;
-  z-index: -1;
-  top: 0;
-  right: 0;
-  width:411px;
-  height: 102px;
-}
-
-.Button .active .l
-{
-  top: -68px;
-}
-
-.Button .hover .l
-{
-  top: -34px;
-}
-
-.Button .l
-{
-  display: block;
-  position: absolute;
-  overflow: hidden;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  right: 11px;
-  height: 102px;
-}
-
-
-.Button .l, .Button .r span
-{
-  background-image: url('../images/Button.png');
-}
-
-/* end Button */
-
 
 
 /* begin Content */
 .Content
 {
   margin: 50px 0 50px 0;
-  border: 0;
-  /*overflow: hidden;*/
+  min-height:250px; 
   width: 100%;
-  min-height:250px;
 }
 	.Content h1,p,table
 	{

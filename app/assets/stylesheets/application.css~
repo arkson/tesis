@@ -40,7 +40,6 @@ ul
   min-height: 100%;
   height: auto !important;
   height: 100%;
-  margin: 0 auto -188px; /* the bottom margin es el valor negativo de la altura del footer */
 }
 
 /* begin Menu */
@@ -78,35 +77,14 @@ ul
 	  position:absolute;	
 	}
 	
-/* begin Button */
-button.Button, a.Button
-{
-  position:relative;
-  display:inline-block;
-  width: auto;
-  outline:none;
-  border:none;
-  background:none;
-  line-height:34px;
-  margin:0;
-  padding:0;
-  overflow: visible;
-  cursor: default;
-  text-decoration: none !important;
-}
-
-
-
 
 
 /* begin Content */
 .Content
 {
   margin: 50px 0 50px 0;
-  border: 0;
   /*overflow: hidden;*/
   width: 100%;
-  min-height:250px;
 }
 	.Content h1,p,table
 	{

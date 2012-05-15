@@ -4,7 +4,7 @@
 
 
 
-<div class="infoinicio">
+
  <%= will_paginate @noticias , :prev_label => "Anterior", :next_label => "Siguiente" %>
 
  <table>
@@ -16,7 +16,7 @@
 	 </tr>
 <% end %>
 </table>
-</div>
+
 
 
 
@@ -24,18 +24,23 @@
 	$(function() {
 		$( "#dialog:ui-dialog" ).dialog( "destroy" );		
 		
-		$( "#dialog-form" ).dialog({
+		$( "#dialog-form,#dialog-form2" ).dialog({
 			autoOpen: false,
 			height: 300,
 			width: 350,
 			modal: true,
-		
 		});
 
 		$( "#acceder" )
 			.button()
 			.click(function() {
 				$( "#dialog-form" ).dialog( "open" );
+			});
+
+		$( "#olvido" )
+			.button()
+			.click(function() {
+				$( "#dialog-form2" ).dialog( "open" );
 			});
 
 	});
@@ -45,9 +50,9 @@
 
 <div class="demo">
 
-<div id="dialog-form" class="login" style="border:#333333 solid 1px;background:#ffffff;width:300px;">
+<div id="dialog-form" class="login" style="border:#333333 solid 1px;background:#ffffff;">
 
-	<%= form_tag url_for (:controller => "sesiones",:action => "crear") do %>
+	<%= form_tag  do %>
 	<fieldset>
 		<legend>Iniciar sesi&oacute;n</legend>
 		<div>
@@ -73,7 +78,18 @@
 </div>
 
 
-
+<div id="dialog-form2" style="border:#333333 solid 1px;background:#ffffff;">
+	<% form_tag url_for(:controller => 'inicio', :action => 'index')  do   %>
+	<legend>Por favor introduzca los datos solicitados</legend>
+	<div>
+		<label for="cedula">Cédula:</label>
+		<%= password_field_tag :cedula, params[:cedula] %>
+	</div>
+	<div>
+			<%= submit_tag "Recuperar clave" %>
+	</div>
+	<% end %>
+</div>
 
 
 </div><!-- End demo -->			

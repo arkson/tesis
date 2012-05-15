@@ -10,8 +10,11 @@ class InicioController < ApplicationController
       format.html # index.html.erb
       format.json { render :json => @noticias }
     end
-
+  end
   
+  def catalogo
+	@libros = Libro.all
+
   end
 
 end

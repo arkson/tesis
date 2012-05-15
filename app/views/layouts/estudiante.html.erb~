@@ -26,15 +26,27 @@
 
 		<div class="Content">
 			<%= render(:partial => "layouts/menu_estudiante") %>			
-			<%= yield %>
+			<div id="columns">
+			<div id="side">
+
+				<%= hidden_div_if(@cart.line_item.empty?, :id => 'cart') do %>
+					<%= render @cart %>
+				<% end %>
+
+			
+			</div>
+			<div id="main">
+				<%= yield %>
+			</div>
+		</div>
 		</div>
 
-	<div style="width:200px;height:20px;background:yellow; margin-left:40px;background:#0071bc;postion:absolute;"></div>
-		<div class="push"></div>	
+	
+		<!--<div class="push"></div>-->		
 		
 	</div>
 
-
+	<div style="width:200px;height:20px;background:yellow; margin-left:40px;background:#0071bc;postion:absolute;"></div>
 	<div class="Footer">
 			<div class="Footer-text">
 				<ul>
