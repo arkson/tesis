@@ -3,23 +3,19 @@
 <% end %>
 
 
-    <link class="jsbin"href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css"rel="stylesheet" type="text/css" />
-    <style>
-    ui-widget-overlay { opacity: .70;filter:Alpha(Opacity=70); }
-    </style>
 
- <%= will_paginate @noticias , :prev_label => "Anterior", :next_label => "Siguiente" %>
 
- <table>
+<table>
 <% @noticias.each do |noticia| %>
   <tr>
-	<td><%= sanitize(noticia.titulo) %></td></br>
-	<td> <%= image_tag(noticia.imagen.url(:thumb),:class => 'list_image') %></td>
+	<td><%= sanitize(noticia.titulo) %></td>
+  </tr>
+  <tr>
 	<td><%= sanitize(noticia.contenido) %></td>
-	 </tr>
+  </tr>
 <% end %>
 </table>
-
+<%= will_paginate @noticias , :prev_label => "Anterior", :next_label => "Siguiente" %>
 
 
 
@@ -27,10 +23,20 @@
 	$(function() {
 		$( "#dialog:ui-dialog" ).dialog( "destroy" );		
 		
-		$( "#dialog-form,#dialog-form2" ).dialog({
-			autoOpen: false,
+		$( "#dialog-form" ).dialog({
+			   autoOpen: false,
 			   modal: true,
-			   title: "Caja con opciones",
+			   title: "INICIO DE SESION",
+			   width: 550,
+			   minWidth: 400,
+			   maxWidth: 650,
+			   closeText: "cerrar",
+			   show: "fade"
+		});
+		$( "#dialog-form2" ).dialog({
+			   autoOpen: false,
+			   modal: true,
+			   title: "RECUPERAR CLAVE",
 			   width: 550,
 			   minWidth: 400,
 			   maxWidth: 650,

@@ -1,2 +1,15 @@
-<h1>Informacion#horarios</h1>
-<p>Find me in app/views/informacion/horarios.html.erb</p>
+<%= will_paginate @horarios , :prev_label => "Anterior", :next_label => "Siguiente" %>
+
+ <table>
+
+
+<% @horarios.each do |horario| %>
+  <tr>
+    <td><%= sanitize(horario.titulo) %></td></br>
+    <td> <%= image_tag(horario.imagen.url(:thumb),:class => 'list_image') %></td>
+    <td><%= sanitize(horario.contenido) %></td>
+     </tr>
+<% end %>
+</table>
+
+<br />

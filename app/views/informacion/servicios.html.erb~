@@ -1,2 +1,16 @@
-<h1>Informacion#servicios</h1>
-<p>Find me in app/views/informacion/servicios.html.erb</p>
+
+<%= will_paginate @servicios , :prev_label => "Anterior", :next_label => "Siguiente" %>
+
+ <table>
+
+
+<% @servicios.each do |servicio| %>
+  <tr>
+    <td><%= sanitize(servicio.titulo) %></td></br>
+    <td> <%= image_tag(servicio.imagen.url(:thumb),:class => 'list_image') %></td>
+    <td><%= sanitize(servicio.contenido) %></td>
+     </tr>
+<% end %>
+</table>
+
+<br />

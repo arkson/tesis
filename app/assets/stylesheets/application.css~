@@ -83,12 +83,13 @@ ul
 .Content
 {
   margin: 50px 0 50px 0;
-  /*overflow: hidden;*/
+  min-height:250px; 
   width: 100%;
+border:red solid 1px;
 }
 	.Content h1,p,table
 	{
-	  padding:10px 20px 10px 40px;
+	  padding:10px 20px 10px 100px;
 	}	
 /* end LayoutCell */
 

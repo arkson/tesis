@@ -1,4 +1,4 @@
-<%= will_paginate @servicios , :prev_label => "Anterior", :next_label => "Siguiente" %>
+<%= will_paginate @normativas , :prev_label => "Anterior", :next_label => "Siguiente" %>
 
  <table>
 
