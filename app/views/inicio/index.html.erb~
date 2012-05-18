@@ -3,7 +3,10 @@
 <% end %>
 
 
-
+    <link class="jsbin"href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css"rel="stylesheet" type="text/css" />
+    <style>
+    ui-widget-overlay { opacity: .70;filter:Alpha(Opacity=70); }
+    </style>
 
  <%= will_paginate @noticias , :prev_label => "Anterior", :next_label => "Siguiente" %>
 
@@ -26,9 +29,14 @@
 		
 		$( "#dialog-form,#dialog-form2" ).dialog({
 			autoOpen: false,
-			height: 300,
-			width: 350,
-			modal: true,
+			   modal: true,
+   title: "Caja con opciones",
+   width: 550,
+   minWidth: 400,
+   maxWidth: 650,
+   show: "fade",
+   overlay: { opacity: 0.5, background: 'black'},
+			closeText: 'cerrar' 
 		});
 
 		$( "#acceder" )
@@ -52,7 +60,7 @@
 
 <div id="dialog-form" class="login" style="border:#333333 solid 1px;background:#ffffff;">
 
-	<%= form_tag  do %>
+	<%= form_tag url_for (:controller => "sesiones",:action => "crear") do %>
 	<fieldset>
 		<legend>Iniciar sesi&oacute;n</legend>
 		<div>
