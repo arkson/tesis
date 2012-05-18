@@ -57,7 +57,7 @@ class AlquileresController < ApplicationController
 	 @alquiler.limpiar_items_cart(current_cart)	
 	 @alquiler.estatus = 'Prealquilado'
 	 @alquiler.fecha_fin = @config[0].fecha_fin
-    @alquiler.usuario = Usuario.find(session[:usuario_id])
+     @alquiler.usuario = Usuario.find(session[:usuario_id])
 
 
     respond_to do |format|
