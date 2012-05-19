@@ -58,7 +58,13 @@ class AlquileresController < ApplicationController
 	 @alquiler.estatus = 'Prealquilado'
 	 @alquiler.fecha_fin = @config[0].fecha_fin
      @alquiler.usuario = Usuario.find(session[:usuario_id])
+	
 
+	@alquiler.line_item.each do |item|
+		@ejem = Ejemplar.find(item.ejemplar_id)
+		@ejem.estatus_ejemplar = 'prealquilado'	
+		@ejem.save	
+	end	
 
     respond_to do |format|
       if @alquiler.save
