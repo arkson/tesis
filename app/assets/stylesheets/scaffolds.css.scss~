@@ -1,7 +1,8 @@
 /* START_HIGHLIGHT */
 
   table .tabla_scaffold{
-border:red solid 1px;
+    border-collapse: collapse;
+ width:"100%";
   }
 
   table tr td {

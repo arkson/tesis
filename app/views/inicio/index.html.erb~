@@ -3,19 +3,20 @@
 <% end %>
 
 
+
+<div class="informacion">
+	<table>
+	<% @noticias.each do |noticia| %>
+	  <tr>
+		<td><%= sanitize(noticia.titulo) %></td>
+	  </tr>
+	  <tr>
+		<td><%= sanitize(noticia.contenido) %></td>
+	  </tr>
+	<% end %>
+	</table>
+</div>
 <%= will_paginate @noticias , :prev_label => "Anterior", :next_label => "Siguiente" %>
-
-<table>
-<% @noticias.each do |noticia| %>
-  <tr>
-	<td><%= sanitize(noticia.titulo) %></td>
-  </tr>
-  <tr>
-	<td><%= sanitize(noticia.contenido) %></td>
-  </tr>
-<% end %>
-</table>
-
 
 
 

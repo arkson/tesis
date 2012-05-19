@@ -1,14 +1,14 @@
-<%= will_paginate @horarios , :prev_label => "Anterior", :next_label => "Siguiente" %>
 
+<div class = "informacion">
  <table>
-
-
 <% @horarios.each do |horario| %>
-  <tr>
-    <td><%= sanitize(horario.titulo) %></td></br>
-    <td><%= sanitize(horario.contenido) %></td>
-     </tr>
+	  <tr>
+		<td><%= sanitize(horario.titulo) %></td>
+	  </tr>
+	  <tr>
+		<td><%= sanitize(horario.contenido) %></td>
+	  </tr>
 <% end %>
 </table>
-
-<br />
+</div>
+<%= will_paginate @horarios , :prev_label => "Anterior", :next_label => "Siguiente" %>

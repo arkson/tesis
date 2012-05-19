@@ -1,15 +1,13 @@
 <%= will_paginate @normativas , :prev_label => "Anterior", :next_label => "Siguiente" %>
-
- <table>
-
-
+<div class = "informacion">
+<table>
 <% @normativas.each do |normativa| %>
-  <tr>
-    <td><%= sanitize(normativa.titulo) %></td></br>
-    <td> <%= image_tag(normativa.imagen.url(:thumb),:class => 'list_image') %></td>
-    <td><%= sanitize(normativa.contenido) %></td>
-     </tr>
+	  <tr>
+		<td><%= sanitize(normativa.titulo) %></td>
+	  </tr>
+	  <tr>
+		<td><%= sanitize(normativa.contenido) %></td>
+	  </tr>
 <% end %>
 </table>
-
-<br />
+</div>

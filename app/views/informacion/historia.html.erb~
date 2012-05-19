@@ -2,17 +2,18 @@
   
 
 <%= will_paginate @historias , :prev_label => "Anterior", :next_label => "Siguiente" %>
-
+ <div class = "informacion">
  <table>
 
 
 <% @historias.each do |historia| %>
-  <tr>
-    <td><%= sanitize(historia.titulo) %></td></br>
-    <td> <%= image_tag(historia.imagen.url(:thumb),:class => 'list_image') %></td>
-    <td><%= sanitize(historia.contenido) %></td>
-     </tr>
+	  <tr>
+		<td><%= sanitize(historia.titulo) %></td>
+	  </tr>
+	  <tr>
+		<td><%= sanitize(historia.contenido) %></td>
+	  </tr>
 <% end %>
 </table>
-
+</div>
 

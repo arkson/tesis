@@ -1,4 +1,4 @@
-<h1>Listing noticias</h1>
+<h1>Listado de noticias</h1>
 
 <table>
   <tr>
@@ -14,16 +14,16 @@
 <% @noticias.each do |noticia| %>
   <tr>
     <td><%= noticia.titulo %></td>
-	<td><%= truncate(noticia.contenido, :length => 50)) %></td>
+	<td><%= truncate(noticia.contenido, :length => 50) %></td>
     <td><%= noticia.tipo_contenido %></td>
     <td><%= noticia.fecha %></td>
-    <td><%= link_to 'Show', noticia %></td>
-    <td><%= link_to 'Edit', edit_noticia_path(noticia) %></td>
-    <td><%= link_to 'Destroy', noticia, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Mostrar', noticia %></td>
+    <td><%= link_to 'Editar', edit_noticia_path(noticia) %></td>
+    <td><%= link_to 'Eliminar', noticia, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Noticia', new_noticia_path %>
+<%= link_to 'Nueva noticia', new_noticia_path %>

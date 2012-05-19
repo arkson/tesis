@@ -1,25 +1,28 @@
+<div class="informacion">
+<p><%= render_breadcrumbs :separator => ' / ' %></p>
 <h1>Listing librerias</h1>
 
-<table>
-  <tr>
-    <th>Nombre</th>
-    <th>Telefono</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
+<table class="tabla_scaffold" width="85%">
 <% @librerias.each do |libreria| %>
-  <tr>
-    <td><%= libreria.nombre %></td>
-    <td><%= libreria.telefono %></td>
-    <td><%= link_to 'Mostrar', libreria %></td>
-    <td><%= link_to 'Editar', edit_libreria_path(libreria) %></td>
-    <td><%= link_to 'Eliminar', libreria, :confirm => '¿Estas Seguro?', :method => :delete %></td>
-  </tr>
+<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+<td class="list_description">
+<dl>
+<dt><%= libreria.nombre %></dt>
+<dd><%= libreria.telefono %></dd>
+</dl>
+</td>
+<td class="list_actions" width="5%">
+<%= link_to 'Mostrar', libreria %><br />
+<%= link_to 'Editar', edit_libreria_path(libreria) %><br />
+<%= link_to 'Eliminar', libreria, :confirm => '¿Estas seguro?', :method => :delete %>
+</td>
+</tr>
 <% end %>
 </table>
 
 <br />
 
 <%= link_to 'Nueva Libreria', new_libreria_path %>
+</div>
+
+
