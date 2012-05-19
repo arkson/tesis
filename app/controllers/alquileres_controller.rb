@@ -62,7 +62,7 @@ class AlquileresController < ApplicationController
 
 	@alquiler.line_item.each do |item|
 		@ejem = Ejemplar.find(item.ejemplar_id)
-		@ejem.estatus_ejemplar = 'prealquilado'	
+		@ejem.estatus_ejemplar = 'Prealquilado'	
 		@ejem.save	
 	end	
 

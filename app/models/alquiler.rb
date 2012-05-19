@@ -27,4 +27,17 @@ def total_price
 end
 
 
+def total_ejemplares(usuario_id) 
+	prealquilado = 'Prealquilado'
+	alquilado = 'Alquilado'
+	#line_item.count(:all)
+	#line_item.count(:conditions => ' alquiler.usuario_id = :usuario_id AND ejemplar.estatus_ejemplar = :prealquilado OR ejemplar.estatus_ejemplar = :alquilado ', {:prealquilado => prealquilado, :alquilado => alquilado, :usuario_id => usuario_id }   )	
+
+ 	line_item.where(' alquiler.usuario_id = :usuario_id AND ejemplar.estatus_ejemplar = :prealquilado OR ejemplar.estatus_ejemplar = :alquilado ', {:prealquilado => prealquilado, :alquilado => alquilado, :usuario_id => usuario_id }  ).count
+
+
+end	
+
+
+
 end

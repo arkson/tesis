@@ -46,11 +46,11 @@ class LinesItemsController < ApplicationController
 
   def create
    @config = current_config
-	@cart = current_cart
+   @cart = current_cart
  	
+   @alq = Alquiler.where(:usuario_id => session[:usuario_id])	
 	
-	
-   if @cart.total_ejemplares < @config[0].max_num_libro   
+   if (@cart.total_ejemplares + @alq.total_ejemplares(session[:usuario_id]) )< @config[0].max_num_libro   
     
     ejemplar = Ejemplar.find(params[:ejemplar_id])
  
