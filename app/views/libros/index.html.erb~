@@ -2,8 +2,17 @@
 <div class="informacion">
 <p><%= render_breadcrumbs :separator => ' / ' %></p>
 <h1>Listado de libros</h1>
+<div>
+  <%= form_for @search do |f| %>
+    <%= f.label :Buscar %>
+    <%= f.text_field :cota_or_isbn_contains %>
+    <!-- etc... -->
+    <%= f.submit :buscar%>
+  <% end %>
 
-<table class="tabla_scaffold" width="80%">
+</div>
+<%= will_paginate @libros , :prev_label => "Anterior", :next_label => "Siguiente" %>
+<table class="tabla_scaffold" width="85%">
 <% @libros.each do |libro| %>
 <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
 <td width="5%">
@@ -25,7 +34,7 @@
 </tr>
 <% end %>
 </table>
-
+<%= will_paginate @libros , :prev_label => "Anterior", :next_label => "Siguiente" %>
 
 <br />
 

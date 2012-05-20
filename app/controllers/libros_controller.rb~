@@ -5,7 +5,7 @@ class LibrosController < ApplicationController
   # GET /libros
   # GET /libros.json
   def index
-	add_breadcrumb "index", libros_index_path    
+	add_breadcrumb "libros", libros_index_path    
 	@libros = Libro.all
 
     respond_to do |format|

@@ -2,11 +2,11 @@ class NoticiasController < ApplicationController
   # GET /noticias
   # GET /noticias.json
   def index
-    @noticia = Noticia.all
+    @noticias = Noticia.all
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render :json => @noticia }
+      format.json { render :json => @noticias }
     end
   end
 
