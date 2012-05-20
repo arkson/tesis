@@ -1,5 +1,4 @@
 class PpalEstudianteController < ApplicationController
-  layout "estudiante"
   add_breadcrumb "Inicio", :ppal_estudiante_index_path
 
   def index
