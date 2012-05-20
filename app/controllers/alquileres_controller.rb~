@@ -1,6 +1,5 @@
 class AlquileresController < ApplicationController
-  # GET /alquileres
-  # GET /alquileres.json
+  layout "estudiante"
   def index
     @alquileres = Alquiler.all
 

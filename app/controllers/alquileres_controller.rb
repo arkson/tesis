@@ -1,5 +1,5 @@
 class AlquileresController < ApplicationController
-  layout "estudiante"
+
   def index
     @alquileres = Alquiler.all
 
