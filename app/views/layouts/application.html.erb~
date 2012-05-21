@@ -17,7 +17,7 @@
 			<div class="panel">
     		<button id="acceder">Iniciar sesi&oacute;n</button>|
 			<button id="olvido">Olvidó su clave?</button></br>
-			<%= link_to "Catálogo de libros", inicio_index_path, :id => "catalogo" %>
+			<%= link_to "Catálogo de libros", inicio_catalogo_path, :id => "catalogo" %>
 			</div>
 		</div>
 

@@ -6,14 +6,13 @@
  *= require_tree . 
 */
 
-/* begin Page */
+/* Estilos de la aplicacion principal */
 
 * 
 {
   margin: 0;
   font-family: Verdana, Helvetica, Arial, Sans-Serif;
-  font-size: 12px; 
-  color:#555555;
+  font-size: 12px;
 }
 
 html, body
@@ -23,7 +22,7 @@ html, body
 }
 
 
-/* Start Content list */
+/* Inicio de listas de contenido */
 
 ul
 {
@@ -33,16 +32,18 @@ ul
 }
 
 
-/* Finish Content list */
+/* Fin de listas de contenido */
 
+/* 
 .wrapper 
 {
   min-height: 100%;
   height: auto !important;
   height: 100%;
 }
+ */
 
-/* begin Menu */
+/* Inicio Menu */
 .Menu
 {
   z-index:0;
@@ -54,10 +55,10 @@ ul
 #nav li a.top_link {float:left; height:35px; line-height:40px; color:#acacac; text-decoration:none; font-weight:bold; padding:0 20px 0 20px; cursor:pointer;}
 
 #nav li:hover a.top_link {color:#ffffff; background: #00508b no-repeat;}
-#nav button:visited a.top_link {color:#ffffff; background: #00508b no-repeat;border:0;}
-/* end Menu */
+#nav li .tap {color:#ffffff; background: #00508b no-repeat;}
+/* Fin Menu */
 
-/* begin Header */
+/* Inicio Cabecera */
 .Header
 {
   margin: 0 auto;
@@ -76,20 +77,22 @@ ul
 	  margin:30px 0 0 40px;
 	  position:absolute;	
 	}
-	
+/* Fin Cabecera */	
 
 
-/* begin Content */
+/* Inicio Contenido */
 .Content
 {
   margin: 50px 0 50px 0;
   min-height:250px; 
-  width: 100%;
+  width: 100%; 
+  color:#555555;
 }
 	.informacion
 	{
 	  padding:10px 20px 10px 240px;
-	  line-height:35px;
+	  line-height:25px;
+	  text-align:justify;
 	}
 	
 /* end LayoutCell */

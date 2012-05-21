@@ -67,11 +67,6 @@
 }
 
 /* Estilos para las ventanas modales */
-/* Overlays */
-/*! jQuery UI - v1.8.19 - 2012-04-16
-* https://github.com/jquery/jquery-ui
-* Includes: jquery.ui.core.css, jquery.ui.accordion.css, jquery.ui.autocomplete.css, jquery.ui.button.css, jquery.ui.datepicker.css, jquery.ui.dialog.css, jquery.ui.progressbar.css, jquery.ui.resizable.css, jquery.ui.selectable.css, jquery.ui.slider.css, jquery.ui.tabs.css, jquery.ui.theme.css
-* Copyright (c) 2012 AUTHORS.txt; Licensed MIT, GPL */
 
 /* Layout helpers
 ----------------------------------*/
@@ -104,8 +99,8 @@
 
 
 .ui-dialog { position: absolute; padding: .2em; width: 300px; overflow: hidden; }
-.ui-dialog .ui-dialog-titlebar { padding: .4em 1em; position: relative;  }
-.ui-dialog .ui-dialog-title { float: left; margin: .1em 16px .1em 0; } 
+.ui-dialog .ui-dialog-titlebar { padding: .4em 1em; position: relative; background: #0070ba; color: #ffffff;}
+.ui-dialog .ui-dialog-title { float: left; margin: .1em 16px .1em 0; font-size: 16px; } 
 .ui-dialog .ui-dialog-titlebar-close { position: absolute; right: .3em; top: 50%; width: 19px; margin: -10px 0 0 0; padding: 1px; height: 18px; }
 .ui-dialog .ui-dialog-titlebar-close span { display: block; margin: 1px; }
 .ui-dialog .ui-dialog-titlebar-close:hover, .ui-dialog .ui-dialog-titlebar-close:focus { padding: 0; }

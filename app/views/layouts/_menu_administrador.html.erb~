@@ -4,7 +4,7 @@
 		  width:200px;
 		  margin:0 40px 0 0;
 		  float:right;
-		  border-left:#bcbcbc solid 1px;
+		  position:absolute,
 		}
 		  #accordion div,h3
 		  {
@@ -38,6 +38,7 @@
 		});
 	});
 	</script>
+
 
 
 

@@ -9,12 +9,18 @@
 //= require jquery_ujs
 //= require_tree .
 
-	$('#basic-modal-content').modal();
+<script type="text/javascript">
+$(function (){
 
-	
-	$('#basic-modal .basic').click(function (e) {
-		$('#basic-modal-content').modal();
+    $('#nav ul li a').each(function(){
+        var path = window.location.href;
+        var current = path.substring(path.lastIndexOf('/')+1);
+        var url = $(this).attr('href');
 
-		return false;
-	});
+        if(url == current){
+            $(this).addClass('active');
+        };
+    });         
+});
 
+</script>

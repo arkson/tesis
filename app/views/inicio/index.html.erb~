@@ -4,7 +4,7 @@
 
 
 
-<div class="informacion">
+<div class = "informacion">
 	<table>
 	<% @noticias.each do |noticia| %>
 	  <tr>
@@ -67,7 +67,6 @@
 
 	<%= form_tag url_for (:controller => "sesiones",:action => "crear") do %>
 	<fieldset>
-		<legend>Iniciar sesi&oacute;n</legend>
 		<div>
 			<label for="cedula">Cédula:</label>
 			<%= text_field_tag :cedula, params[:cedula] %>
