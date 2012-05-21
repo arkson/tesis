@@ -1,6 +1,6 @@
 <div class="informacion">
 <p><%= render_breadcrumbs :separator => ' / ' %></p>
-<h1>Listing librerias</h1>
+<h1>Listado librerias</h1>
 
 <table class="tabla_scaffold" width="85%">
 <% @librerias.each do |libreria| %>
@@ -13,7 +13,7 @@
 </td>
 <td class="list_actions" width="5%">
 <%= link_to 'Mostrar', libreria %><br />
-<%= link_to 'Editar', edit_libreria_path(libro) %><br />
+<%= link_to 'Editar', edit_libreria_path(libreria) %><br />
 <%= link_to 'Eliminar', libreria, :confirm => '¿Estas seguro?', :method => :delete %>
 </td>
 </tr>

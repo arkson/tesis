@@ -46,33 +46,37 @@ class LinesItemsController < ApplicationController
 
   def create
    @config = current_config
-	@cart = current_cart
- 	
-	
-	
+   @cart = current_cart
+ 	@ejem = Ejemplar.find(params[:ejemplar_id])
+		 	
+   @alq = Alquiler.where(:usuario_id => session[:usuario_id])	
+	#+ @alq.total_ejemplares(session[:usuario_id]) 
    if @cart.total_ejemplares < @config[0].max_num_libro   
-    
-    ejemplar = Ejemplar.find(params[:ejemplar_id])
- 
-	@lin_items = @cart.add_ejemplar(ejemplar.id, @config[0].libro_repetido )
-	  	respond_to do |format|
-		   if @lin_items.save
-			 format.html { redirect_to ppal_estudiante_index_path}
-			 format.js { @current_item = @lin_items }
-			 format.json { render :json => @lin_items, :status => :created, :location => @lin_items }
-		   else
-			 format.html { render :action => "new" }
-			 format.json { render :json => @lin_items.errors, :status => :unprocessable_entity }
-		   end
-		 end
-   else
-		redirect_to ppal_estudiante_index_url, :alert => "Combinacion de Usuario/clave invalido(a)"
+		if !(@ejem.estatus_ejemplar == 'Solicitado')    
+			@ejem.estatus_ejemplar = 'Solicitado'
+			@lin_items = @cart.add_ejemplar(@ejem.id, @config[0].libro_repetido )
+			  	respond_to do |format|
+				  if @lin_items.save and @ejem.save
+					 format.html { redirect_to ppal_estudiante_index_path}
+					 format.js { @current_item = @lin_items }
+					 format.json { render :json => @lin_items, :status => :created, :location => @lin_items }
+					else
+					 format.html { render :action => "new" }
+					 format.json { render :json => @lin_items.errors, :status => :unprocessable_entity }
+					end
+				 end
+		else
+			redirect_to ppal_estudiante_index_url, :alert => "El ejemplar ya ha sido seleccionado, puede intentar más tarde, en caso de que haya sido liberado"
+		end 
+	else
+		redirect_to ppal_estudiante_index_url, :alert => "Ha excedido el número máximo de ejemplares"
 		
 
    end	
 
 
   end
+
 
   # PUT /lines_items/1
   # PUT /lines_items/1.json

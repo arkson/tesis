@@ -1,6 +1,6 @@
 class ConfiguracionesController < ApplicationController
-  layout "administrador"
-  add_breadcrumb "Inicio", :configuraciones_path
+  # GET /configuraciones
+  # GET /configuraciones.json
   def index
     @configuraciones = Configuracion.all
 

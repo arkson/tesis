@@ -1,6 +1,6 @@
 class UsuariosController < ApplicationController
-  # GET /usuarios
-  # GET /usuarios.json
+  layout "administrador"
+  add_breadcrumb "Inicio", :usuarios_path
   def index
     @usuarios = Usuario.order(:nombre)
 

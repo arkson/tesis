@@ -4,7 +4,6 @@
 		  width:200px;
 		  margin:0 40px 0 0;
 		  float:right;
-		  border-left:#bcbcbc solid 1px;
 		}
 		  #accordion div,h3
 		  {
@@ -47,7 +46,7 @@
 	<h3><%= link_to "Inicio", ppal_estudiante_index_path, :class => "" %></h3>
 	<div>
 		<p>
-		Menu principal del modulo de estudiante
+		<li><%= link_to "Alquileres realizados", alquileres_path, :class => "" %></li>
 		</p>
 	</div>
 	<h3><a href="#">Solicitudes</a></h3>
@@ -55,23 +54,6 @@
 		<ul>
             <li><a>Comprobante de alquiler</a></li>
 			<li><a>Solvencias</a></li>
-		</ul>
-	</div>
-	<h3><a href="#">Reportes</a></h3>
-	<div>
-		<p>
-		Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
-		purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
-		velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
-		suscipit faucibus urna.
-		</p>
-	</div>
-	<h3><a href="#">Usuarios</a></h3>
-	<div>
-		<ul>
-			<li>List item one</li>
-			<li>List item two</li>
-			<li>List item three</li>
 		</ul>
 	</div>
 </div>

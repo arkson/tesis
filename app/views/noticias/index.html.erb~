@@ -1,3 +1,5 @@
+<p><%= render_breadcrumbs :separator => ' / ' %></p>
+<div class = "informacion">
 <h1>Listado de noticias</h1>
 
 <table>
@@ -27,3 +29,4 @@
 <br />
 
 <%= link_to 'Nueva noticia', new_noticia_path %>
+</div>

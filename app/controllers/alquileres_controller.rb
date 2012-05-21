@@ -1,6 +1,5 @@
 class AlquileresController < ApplicationController
-  # GET /alquileres
-  # GET /alquileres.json
+  add_breadcrumb "Inicio", :alquileres_path
   def index
     @alquileres = Alquiler.all
 
@@ -62,7 +61,7 @@ class AlquileresController < ApplicationController
 
 	@alquiler.line_item.each do |item|
 		@ejem = Ejemplar.find(item.ejemplar_id)
-		@ejem.estatus_ejemplar = 'prealquilado'	
+		@ejem.estatus_ejemplar = 'Prealquilado'	
 		@ejem.save	
 	end	
 

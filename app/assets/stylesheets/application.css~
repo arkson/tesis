@@ -92,8 +92,14 @@ ul
 	{
 	  padding:10px 20px 10px 240px;
 	  line-height:25px;
+<<<<<<< HEAD
 	  text-align:justify;
+=======
+	  border:red solid 1px;
+	  width:63%;
+>>>>>>> 7d6bd2d378dd35a1fd8cbee5553bd026d062b36e
 	}
+	
 	
 /* end LayoutCell */
 

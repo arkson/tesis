@@ -81,8 +81,16 @@ class CartsController < ApplicationController
   # DELETE /carts/1.json
   def destroy
     @cart = current_cart
+	 
+	@cart.line_item.each do |item|	
+		@temp_ejem = Ejemplar.find(item.ejemplar_id)
+		@temp_ejem.estatus_ejemplar = 'Disponible'
+		@temp_ejem.save 	
+	 end
     @cart.destroy
     session[:cart_id] = nil
+
+
 	respond_to do |format|
       format.html { redirect_to ppal_estudiante_index_path }
       format.json { head :ok }

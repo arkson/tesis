@@ -1,6 +1,6 @@
 class AlquileresController < ApplicationController
-  # GET /alquileres
-  # GET /alquileres.json
+  layout "estudiante"
+  add_breadcrumb "Inicio", :alquileres_path
   def index
     @alquileres = Alquiler.all
 
@@ -60,9 +60,9 @@ class AlquileresController < ApplicationController
      @alquiler.usuario = Usuario.find(session[:usuario_id])
 	
 
-	@alquiler.line_item.ejemplar.each do |item|
-		@ejem = Ejemplar.find(item.id)
-		@ejem.estatus_ejemplar = 'prealquilado'	
+	@alquiler.line_item.each do |item|
+		@ejem = Ejemplar.find(item.ejemplar_id)
+		@ejem.estatus_ejemplar = 'Prealquilado'	
 		@ejem.save	
 	end	
 
