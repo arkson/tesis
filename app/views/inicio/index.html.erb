@@ -1,6 +1,4 @@
-<% if flash[:alert] %>
-<p id="notice"><%= flash[:alert] %></p>
-<% end %>
+
 
 
 
@@ -63,10 +61,13 @@
 
 <div class="demo">
 
-<div id="dialog-form" class="login" style="border:#333333 solid 1px;background:#ffffff;">
+<div id="dialog-form" class="login">
+	<% if flash[:alert] %>
+		<p id="notice"><%= flash[:alert] %></p>
+	<% end %>	
 
 	<%= form_tag url_for (:controller => "sesiones",:action => "crear") do %>
-	<fieldset>
+	
 		<div>
 			<label for="cedula">Cédula:</label>
 			<%= text_field_tag :cedula, params[:cedula] %>
@@ -80,24 +81,29 @@
 			<%= show_simple_captcha(:image_style => 'simply_blue', :distortion => 'medium',:label => "")  %>
 		</div>
 		<div>
-			<%= submit_tag "Ingresar" %>
+			<%= submit_tag "Entrar", :class => 'ingresar' %>
 		</div>
-	</fieldset>
-<% end %>
+	
+	<% end %>
 </div>
 
 
-<div id="dialog-form2" style="border:#333333 solid 1px;background:#ffffff;">
-	<% form_tag url_for(:controller => 'inicio', :action => 'index')  do   %>
-	<legend>Por favor introduzca los datos solicitados</legend>
+<div id="dialog-form2">
+	<% if flash[:alert] %>
+		<p id="notice"><%= flash[:alert] %></p>
+	<% end %>
+
+	<%= form_tag url_for(:controller => 'inicio', :action => 'olvido_clave')  do   %>
+	Por favor introduzca los datos solicitados
 	<div>
 		<label for="cedula">Cédula:</label>
 		<%= password_field_tag :cedula, params[:cedula] %>
 	</div>
 	<div>
-			<%= submit_tag "Recuperar clave" %>
+			<%= submit_tag "Aceptar", :class => 'ingresar' %>
 	</div>
 	<% end %>
+
 </div>
 
 

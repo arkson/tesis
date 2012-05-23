@@ -44,8 +44,8 @@ class UsuariosController < ApplicationController
 
     respond_to do |format|
       if @usuario.save
-		ClaveMailer.olvido_clave(@usuario).deliver
-		format.html { redirect_to usuarios_url,:notice => "Usuario #{@usuario.nombre} fue creado exitosamente." }
+	#ClaveMailer.olvido_clave(@usuario).deliver
+	format.html { redirect_to usuarios_url,:notice => "Usuario #{@usuario.nombre} fue creado exitosamente." }
         format.json { render :json => @usuario, :status => :created, :location => @usuario }
       else
         format.html { render :action => "new" }
