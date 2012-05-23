@@ -63,7 +63,7 @@
 
 <div id="dialog-form" class="login">
 	<% if flash[:alert] %>
-		<p id="notice"><%= flash.now[:alert] %></p>
+		<p id="notice"><%= flash[:alert] %></p>
 	<% end %>	
 
 	<%= form_tag url_for (:controller => "sesiones",:action => "crear") do %>
@@ -89,15 +89,18 @@
 
 
 <div id="dialog-form2">
+	<% if flash[:alert] %>
+		<p id="notice"><%= flash[:alert] %></p>
+	<% end %>
 
-	<%= form_tag url_for (:controller => 'inicio', :action => 'index')  do %>
+	<% form_tag url_for(:controller => 'inicio', :action => 'olvido_clave')  do   %>
 	Por favor introduzca los datos solicitados
 	<div>
 		<label for="cedula">Cédula:</label>
 		<%= password_field_tag :cedula, params[:cedula] %>
 	</div>
 	<div>
-			<%= submit_tag "Recuperar", :class => 'ingresar' %>
+			<%= submit_tag "Aceptar", :class => 'ingresar' %>
 	</div>
 	<% end %>
 

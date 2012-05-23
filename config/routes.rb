@@ -39,7 +39,11 @@ Tesis::Application.routes.draw do
   get "inicio/index"
 
   get "inicio/catalogo"
-
+  
+  get "inicio/olvido_clave"
+  
+  post "inicio/olvido_clave"
+  
   get "ppal_estudiante/index"
 
   get "ejemplares/index"
