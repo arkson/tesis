@@ -55,7 +55,7 @@ ul
 #nav li a.top_link {float:left; height:35px; line-height:40px; color:#acacac; text-decoration:none; font-weight:bold; padding:0 20px 0 20px; cursor:pointer;}
 
 #nav li:hover a.top_link {color:#ffffff; background: #00508b no-repeat;}
-#nav li .tap {color:#ffffff; background: #00508b no-repeat;}
+#nav li:active a.top_link {color:#ffffff; background: #00508b no-repeat;}
 /* Fin Menu */
 
 /* Inicio Cabecera */
@@ -86,20 +86,13 @@ ul
   margin: 50px 0 50px 0;
   min-height:250px; 
   width: 100%; 
-  color:#555555;
 }
 	.informacion
 	{
 	  padding:10px 20px 10px 240px;
 	  line-height:25px;
-<<<<<<< HEAD
 	  text-align:justify;
-=======
-	  border:red solid 1px;
-	  width:63%;
->>>>>>> 7d6bd2d378dd35a1fd8cbee5553bd026d062b36e
 	}
-	
 	
 /* end LayoutCell */
 
