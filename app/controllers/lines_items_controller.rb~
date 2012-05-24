@@ -49,9 +49,17 @@ class LinesItemsController < ApplicationController
    @cart = current_cart
  	@ejem = Ejemplar.find(params[:ejemplar_id])
 		 	
-   @alq = Alquiler.where(:usuario_id => session[:usuario_id])	
-	#+ @alq.total_ejemplares(session[:usuario_id]) 
-   if @cart.total_ejemplares < @config[0].max_num_libro   
+   #@alq = Alquiler.all
+  
+   @alq = Alquiler.joins(:line_item => :ejemplar).where( "estatus_ejemplar = 'Alquilado' or estatus_ejemplar = 'Prealquilado' "  )
+   var = 0
+
+   if (!@alq.empty?)
+	var = @alq[0].total_libros	
+   end
+ 
+
+   if (@cart.total_ejemplares +  var)  < @config[0].max_num_libro   
 		if !(@ejem.estatus_ejemplar == 'Solicitado')    
 			@ejem.estatus_ejemplar = 'Solicitado'
 			@lin_items = @cart.add_ejemplar(@ejem.id, @config[0].libro_repetido )
