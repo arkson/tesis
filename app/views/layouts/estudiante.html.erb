@@ -24,18 +24,18 @@
 		<div class="Content">
 			<%= render(:partial => "layouts/menu_estudiante") %>			
 			<div id="columns">
-			<div id="side">
+				<div id="side">
 
-				<%= hidden_div_if(@cart.line_item.empty?, :id => 'cart') do %>
-					<%= render @cart %>
-				<% end %>
+					<%= hidden_div_if(@cart.line_item.empty?, :id => 'cart') do %>
+						<%= render @cart %>
+					<% end %>
 
 			
+				</div>
+				<div id="main">
+					<%= yield %>
+				</div>
 			</div>
-			<div id="main">
-				<%= yield %>
-			</div>
-		</div>
 		</div>
 
 	

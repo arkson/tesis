@@ -1,6 +1,8 @@
 class AlquileresController < ApplicationController
   layout "estudiante"
   add_breadcrumb "Inicio", :alquileres_path
+
+
   def index
     @alquileres = Alquiler.all
 

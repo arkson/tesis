@@ -13,4 +13,12 @@ class PpalEstudianteController < ApplicationController
 
   end
 
+
+  def ver_alquiler
+	@alquileres = Alquiler.where(:usuario_id => session[:usuario_id])
+	@cart = current_cart 
+  end
+
+
+
 end

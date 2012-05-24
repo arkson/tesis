@@ -57,7 +57,7 @@
 	<h3><%= link_to "Inicio", ppal_estudiante_index_path, :class => "" %></h3>
 	<div>
 		<p>
-		<%= link_to "Alquileres realizados", alquileres_path, :class => "" %>
+		<%= link_to "Alquileres realizados", ver_alquiler_path, :class => "" %>
 		</p>
 	</div>
 	<h3><a href="#">Solicitudes</a></h3>
@@ -65,6 +65,7 @@
 		<ul>
             		<li><a>Comprobante de alquiler</a></li>
 			<li><a>Solvencias</a></li>
+			<li><a>Cambiar clave</a></li>
 		</ul>
 	</div>
 </div>

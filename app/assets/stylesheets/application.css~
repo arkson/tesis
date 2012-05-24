@@ -33,25 +33,28 @@ ul
 
 /* campos y botones */
 
-input[type=text],input[type=number] {
+input[type=text],input[type=number],input[type=password] {
    	margin-left: 0.5em;
   	border:#b2b2b2 solid 1px;
-   /*ackground: #ffc;*/
+   /*background: #ffc;*/
 }
 input[type=text],input[type=number]:active {
     border: 1px solid #b3b3b3;
 }
 input[type=submit] {
-    background: #666666;
+	border:0;
+    	background: #666666;
   	color:#ffffff;
-	font-weight:bold;
   	height:25px;
-  	margin: 1em 0 0 13.5em;
+  	-moz-border-radius: 5px;
+    	-webkit-border-radius: 5px;
 }
+
 input[type=submit]:hover {
     background: #777777;
-	cursor:pointer;
+    cursor:pointer;
 }
+.actions input { margin: 1em 0 0 13.5em; }
 label {
     display: block;
     width: 150px;
@@ -63,7 +66,7 @@ select, textarea, input[type=file], input[type=checkbox] {
   margin-left: 0.5em;
 }
 /* Cerrar Sesion */
-	.cerrar-sesion 
+	.panel .cerrar-sesion 
 	{
 	  background:none; 
 	  border:0;
@@ -71,9 +74,12 @@ select, textarea, input[type=file], input[type=checkbox] {
 	  cursor:pointer;
 	}
 
-	.cerrar-sesion:hover
+	.panel button:hover
 	{
 	  text-decoration: underline;
+background:none; 
+	  border:0;
+	  color:#ffffff;
 	}
 
 /* Fin de listas de contenido */

@@ -2,7 +2,6 @@
 
   table .tabla_scaffold{
     border-collapse: collapse;
- width:"100%";
   }
 
   table tr td {
@@ -46,5 +45,5 @@
   .list_line_odd {
     background:   #ebf3ff;
   }
-
+.alquilar input{background:#ffffff;}
 /* END_HIGHLIGHT */

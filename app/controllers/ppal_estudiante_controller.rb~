@@ -1,4 +1,5 @@
 class PpalEstudianteController < ApplicationController
+  layout "estudiante"
   add_breadcrumb "Inicio", :ppal_estudiante_index_path
 
   def index
@@ -11,5 +12,12 @@ class PpalEstudianteController < ApplicationController
 	@configuracion = current_config
 
   end
+
+
+  def ver_alquiler
+	@alquileres = Alquiler.where(:usuario_id => session[:usuario_id])
+  end
+
+
 
 end

@@ -1,5 +1,7 @@
 Tesis::Application.routes.draw do
   
+  get "ppal_estudiante/ver_alquiler"
+
   resources :alquileres
 
   resources :configuraciones

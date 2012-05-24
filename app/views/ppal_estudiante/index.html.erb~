@@ -1,6 +1,14 @@
 <% if notice %>
 	<p id="notice"><%= notice %></p>
 <% end %>
+				<div id="side">
+
+					<%= hidden_div_if(@cart.line_item.empty?, :id => 'cart') do %>
+						<%= render @cart %>
+					<% end %>
+
+			
+				</div>
 <p><%= render_breadcrumbs :separator => ' / ' %></p>
 <h1>Catalogo de libros</h1>
 
@@ -11,8 +19,9 @@
 		<div class="observ"><%= sanitize(ejemplar.observacion) %> </div>
 		<div class="price_line">
 			<span class="price"><%= number_to_currency(ejemplar.costo_alquiler) %></span>
-			<%= button_to 'Agregar', lines_items_path(:ejemplar_id => ejemplar), :remote => true  %>
-
+			<% if not @configuracion.empty? %>
+				<%= button_to 'Agregar', lines_items_path(:ejemplar_id => ejemplar), :remote => true  %>
+			<% end%>
 		</div>
 	</div>
 <% end %>

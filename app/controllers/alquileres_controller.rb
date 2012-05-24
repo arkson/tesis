@@ -1,5 +1,8 @@
 class AlquileresController < ApplicationController
+  layout "administrador"
   add_breadcrumb "Inicio", :alquileres_path
+
+
   def index
     @alquileres = Alquiler.all
 
