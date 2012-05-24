@@ -4,22 +4,28 @@
 		  width:200px;
 		  margin:0 40px 0 0;
 		  float:right;
-<<<<<<< HEAD
-		  position:absolute,
-=======
-		  border:none;
->>>>>>> 7d6bd2d378dd35a1fd8cbee5553bd026d062b36e
 		}
-		  #accordion div,h3
+		  #accordion div
 		  {
 		    padding:10px 0 0 15px;
-			color:#bcbcbc;
-			
+		    color:#bcbcbc;
+		  }
+ 		  #accordion h3
+		  {
+		   padding:10px 0 0 15px;
+		   background:#0070ba;
+		   margin:1px;
+		  }
+ 		  #accordion h3 a
+		  { 
+		   color:#ffffff;
+		   line-height:20px;
 		  }
 		  #accordion a
 		  {
 		   text-decoration:none;
-		   color:#bcbcbc;			
+		   color:#555555;
+		   line-height:20px;			
 		  }
 		  #accordion a:hover
 		  {
@@ -30,7 +36,12 @@
 	<script>
 	$(function() {
 		$( "#accordion" ).accordion({
-			fillSpace: true
+eventType: 'click',
+autoClose: false,
+saveState: true,
+disableLink: true,
+showCount: true,
+speed: 'fast'
 		})
 	});
 	$(function() {
@@ -50,11 +61,7 @@
 
 <div id="accordion">
 	<h3><%= link_to "Inicio", ppal_admin_index_path, :class => "" %></h3>
-	<div>
-		<p>
-		Menu principal del modulo de administrador
-		</p>
-	</div>
+
 	<h3><a href="#">Mantenimiento</a></h3>
 	<div>
 		<ul>
@@ -66,7 +73,7 @@
 			<li><%= link_to "Ejemplares", ejemplares_index_path, :class => "" %></li>
 			<li><%= link_to "Librerias", librerias_index_path, :class => "" %></li>
 			<li><%= link_to "Libros", libros_index_path, :class => "" %></li>
-			
+			<li><%= link_to "Noticias", noticias_path, :class => "" %></li>
 
 		</ul>
 	</div>
@@ -80,6 +87,7 @@
 	<div>
 		<ul>
 			<li><%= link_to "Inicio", usuarios_path, :class => "" %></li>
+			<li><%= link_to "Cambiar clave", usuarios_path, :class => "" %></li>
 		</ul>
 	</div>
 </div>

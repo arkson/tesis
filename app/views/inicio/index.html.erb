@@ -39,6 +39,7 @@
 			   width: 550,
 			   minWidth: 400,
 			   maxWidth: 650,
+			   closeText: "cerrar",
 			   show: "fade"
 		});
 
@@ -88,7 +89,7 @@
 </div>
 
 
-<div id="dialog-form2">
+<div id="dialog-form2" class="login">
 	<% if flash[:alert] %>
 		<p id="notice"><%= flash[:alert] %></p>
 	<% end %>
@@ -97,7 +98,7 @@
 	Por favor introduzca los datos solicitados
 	<div>
 		<label for="cedula">Cédula:</label>
-		<%= password_field_tag :cedula, params[:cedula] %>
+		<%= text_field_tag :cedula, params[:cedula] %>
 	</div>
 	<div>
 			<%= submit_tag "Aceptar", :class => 'ingresar' %>
