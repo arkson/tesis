@@ -1,6 +1,6 @@
 class NoticiasController < ApplicationController
-  # GET /noticias
-  # GET /noticias.json
+  layout "administrador"
+  add_breadcrumb "Inicio", :noticias_path
   def index
     @noticias = Noticia.all
 

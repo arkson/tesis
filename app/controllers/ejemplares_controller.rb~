@@ -1,12 +1,14 @@
 class EjemplaresController < ApplicationController
   
+  before_filter :es_adminitrador
+
   layout "administrador"
 	add_breadcrumb "Inicio", :ppal_admin_index_path
   # GET /ejemplares
   # GET /ejemplares.json
   def index
     @ejemplares = Ejemplar.all
-
+	add_breadcrumb "ejemplares", ejemplares_index_path 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @ejemplares }

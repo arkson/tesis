@@ -1,6 +1,7 @@
 class LibreriasController < ApplicationController
   
   layout "administrador"
+
   # GET /librerias
   # GET /librerias.json
   def index

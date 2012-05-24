@@ -36,9 +36,28 @@ class ApplicationController < ActionController::Base
   end
 
 
- 
+  def es_adminitrador
 
- 
- 	  
+	usuario = Usuario.find(session[:usuario_id]) 	
+
+	if !(usuario.rol == "Administrador") and (usuario.rol == "Estudiante") 	
+		redirect_to ppal_estudiante_index_path  
+	end
+
+  end
+
+  
+  def es_estudiante
+
+	usuario = Usuario.find(session[:usuario_id]) 	
+
+	if !(usuario.rol == "Estudiante") and (usuario.rol == "Administrador")	
+		redirect_to ppal_admin_index_path  
+	end
+
+  end
+	
+
+	  
 
 end

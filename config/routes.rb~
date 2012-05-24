@@ -1,5 +1,7 @@
 Tesis::Application.routes.draw do
   
+  get "ppal_estudiante/ver_alquiler"
+
   resources :alquileres
 
   resources :configuraciones
@@ -39,8 +41,11 @@ Tesis::Application.routes.draw do
   get "inicio/index"
 
   get "inicio/catalogo"
-get "inicio/olvido_clave"
-post "inicio/olvido_clave"
+  
+  get "inicio/olvido_clave"
+  
+  post "inicio/olvido_clave"
+  
   get "ppal_estudiante/index"
 
   get "ejemplares/index"

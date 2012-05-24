@@ -1,10 +1,8 @@
 class AlquileresController < ApplicationController
-<<<<<<< HEAD
-  layout "administrador"
-=======
- 
 
->>>>>>> 511ff5c9310a2aac44c244d21fbd141541b857f6
+  layout "administrador"
+
+ 
   add_breadcrumb "Inicio", :alquileres_path
 
 

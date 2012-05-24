@@ -1,5 +1,7 @@
 class EditorialesController < ApplicationController
   
+  before_filter :es_adminitrador
+
   layout "administrador"
 
   # GET /editoriales

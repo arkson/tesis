@@ -1,4 +1,7 @@
 class EditorialesController < ApplicationController
+  
+  layout "administrador"
+
   # GET /editoriales
   # GET /editoriales.json
   def index

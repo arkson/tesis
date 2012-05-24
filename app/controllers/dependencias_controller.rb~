@@ -1,4 +1,7 @@
 class DependenciasController < ApplicationController
+  
+  layout "administrador"
+
   # GET /dependencias
   # GET /dependencias.json
   def index

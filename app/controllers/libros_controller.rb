@@ -1,5 +1,6 @@
 class LibrosController < ApplicationController
-  layout "administrador"
+  	before_filter :es_adminitrador
+	layout "administrador"
     add_breadcrumb "Inicio", :ppal_admin_index_path
 
   # GET /libros

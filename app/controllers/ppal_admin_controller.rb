@@ -1,5 +1,5 @@
 class PpalAdminController < ApplicationController
-  #before_filter :verificar_usuario 
+  before_filter :es_adminitrador 
 
   layout "administrador"
   add_breadcrumb "Inicio", :ppal_admin_index_path
@@ -7,18 +7,8 @@ class PpalAdminController < ApplicationController
   end
 
 
-=begin  
-	protected
-	def verificar_usuario
-		usuario = Usuario.find_by_id(session[:usuario_id])
-			if usuario.rol == 'Administrador' 
-				return true
-			elsif usuario.rol == 'Estudiante' 
-				return false	
-					
-			end 
-		
-	end
-=end
+
+
+  
 
 end

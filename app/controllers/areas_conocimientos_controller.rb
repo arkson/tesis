@@ -1,6 +1,6 @@
 class AreasConocimientosController < ApplicationController
   	  
-
+  before_filter :es_adminitrador
 
   layout "administrador"
 

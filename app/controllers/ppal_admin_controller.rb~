@@ -1,5 +1,5 @@
 class PpalAdminController < ApplicationController
-  before_filter :verificar_usuario 
+  before_filter :es_adminitrador 
 
   layout "administrador"
   add_breadcrumb "Inicio", :ppal_admin_index_path
@@ -20,5 +20,8 @@ class PpalAdminController < ApplicationController
 		
 	end
 =end
+
+
+  
 
 end

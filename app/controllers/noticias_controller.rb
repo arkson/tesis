@@ -1,4 +1,5 @@
 class NoticiasController < ApplicationController
+  before_filter :es_adminitrador
   layout "administrador"
   add_breadcrumb "Inicio", :noticias_path
   def index
