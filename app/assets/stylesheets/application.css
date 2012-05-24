@@ -31,6 +31,50 @@ ul
   padding:0;
 }
 
+/* campos y botones */
+
+input[type=text],input[type=number],input[type=password] {
+   	margin-left: 0.5em;
+  	border:#b2b2b2 solid 1px;
+   /*background: #ffc;*/
+}
+input[type=text],input[type=number]:active {
+    border: 1px solid #b3b3b3;
+}
+input[type=submit] {
+    background: #666666;
+  	color:#ffffff;
+	font-weight:bold;
+  	height:25px;
+  	margin: 1em 0 0 13.5em;
+}
+input[type=submit]:hover {
+    background: #777777;
+	cursor:pointer;
+}
+label {
+    display: block;
+    width: 150px;
+    float: left;
+    margin: 15px 4px 0px 4px;
+    text-align: right;
+}
+select, textarea, input[type=file], input[type=checkbox] {
+  margin-left: 0.5em;
+}
+/* Cerrar Sesion */
+	.cerrar-sesion 
+	{
+	  background:none; 
+	  border:0;
+	  color:#ffffff;
+	  cursor:pointer;
+	}
+
+	.cerrar-sesion:hover
+	{
+	  text-decoration: underline;
+	}
 
 /* Fin de listas de contenido */
 

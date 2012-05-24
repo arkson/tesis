@@ -70,15 +70,15 @@
 	<%= form_tag url_for (:controller => "sesiones",:action => "crear") do %>
 	
 		<div>
-			<label for="cedula">Cédula:</label>
+			<label for="cedula">Cédula:</label><br />
 			<%= text_field_tag :cedula, params[:cedula] %>
 		</div>
 		<div>
-			<label for="Clave">Clave:</label>
+			<label for="clave">Clave:</label><br />
 			<%= password_field_tag :password, params[:password] %>
 		</div>
 		<div>
-			<label>Texto de la imagen:</label>
+			<label>Texto de la imagen:</label><br />
 			<%= show_simple_captcha(:image_style => 'simply_blue', :distortion => 'medium',:label => "")  %>
 		</div>
 		<div>
@@ -97,7 +97,7 @@
 	<%= form_tag url_for(:controller => 'inicio', :action => 'olvido_clave')  do   %>
 	Por favor introduzca los datos solicitados
 	<div>
-		<label for="cedula">Cédula:</label>
+		<label for="cedula">Cédula:</label><br />
 		<%= text_field_tag :cedula, params[:cedula] %>
 	</div>
 	<div>
