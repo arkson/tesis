@@ -1,5 +1,7 @@
 class AreasConocimientosController < ApplicationController
-  
+  	  
+
+
   layout "administrador"
 
   # GET /areas_conocimientos

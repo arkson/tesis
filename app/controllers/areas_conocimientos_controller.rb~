@@ -1,4 +1,9 @@
 class AreasConocimientosController < ApplicationController
+  	  
+
+
+  layout "administrador"
+
   # GET /areas_conocimientos
   # GET /areas_conocimientos.json
   def index

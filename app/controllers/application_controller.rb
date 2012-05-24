@@ -1,11 +1,11 @@
 class ApplicationController < ActionController::Base
   
-
+  before_filter :authorize
 
   protect_from_forgery
   include SimpleCaptcha::ControllerHelpers
   
-
+  
 
 
   private
@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
   protected
 	def authorize
 		unless Usuario.find_by_id(session[:usuario_id])
-		redirect_to login_url, :notice => "Por Favor Inicie Sesion"
+		redirect_to inicio_index_path, :notice => "Por Favor Inicie Sesion"
 		end
 	end
 

@@ -1,19 +1,61 @@
+<% if notice %>
 <p id="notice"><%= notice %></p>
-
-<p>
-  <b>Line item:</b>
-  <%= @alquiler.line_item %>
-</p>
-
+<% end %>
 <p>
   <b>Usuario:</b>
-  <%= @alquiler.usuario %>
+  <%= @alquiler.usuario.nombre %>
 </p>
+
+<p>
+  <b>Fecha Inicio:</b>
+  <%= @alquiler.created_at.strftime("%d-%m-%Y")%>
+</p>
+
 
 <p>
   <b>Fecha fin:</b>
-  <%= @alquiler.fecha_fin %>
+  <%= @alquiler.fecha_fin.strftime("%d-%m-%Y") %> 
+</p></br>
+
+
+<p>
+  <b>Libros seleccionados:</b> </br>
+  <table>
+	  <tr>
+		 <th>Cota</th>
+		 <th>Titulo</th>
+		 <th>Autor</th>
+		 <th>Edicion</th>
+		 <th>Año</th>
+		 <th>Precio</th>
+		 <th></th>
+		 <th></th>
+	  </tr>
+
+		<% @alquiler.line_item.each do |item| %>
+			<tr>
+				<td><%= item.ejemplar.cota %></td>
+				<td><%= item.ejemplar.libro.titulo %></td>
+				<td><%= item.ejemplar.libro.autor %></td>
+				<td><%= item.ejemplar.libro.edicion %></td>
+ 				<td><%= item.ejemplar.libro.ano %></td>
+				<td><%= number_to_currency(item.ejemplar.costo_alquiler) %></td>	
+			</tr> 
+		<% end %>
+		<tr>
+			
+			<td> </td>
+			<td> </td>
+			<td> </td>
+			<td> </td>
+			<td> </td>
+			<td> <%= number_to_currency(@alquiler.total_price)  %> </td>
+			
+		<tr>		  		
+	</table>
 </p>
+
+
 
 <p>
   <b>Estatus:</b>
