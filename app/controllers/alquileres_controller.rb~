@@ -1,5 +1,6 @@
 class AlquileresController < ApplicationController
-  layout "estudiante"
+  before_filter :verificar_usuario 	
+
   add_breadcrumb "Inicio", :alquileres_path
 
 

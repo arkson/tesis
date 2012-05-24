@@ -1,5 +1,5 @@
 class PpalAdminController < ApplicationController
- # before_filter :verificar_usuario 
+  #before_filter :verificar_usuario 
 
   layout "administrador"
   add_breadcrumb "Inicio", :ppal_admin_index_path
