@@ -23,8 +23,9 @@
 
         <div style="width:200px;height:20px;background:yellow;float:right; margin-right:40px;background:#0070ba;postion:absolute;"></div>
 
-		<div class="Content">
-			<%= render(:partial => "layouts/menu_administrador") %>			
+		<div class="Contenido_admin">
+			<%= render(:partial => "layouts/menu_administrador") %>
+			<div class = "migas"><%= render_breadcrumbs :separator => ' / ' %></div>			
 			<%= yield %>
 		</div>
 

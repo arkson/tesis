@@ -5,18 +5,20 @@
 
 
 /* Estilos para la informacion del inicio */
-.panel
+	.panel
 	{
 	  padding: 140px 40px 0 0;
 	  float:right;
-	  color:#ffffff;
 	  text-align:right;
+	}
+	.panel span
+	{
+	   color:#ffffff;
 	}
 	.panel #acceder,#olvido
 	{
 	  background:none; 
 	  border:0;
-	  color:#ffffff;
 	  cursor:pointer;
 	}
 	#catalogo
@@ -34,8 +36,6 @@
 	{
 	  text-decoration:underline;
 	}
-/* Estilos para los formularios de login */
-
 
 
 /* Estilos para simple captcha */

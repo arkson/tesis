@@ -1,3 +1,4 @@
+<p><%= render_breadcrumbs :separator => ' / ' %></p>
 <h1>Listado de Usuarios</h1>
 <% if notice %>
 <p id="notice"><%= notice %></p>

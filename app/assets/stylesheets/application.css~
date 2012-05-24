@@ -13,6 +13,7 @@
   margin: 0;
   font-family: Verdana, Helvetica, Arial, Sans-Serif;
   font-size: 12px;
+  color:#555555;
 }
 
 html, body
@@ -65,7 +66,9 @@ label {
 select, textarea, input[type=file], input[type=checkbox] {
   margin-left: 0.5em;
 }
+
 /* Cerrar Sesion */
+
 	.panel .cerrar-sesion 
 	{
 	  background:none; 
@@ -77,12 +80,9 @@ select, textarea, input[type=file], input[type=checkbox] {
 	.panel button:hover
 	{
 	  text-decoration: underline;
-background:none; 
-	  border:0;
-	  color:#ffffff;
 	}
 
-/* Fin de listas de contenido */
+
 
 /* 
 .wrapper 
@@ -131,12 +131,26 @@ background:none;
 
 
 /* Inicio Contenido */
-.Content
+.Contenido
 {
   margin: 50px 0 50px 0;
   min-height:250px; 
   width: 100%; 
-  color:#555555;
+
+}
+.Contenido_estud
+{
+  margin: 50px 0 50px 0;
+  min-height:250px; 
+  width: 100%; 
+
+}
+.Contenido_admin
+{
+  margin: 50px 0 50px 0;
+  min-height:250px; 
+  width: 100%; 
+
 }
 	.informacion
 	{
@@ -159,11 +173,13 @@ background:none;
 .Footer-text
 {
   padding-top: 30px;
-  color:#ffffff;
   font-family: Verdana, Helvetica, Arial, Sans-Serif;
   font-size: 12px;
   float:right;
 }
+.Footer-text li
+{
+color:#ffffff;}
 .Footer ul 
 {
   list-style:none; 

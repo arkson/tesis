@@ -1,15 +1,7 @@
 <% if notice %>
 	<p id="notice"><%= notice %></p>
 <% end %>
-				<div id="side">
-
-					<%= hidden_div_if(@cart.line_item.empty?, :id => 'cart') do %>
-						<%= render @cart %>
-					<% end %>
-
-			
-				</div>
-<p><%= render_breadcrumbs :separator => ' / ' %></p>
+<div class = "migas"><%= render_breadcrumbs :separator => ' / ' %></div>
 <h1>Catalogo de libros</h1>
 
 <% @ejemplares.each do |ejemplar| %>

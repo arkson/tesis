@@ -39,4 +39,4 @@
 
 <br />
 
-<%= link_to 'Nuevo Ejemplar', new_ejemplar_path %>
+<p><%= link_to 'Nuevo Ejemplar', new_ejemplar_path %></p>

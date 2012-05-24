@@ -1,3 +1,4 @@
-	<p>Menu principal del modulo de administrador</p> 
+<p><%= render_breadcrumbs :separator => ' / ' %></p>	
+<p>Menu principal del modulo de administrador</p> 
 
 

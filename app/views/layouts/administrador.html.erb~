@@ -16,15 +16,16 @@
 			<div class="logo"></div> 
 			<div class="panel">
 			<% if session[:usuario_id] %>
-    		Usuario: <%= usuario.nombre %> | <%= button_to 'Cerrar Sesion', logout_path, :method => :delete %>
+    		Usuario: <%= usuario.nombre %> | <%= button_to 'Cerrar Sesion', logout_path, :method => :delete, :class => 'cerrar-sesion' %>
 			<% end %>
 			</div>
 		</div>
 
         <div style="width:200px;height:20px;background:yellow;float:right; margin-right:40px;background:#0070ba;postion:absolute;"></div>
-
-		<div class="Content">
-			<%= render(:partial => "layouts/menu_administrador") %>			
+<%= render(:partial => "layouts/menu_administrador") %>
+		<div class="Contenido_admin">
+			
+			<div class = "migas"><%= render_breadcrumbs :separator => ' / ' %></div>			
 			<%= yield %>
 		</div>
 
