@@ -24,6 +24,13 @@ class Ejemplar < ActiveRecord::Base
      [libro.cota,numero_ejemplar].join('.')
   end
 
-
+ def ensure_not_referenced_by_any_line_item
+	if line_item.empty?
+		return true
+	else
+		errors.add(:base, 'Line Items present')
+		return false
+	end
+ end
 
 end
