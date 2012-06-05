@@ -1,7 +1,7 @@
 <div class ="informacion">
 <h1>Listado de libros</h1>
-
-<table class="tabla_scaffold" width="87%">
+<%= will_paginate @libros , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
+<table class="tabla_scaffold" width="98%">
 <% @libros.each do |libro| %>
 <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
 <td width="5%">
@@ -18,4 +18,5 @@
 </tr>
 <% end %>
 </table>
+<%= will_paginate @libros , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
 </div>

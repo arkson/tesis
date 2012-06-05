@@ -15,13 +15,12 @@
 		<div class="Header">
 			<div class="logo"></div> 
 			<div class="panel">
-    		<button id="acceder">Iniciar sesi&oacute;n</button>|
-			<button id="olvido">Olvidó su clave?</button></br>
-			<%= link_to "Catálogo de libros", inicio_catalogo_path, :id => "catalogo" %>
+    		<button id="acceder">Iniciar sesi&oacute;n</button>			
+			<button id="catalogo"><%= button_to "Catálogo de libros", inicio_catalogo_path, :id => "" %></button>
 			</div>
 		</div>
 
-        <div style="width:200px;height:20px;float:right; margin-right:40px;background:#0070ba;postion:absolute;"></div>
+        <div class = "borde_superior"></div>
 
 		<div class="Contenido">			
 			<%= yield %>
@@ -32,7 +31,7 @@
 		
 	</div>
 
-	<div style="width:200px;height:20px;margin-left:40px;background:#0071bc;postion:absolute;"></div>
+	<div class = "borde_inferior"></div>
 	<div class="Footer">
 			<div class="Footer-text">
 				<ul>

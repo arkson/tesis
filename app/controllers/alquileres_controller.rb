@@ -58,7 +58,9 @@ class AlquileresController < ApplicationController
   def create 	
     #@alquiler = Alquiler.new(params[:alquiler])
 	 @alquiler = Alquiler.new
-	 @config = current_config	
+	 @config = current_config
+	 print ("_____________________")	
+	 print current_cart.id
 	 @alquiler.limpiar_items_cart(current_cart)	
 	 @alquiler.estatus = 'Prealquilado'
 	 @alquiler.fecha_fin = @config[0].fecha_fin
@@ -73,6 +75,7 @@ class AlquileresController < ApplicationController
 
     respond_to do |format|
       if @alquiler.save
+		  
 		  Cart.destroy(session[:cart_id])
 		  session[:cart_id] = nil
 	

@@ -13,7 +13,8 @@ class InicioController < ApplicationController
   end
   
   def catalogo
-	@libros = Libro.all
+	@lib = Libro.all
+	@libros =  @lib.paginate(:page => params[:page], :per_page => 30)
 
   end
 

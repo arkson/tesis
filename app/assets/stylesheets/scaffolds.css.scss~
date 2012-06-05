@@ -1,4 +1,4 @@
-/* START_HIGHLIGHT */
+/* inicio index */
 
   table .tabla_scaffold{
     border-collapse: collapse;
@@ -8,6 +8,38 @@
     padding: 5px;
     vertical-align: top;
   }
+
+  /*.titulo{
+	float:left;
+  }*/
+
+
+  .buscar
+  {
+	margin:0;
+	padding:0;
+	width:40px;
+  }
+
+  #link
+  {
+	  border:0;
+      background: #888888;
+  	  height:25px;
+  	  border-radius: 5px;
+	  cursor:pointer;
+	}
+	#link a
+	{	 
+  	  color:#ffffff;
+      text-decoration:none;
+	}
+
+	#link:hover
+	{
+	  background: #777777;
+	}
+  
 
   .list_image {
     width:  60px;
@@ -24,7 +56,7 @@
     dt {
       color:        #244;
       font-weight:  bold;
-      font-size:    larger;
+      font-size:    16px;
     }
 
     dd {
@@ -45,5 +77,5 @@
   .list_line_odd {
     background:   #ebf3ff;
   }
-.alquilar input{background:#ffffff;}
-/* END_HIGHLIGHT */
+.alquilar input[type=submit]{background:#ffffff;}
+/* fin_index */

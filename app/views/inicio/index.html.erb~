@@ -2,7 +2,6 @@
 
 
 
-<div class = "informacion">
 	<table>
 	<% @noticias.each do |noticia| %>
 	  <tr>
@@ -13,8 +12,8 @@
 	  </tr>
 	<% end %>
 	</table>
-</div>
-<%= will_paginate @noticias , :prev_label => "Anterior", :next_label => "Siguiente" %>
+
+<%= will_paginate @noticias , :previous_label => "Anterior", :next_label => "Siguiente" %>
 
 
 
@@ -53,6 +52,7 @@
 			.button()
 			.click(function() {
 				$( "#dialog-form2" ).dialog( "open" );
+				$( "#dialog-form" ).dialog( "close" );
 			});
 
 	});
@@ -84,7 +84,7 @@
 		<div class = "actions">
 			<%= submit_tag "Entrar", :class => 'ingresar' %>
 		</div>
-	
+	<button id="olvido">Olvidó su clave?</button>
 	<% end %>
 </div>
 
@@ -100,7 +100,7 @@
 		<label for="cedula">Cédula:</label><br />
 		<%= text_field_tag :cedula, params[:cedula] %>
 	</div>
-	<div>
+	<div class = "actions">
 			<%= submit_tag "Aceptar", :class => 'ingresar' %>
 	</div>
 	<% end %>

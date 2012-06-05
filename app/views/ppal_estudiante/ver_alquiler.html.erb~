@@ -1,5 +1,4 @@
-<p><%= render_breadcrumbs :separator => ' / ' %></p>
-<h1>Listing alquileres</h1>
+<h1>Listado de alquileres</h1>
 
 <table>
   <tr>
@@ -18,12 +17,11 @@
 	 <td><%= Date.strptime("31/01/2010", "%d/%m/%Y")  %></td>	
     <td><%= alquiler.fecha_fin %></td>
     <td><%= alquiler.estatus %></td>
-    <td><%= link_to 'Show', alquiler %></td>
-    <% if Usuario.find(session[:usuario_id]).rol == 'Administrador' %>
-	 <td><%= link_to 'Edit', edit_alquiler_path(alquiler) %></td>
-    <td><%= link_to 'Destroy', alquiler, :confirm => 'Are you sure?', :method => :delete %></td>
-  	 <% end %>	
-	 </tr>
+	<td><%= link_to 'Show', alquiler %></td>
+    
+
+  </tr>
 <% end %>
 </table>
 
+<%= link_to 'Back', alquileres_path %>

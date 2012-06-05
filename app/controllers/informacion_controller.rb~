@@ -1,4 +1,7 @@
 class InformacionController < ApplicationController
+	
+  skip_before_filter :authorize, :only => [:historia, :servicios, :normativas, :horarios]
+
   def historia
 	@search = Noticia.where(:tipo_contenido => 'Historia')
 	@historias =  @search.paginate(:page => params[:page], :per_page => 30)
@@ -32,7 +35,7 @@ class InformacionController < ApplicationController
 
   def horarios
 	@search = Noticia.where(:tipo_contenido => 'Horario')
-	@historias =  @search.paginate(:page => params[:page], :per_page => 30)
+	@horarios =  @search.paginate(:page => params[:page], :per_page => 30)
 	respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @horarios }

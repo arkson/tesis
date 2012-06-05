@@ -15,13 +15,13 @@
 		<div class="Header">
 			<div class="logo"></div> 
 			<div class="panel">
-    		Usuario: <%= usuario.nombre %> | <% if session[:usuario_id] %> <%= button_to 'Cerrar Sesion', logout_path, :method => :delete, :class => 'cerrar-sesion' %><% end %>
+    		Usuario: <%= usuario.nombre %> <% if session[:usuario_id] %> <%= button_to 'Cerrar Sesion', logout_path, :method => :delete, :class => 'cerrar-sesion' %><% end %>
 			</div>
 		</div>
 
-        <div style="width:200px;height:20px;background:yellow;float:right; margin-right:40px;background:#0070ba;postion:absolute;"></div>
+        <div class = "borde_superior"></div>
 
-		<div class="Content">
+		<div class="Contenido_estud">
 			<%= render(:partial => "layouts/menu_estudiante") %>			
 			<div id="columns">
 				<div id="side">
@@ -44,7 +44,7 @@
 		
 	</div>
 
-	<div style="width:200px;height:20px;background:yellow; margin-left:40px;background:#0071bc;postion:absolute;"></div>
+	<div class = "borde_inferior"></div>
 	<div class="Footer">
 			<div class="Footer-text">
 				<ul>

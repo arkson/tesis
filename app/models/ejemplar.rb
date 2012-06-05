@@ -18,11 +18,14 @@ class Ejemplar < ActiveRecord::Base
    return false
   end
   end
+
+
 	
   public
   def cota
      [libro.cota,numero_ejemplar].join('.')
   end
+
 
  def ensure_not_referenced_by_any_line_item
 	if line_item.empty?

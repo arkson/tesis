@@ -1,4 +1,7 @@
 class InformacionController < ApplicationController
+	
+  skip_before_filter :authorize, :only => [:historia, :servicios, :normativas, :horarios]
+
   def historia
 	@search = Noticia.where(:tipo_contenido => 'Historia')
 	@historias =  @search.paginate(:page => params[:page], :per_page => 30)
