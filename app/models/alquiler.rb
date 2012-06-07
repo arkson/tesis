@@ -1,6 +1,7 @@
 class Alquiler < ActiveRecord::Base
   has_many :line_item
   belongs_to :usuario
+  belongs_to :configuracion
 
 def add_line_items_from_cart(cart )
 	
@@ -10,6 +11,8 @@ def add_line_items_from_cart(cart )
 	end
 		
 end
+
+
 
 
 def limpiar_items_cart(cart)

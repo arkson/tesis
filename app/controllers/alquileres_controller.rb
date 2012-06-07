@@ -59,8 +59,8 @@ class AlquileresController < ApplicationController
     #@alquiler = Alquiler.new(params[:alquiler])
 	 @alquiler = Alquiler.new
 	 @config = current_config
-	 print ("_____________________")	
-	 print current_cart.id
+	 @alquiler.configuracion_id = @config[0].id
+	 
 	 @alquiler.limpiar_items_cart(current_cart)	
 	 @alquiler.estatus = 'Prealquilado'
 	 @alquiler.fecha_fin = @config[0].fecha_fin

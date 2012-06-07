@@ -47,7 +47,7 @@ class LinesItemsController < ApplicationController
   def create
    @config = current_config
    @cart = current_cart
- 	@ejem = Ejemplar.find(params[:ejemplar_id])
+   @ejem = Ejemplar.find(params[:ejemplar_id])
 		 	
    #@alq = Alquiler.all
   
@@ -57,7 +57,8 @@ class LinesItemsController < ApplicationController
    if (!@alq.empty?)
 	var = @alq[0].total_libros	
    end
- 
+
+		 
 
    if (@cart.total_ejemplares +  var)  < @config[0].max_num_libro   
 		if !(@ejem.estatus_ejemplar == 'Solicitado')    
