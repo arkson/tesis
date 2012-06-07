@@ -59,7 +59,7 @@ label {
     display: block;
     width: 150px;
     float: left;
-    margin: 15px 4px 0px 4px;
+    margin: 25px 4px 0px 4px;
     text-align: right;
 }
 select, textarea, input[type=file], input[type=checkbox] {
@@ -171,7 +171,10 @@ select, textarea, input[type=file], input[type=checkbox] {
 	  text-align:justify;
 	  width:75%;	
 	}
-	
+	.paginacion
+	  {
+		margin:5px;
+	  }
 	.paginacion a
 	{
 	  background:#0070ba;

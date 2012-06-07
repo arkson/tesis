@@ -1,31 +1,42 @@
-<h1>Listing alquileres</h1>
 
-<table>
-  <tr>
-    <th>Nombre </th>
-	 <th>Fecha de Inicio </th>
-    <th>Fecha de culminación</th>
-    <th>Estatus</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
+
+<div class ="titulo"><h1>Listado de alquileres</h1></div>
+<div class ="busqueda">
+  <%= form_for @search do |f| %>
+    <%= f.label :Buscar, :class => "buscar" %>
+    <%= f.text_field :estatus_contains %>
+    <!-- etc... -->
+    <%= f.submit :buscar%>
+  <% end %>
+</div>
+
+<%= will_paginate @alquileres , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
+
+<table class="tabla_scaffold" width="98%">
 <% @alquileres.each do |alquiler| %>
-  <tr>
-    <td><%= alquiler.usuario.nombre %></td>
-	 <td><%= Date.strptime("31/01/2010", "%d/%m/%Y")  %></td>	
-    <td><%= alquiler.fecha_fin %></td>
-    <td><%= alquiler.estatus %></td>
-    <td><%= link_to 'Show', alquiler %></td>
-    <% if Usuario.find(session[:usuario_id]).rol == 'Administrador' %>
-	 <td><%= link_to 'Edit', edit_alquiler_path(alquiler) %></td>
-    <td><%= link_to 'Destroy', alquiler, :confirm => 'Are you sure?', :method => :delete %></td>
-  	 <% end %>	
-	 </tr>
+<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+
+<td class="list_description">
+<dl>
+<dt>Nombre: <%= alquiler.usuario.nombre %></dt>
+<dd>Fecha de Inicio: <%= Date.strptime("31/01/2010", "%d/%m/%Y") %></dd>
+<dd>Fecha de culminación: <%= alquiler.fecha_fin %></dd>
+<dd><%= alquiler.estatus %></dd>
+</dl>
+</td>
+<td class="list_actions" width="5%">
+<%= link_to 'Mostrar', alquiler %>
+<% if Usuario.find(session[:usuario_id]).rol == 'Administrador' %>
+<%= link_to 'Editar', edit_alquiler_path(alquiler) %>
+<%= link_to 'Eliminar', alquiler, :confirm => '¿Estas seguro?', :method => :delete %>
+<% end %>	
+</td>
+</tr>
 <% end %>
 </table>
+<%= will_paginate @alquileres , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
 
-<br />
+
 
 

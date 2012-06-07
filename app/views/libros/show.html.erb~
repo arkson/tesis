@@ -1,6 +1,7 @@
 <% if notice %>
 <p id="notice"><%= notice %></p>
 <% end %>
+<div class = "mostrar">
 <p>
   <b>Cota:</b>
   <%= @libro.cota %>
@@ -18,8 +19,6 @@
 
 <p>
   <b>Imagen:</b>
-  <%= image_tag @libro.imagen.url %>
-  <%= image_tag @libro.imagen.url(:medium) %>
   <%= image_tag @libro.imagen.url(:thumb) %>
 </p>
 
@@ -57,7 +56,7 @@
   <b>Dependencia:</b>
   <%= @libro.dependencia.nombre %>
 </p>
+</div>
 
-
-<%= link_to 'Editar', edit_libro_path(@libro) %> |
-<%= link_to 'Regresar', libros_path %>
+<%= link_to 'Editar', edit_libro_path(@libro), :id => "links" %> &nbsp
+<%= link_to 'Regresar', libros_path, :id => "links" %>

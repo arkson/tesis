@@ -1,4 +1,3 @@
-<p><%= render_breadcrumbs :separator => ' / ' %></p>
 <h1>Listado de Usuarios</h1>
 <% if notice %>
 <p id="notice"><%= notice %></p>
@@ -36,3 +35,46 @@
 <br />
 
 <%= link_to 'Nuevo Usuario', new_usuario_path %>
+
+
+
+
+
+<div class ="titulo"><h1>Listado de usuarios</h1></div>
+<div class ="busqueda">
+  <%= form_for @search do |f| %>
+    <%= f.label :Buscar, :class => "buscar" %>
+    <%= f.text_field :nombre_contains %>
+    <!-- etc... -->
+    <%= f.submit :buscar%>
+  <% end %>
+</div>
+
+<%= will_paginate @usuarios , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
+
+<table class="tabla_scaffold" width="98%">
+<% @usuarios.each do |usuario| %>
+<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+<td class="list_description">
+<dl>
+<dd> Nombre: <%= usuario.nombre %></dd>
+<dd> Cédula: <%= usuario.cedula %></dd>
+<dd> Correo: <%= usuario.correo %></dd>
+<dd> Unid. creditos: <%= usuario.unid_creditos %></dd>
+<dd> Dependencia: <%= usuario.dependencia.nombre %></dd>
+<dd> Rol: <%= usuario.rol %></dd>
+</dl>
+</td>
+<td class="list_actions" width="5%">
+    <%= link_to 'Mostrar', usuario %>
+    <%= link_to 'Editar', edit_usuario_path(usuario) %>
+    <%= link_to 'Eliminar', usuario, :confirm => 'Estas Seguro(a)?', :method => :delete %>
+</td>
+</tr>
+<% end %>
+</table>
+<%= will_paginate @usuarios , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
+
+<br />
+
+<button id="link"><%= link_to 'Nuevo Usuario', new_usuario_path %></button>

@@ -1,33 +1,38 @@
 
-<div class = "informacion">
-<p><%= render_breadcrumbs :separator => ' / ' %></p>
-<h1>Listado de noticias</h1>
 
-<table>
-  <tr>
-    <th>Titulo</th>
-    <th>Contenido</th>
-    <th>Tipo contenido</th>
-    <th>Fecha</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class ="titulo"><h1>Listado de noticias</h1></div>
+<div class ="busqueda">
+  <%= form_for @search do |f| %>
+    <%= f.label :Buscar, :class => "buscar" %>
+    <%= f.text_field :cota_or_isbn_or_titulo_contains %>
+    <!-- etc... -->
+    <%= f.submit :buscar%>
+  <% end %>
+</div>
 
+<%= will_paginate @noticias , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
+
+<table class="tabla_scaffold" width="98%">
 <% @noticias.each do |noticia| %>
-  <tr>
-    <td><%= noticia.titulo %></td>
-	<td><%= truncate(noticia.contenido, :length => 50) %></td>
-    <td><%= noticia.tipo_contenido %></td>
-    <td><%= noticia.fecha %></td>
-    <td><%= link_to 'Mostrar', noticia %></td>
-    <td><%= link_to 'Editar', edit_noticia_path(noticia) %></td>
-    <td><%= link_to 'Eliminar', noticia, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+<td class="list_description">
+<dl>
+<dt> Título: <%= noticia.titulo %></dt>
+<dd> <%= truncate(noticia.contenido, :length => 50) %></dd>
+<dd> Tipo de contenido: <%= noticia.tipo_contenido %></dd>
+<dd>Fecha: <%= noticia.fecha %></dd>
+</dl>
+</td>
+<td class="list_actions" width="5%">
+    <%= link_to 'Mostrar', noticia %>
+    <%= link_to 'Editar', edit_noticia_path(noticia) %>
+    <%= link_to 'Eliminar', noticia, :confirm => 'Estas Seguro?', :method => :delete %>
+</td>
+</tr>
 <% end %>
 </table>
+<%= will_paginate @noticias , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
 
 <br />
 
-<%= link_to 'Nueva noticia', new_noticia_path %>
-</div>
+<button id="link"><%= link_to 'Nueva noticia', new_noticia_path %></button>

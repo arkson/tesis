@@ -1,6 +1,11 @@
-<h1>Editing alquiler</h1>
+<div class = "editar">
+	<div class = "editar_titulo"><h1>Editar alquiler</h1></div>
 
-<%= render 'form' %>
+	<div class = "editar_opciones">
+	<%= link_to 'Mostrar', @alquiler, :id => "links" %> &nbsp
+	<%= link_to 'Regresar', alquileres_path, :id => "links" %>
+	</div>
+	<div class="clear"></div>
+</div>
 
-<%= link_to 'Show', @alquiler %> |
-<%= link_to 'Back', alquileres_path %>
+<div class = "formulario"><%= render 'form' %></div>

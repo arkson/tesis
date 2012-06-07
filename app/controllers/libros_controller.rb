@@ -8,7 +8,7 @@ class LibrosController < ApplicationController
   def index
 	add_breadcrumb "libros", libros_index_path
 	@search = Libro.search(params[:search])
-    	@libros = @search.paginate(:page => params[:page], :per_page => 5)
+    @libros = @search.paginate(:page => params[:page], :per_page => 5)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @libros }

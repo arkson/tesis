@@ -2,4 +2,4 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Back', areas_conocimientos_path %>
+<%= link_to 'Regresar', areas_conocimientos_path %>

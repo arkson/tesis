@@ -1,40 +1,42 @@
-<p><%= render_breadcrumbs :separator => ' / ' %></p>
-<h1>Lista de configuraciones</h1>
 
-<table>
-  <tr>
-    <th>Periodo</th>
-    <th>Ano</th>
-    <th>Fecha inicio</th>
-    <th>Fecha fin</th>
-    <th>Max num libro</th>
-    <th>Libro repetido</th>
-    <th>Tiempo prealquiler</th>
-    <th>Tipo periodo</th>
-    <th>Activa</th>	
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
+
+<div class ="titulo"><h1>Listado de configuraciones</h1></div>
+<div class ="busqueda">
+  <%= form_for @search do |f| %>
+    <%= f.label :Buscar, :class => "buscar" %>
+    <%= f.text_field :fecha_inicio_contains %>
+    <!-- etc... -->
+    <%= f.submit :buscar%>
+  <% end %>
+</div>
+
+<%= will_paginate @configuraciones , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
+
+<table class="tabla_scaffold" width="98%">
 <% @configuraciones.each do |configuracion| %>
-  <tr>
-    <td><%= configuracion.periodo %></td>
-    <td><%= configuracion.ano %></td>
-    <td><%= configuracion.fecha_inicio %></td>
-    <td><%= configuracion.fecha_fin %></td>
-    <td><%= configuracion.max_num_libro %></td>
-    <td><%= configuracion.libro_repetido %></td>
-    <td><%= configuracion.tiempo_prealquiler %></td>
-    <td><%= configuracion.tipo_periodo %></td>
-    <td><%= configuracion.activo %>	
-    <td><%= link_to 'Mostrar', configuracion %></td>
-    <td><%= link_to 'Editar', edit_configuracion_path(configuracion) %></td>
-    <td><%= link_to 'Eliminar', configuracion, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+<td class="list_description">
+<dl>
+<dd>Periodo: <%= configuracion.periodo %></dd>
+<dd>Año: <%= configuracion.ano %></dd>
+<dd>Fecha inicio: <%= configuracion.fecha_inicio %></dd>
+<dd>Fecha fin: <%= configuracion.fecha_fin %></dd>
+<dd>Máx. num. libros: <%= configuracion.max_num_libro %></dd>
+<dd>Tiempo prealquiler: <%= configuracion.tiempo_prealquiler %></dd>
+<dd>Tipo periodo: <%= configuracion.tipo_periodo %></dd>
+</dl>
+</td>
+<td class="list_actions" width="5%">
+    <%= link_to 'Mostrar', configuracion %>
+    <%= link_to 'Editar', edit_configuracion_path(configuracion) %>
+    <%= link_to 'Eliminar', configuracion, :confirm => 'Are you sure?', :method => :delete %>
+</td>
+</tr>
 <% end %>
 </table>
+<%= will_paginate @configuraciones , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
 
 <br />
 
-<%= link_to 'Nueva Configuración', new_configuracion_path %>
+<button id="link"><%= link_to 'Nueva Configuración', new_configuracion_path %></button>

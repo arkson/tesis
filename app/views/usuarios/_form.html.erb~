@@ -12,34 +12,34 @@
   <% end %>
 
 
-  <legend>Ingrese los Datos de la Cuenta</legend>
+  Ingrese los Datos de la Cuenta
 
   <div class="field">
-    <%= f.label :nombre %>:<br />
+    <%= f.label :nombre %><br />
     <%= f.text_field :nombre, :size => 40 %>
   </div>
   <div class="field">
-    <%= f.label :cedula %>:<br />
+    <%= f.label :cedula %><br />
     <%= f.text_field :cedula, :size => 40 %>
   </div>
   <div class="field">
-    <%= f.label :password, 'Clave' %>:<br />
+    <%= f.label :password, 'Clave' %><br />
     <%= f.password_field :password, :size => 40 %>
   </div>
   <div class="field">
-    <%= f.label :password_confirmation, 'Confirmar' %>:<br />
+    <%= f.label :password_confirmation, 'Confirmar' %><br />
     <%= f.password_field :password_confirmation, :size => 40 %>
   </div>
   <div class="field">
-    <%= f.label :correo %>:<br />
+    <%= f.label :correo %><br />
     <%= f.email_field :correo %>
   </div>
   <div class="field">
-    <%= f.label :unid_creditos %>:<br />
+    <%= f.label :unid_creditos %><br />
     <%= f.number_field :unid_creditos %>
   </div>
   <div class="field">
-    <%= f.label :rol, 'Rol' %>:<br />
+    <%= f.label :rol, 'Rol' %><br />
     <%= f.select "rol",
                          "<option value = 'Administrador'>Administrador</option>
                           <option value = 'Estudiante'>Estudiante</option>
@@ -48,7 +48,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :dependencia %>:<br />
+    <%= f.label :dependencia %><br />
     <%= f.collection_select :dependencia_id, Dependencia.all, :id, :nombre %>
   </div>
 

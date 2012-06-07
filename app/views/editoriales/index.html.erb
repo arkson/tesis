@@ -1,23 +1,33 @@
-<h1>Listing editoriales</h1>
 
-<table>
-  <tr>
-    <th>Nombre</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class ="titulo"><h1>Listado de editoriales</h1></div>
+<div class ="busqueda">
+  <%= form_for @search do |f| %>
+    <%= f.label :Buscar, :class => "buscar" %>
+    <%= f.text_field :nombre_contains %>
+    <!-- etc... -->
+    <%= f.submit :buscar%>
+  <% end %>
+</div>
 
+<%= will_paginate @editoriales , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
+
+<table class="tabla_scaffold" width="98%">
 <% @editoriales.each do |editorial| %>
-  <tr>
-    <td><%= editorial.nombre %></td>
-    <td><%= link_to 'Mostrar', editorial %></td>
-    <td><%= link_to 'Editar', edit_editorial_path(editorial) %></td>
-    <td><%= link_to 'Eliminar', editorial, :confirm => '¿Estas seguro?', :method => :delete %></td>
-  </tr>
+<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+<td class="list_description">
+<dl>
+<dt> <%= editorial.nombre %></dt>
+</dl>
+</td>
+<td class="list_actions" width="5%">
+    <%= link_to 'Mostrar', editorial %>
+    <%= link_to 'Editar', edit_editorial_path(editorial) %>
+    <%= link_to 'Eliminar', editorial, :confirm => '¿Estas seguro?', :method => :delete %>
+</td>
+</tr>
 <% end %>
 </table>
-
+<%= will_paginate @editoriales , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
 <br />
 
-<%= link_to 'Nueva Editorial', new_editorial_path %>
+<button id="link"><%= link_to 'Nueva Editorial', new_editorial_path %></button>

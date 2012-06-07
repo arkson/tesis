@@ -1,5 +1,7 @@
 class DependenciasController < ApplicationController
-  
+   
+  before_filter :es_adminitrador
+
   layout "administrador"
 
   # GET /dependencias

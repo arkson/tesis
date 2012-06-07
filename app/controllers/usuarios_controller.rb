@@ -3,8 +3,10 @@ class UsuariosController < ApplicationController
   layout "administrador"
   add_breadcrumb "Inicio", :usuarios_path
   def index
-    @usuarios = Usuario.order(:nombre)
 
+	@search = Usuario.search(params[:search])
+    @usuario = @search.order(:nombre)
+    @usuarios = @usuario.paginate(:page => params[:page], :per_page => 5)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @usuarios }

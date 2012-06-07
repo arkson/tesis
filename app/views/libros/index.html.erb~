@@ -9,9 +9,9 @@
     <%= f.submit :buscar%>
   <% end %>
 </div>
-<div>
+
 <%= will_paginate @libros , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
-</div>
+
 <table class="tabla_scaffold" width="98%">
 <% @libros.each do |libro| %>
 <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">

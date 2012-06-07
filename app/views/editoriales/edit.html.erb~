@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @editorial %> |
-<%= link_to 'Back', editoriales_path %>
+<%= link_to 'Mostrar', @editorial %> |
+<%= link_to 'Eliminar', editoriales_path %>

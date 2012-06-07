@@ -7,8 +7,8 @@ class DependenciasController < ApplicationController
   # GET /dependencias
   # GET /dependencias.json
   def index
-    @dependencias = Dependencia.all
-
+	@search = Dependencia.search(params[:search])
+    @dependencias = @search.paginate(:page => params[:page], :per_page => 5)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @dependencias }

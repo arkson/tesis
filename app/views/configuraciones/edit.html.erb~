@@ -1,4 +1,4 @@
-<h1>Edición de las configuraciones</h1>
+<h1>Configuraciones</h1>
 
 <%= render 'form' %>
 

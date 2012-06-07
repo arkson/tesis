@@ -13,6 +13,10 @@
 	float:left;
   }*/
 
+  .busqueda {
+    float:right;
+	padding-right:20px;
+  }
 
   .buscar
   {
@@ -39,7 +43,20 @@
 	{
 	  background: #777777;
 	}
-  
+  	#links
+  	{
+	  border:0;
+      background: #888888;
+	  color:#ffffff;
+      text-decoration:none;
+  	  padding:5px;
+  	  border-radius: 5px;
+	  cursor:pointer;
+	}  
+	#links:hover
+	{
+	  background: #777777;
+	}
 
   .list_image {
     width:  60px;
@@ -77,5 +94,58 @@
   .list_line_odd {
     background:   #ebf3ff;
   }
+
+  .mostrar
+  {
+ 	background: #fafafa;
+  	border-radius: 5px;	
+	margin:10px 0 10px 0;
+  }
+  .mostrar p 
+  {
+ 	padding: 5px 0 5px 20px;
+  }  
+  .mostrar p b
+  {
+	font-size:14px;
+  }
+  .editar
+  {
+	border:fafafa solid 1px;
+	border-radius: 5px;
+	height:25px;
+  }
+  .editar_titulo
+  {
+	float:left;
+
+  }
+  .editar_opciones
+  {
+	float:right;
+  }
+  div.clear  { clear: both; }
+
+  .formulario
+  {
+ 	background: #fafafa;
+  	border-radius: 5px;	
+	margin: 10px 0 10px 0;
+	padding-bottom:20px;
+  }
+  .formulario label
+  {
+	margin: 25px 4px 0px 4px;
+  }
+  .formulario legend
+  {
+	padding-left: 25px;
+  }
+
+ .nicEdit-panelContain
+  {
+
+  }
+
 .alquilar input[type=submit]{background:#ffffff;}
 /* fin_index */

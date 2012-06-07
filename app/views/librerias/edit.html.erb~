@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @libreria %> |
-<%= link_to 'Back', librerias_path %>
+<%= link_to 'Mostrar', @libreria %> |
+<%= link_to 'Eliminar', librerias_path %>

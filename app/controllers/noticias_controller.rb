@@ -3,8 +3,8 @@ class NoticiasController < ApplicationController
   layout "administrador"
   add_breadcrumb "Inicio", :noticias_path
   def index
-    @noticias = Noticia.all
-
+	@search = Noticia.search(params[:search])
+    @noticias = @search.paginate(:page => params[:page], :per_page => 5)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @noticias }

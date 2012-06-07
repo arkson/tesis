@@ -5,7 +5,8 @@ class ConfiguracionesController < ApplicationController
   layout "administrador"
   add_breadcrumb "Inicio", :configuraciones_path
   def index
-    @configuraciones = Configuracion.all
+	@search = Configuracion.search(params[:search])
+    @configuraciones = @search.paginate(:page => params[:page], :per_page => 5)
 
     respond_to do |format|
       format.html # index.html.erb

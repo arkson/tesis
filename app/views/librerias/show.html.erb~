@@ -12,5 +12,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_libreria_path(@libreria) %> |
-<%= link_to 'Back', librerias_path %>
+<%= link_to 'Editar', edit_libreria_path(@libreria) %> &nbsp
+<%= link_to 'Regresar', librerias_path %>

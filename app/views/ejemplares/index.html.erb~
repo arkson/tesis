@@ -19,8 +19,6 @@
 
 <% @ejemplares.each do |ejemplar| %>
   <tr>
-    <td><%= ejemplar.cota %></td>
-    <td><%= ejemplar.libro.titulo_and_autor %></td>
     <td><%= ejemplar.costo_alquiler %></td>
     <td><%= ejemplar.tipo_adquisicion %></td>
     <td><%= ejemplar.fecha_ingreso %></td>

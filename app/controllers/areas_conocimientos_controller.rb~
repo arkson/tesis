@@ -1,6 +1,6 @@
 class AreasConocimientosController < ApplicationController
   	  
-
+  before_filter :es_adminitrador
 
   layout "administrador"
 
@@ -8,7 +8,8 @@ class AreasConocimientosController < ApplicationController
   # GET /areas_conocimientos.json
   def index
     @areas_conocimientos = AreaConocimiento.all
-
+	@search = AreaConocimiento.search(params[:search])
+    @areas_conocimientos = @search.paginate(:page => params[:page], :per_page => 5)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @areas_conocimientos }

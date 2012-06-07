@@ -13,7 +13,7 @@
 			<span class="price"><%= number_to_currency(ejemplar.costo_alquiler) %></span>
 			<% if not @configuracion.empty? %>
 				<%= button_to 'Agregar', lines_items_path(:ejemplar_id => ejemplar), :remote => true  %>
-			<% end%>
+			<% end %>
 		</div>
 	</div>
 <% end %>

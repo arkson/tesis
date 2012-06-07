@@ -7,8 +7,9 @@ class AlquileresController < ApplicationController
 
 
   def index
-    @alquileres = Alquiler.all
-
+    # @alquileres = Alquiler.all
+	@search = Alquiler.search(params[:search])
+    @alquileres = @search.paginate(:page => params[:page], :per_page => 5)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @alquileres }

@@ -7,8 +7,9 @@ class AlquileresController < ApplicationController
 
 
   def index
-    @alquileres = Alquiler.all
-
+    # @alquileres = Alquiler.all
+	@search = Alquiler.search(params[:search])
+    @libros = @search.paginate(:page => params[:page], :per_page => 5)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @alquileres }
@@ -59,8 +60,8 @@ class AlquileresController < ApplicationController
     #@alquiler = Alquiler.new(params[:alquiler])
 	 @alquiler = Alquiler.new
 	 @config = current_config
-	 print ("_____________________")	
-	 print current_cart.id
+	 @alquiler.configuracion_id = @config[0].id
+	 
 	 @alquiler.limpiar_items_cart(current_cart)	
 	 @alquiler.estatus = 'Prealquilado'
 	 @alquiler.fecha_fin = @config[0].fecha_fin
@@ -75,8 +76,7 @@ class AlquileresController < ApplicationController
 
     respond_to do |format|
       if @alquiler.save
-		  print ("___________________________")
-		  print session[:cart_id]	 	
+		  
 		  Cart.destroy(session[:cart_id])
 		  session[:cart_id] = nil
 	

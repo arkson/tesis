@@ -1,4 +1,7 @@
 class ConfiguracionesController < ApplicationController
+   
+  before_filter :es_adminitrador
+
   layout "administrador"
   add_breadcrumb "Inicio", :configuraciones_path
   def index

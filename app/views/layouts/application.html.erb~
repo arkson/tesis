@@ -4,6 +4,7 @@
   <title>..::Bolsa del Libro::..</title>
   <%= stylesheet_link_tag "application" %>
   <%= javascript_include_tag :application %>
+  <%= javascript_include_tag :application %>
   <%= csrf_meta_tags %>
  
 </head>
@@ -16,7 +17,7 @@
 			<div class="logo"></div> 
 			<div class="panel">
     		<button id="acceder">Iniciar sesi&oacute;n</button>			
-			<%= button_to "Catálogo de libros", inicio_catalogo_path, :id => "catalogo" %>
+			<button id="catalogo"><%= button_to "Catálogo de libros", inicio_catalogo_path, :id => "" %></button>
 			</div>
 		</div>
 
