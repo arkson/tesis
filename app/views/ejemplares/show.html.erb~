@@ -2,7 +2,7 @@
 <p id="notice"><%= notice %></p>
 <% end %>
 
-
+<div class ="mostrar">
 <p>
   <b>Libro:</b>
   <%= @ejemplar.libro.titulo_and_autor %>
@@ -58,7 +58,7 @@
   <b>Libreria:</b>
   <%= @ejemplar.libreria.nombre %>
 </p>
+</div>
 
-
-<%= link_to 'Edit', edit_ejemplar_path(@ejemplar) %> |
-<%= link_to 'Back', ejemplares_path %>
+<%= link_to 'Editar', edit_ejemplar_path(@ejemplar) %> &nbsp
+<%= link_to 'Regresar', ejemplares_path %>

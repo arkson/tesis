@@ -1,5 +1,13 @@
-<h1>Nuevo libro</h1>
 
-<%= render 'form' %>
+<div class = "editar">
+	<div class = "editar_titulo"><h1>Nuevo libro</h1></div>
 
-<%= link_to 'Atrás', libros_path %>
+	<div class = "editar_opciones">
+	<%= link_to 'Regresar', libros_path, :id => "links" %>
+	</div>
+	<div class="clear"></div>
+</div>
+
+<div class = "formulario"><%= render 'form' %></div>
+
+

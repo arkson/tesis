@@ -1,5 +1,12 @@
-<h1>New configuracion</h1>
 
-<%= render 'form' %>
 
-<%= link_to 'Regresar', configuraciones_path %>
+<div class = "editar">
+	<div class = "editar_titulo"><h1>Nueva configuración</h1></div>
+
+	<div class = "editar_opciones">
+	<%= link_to 'Regresar', configuraciones_path, :id => "links" %>
+	</div>
+	<div class="clear"></div>
+</div>
+
+<div class = "formulario"><%= render 'form' %></div>

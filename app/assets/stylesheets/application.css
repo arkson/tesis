@@ -65,6 +65,7 @@ label {
 select, textarea, input[type=file], input[type=checkbox] {
   margin-left: 0.5em;
 }
+
 .usuario{ color:#ffffff; }
 #notice p
 {

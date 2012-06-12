@@ -1,5 +1,11 @@
-<h1>New editorial</h1>
 
-<%= render 'form' %>
+<div class = "editar">
+	<div class = "editar_titulo"><h1>Nueva editorial</h1></div>
 
-<%= link_to 'Regresar', editoriales_path %>
+	<div class = "editar_opciones">
+	<%= link_to 'Regresar', editoriales_path, :id => "links" %>
+	</div>
+	<div class="clear"></div>
+</div>
+
+<div class = "formulario"><%= render 'form' %></div>

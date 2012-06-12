@@ -2,4 +2,15 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Back', dependencias_path %>
+<%= link_to 'Regresar', dependencias_path %>
+
+<div class = "editar">
+	<div class = "editar_titulo"><h1>Nueva dependencia</h1></div>
+
+	<div class = "editar_opciones">
+	<%= link_to 'Regresar', dependencias_path, :id => "links" %>
+	</div>
+	<div class="clear"></div>
+</div>
+
+<div class = "formulario"><%= render 'form' %></div>

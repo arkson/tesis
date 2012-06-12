@@ -1,12 +1,12 @@
 <% if notice %>
 <p id="notice"><%= notice %></p>
 <% end %>
-
+<div class ="mostrar">
 <p>
   <b>Nombre:</b>
   <%= @editorial.nombre %>
 </p>
+</div>
 
-
-<%= link_to 'Editar', edit_editorial_path(@editorial) %> |
-<%= link_to 'Regresar', editoriales_path %>
+<%= link_to 'Editar', edit_editorial_path(@editorial), :id => "links" %> &nbsp
+<%= link_to 'Regresar', editoriales_path, :id => "links" %>

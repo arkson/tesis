@@ -62,6 +62,9 @@
   <%= @alquiler.estatus %>
 </p>
 
-
-<%= link_to 'Edit', edit_alquiler_path(@alquiler) %> |
-<%= link_to 'Back', alquileres_path %>
+<% if Usuario.find(session[:usuario_id]).rol == 'Administrador' %>
+<%= link_to 'Editar', edit_alquiler_path(@alquiler) %> |
+<%= link_to 'Atrás', alquileres_path %>
+<% else %>
+<%= link_to 'Atrás', ppal_estudiante_ver_alquiler_path %>
+<% end %>

@@ -1,11 +1,12 @@
 <% if notice %>
 <p id="notice"><%= notice %></p>
-
+<% end %>
+<div class ="mostrar">
 <p>
   <b>Nombre:</b>
   <%= @area_conocimiento.nombre %>
 </p>
-
+</div>
 
 <%= link_to 'Editar', edit_area_conocimiento_path(@area_conocimiento) %> |
 <%= link_to 'Regresar', areas_conocimientos_path %>

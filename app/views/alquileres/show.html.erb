@@ -1,6 +1,7 @@
 <% if notice %>
 <p id="notice"><%= notice %></p>
 <% end %>
+<div class ="mostrar">
 <p>
   <b>Usuario:</b>
   <%= @alquiler.usuario.nombre %>
@@ -61,10 +62,11 @@
   <b>Estatus:</b>
   <%= @alquiler.estatus %>
 </p>
+</div>
 
 <% if Usuario.find(session[:usuario_id]).rol == 'Administrador' %>
-<%= link_to 'Editar', edit_alquiler_path(@alquiler) %> |
-<%= link_to 'Atrás', alquileres_path %>
+<%= link_to 'Editar', edit_alquiler_path(@alquiler), :id => "links" %>&nbsp
+<%= link_to 'Atrás', alquileres_path, :id => "links" %>
 <% else %>
-<%= link_to 'Atrás', ppal_estudiante_ver_alquiler_path %>
+<%= link_to 'Atrás', ppal_estudiante_ver_alquiler_path, :id => "links" %>
 <% end %>

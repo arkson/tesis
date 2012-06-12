@@ -1,5 +1,11 @@
-<h1>Nueva area de conocimiento</h1>
 
-<%= render 'form' %>
+<div class = "editar">
+	<div class = "editar_titulo"><h1>Nueva area de conocimiento</h1></div>
 
-<%= link_to 'Regresar', areas_conocimientos_path %>
+	<div class = "editar_opciones">
+	<%= link_to 'Regresar', areas_conocimientos_path, :id => "links" %>
+	</div>
+	<div class="clear"></div>
+</div>
+
+<div class = "formulario"><%= render 'form' %></div

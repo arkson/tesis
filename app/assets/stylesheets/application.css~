@@ -59,11 +59,14 @@ label {
     display: block;
     width: 150px;
     float: left;
-    margin: 25px 4px 0px 4px;
+    margin: 15px 4px 0px 4px;
     text-align: right;
 }
 select, textarea, input[type=file], input[type=checkbox] {
   margin-left: 0.5em;
+}
+textarea {
+  border:red solid 2px;
 }
 .usuario{ color:#ffffff; }
 #notice p

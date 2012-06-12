@@ -1,38 +1,41 @@
-<h1>Listado de ejemplares</h1>
 
-<table>
-  <tr>
-    <th>Cota</th>
-    <th>Libro</th>
-    <th>Costo alquiler</th>
-    <th>Tipo adquisicion</th>
-    <th>Fecha ingreso</th>
-    <th>Nro factura</th>
-    <th>En uso</th>
-    <th>Estatus ejemplar</th>
-    <th>Libro</th>
-    <th>Libreria</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
+<div class ="titulo"><h1>Listado de ejemplares</h1></div>
+<div class ="busqueda">
+  <%= form_for @search do |f| %>
+    <%= f.label :Buscar, :class => "buscar" %>
+    <%= f.text_field :cota_or_isbn_or_titulo_contains %>
+    <!-- etc... -->
+    <%= f.submit :buscar%>
+  <% end %>
+</div>
+
+<%= will_paginate @ejemplares , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
+
+<table class="tabla_scaffold" width="98%">
 <% @ejemplares.each do |ejemplar| %>
-  <tr>
-    <td><%= ejemplar.costo_alquiler %></td>
-    <td><%= ejemplar.tipo_adquisicion %></td>
-    <td><%= ejemplar.fecha_ingreso %></td>
-    <td><%= ejemplar.nro_factura %></td>
-    <td><%= ejemplar.en_uso %></td>
-    <td><%= ejemplar.estatus_ejemplar %></td>
-    <td><%= ejemplar.libreria.nombre %></td>
-    <td><%= link_to 'Mostrar', ejemplar %></td>
-    <td><%= link_to 'Editar', edit_ejemplar_path(ejemplar) %></td>
-    <td><%= link_to 'Eliminar', ejemplar, :confirm => '¿Estas seguro?', :method => :delete %></td>
-  </tr>
+<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+<td width="5%">
+<%= image_tag(libro.imagen.url(:thumb),:class => 'list_image') %>
+</td>
+<td class="list_description">
+<dl>
+<dt><%= ejemplar.cota %></dt>
+<dd><%= ejemplar.libro.titulo_and_autor %></dd>
+<dd>Autor: <%= ejemplar.costo_alquiler %></dd>
+<dd>Isbn: <%= libro.isbn %></dd>
+</dl>
+</td>
+<td class="list_actions" width="5%">
+<%= link_to 'Mostrar', ejemplar %><br />
+<%= link_to 'Editar', edit_ejemplar_path(ejemplar) %><br />
+<%= link_to 'Eliminar', ejemplar, :confirm => '¿Estas seguro?', :method => :delete %>
+</td>
+</tr>
 <% end %>
 </table>
+<%= will_paginate @ejemplares , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
 
 <br />
 
-<p><%= link_to 'Nuevo Ejemplar', new_ejemplar_path %></p>
+<%= link_to 'Nuevo Ejemplar', new_ejemplar_path, :id => "links" %>

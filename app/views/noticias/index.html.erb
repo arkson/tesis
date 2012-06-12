@@ -17,7 +17,7 @@
 <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
 <td class="list_description">
 <dl>
-<dt> Título: <%= noticia.titulo %></dt>
+<dt> <%= noticia.titulo %></dt>
 <dd> <%= truncate(noticia.contenido, :length => 50) %></dd>
 <dd> Tipo de contenido: <%= noticia.tipo_contenido %></dd>
 <dd>Fecha: <%= noticia.fecha %></dd>

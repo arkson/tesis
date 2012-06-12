@@ -7,8 +7,10 @@ class EjemplaresController < ApplicationController
   # GET /ejemplares
   # GET /ejemplares.json
   def index
-    @ejemplares = Ejemplar.all
 	add_breadcrumb "ejemplares", ejemplares_index_path 
+	@search = Ejemplar.search(params[:search])
+    @ejemplares = @search.paginate(:page => params[:page], :per_page => 5)
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @ejemplares }
