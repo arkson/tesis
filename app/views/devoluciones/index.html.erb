@@ -1,0 +1,29 @@
+<h1>Listing devoluciones</h1>
+
+<table>
+  <tr>
+    <th>Alquiler</th>
+    <th>Fecha</th>
+    <th>Estatus</th>
+    <th>Line item</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @devoluciones.each do |devolucion| %>
+  <tr>
+    <td><%= devolucion.alquiler %></td>
+    <td><%= devolucion.fecha %></td>
+    <td><%= devolucion.estatus %></td>
+    <td><%= devolucion.line_item %></td>
+    <td><%= link_to 'Show', devolucion %></td>
+    <td><%= link_to 'Edit', edit_devolucion_path(devolucion) %></td>
+    <td><%= link_to 'Destroy', devolucion, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Devolucion', new_devolucion_path %>

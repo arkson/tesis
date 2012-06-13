@@ -1,5 +1,7 @@
 Tesis::Application.routes.draw do
   
+  resources :devoluciones
+
   resources :alquileres
 
   resources :configuraciones

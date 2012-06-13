@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120607012707) do
+ActiveRecord::Schema.define(:version => 20120613223341) do
 
   create_table "alquileres", :force => true do |t|
     t.integer  "usuario_id"
@@ -55,6 +55,18 @@ ActiveRecord::Schema.define(:version => 20120607012707) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "devoluciones", :force => true do |t|
+    t.integer  "alquiler_id"
+    t.date     "fecha"
+    t.string   "estatus"
+    t.integer  "line_item_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "devoluciones", ["alquiler_id"], :name => "index_devoluciones_on_alquiler_id"
+  add_index "devoluciones", ["line_item_id"], :name => "index_devoluciones_on_line_item_id"
 
   create_table "editoriales", :force => true do |t|
     t.string   "nombre"

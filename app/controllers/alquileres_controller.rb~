@@ -9,7 +9,7 @@ class AlquileresController < ApplicationController
   def index
     # @alquileres = Alquiler.all
 	@search = Alquiler.search(params[:search])
-    @libros = @search.paginate(:page => params[:page], :per_page => 5)
+    @alquileres = @search.paginate(:page => params[:page], :per_page => 5)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @alquileres }
@@ -54,6 +54,9 @@ class AlquileresController < ApplicationController
     @alquiler = Alquiler.find(params[:id])
   end
 
+
+  
+
   # POST /alquileres
   # POST /alquileres.json
   def create 	
@@ -65,28 +68,42 @@ class AlquileresController < ApplicationController
 	 @alquiler.limpiar_items_cart(current_cart)	
 	 @alquiler.estatus = 'Prealquilado'
 	 @alquiler.fecha_fin = @config[0].fecha_fin
-     @alquiler.usuario = Usuario.find(session[:usuario_id])
+    @alquiler.usuario = Usuario.find(session[:usuario_id])
 	
 
 	@alquiler.line_item.each do |item|
 		@ejem = Ejemplar.find(item.ejemplar_id)
 		@ejem.estatus_ejemplar = 'Prealquilado'	
-		@ejem.save	
+		@ejem.save
 	end	
-
-    respond_to do |format|
+		
+  respond_to do |format|
       if @alquiler.save
 		  
 		  Cart.destroy(session[:cart_id])
 		  session[:cart_id] = nil
-	
+
+		  @alquiler.line_item.each do |item|
+				@devolucion = Devolucion.new
+				@devolucion.alquiler_id = @alquiler.id
+				@devolucion.estatus = "Sin devolver"
+				@devolucion.line_item_id = item.id
+				@devolucion.save	
+		  end	
+
         format.html { redirect_to ppal_estudiante_index_path, :notice => 'Alquiler was successfully created.' }
         format.json { render :json => @alquiler, :status => :created, :location => @alquiler }
+			  		
+		
       else
         format.html { render :action => "new" }
         format.json { render :json => @alquiler.errors, :status => :unprocessable_entity }
       end
     end
+
+
+
+
   end
 
   # PUT /alquileres/1

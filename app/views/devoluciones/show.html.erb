@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Alquiler:</b>
+  <%= @devolucion.alquiler %>
+</p>
+
+<p>
+  <b>Fecha:</b>
+  <%= @devolucion.fecha %>
+</p>
+
+<p>
+  <b>Estatus:</b>
+  <%= @devolucion.estatus %>
+</p>
+
+<p>
+  <b>Line item:</b>
+  <%= @devolucion.line_item %>
+</p>
+
+
+<%= link_to 'Edit', edit_devolucion_path(@devolucion) %> |
+<%= link_to 'Back', devoluciones_path %>

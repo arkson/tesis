@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  alquiler: 
+  fecha: 2012-06-13
+  estatus: MyString
+  line_item: 
+
+two:
+  alquiler: 
+  fecha: 2012-06-13
+  estatus: MyString
+  line_item: 
