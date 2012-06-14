@@ -1,6 +1,8 @@
 class Alquiler < ActiveRecord::Base
   has_many :line_item
+  has_many :devolucion
   belongs_to :usuario
+  belongs_to :configuracion
 
 def add_line_items_from_cart(cart )
 	
@@ -10,6 +12,8 @@ def add_line_items_from_cart(cart )
 	end
 		
 end
+
+
 
 
 def limpiar_items_cart(cart)
@@ -27,15 +31,11 @@ def total_price
 end
 
 
-def total_ejemplares(usuario_id) 
-	prealquilado = 'Prealquilado'
-	alquilado = 'Alquilado'
-	#line_item.count(:all)
-	#line_item.count(:conditions => ' alquiler.usuario_id = :usuario_id AND ejemplar.estatus_ejemplar = :prealquilado OR ejemplar.estatus_ejemplar = :alquilado ', {:prealquilado => prealquilado, :alquilado => alquilado, :usuario_id => usuario_id }   )	
 
- 	
-	line
-
+def total_libros
+	
+	line_item.to_a.count
+	
 
 end	
 

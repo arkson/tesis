@@ -88,7 +88,7 @@ class AlquileresController < ApplicationController
 				@devolucion.estatus = "Sin devolver"
 				@devolucion.line_item_id = item.id
 				@devolucion.save	
-		  end	
+		end	
         format.html { redirect_to ppal_estudiante_index_path, :notice => 'Alquiler was successfully created.' }
         format.json { render :json => @alquiler, :status => :created, :location => @alquiler }
 			  		
@@ -119,6 +119,7 @@ class AlquileresController < ApplicationController
       end
     end
   end
+
 
   # DELETE /alquileres/1
   # DELETE /alquileres/1.json

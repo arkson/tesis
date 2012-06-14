@@ -29,18 +29,24 @@
 		 <th>Edicion</th>
 		 <th>Año</th>
 		 <th>Precio</th>
-		 <th></th>
+		 <th>Estatus</th>
 		 <th></th>
 	  </tr>
 
 		<% @alquiler.line_item.each do |item| %>
 			<tr>
-				<td><%= item.ejemplar.cota %></td>
-				<td><%= item.ejemplar.libro.titulo %></td>
-				<td><%= item.ejemplar.libro.autor %></td>
-				<td><%= item.ejemplar.libro.edicion %></td>
- 				<td><%= item.ejemplar.libro.ano %></td>
-				<td><%= number_to_currency(item.ejemplar.costo_alquiler) %></td>	
+			<td><%= item.ejemplar.cota %></td>
+			<td><%= item.ejemplar.libro.titulo %></td>
+			<td><%= item.ejemplar.libro.autor %></td>
+			<td><%= item.ejemplar.libro.edicion %></td>
+			<td><%= item.ejemplar.libro.ano %></td>
+			<td><%= number_to_currency(item.ejemplar.costo_alquiler) %></td> 
+			<td><%= item.estatus_devolucion %><td>
+					
+			<td><% if Usuario.find(session[:usuario_id]).rol == "Administrador" or Usuario.find(session[:usuario_id]).rol == "Operador"  %>
+				<%= button_to 'Devolver', devoluciones_path(:line_item_id => item.id, :alquiler_id => @alquiler.id), :method => :edit %>
+			<% end %></	td>	
+			
 			</tr> 
 		<% end %>
 		<tr>
@@ -55,11 +61,11 @@
 		<tr>		  		
 	</table>
 	
-
+ <% if Usuario.find(session[:usuario_id]).rol == "Estudiante" %>
   <div class="actions">
 	<%= button_to "Alquilar", @alquiler, :method => :post %>
 
   </div>
-
+ <% end %>
 
 

@@ -1,5 +1,6 @@
 class Alquiler < ActiveRecord::Base
   has_many :line_item
+  has_many :devolucion
   belongs_to :usuario
   belongs_to :configuracion
 
