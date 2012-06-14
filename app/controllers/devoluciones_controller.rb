@@ -58,13 +58,14 @@ class DevolucionesController < ApplicationController
   def update
     @devolucion = Devolucion.find(params[:id])
     @devolucion.estatus = "Devuelto"
+	@alquiler = Alquiler.find(@devolucion.alquiler_id)
     respond_to do |format|
       if @devolucion.update_attributes(params[:devolucion])
-        format.html { redirect_to @devolucion, :notice => 'Devolucion was successfully updated.' }
+        format.html { redirect_to @alquiler, :notice => 'Devolucion was successfully updated.' }
         format.json { head :ok }
       else
         format.html { render :action => "edit" }
-        format.json { render :json => @devolucion.errors, :status => :unprocessable_entity }
+        format.json { render :json => @alquiler.errors, :status => :unprocessable_entity }
       end
     end
   end

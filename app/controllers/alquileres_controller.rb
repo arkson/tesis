@@ -108,7 +108,14 @@ class AlquileresController < ApplicationController
   # PUT /alquileres/1.json
   def update
     @alquiler = Alquiler.find(params[:id])
+	@alquiler.estatus = "Alquilado" 
 
+    @alquiler.devolucion.each do |dev|
+		@devolucion = Devolucion.find(dev.id) 	
+		@devolucion.estatus = "Sin entregar"
+		@devolucion.save 
+	end
+	
     respond_to do |format|
       if @alquiler.update_attributes(params[:alquiler])
         format.html { redirect_to @alquiler, :notice => 'Alquiler was successfully updated.' }

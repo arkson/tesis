@@ -43,12 +43,18 @@
 			<td><%= number_to_currency(item.ejemplar.costo_alquiler) %></td> 
 			<td><%= item.estatus_devolucion %><td>
 					
-			<td><% if Usuario.find(session[:usuario_id]).rol == "Administrador" or Usuario.find(session[:usuario_id]).rol == "Operador" and @alquiler.estatus == "Alquilado"  %>
-				<%= button_to 'Devolver', devoluciones_path(:line_item_id => item.id, :alquiler_id => @alquiler.id), :method => :edit %>
+			<td><% if Usuario.find(session[:usuario_id]).rol == "Administrador" or Usuario.find(session[:usuario_id]).rol == "Operador" and @alquiler.estatus == "Alquilado" and item.estatus_devolucion == "Sin entregar" %>
+						
+				<%= button_to 'Devolver', devoluciones_path(:line_item_id => item.id, :alquiler_id => @alquiler.id), :method => :put %>
+				<%= button_to "Acknowledged", { :controller => 'devoluciones', :line_item_id => item.id }, :method => :put %>
+
+
 			<% end %></	td>	
 			
 			</tr> 
 		<% end %>
+
+
 		<tr>
 			
 			<td> </td>
@@ -64,7 +70,10 @@
 
 <p>
   <b>Estatus:</b>
-  <%= @alquiler.estatus %> <%= button_to "Alquilar", @alquiler, :method => :put %>
+  <%= @alquiler.estatus %> 
+  <% if Usuario.find(session[:usuario_id]).rol == "Administrador" or Usuario.find(session[:usuario_id]).rol == "Operador" and @alquiler.estatus == "Prealquilado"  %>
+	<%= button_to "Entregar libros", @alquiler, :method => :put %>
+  <% end %>	
 </p>
 	
  <% if Usuario.find(session[:usuario_id]).rol == "Estudiante" %>
