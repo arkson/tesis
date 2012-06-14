@@ -29,7 +29,7 @@
 		 <th>Edicion</th>
 		 <th>Año</th>
 		 <th>Precio</th>
-		 <th></th>
+		 <th>Estatus</th>
 		 <th></th>
 	  </tr>
 
@@ -40,7 +40,8 @@
 				<td><%= item.ejemplar.libro.autor %></td>
 				<td><%= item.ejemplar.libro.edicion %></td>
  				<td><%= item.ejemplar.libro.ano %></td>
-				<td><%= number_to_currency(item.ejemplar.costo_alquiler) %></td>	
+				<td><%= number_to_currency(item.ejemplar.costo_alquiler) %></td>
+				<td><%= item.estatus_devolucion %><td>	
 			</tr> 
 		<% end %>
 		<tr>

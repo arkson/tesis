@@ -85,7 +85,7 @@ class AlquileresController < ApplicationController
 		  @alquiler.line_item.each do |item|
 				@devolucion = Devolucion.new
 				@devolucion.alquiler_id = @alquiler.id
-				@devolucion.estatus = "Sin devolver"
+				@devolucion.estatus = "Sin retirar"
 				@devolucion.line_item_id = item.id
 				@devolucion.save	
 		end	
