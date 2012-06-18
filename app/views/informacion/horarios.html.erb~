@@ -1,15 +1,14 @@
-<%= will_paginate @horarios , :prev_label => "Anterior", :next_label => "Siguiente" %>
-
- <table>
-
+<table>
 
 <% @horarios.each do |horario| %>
-  <tr>
-    <td><%= sanitize(horario.titulo) %></td></br>
-    <td> <%= image_tag(horario.imagen.url(:thumb),:class => 'list_image') %></td>
-    <td><%= sanitize(horario.contenido) %></td>
-     </tr>
+	  <tr>
+		<td><%= sanitize(horario.titulo) %></td>
+	  </tr>
+	  <tr>
+		<td><%= sanitize(horario.contenido) %></td>
+	  </tr>
 <% end %>
+
 </table>
 
-<br />
+<%= will_paginate @horarios , :prev_label => "Anterior", :next_label => "Siguiente" %>

@@ -1,10 +1,4 @@
-
-  
-
-<%= will_paginate @historias , :prev_label => "Anterior", :next_label => "Siguiente" %>
- <div class = "informacion">
- <table>
-
+<table>
 
 <% @historias.each do |historia| %>
 	  <tr>
@@ -14,6 +8,7 @@
 		<td><%= sanitize(historia.contenido) %></td>
 	  </tr>
 <% end %>
-</table>
-</div>
 
+</table>
+
+<%= will_paginate @historias , :prev_label => "Anterior", :next_label => "Siguiente" %>

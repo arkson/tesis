@@ -1,15 +1,8 @@
-
+<h2><%= pluralize(@configuraciones.errors.count, "error") %> prohibited this dependencia from being saved:</h2>
 
 
 <div class ="titulo"><h1>Listado de configuraciones</h1></div>
-<div class ="busqueda">
-  <%= form_for @search do |f| %>
-    <%= f.label :Buscar, :class => "buscar" %>
-    <%= f.text_field :fecha_inicio_contains %>
-    <!-- etc... -->
-    <%= f.submit :buscar%>
-  <% end %>
-</div>
+
 
 <%= will_paginate @configuraciones , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
 
@@ -30,7 +23,7 @@
 <td class="list_actions" width="5%">
     <%= link_to 'Mostrar', configuracion %>
     <%= link_to 'Editar', edit_configuracion_path(configuracion) %>
-    <%= link_to 'Eliminar', configuracion, :confirm => 'Are you sure?', :method => :delete %>
+    <%= link_to 'Eliminar', configuracion, :confirm => 'Estas Seguro(a)?', :method => :delete %>
 </td>
 </tr>
 <% end %>

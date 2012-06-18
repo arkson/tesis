@@ -65,15 +65,25 @@ label {
 select, textarea, input[type=file], input[type=checkbox] {
   margin-left: 0.5em;
 }
-textarea {
-  border:red solid 2px;
-}
+
 .usuario{ color:#ffffff; }
-#notice p
+
+
+.alerta
 {
-  border:0;
-  background: none;
+  border:none;
+  background:none;
+  color:red;
+  font-size:12px;
+}
+
+.notice
+{
+  border:none;
+  background:none;
   color:#0070ba;
+  font-size:12px;
+  font-weight:bold;
 }
 /* 
 .wrapper 
@@ -118,6 +128,12 @@ textarea {
 	  margin:30px 0 0 40px;
 	  position:absolute;	
 	}
+		.logo a
+		{
+		  height: 134px;
+		  width:173px;
+	  position:absolute;
+		}
 /* Fin Cabecera */	
 
 /* Inicio bordes */	
@@ -141,13 +157,12 @@ textarea {
 /* Inicio Contenido */
 .Contenido
 {
-  margin: 50px 0 50px 0;
+  margin: 50px 0 50px 250px;
   min-height:250px; 
-  width: 100%; 
-  	  line-height:25px;
-	  text-align:justify;
-	  width:75%;	
-	padding-left:40px;
+  line-height:25px;
+  text-align:justify;
+  width:63%;
+  min-width:63%;
 }
 .Contenido_estud
 {
@@ -248,7 +263,7 @@ textarea {
 }
 .Footer-text li
 {
-color:#ffffff;
+  color:#ffffff;
 }
 .Footer ul 
 {
@@ -262,6 +277,14 @@ color:#ffffff;
   text-decoration: underline;
   cursor:pointer;
 }
-
+.Footer .nolink:hover
+{
+  text-decoration: none;
+  cursor:none;
+}
+.Footer .link a
+{
+  color:#ffffff;
+}
 /* end Footer */
 

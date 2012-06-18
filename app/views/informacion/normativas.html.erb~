@@ -1,6 +1,5 @@
-<%= will_paginate @normativas , :prev_label => "Anterior", :next_label => "Siguiente" %>
-<div class = "informacion">
 <table>
+
 <% @normativas.each do |normativa| %>
 	  <tr>
 		<td><%= sanitize(normativa.titulo) %></td>
@@ -9,5 +8,7 @@
 		<td><%= sanitize(normativa.contenido) %></td>
 	  </tr>
 <% end %>
+
 </table>
-</div>
+
+<%= will_paginate @normativas , :prev_label => "Anterior", :next_label => "Siguiente" %>

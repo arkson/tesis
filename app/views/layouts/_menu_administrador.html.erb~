@@ -1,48 +1,14 @@
-<style>
-		#accordion
-		{
-		  width:200px;
-		  margin:0 40px 0 0;
-		  float:right;
-		}
-		  #accordion div
-		  {
-		    padding:10px 0 0 15px;
-		    color:#555555;
-		  }
- 		  #accordion h3
-		  {
-		   padding:10px 0 0 15px;
-		   background:#0070ba;
-		   margin:1px;
-		  }
- 		  #accordion h3 a
-		  { 
-		   color:#ffffff;
-		   line-height:20px;
-		  }
-		  #accordion a
-		  {
-		   text-decoration:none;
-		   color:#555555;
-		   line-height:20px;			
-		  }
-		  #accordion a:hover
-		  {
-		   text-decoration:none;
-		   color:#333333;			
-		  }
-	</style>
+
 	<script>
 	$(function() {
 		$( "#accordion" ).accordion({
-eventType: 'click',
-autoClose: false,
-saveState: true,
-disableLink: true,
-showCount: true,
-speed: 'fast'
-		})
+			eventType: 'click',
+			autoClose: false,
+			saveState: true,
+			disableLink: true,
+			showCount: true,
+			speed: 'fast'
+					})
 	});
 	$(function() {
 		$( "#accordionResizer" ).resizable({
@@ -60,18 +26,18 @@ speed: 'fast'
 
 
 <div id="accordion">
-	<h3><%= link_to "Inicio", ppal_admin_index_path, :class => "" %></h3>
+	<h3>Inicio</h3>
 	<div>
-		<p>
-		Menu principal del modulo de administrador
-		</p>
+		
+		<%= link_to "Menú principal del administrador del sitema", ppal_admin_index_path, :class => "" %>
+		
 	</div>
 	<h3><a href="#">Mantenimiento</a></h3>
 	<div>
 		<ul>
 
 			<li><%= link_to "Alquileres", alquileres_path, :class => "" %></li>
-            		<li><%= link_to "Areas de Conocimiento", areas_conocimientos_index_path, :class => "" %></li>
+            <li><%= link_to "Areas de Conocimiento", areas_conocimientos_index_path, :class => "" %></li>
 			<li><%= link_to "Configuraciones", configuraciones_path, :class => "" %></li>
 			<li><%= link_to "Dependencias", dependencias_index_path, :class => "" %></li>
 			<li><%= link_to "Editoriales", editoriales_index_path, :class => "" %></li>

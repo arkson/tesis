@@ -1,6 +1,7 @@
+<%= render(:partial => "layouts/login") %>
 
-<div class = "informacion">
- <table>
+<table>
+
 <% @horarios.each do |horario| %>
 	  <tr>
 		<td><%= sanitize(horario.titulo) %></td>
@@ -9,6 +10,7 @@
 		<td><%= sanitize(horario.contenido) %></td>
 	  </tr>
 <% end %>
+
 </table>
-</div>
+
 <%= will_paginate @horarios , :prev_label => "Anterior", :next_label => "Siguiente" %>

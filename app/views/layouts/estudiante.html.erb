@@ -13,7 +13,7 @@
 	<% usuario = Usuario.find(session[:usuario_id]) %>
 		<%= render(:partial => "layouts/menu") %>
 		<div class="Header">
-			<div class="logo"></div> 
+			<div class="logo"><%= link_to "", ppal_estudiante_index_path %></div> 
 			<div class="panel">
     		<a class = "usuario">Usuario: <%= usuario.nombre %></a> <% if session[:usuario_id] %> <%= button_to 'Cerrar Sesion', logout_path, :method => :delete, :class => 'cerrar-sesion' %><% end %>
 			</div>
@@ -48,31 +48,31 @@
 	<div class="Footer">
 			<div class="Footer-text">
 				<ul>
-					<li>Informaci&oacute;n General</li>
-					<li>Informes de Gesti&oacute;n</li>
+					<li class ="nolink">Información General</li>
+					<li>Informes de Gestión</li>
 					<li>Catálogo de libros</li>
 					<li>Nuevas Adquisiciones</li>
-					<li>Publicaciones Peri&oacute;dicas</li>
+					<li>Publicaciones Periódicas</li>
 					<li>Bases de Datos</li>
 					<li>Sugerencia</li>
 				</ul>
 				<ul>
-					<li>Enlaces de Inter&eacute;s:</li>
-					<li>Centro de Computaci&oacute;n</li>
+					<li class ="nolink">Enlaces de Interés:</li>
+					<li>Centro de Computación</li>
 					<li>Control de Estudios</li>
 					<li>Servicio Comunitario</li>
 					<li>CENEAC</li>
 					<li>LOCTI</li>
-					<li>Servicio de Orientaci&oacute;n</li>
+					<li>Servicio de Orientación</li>
 				</ul>
 				<ul>
-					<li>Av. Los Ilustres,</li>
-					<li>Los Chaguaramos.</li>
-					<li>Facultad de Ciencias,</li>
-					<li>Universidad Central de Venezuela.</li>
-					<li>Caracas zona postal 1040</li>
-					<li>Apartado Postal 20513</li>
-					<li>Teléfono: (58212) 6051671/ 1665 / 2136 (FAX)</li>
+					<li class ="nolink">Av. Los Ilustres,</li>
+					<li class ="nolink">Los Chaguaramos.</li>
+					<li class ="link"><a href="http://www.ciens.ucv.ve" target="_blank">Facultad de Ciencias,</a></li>
+					<li class ="link"><a href="http://www.ucv.ve" target="_blank">Universidad Central de Venezuela.</a></li>
+					<li class ="nolink">Caracas zona postal 1040</li>
+					<li class ="nolink">Apartado Postal 20513</li>
+					<li class ="nolink">Teléfono: (58212) 6051671/ 1665 / 2136 (FAX)</li>
 				</ul>					
 			</div>
 	</div>

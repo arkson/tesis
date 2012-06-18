@@ -16,7 +16,9 @@
 <% @libros.each do |libro| %>
 <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
 <td width="5%">
+
 <%= image_tag(libro.imagen.url(:thumb),:class => 'list_image') %>
+
 </td>
 <td class="list_description">
 <dl>

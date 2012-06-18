@@ -9,18 +9,4 @@
 //= require jquery_ujs
 //= require_tree .
 
-<script type="text/javascript">
-$(function (){
 
-    $('#nav ul li a').each(function(){
-        var path = window.location.href;
-        var current = path.substring(path.lastIndexOf('/')+1);
-        var url = $(this).attr('href');
-
-        if(url == current){
-            $(this).addClass('active');
-        };
-    });         
-});
-
-</script>

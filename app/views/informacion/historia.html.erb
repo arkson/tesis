@@ -1,10 +1,6 @@
+<%= render(:partial => "layouts/login") %>
 
-  
-
-
- <div class = "informacion">
- <table>
-
+<table>
 
 <% @historias.each do |historia| %>
 	  <tr>
@@ -14,6 +10,7 @@
 		<td><%= sanitize(historia.contenido) %></td>
 	  </tr>
 <% end %>
+
 </table>
-</div>
+
 <%= will_paginate @historias , :prev_label => "Anterior", :next_label => "Siguiente" %>

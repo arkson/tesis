@@ -19,11 +19,11 @@ class SesionesController < ApplicationController
 					redirect_to ppal_estudiante_index_url
 			end
 		else
-			redirect_to inicio_index_url, :alert => "Combinacion de Usuario/clave invalido(a)"
+			redirect_to inicio_index_url, :alert => "Combinación de Usuario/clave inválido(a)"
 		end
 
 	else
-		redirect_to inicio_index_url, :alert => "Captcha Invalido"
+		redirect_to inicio_index_url, :alert => "Texto de la imágen Inválido"
 	end
 
   end

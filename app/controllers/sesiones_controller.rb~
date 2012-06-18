@@ -21,6 +21,7 @@ class SesionesController < ApplicationController
 		else
 			redirect_to inicio_index_url, :alert => "Combinacion de Usuario/clave invalido(a)"
 		end
+
 	else
 		redirect_to inicio_index_url, :alert => "Captcha Invalido"
 	end

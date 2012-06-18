@@ -14,11 +14,7 @@ class InicioController < ApplicationController
   
   def catalogo
 	@lib = Libro.all
-	@libros =  @lib.paginate(:page => params[:page], :per_page => 30)
-	respond_to do |format|
-      format.html # index.html.erb
-      format.json { render :json => @noticias }
-    end
+
   end
 
  def olvido_clave

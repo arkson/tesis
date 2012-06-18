@@ -1,7 +1,5 @@
-
-<%= will_paginate @servicios , :prev_label => "Anterior", :next_label => "Siguiente" %>
-<div class = "informacion">
 <table>
+
 <% @servicios.each do |servicio| %>
 	  <tr>
 		<td><%= sanitize(servicio.titulo) %></td>
@@ -10,5 +8,7 @@
 		<td><%= sanitize(servicio.contenido) %></td>
 	  </tr>
 <% end %>
+
 </table>
-</div>
+
+<%= will_paginate @servicios , :prev_label => "Anterior", :next_label => "Siguiente" %>

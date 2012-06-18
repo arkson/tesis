@@ -3,7 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-
 /* Estilos para la informacion del inicio */
 	.panel
 	{
@@ -39,17 +38,8 @@
 	  cursor:pointer;
 	  text-decoration:underline;
 	}
-	#catalogo
-	{
-	  border:0;
-      background: #888888;
-  	  color:#ffffff;
-  	  height:25px;
-  	  border-radius: 5px;
-      text-decoration:none;
-	  cursor:pointer;
-	}
-	.panel #acceder:hover,#catalogo:hover
+
+	.panel #acceder:hover
 	{
 	  background: #777777;
 	}

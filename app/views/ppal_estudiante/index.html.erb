@@ -1,5 +1,5 @@
 <% if notice %>
-	<p id="notice"><%= notice %></p>
+	<p class="notice"><%= notice %></p>
 <% end %>
 
 <h1>Catalogo de libros</h1>
@@ -7,6 +7,7 @@
 <% @ejemplares.each do |ejemplar| %>
 	<div class="entry">
 		<%= image_tag ejemplar.libro.imagen.url(:thumb) %>
+		<h3><%= ejemplar.cota %></h3>
 		<h3><%= ejemplar.libro.titulo %></h3>
 		<div class="observ"><%= sanitize(ejemplar.observacion) %> </div>
 		<div class="price_line">

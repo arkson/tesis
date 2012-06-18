@@ -67,11 +67,23 @@ select, textarea, input[type=file], input[type=checkbox] {
 }
 
 .usuario{ color:#ffffff; }
-#notice p
+
+
+.alerta
 {
-  border:0;
-  background: none;
+  border:none;
+  background:none;
+  color:red;
+  font-size:12px;
+}
+
+.notice
+{
+  border:none;
+  background:none;
   color:#0070ba;
+  font-size:12px;
+  font-weight:bold;
 }
 /* 
 .wrapper 
@@ -116,6 +128,12 @@ select, textarea, input[type=file], input[type=checkbox] {
 	  margin:30px 0 0 40px;
 	  position:absolute;	
 	}
+		.logo a
+		{
+		  height: 134px;
+		  width:173px;
+	  position:absolute;
+		}
 /* Fin Cabecera */	
 
 /* Inicio bordes */	
@@ -139,13 +157,12 @@ select, textarea, input[type=file], input[type=checkbox] {
 /* Inicio Contenido */
 .Contenido
 {
-  margin: 50px 0 50px 0;
+  margin: 50px 0 50px 250px;
   min-height:250px; 
-  width: 100%; 
-  	  line-height:25px;
-	  text-align:justify;
-	  width:75%;	
-	padding-left:40px;
+  line-height:25px;
+  text-align:justify;
+  width:63%;
+  min-width:63%;
 }
 .Contenido_estud
 {
@@ -246,7 +263,7 @@ select, textarea, input[type=file], input[type=checkbox] {
 }
 .Footer-text li
 {
-color:#ffffff;
+  color:#ffffff;
 }
 .Footer ul 
 {
@@ -260,6 +277,15 @@ color:#ffffff;
   text-decoration: underline;
   cursor:pointer;
 }
-
+.Footer .nolink:hover
+{
+  text-decoration: none;
+  cursor:none;
+}
+.Footer .link a
+{
+  color:#ffffff;
+  text-decoration: none;
+}
 /* end Footer */
 

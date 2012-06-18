@@ -3,7 +3,7 @@
 <div class="Menu">
 	<ul id="nav">
 		<li class="top"><%= link_to "Inicio", inicio_index_path, :class => "top_link" %></li>
-		<li class="top"><%= link_to "Historia", informacion_historia_path, :class => "top_link", :remote => true %></li>
+		<li class="top"><%= link_to "Historia", informacion_historia_path, :class => "top_link" %></li>
 		<li class="top"><%= link_to "Servicios", informacion_servicios_path, :class => "top_link" %></li>
 		<li class="top"><%= link_to "Normativas", informacion_normativas_path, :class => "top_link" %></li>
 		<li class="top"><%= link_to "Horarios", informacion_horarios_path, :class => "top_link" %></li>
