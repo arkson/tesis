@@ -7,7 +7,7 @@
 <div class ="busqueda">
   <%= form_for @search do |f| %>
     <%= f.label :Buscar, :class => "buscar" %>
-    <%= f.text_field :cota_or_isbn_or_titulo_contains %>
+    <%= f.text_field :libro_titulo_or_libro_cota_contains %>
       
     <%= f.submit :buscar %>
   <% end %>

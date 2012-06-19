@@ -2,6 +2,14 @@
 
 <div class ="titulo"><h1>Listado de ejemplares</h1></div>
 
+<div class ="busqueda">
+  <%= form_for @search do |f| %>
+    <%= f.label :Buscar, :class => "buscar" %>
+    <%= f.text_field :libro_titulo_or_libro_cota_contains %>
+      
+    <%= f.submit :buscar %>
+  <% end %>
+</div>
 
 <%= will_paginate @ejemplares , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
 
@@ -10,22 +18,22 @@
 <% @ejemplares.each do |ejemplar| %>
 
 <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
-<td width="5%">
-<%= image_tag(ejemplar.libro.imagen.url(:thumb),:class => 'list_image') %>
-</td>
-<td class="list_description">
-<dl>
-<dt><%= ejemplar.cota %></dt>
-<dd><%= ejemplar.libro.titulo_and_autor %></dd>
-<dd>Autor: <%= ejemplar.costo_alquiler %></dd>
-<dd>Isbn: <%= ejemplar.libro.isbn %></dd>
-</dl>
-</td>
-<td class="list_actions" width="5%">
-<%= link_to 'Mostrar', ejemplar %><br />
-<%= link_to 'Editar', edit_ejemplar_path(ejemplar) %><br />
-<%= link_to 'Eliminar', ejemplar, :confirm => '¿Estas seguro?', :method => :delete %>
-</td>
+	<td width="5%">
+		<%= image_tag(ejemplar.libro.imagen.url(:thumb),:class => 'list_image') %>
+	</td>
+	<td class="list_description">
+		<dl>
+		<dt><%= ejemplar.cota %></dt>
+		<dd><%= ejemplar.libro.titulo_and_autor %></dd>
+		<dd>Autor: <%= ejemplar.costo_alquiler %></dd>
+		<dd>Isbn: <%= ejemplar.libro.isbn %></dd>
+		</dl>
+	</td>
+	<td class="list_actions" width="5%">
+		<%= link_to image_tag("open.png", :alt => "Mostrar", :title => "Mostrar", :size => "18x18"), ejemplar %><br />
+		<%= link_to image_tag("editpaste.png", :alt => "Editar", :title => "Editar", :size => "16x16"), edit_ejemplar_path(ejemplar) %><br />
+		<%= link_to image_tag("close.png", :alt => "Eliminar", :title => "Eliminar", :size => "16x16"), ejemplar, :confirm => '¿Estas seguro?', :method => :delete %>
+	</td>
 </tr>
 
 <% end %>

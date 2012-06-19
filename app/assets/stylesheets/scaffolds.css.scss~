@@ -144,7 +144,7 @@
 
  .nicEdit-panelContain
   {
-
+	border:red solid 1px;
   }
 
 .alquilar input[type=submit]{background:#ffffff;}

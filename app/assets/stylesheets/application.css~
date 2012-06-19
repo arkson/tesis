@@ -66,7 +66,7 @@ select, textarea, input[type=file], input[type=checkbox] {
   margin-left: 0.5em;
 }
 
-.usuario{ color:#ffffff; }
+.usuario{ color:#ffffff;line-height:25px; }
 
 
 .alerta
@@ -85,6 +85,8 @@ select, textarea, input[type=file], input[type=checkbox] {
   font-size:12px;
   font-weight:bold;
 }
+
+
 /* 
 .wrapper 
 {
@@ -285,6 +287,7 @@ select, textarea, input[type=file], input[type=checkbox] {
 .Footer .link a
 {
   color:#ffffff;
+  text-decoration: none;
 }
 /* end Footer */
 

@@ -5,7 +5,7 @@
 <div class ="busqueda">
   <%= form_for @search do |f| %>
     <%= f.label :Buscar, :class => "buscar" %>
-    <%= f.text_field :estatus_contains %>
+    <%= f.text_field :nombre_contains %>
     <!-- etc... -->
     <%= f.submit :buscar%>
   <% end %>

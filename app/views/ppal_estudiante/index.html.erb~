@@ -4,7 +4,14 @@
 
 <h1>Catalogo de libros</h1>
 
-
+<div class ="busqueda">
+  <%= form_for @search do |f| %>
+    <%= f.label :Buscar, :class => "buscar" %>
+    <%= f.text_field :libro_titulo_or_libro_cota_contains %>
+      
+    <%= f.submit :buscar %>
+  <% end %>
+</div>
 
 <%= will_paginate @ejemplares , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
 
