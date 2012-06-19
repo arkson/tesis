@@ -4,26 +4,28 @@
 <div class ="busqueda">
   <%= form_for @search do |f| %>
     <%= f.label :Buscar, :class => "buscar" %>
-    <%= f.text_field :cota_or_isbn_or_titulo_contains %>
+    <%= f.text_field :costo_alquiler_contains %>
     <!-- etc... -->
-    <%= f.submit :buscar%>
+    <%= f.submit :buscar %>
   <% end %>
 </div>
 
 <%= will_paginate @ejemplares , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
 
 <table class="tabla_scaffold" width="98%">
+
 <% @ejemplares.each do |ejemplar| %>
+
 <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
 <td width="5%">
-<%= image_tag(libro.imagen.url(:thumb),:class => 'list_image') %>
+<%= image_tag(ejemplar.libro.imagen.url(:thumb),:class => 'list_image') %>
 </td>
 <td class="list_description">
 <dl>
 <dt><%= ejemplar.cota %></dt>
 <dd><%= ejemplar.libro.titulo_and_autor %></dd>
 <dd>Autor: <%= ejemplar.costo_alquiler %></dd>
-<dd>Isbn: <%= libro.isbn %></dd>
+<dd>Isbn: <%= ejemplar.libro.isbn %></dd>
 </dl>
 </td>
 <td class="list_actions" width="5%">
@@ -32,8 +34,11 @@
 <%= link_to 'Eliminar', ejemplar, :confirm => '¿Estas seguro?', :method => :delete %>
 </td>
 </tr>
+
 <% end %>
+
 </table>
+
 <%= will_paginate @ejemplares , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
 
 <br />

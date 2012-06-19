@@ -7,7 +7,8 @@ class PpalEstudianteController < ApplicationController
 	#estatus = 'Disponible'
 	#@search = Ejemplar.joins('LEFT OUTER JOIN lines_items ON lines_items.ejemplar_id = ejemplares.id').where('estatus_ejemplar = :estatus1',{:estatus1 => estatus}) 
     #@search = Ejemplar.order(:costo_alquiler) 
-	@search = Ejemplar.where("estatus_ejemplar = 'Disponible' or estatus_ejemplar = 'Solicitado' ") 
+	@query = Ejemplar.where("estatus_ejemplar = 'Disponible' or estatus_ejemplar = 'Solicitado' ") 
+	@search = @query.search(params[:search])
 	@ejemplares =  @search.paginate(:page => params[:page], :per_page =>5)
 	@cart = current_cart 
 	@configuracion = current_config

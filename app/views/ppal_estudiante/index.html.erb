@@ -4,11 +4,22 @@
 
 <h1>Catalogo de libros</h1>
 
+<div class ="busqueda">
+  <%= form_for @search do |f| %>
+    <%= f.label :Buscar, :class => "buscar" %>
+    <%= f.text_field :cota_or_isbn_or_titulo_contains %>
+      
+    <%= f.submit :buscar %>
+  <% end %>
+</div>
+
+<%= will_paginate @ejemplares , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
+
 <% @ejemplares.each do |ejemplar| %>
 	<div class="entry">
 		<%= image_tag ejemplar.libro.imagen.url(:thumb) %>
+		<h3><%= ejemplar.libro.titulo %>, <%= ejemplar.libro.autor %>, <%= ejemplar.libro.edicion %> edición</h3>
 		<h3><%= ejemplar.cota %></h3>
-		<h3><%= ejemplar.libro.titulo %></h3>
 		<div class="observ"><%= sanitize(ejemplar.observacion) %> </div>
 		<div class="price_line">
 			<span class="price"><%= number_to_currency(ejemplar.costo_alquiler) %></span>
@@ -18,4 +29,6 @@
 		</div>
 	</div>
 <% end %>
+
+<%= will_paginate @ejemplares , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
 

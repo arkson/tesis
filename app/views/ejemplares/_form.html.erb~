@@ -21,7 +21,12 @@
   </div>
   <div class="field">
     <%= f.label :tipo_adquisicion %><br />
-    <%= f.text_field :tipo_adquisicion %>
+    <%= f.select "tipo_adquisicion", "<option value = 'Compra ingresos propios'>Compra ingresos propios</option>
+                          <option value = 'Coordinacion Academica'>Coordinación Académica</option>
+						  <option value = 'Centro de Estudiantes'>Centro de Estudiantes</option>
+						  <option value = 'Donacion Grado'>Donación Grado</option>
+						  <option value = 'Extraviado'>Extraviado</option>
+						  <option value = 'Reparacion'>Reparación</option>" %>
   </div>
   <div class="field">
     <%= f.label :fecha_ingreso %><br />
@@ -45,11 +50,15 @@
   </div>
   <div class="field">
     <%= f.label :estatus_ejemplar %><br />
-    <%= f.text_field :estatus_ejemplar %>
+    <%= f.select "estatus_ejemplar", "<option value = 'Prealquilado'>Prealquilado</option>
+                          <option value = 'Alquilado'>Alquilado</option>
+						  <option value = 'Estante'>Estante</option>
+						  <option value = 'Extraviado'>Extraviado</option>
+						  <option value = 'Reparacion'>Reparación</option>" %>
   </div>
   <div class="field">
     <%= f.label :libro %><br />
-    <%= f.collection_select :libro_id, Libro.order(titulo_and_autor), :id, :titulo_and_autor %>
+    <%= f.collection_select :libro_id, Libro.all, :id, :titulo_and_autor %>
   </div>
   <div class="field">
     <%= f.label :libreria %><br />
