@@ -56,12 +56,18 @@ class DevolucionesController < ApplicationController
   # PUT /devoluciones/1
   # PUT /devoluciones/1.json
   def update
-    @devolucion = Devolucion.find(params[:id])
-    @devolucion.estatus = "Devuelto"
-	@alquiler = Alquiler.find(@devolucion.alquiler_id)
+    @dev = Devolucion.where(:line_item_id => params[:line_item_id ])
+	@devolucion = @dev[0]
+    @devolucion.estatus = 'Devuelto'
+    @devolucion.fecha = Time.now
+	@alquiler = Alquiler.find(@devolucion.alquiler_id) 
     respond_to do |format|
       if @devolucion.update_attributes(params[:devolucion])
-        format.html { redirect_to @alquiler, :notice => 'Devolucion was successfully updated.' }
+		item = LineItem.find(params[:line_item_id ] )	
+		@ejemplar = Ejemplar.find(item.ejemplar_id)
+		@ejemplar.estatus_ejemplar='Diponible'
+ 	    @ejemplar.save
+        format.html { redirect_to :action => "edit", :id => @alquiler.id, :notice => 'Devolucion was successfully updated.' }  
         format.json { head :ok }
       else
         format.html { render :action => "edit" }

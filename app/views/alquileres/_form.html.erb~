@@ -1,4 +1,6 @@
 
+
+
 	<p>
 		<b>Datos del Usuario</b>
 	</p>
@@ -45,9 +47,8 @@
 					
 			<td><% if Usuario.find(session[:usuario_id]).rol == "Administrador" or Usuario.find(session[:usuario_id]).rol == "Operador" and @alquiler.estatus == "Alquilado" and item.estatus_devolucion == "Sin entregar" %>
 						
-				<%= button_to 'Devolver', devoluciones_path(:line_item_id => item.id, :alquiler_id => @alquiler.id), :method => :put %>
-				<%= button_to "Acknowledged", { :controller => 'devoluciones', :line_item_id => item_id }, :method => :put %>
-
+			    
+			  <%= button_to("Devolver", {:controller => "devoluciones", :action => "update", :line_item_id => item.id}, :method => :put)%>
 
 			<% end %></	td>	
 			

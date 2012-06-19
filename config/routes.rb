@@ -16,6 +16,7 @@ Tesis::Application.routes.draw do
 
   end
 
+
   #get "sesiones/nuevo"
 
   #get "sesiones/crear"

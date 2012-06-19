@@ -118,7 +118,9 @@ class AlquileresController < ApplicationController
 	
     respond_to do |format|
       if @alquiler.update_attributes(params[:alquiler])
-        format.html { redirect_to @alquiler, :notice => 'Alquiler was successfully updated.' }
+
+
+        format.html {redirect_to :action => "edit", :id => @alquiler.id, :notice => 'Alquiler was successfully updated.'}
         format.json { head :ok }
       else
         format.html { render :action => "edit" }
@@ -139,4 +141,8 @@ class AlquileresController < ApplicationController
       format.json { head :ok }
     end
   end
+
+
+
+
 end

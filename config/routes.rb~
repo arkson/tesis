@@ -1,5 +1,7 @@
 Tesis::Application.routes.draw do
   
+  resources :devoluciones
+
   resources :alquileres
 
   resources :configuraciones
@@ -11,6 +13,11 @@ Tesis::Application.routes.draw do
 	get 'login' => :nuevo
 	post 'login' => :crear
 	delete 'logout' => :eliminar
+
+  end
+
+  controller :alquileres do
+	post 'devolver_ejemplar' => :devolver	
 
   end
 
@@ -45,6 +52,8 @@ Tesis::Application.routes.draw do
   post "inicio/olvido_clave"
   
   get "ppal_estudiante/index"
+
+  get "ppal_estudiante/ver_alquiler"
 
   get "ejemplares/index"
 
