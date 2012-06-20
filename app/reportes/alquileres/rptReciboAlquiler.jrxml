@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptReciboAlquiler" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ab9ea223-48f5-4672-b7ef-e422c5844b01">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="10"/>
+	<queryString>
+		<![CDATA[select
+b.cota,
+b.titulo,
+b.autor,
+e.costo_alquiler,
+e.numero_ejemplar,
+a.created_at,
+c.periodo,
+c.ano,
+u.nombre,
+u.cedula
+from alquileres a join configuraciones c on (a.configuracion_id = c.id)
+	        join lines_items l on (a.id = l.alquiler_id)
+	        join ejemplares e on (l.ejemplar_id = e.id)
+	        join libros b on (e.libro_id = b.id)
+	        join usuarios u on (a.usuario_id = u.id)
+where a.id = 1]]>
+	</queryString>
+	<field name="cota" class="java.lang.String"/>
+	<field name="titulo" class="java.lang.String"/>
+	<field name="autor" class="java.lang.String"/>
+	<field name="costo_alquiler" class="java.math.BigDecimal"/>
+	<field name="numero_ejemplar" class="java.lang.String"/>
+	<field name="created_at" class="java.sql.Timestamp"/>
+	<field name="periodo" class="java.lang.Integer"/>
+	<field name="ano" class="java.lang.Integer"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="cedula" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="95" splitType="Stretch">
+			<image>
+				<reportElement uuid="861fba45-3770-4081-8566-c26f1137a881" x="10" y="0" width="92" height="94"/>
+				<imageExpression><![CDATA["/home/arcadio/Documentos/rails_apps/tesis/app/assets/images/ucv.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement uuid="33e8e12f-8e4a-44dd-92b9-f85df1905d09" x="462" y="0" width="96" height="81"/>
+				<imageExpression><![CDATA["/home/arcadio/Documentos/rails_apps/tesis/app/assets/images/ciencias.jpg"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement uuid="928775eb-d105-4d1e-8613-82aded0ddaa6" x="175" y="24" width="226" height="57"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[UNIVERSIDAD CENTRAL DE VENEZUELA
+FACULTAD DE CIENCIAS
+BIBLIOTECA ALONSO GAMERO
+BOLSA DEL LIBRO]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="106" splitType="Stretch">
+			<textField>
+				<reportElement uuid="e69881fb-a8a0-4f71-8a3f-c4e08bdddc76" x="204" y="0" width="158" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[COMPROBANTE DE ALQUILER]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="4b6c6afa-e370-4111-a711-83a530c1856f" x="235" y="10" width="57" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[PERIODO:]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="97bdc463-33f3-48ff-b3fb-530fb8da18f2" x="427" y="17" width="49" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[FECHA:]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="6c2c9cd8-777a-43a9-8daf-37622390f4d5" x="336" y="32" width="140" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[APELLIDOS Y NOMBRES:]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="33824914-6a49-4d5a-b5c7-f10cdac5e62c" x="338" y="52" width="138" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[CEDULA DE IDENTIDAD:]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ba24dc87-1187-44fa-8b4b-f93c6091ec3c" x="138" y="86" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[TITULO]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="010c554d-d1a1-4ce4-8a81-6c5c91af417b" x="292" y="86" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[AUTOR]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="9ebb0827-8fc1-44e2-98e4-8522b7af6492" x="423" y="86" width="114" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[COSTO DE ALQUILER]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1d47a415-50de-479a-bfa9-42247ff10e1c" x="19" y="86" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[COTA]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a2910709-0c8b-482c-b347-78ac6ac2ccbc" x="489" y="32" width="69" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d5fb5e85-131b-4de4-ae49-13778fdcd55b" x="489" y="52" width="69" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{cedula}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ae1830c2-1aae-4541-9d33-095117106b2d" x="292" y="10" width="70" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{periodo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="3b7bcd7e-ceb2-4a3e-87b5-80a9ea235c5b" x="362" y="10" width="61" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{ano}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement uuid="c312aa32-19dd-4bfb-b745-07a1b499e1df" x="19" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{cota}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="503571f1-b4a6-41b6-aab5-76fc4d049328" x="141" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{titulo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="44461120-46a1-4b30-8f55-6a7966b6005c" x="292" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{autor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="5eef2697-e4e0-48fa-bd73-1ebf7baaf46e" x="423" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{costo_alquiler}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="15" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement uuid="260d2c32-21b5-40ee-89b7-4ca288dd6548" x="401" y="16" width="88" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[PRECIO TOTAL:]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
