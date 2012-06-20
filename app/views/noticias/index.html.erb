@@ -24,9 +24,9 @@
 </dl>
 </td>
 <td class="list_actions" width="5%">
-    <%= link_to 'Mostrar', noticia %>
-    <%= link_to 'Editar', edit_noticia_path(noticia) %>
-    <%= link_to 'Eliminar', noticia, :confirm => 'Estas Seguro?', :method => :delete %>
+    <%= link_to image_tag("open.png", :alt => "Mostrar", :title => "Mostrar", :size => "18x18"), noticia %>
+    <%= link_to image_tag("editpaste.png", :alt => "Editar", :title => "Editar", :size => "18x18"), edit_noticia_path(noticia) %>
+    <%= link_to image_tag("cross.png", :alt => "Eliminar", :title => "Eliminar", :size => "18x18"), noticia, :confirm => 'Estas Seguro?', :method => :delete %>
 </td>
 </tr>
 <% end %>

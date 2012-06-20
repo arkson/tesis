@@ -26,9 +26,9 @@
 </dl>
 </td>
 <td class="list_actions" width="5%">
-    <%= link_to 'Mostrar', usuario %>
-    <%= link_to 'Editar', edit_usuario_path(usuario) %>
-    <%= link_to 'Eliminar', usuario, :confirm => 'Estas Seguro(a)?', :method => :delete %>
+    <%= link_to image_tag("open.png", :alt => "Mostrar", :title => "Mostrar", :size => "18x18"), usuario %>
+    <%= link_to image_tag("editpaste.png", :alt => "Editar", :title => "Editar", :size => "18x18"), edit_usuario_path(usuario) %>
+    <%= link_to image_tag("cross.png", :alt => "Eliminar", :title => "Eliminar", :size => "18x18"), usuario, :confirm => 'Estas Seguro(a)?', :method => :delete %>
 </td>
 </tr>
 <% end %>

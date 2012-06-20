@@ -11,9 +11,9 @@
 </dl>
 </td>
 <td class="list_actions" width="5%">
-<%= link_to 'Mostrar', libreria %><br />
-<%= link_to 'Editar', edit_libreria_path(libreria) %><br />
-<%= link_to 'Eliminar', libreria, :confirm => '¿Estas seguro?', :method => :delete %>
+<%= link_to image_tag("open.png", :alt => "Mostrar", :title => "Mostrar", :size => "18x18"), libreria %><br />
+<%= link_to image_tag("editpaste.png", :alt => "Editar", :title => "Editar", :size => "18x18"), edit_libreria_path(libreria) %><br />
+<%= link_to image_tag("cross.png", :alt => "Eliminar", :title => "Eliminar", :size => "18x18"), libreria, :confirm => '¿Estas seguro?', :method => :delete %>
 </td>
 </tr>
 <% end %>

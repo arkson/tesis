@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptReciboAlquiler" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ab9ea223-48f5-4672-b7ef-e422c5844b01">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="10"/>
+	<property name="ireport.y" value="0"/>
 	<queryString>
 		<![CDATA[select
 b.cota,
@@ -39,92 +39,120 @@ where a.id = 1]]>
 		<band splitType="Stretch"/>
 	</title>
 	<pageHeader>
-		<band height="95" splitType="Stretch">
+		<band height="94" splitType="Stretch">
 			<image>
 				<reportElement uuid="861fba45-3770-4081-8566-c26f1137a881" x="10" y="0" width="92" height="94"/>
 				<imageExpression><![CDATA["/home/arcadio/Documentos/rails_apps/tesis/app/assets/images/ucv.jpg"]]></imageExpression>
 			</image>
 			<image>
-				<reportElement uuid="33e8e12f-8e4a-44dd-92b9-f85df1905d09" x="462" y="0" width="96" height="81"/>
+				<reportElement uuid="33e8e12f-8e4a-44dd-92b9-f85df1905d09" x="476" y="0" width="96" height="81"/>
 				<imageExpression><![CDATA["/home/arcadio/Documentos/rails_apps/tesis/app/assets/images/ciencias.jpg"]]></imageExpression>
 			</image>
-			<textField>
-				<reportElement uuid="928775eb-d105-4d1e-8613-82aded0ddaa6" x="175" y="24" width="226" height="57"/>
+			<staticText>
+				<reportElement uuid="64acc3d3-ec66-45b6-9b39-ac6d210012ac" x="173" y="19" width="219" height="52"/>
 				<textElement textAlignment="Center"/>
-				<textFieldExpression><![CDATA[UNIVERSIDAD CENTRAL DE VENEZUELA
+				<text><![CDATA[UNIVERSIDAD CENTRAL DE VENEZUELA
 FACULTAD DE CIENCIAS
 BIBLIOTECA ALONSO GAMERO
-BOLSA DEL LIBRO]]></textFieldExpression>
-			</textField>
+BOLSA DEL LIBRO]]></text>
+			</staticText>
 		</band>
 	</pageHeader>
 	<columnHeader>
 		<band height="106" splitType="Stretch">
 			<textField>
-				<reportElement uuid="e69881fb-a8a0-4f71-8a3f-c4e08bdddc76" x="204" y="0" width="158" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[COMPROBANTE DE ALQUILER]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement uuid="4b6c6afa-e370-4111-a711-83a530c1856f" x="235" y="10" width="57" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[PERIODO:]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement uuid="97bdc463-33f3-48ff-b3fb-530fb8da18f2" x="427" y="17" width="49" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[FECHA:]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement uuid="6c2c9cd8-777a-43a9-8daf-37622390f4d5" x="336" y="32" width="140" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[APELLIDOS Y NOMBRES:]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement uuid="33824914-6a49-4d5a-b5c7-f10cdac5e62c" x="338" y="52" width="138" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[CEDULA DE IDENTIDAD:]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement uuid="ba24dc87-1187-44fa-8b4b-f93c6091ec3c" x="138" y="86" width="100" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[TITULO]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement uuid="010c554d-d1a1-4ce4-8a81-6c5c91af417b" x="292" y="86" width="100" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[AUTOR]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement uuid="9ebb0827-8fc1-44e2-98e4-8522b7af6492" x="423" y="86" width="114" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[COSTO DE ALQUILER]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement uuid="1d47a415-50de-479a-bfa9-42247ff10e1c" x="19" y="86" width="100" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[COTA]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement uuid="a2910709-0c8b-482c-b347-78ac6ac2ccbc" x="489" y="32" width="69" height="20"/>
+				<reportElement uuid="a2910709-0c8b-482c-b347-78ac6ac2ccbc" x="486" y="32" width="69" height="20"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="d5fb5e85-131b-4de4-ae49-13778fdcd55b" x="489" y="52" width="69" height="20"/>
+				<reportElement uuid="d5fb5e85-131b-4de4-ae49-13778fdcd55b" x="486" y="52" width="69" height="20"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[$F{cedula}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="ae1830c2-1aae-4541-9d33-095117106b2d" x="292" y="10" width="70" height="20"/>
-				<textElement/>
+				<reportElement uuid="ae1830c2-1aae-4541-9d33-095117106b2d" x="292" y="10" width="16" height="20"/>
+				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA[$F{periodo}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="3b7bcd7e-ceb2-4a3e-87b5-80a9ea235c5b" x="362" y="10" width="61" height="20"/>
+				<reportElement uuid="3b7bcd7e-ceb2-4a3e-87b5-80a9ea235c5b" x="320" y="10" width="35" height="20"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[$F{ano}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement uuid="7ae3b748-8924-4db0-bd7b-8cd51ccee43d" x="235" y="10" width="57" height="20"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PERIODO:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b4c54fde-cbca-47c7-868b-93841e212b6a" x="434" y="11" width="42" height="21"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[FECHA:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="5108743a-bf2f-4892-8cd3-f8d844002c09" x="486" y="11" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{created_at}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="22b6d18d-158d-41ea-b259-640292ea0634" x="338" y="30" width="138" height="22"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[APELLIDOS Y NOMBRES:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="6f59ef09-3148-404b-8586-4aea23afa95d" x="338" y="52" width="138" height="20"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CEDULA DE IDENTIDAD:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="3247e96b-ac8e-401b-b7d5-586f2274337f" x="206" y="0" width="167" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMPROBANTE DE ALQUILER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ddfb6b90-3f20-4fad-9c1d-ad6988769c3b" x="19" y="86" width="51" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[COTA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="cb9beba8-650b-4ef7-b1d2-d59bfd760aa5" x="141" y="86" width="50" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[TITULO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0736c378-85ab-42ea-afdc-abb2a4bef51a" x="292" y="86" width="100" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[AUTOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="737b00bc-a9ae-40fc-9388-e72d126d84f4" x="423" y="86" width="120" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[COSTO DE ALQUILER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="fc841cde-2baa-43b9-a135-fea9850c9eef" x="308" y="10" width="12" height="20"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[-]]></text>
+			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
@@ -152,16 +180,18 @@ BOLSA DEL LIBRO]]></textFieldExpression>
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="15" splitType="Stretch"/>
+		<band height="26" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="bdbb60c0-e125-40d6-8b0f-c58b2b9e1686" x="376" y="6" width="100" height="20"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PRECIO TOTAL:]]></text>
+			</staticText>
+		</band>
 	</columnFooter>
 	<pageFooter>
-		<band height="54" splitType="Stretch">
-			<textField>
-				<reportElement uuid="260d2c32-21b5-40ee-89b7-4ca288dd6548" x="401" y="16" width="88" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[PRECIO TOTAL:]]></textFieldExpression>
-			</textField>
-		</band>
+		<band height="54" splitType="Stretch"/>
 	</pageFooter>
 	<summary>
 		<band height="42" splitType="Stretch"/>

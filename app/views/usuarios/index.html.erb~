@@ -1,43 +1,3 @@
-<h1>Listado de Usuarios</h1>
-<% if notice %>
-<p id="notice"><%= notice %></p>
-<% end %>
-
-
-<table>
-  <tr>
-    <th>Nombre</th>
-    <th>Cedula</th>
-    <th>Correo</th>
-    <th>Unid creditos</th>
-    <th>Dependencia</th>
-    <th>Rol</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @usuarios.each do |usuario| %>
-  <tr>
-    <td><%= usuario.nombre %></td>
-    <td><%= usuario.cedula %></td>
-    <td><%= usuario.correo %></td>
-    <td><%= usuario.unid_creditos %></td>
-    <td><%= usuario.dependencia.nombre %></td>
-    <td><%= usuario.rol %></td>
-    <td><%= link_to 'Mostrar', usuario %></td>
-    <td><%= link_to 'Editar', edit_usuario_path(usuario) %></td>
-    <td><%= link_to 'Eliminar', usuario, :confirm => 'Estas Seguro(a)?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'Nuevo Usuario', new_usuario_path %>
-
-
-
 
 
 <div class ="titulo"><h1>Listado de usuarios</h1></div>
@@ -66,9 +26,9 @@
 </dl>
 </td>
 <td class="list_actions" width="5%">
-    <%= link_to 'Mostrar', usuario %>
-    <%= link_to 'Editar', edit_usuario_path(usuario) %>
-    <%= link_to 'Eliminar', usuario, :confirm => 'Estas Seguro(a)?', :method => :delete %>
+    <%= link_to image_tag("open.png", :alt => "Mostrar", :title => "Mostrar", :size => "18x18"), usuario %>
+    <%= link_to image_tag("editpaste.png", :alt => "Editar", :title => "Editar", :size => "18x18"), edit_usuario_path(usuario) %>
+    <%= link_to image_tag("close.png", :alt => "Eliminar", :title => "Eliminar", :size => "18x18"), usuario, :confirm => 'Estas Seguro(a)?', :method => :delete %>
 </td>
 </tr>
 <% end %>
