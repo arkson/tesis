@@ -1,3 +1,5 @@
+<%= render(:partial => "layouts/login") %>
+
 <table>
 
 <% @historias.each do |historia| %>

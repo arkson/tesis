@@ -1,6 +1,5 @@
 
 <div class="cart_title">Tu Alquiler</div>
-<table>
   <%= render(cart.line_item) %>
 
   <tr class="total_line">
@@ -16,5 +15,5 @@
 
 
 <% if notice %>
-	<p id="notice"><%= notice %></p>
+	<p class="notice"><%= notice %></p>
 <% end %>

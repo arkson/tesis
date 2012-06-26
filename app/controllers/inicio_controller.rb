@@ -13,9 +13,13 @@ class InicioController < ApplicationController
   end
   
   def catalogo
-	@lib = Libro.all
-	@libros =  @lib.paginate(:page => params[:page], :per_page => 30)
+	@search = Libro.search(params[:search])
+    @libros = @search.paginate(:page => params[:page], :per_page => 5)
 
+	respond_to do |format|
+      format.html # index.html.erb
+      format.json { render :json => @libros }
+    end
   end
 
  def olvido_clave

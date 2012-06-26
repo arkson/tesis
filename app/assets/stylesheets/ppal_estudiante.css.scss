@@ -73,14 +73,7 @@ margin-right: 3em;
 
 
 /* Estilos para el index de estudiantes */
-#notice {
-  color: #000 !important;
-  border: 2px solid red;
-  padding: 1em;
-  margin-bottom: 2em;
-  background-color: #f0f0f0;
-  font: bold smaller sans-serif;
-}
+
 
 #columns {
   background: white;
@@ -112,12 +105,24 @@ margin-right: 3em;
       font-size: smaller;
       color:     #000000;
 	  
-	  .cart_title{color:     #226; font: 150% sans-serif;}
+	  .cart_title{color: #226; font: 150% sans-serif;}
+
+	  .item_price, .total_line {
+		text-align: right;
+	  }
+
+	  .total_line .total_cell {
+		font-weight: bold;
+		border-top: 1px solid #595;
+	  }
+
       table {
         border-top:    1px dotted #595;
         border-bottom: 1px dotted #595;
         margin-bottom: 10px;
+        margin-top: 10px;
       }
+
     }
 
 /* END_HIGHLIGHT */

@@ -16,9 +16,11 @@
 <% @libros.each do |libro| %>
 <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
 <td width="5%">
-
+<% if libro.imagen == nil %>
+<%= image_tag("libro.png",:class => 'list_image') %>
+<% else %>
 <%= image_tag(libro.imagen.url(:thumb),:class => 'list_image') %>
-
+<% end %>
 </td>
 <td class="list_description">
 <dl>
@@ -31,7 +33,7 @@
 <td class="list_actions" width="5%">
 <%= link_to image_tag("open.png", :alt => "Mostrar", :title => "Mostrar", :size => "18x18"), libro %><br />
 <%= link_to image_tag("editpaste.png", :alt => "Editar", :title => "Editar", :size => "18x18"), edit_libro_path(libro) %><br />
-<%= link_to image_tag("close.png", :alt => "Eliminar", :title => "Eliminar", :size => "18x18"), libro, :confirm => '¿Estas seguro?', :method => :delete %>
+<%= link_to image_tag("cross.png", :alt => "Eliminar", :title => "Eliminar", :size => "18x18"), libro, :confirm => '¿Estas seguro?', :method => :delete %>
 </td>
 </tr>
 <% end %>

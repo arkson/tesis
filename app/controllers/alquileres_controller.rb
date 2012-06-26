@@ -34,7 +34,7 @@ class AlquileresController < ApplicationController
 	 @config = current_config	
     @cart = current_cart
     if @cart.line_item.empty?
-		 redirect_to store_url, :notice => "Debe seleccionar almenos un libro"
+		 redirect_to store_url, :notice => "Debe seleccionar al menos un libro"
 		 return
 	 end
 	@alquiler.add_line_items_from_cart(current_cart)
@@ -89,7 +89,7 @@ class AlquileresController < ApplicationController
 				@devolucion.line_item_id = item.id
 				@devolucion.save	
 		end	
-        format.html { redirect_to ppal_estudiante_index_path, :notice => 'Alquiler was successfully created.' }
+        format.html { redirect_to ppal_estudiante_index_path, :notice => 'Tu alquiler se ha realizado con éxito.' }
         format.json { render :json => @alquiler, :status => :created, :location => @alquiler }
 			  		
 		

@@ -2,13 +2,12 @@
 	<p class="notice"><%= notice %></p>
 <% end %>
 
-<h1>Catalogo de libros</h1>
+<div class ="titulo"><h1>Catalogo de libros</h1></div>
 
 <div class ="busqueda">
   <%= form_for @search do |f| %>
     <%= f.label :Buscar, :class => "buscar" %>
-    <%= f.text_field :libro_titulo_or_libro_cota_contains %>
-      
+    <%= f.text_field :libro_titulo_or_libro_cota_contains %>      
     <%= f.submit :buscar %>
   <% end %>
 </div>
@@ -17,7 +16,11 @@
 
 <% @ejemplares.each do |ejemplar| %>
 	<div class="entry">
-		<%= image_tag ejemplar.libro.imagen.url(:thumb) %>
+		<% if ejemplar.libro.imagen.url(:thumb) == 'null' %>
+			<%= image_tag(ejemplar.libro.imagen.url(:thumb),:class => 'list_image') %>
+		<% else %>
+			<%= image_tag("libro.png",:class => 'list_image') %>
+		<% end %>
 		<h3><%= ejemplar.libro.titulo %>, <%= ejemplar.libro.autor %>, <%= ejemplar.libro.edicion %> edición</h3>
 		<h3><%= ejemplar.cota %></h3>
 		<div class="observ"><%= sanitize(ejemplar.observacion) %> </div>

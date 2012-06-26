@@ -1,22 +1,37 @@
-<div class ="informacion">
-<h1>Listado de libros</h1>
-<%= will_paginate @libros , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
-<table class="tabla_scaffold" width="98%">
-<% @libros.each do |libro| %>
-<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
-<td width="5%">
-<%= image_tag(libro.imagen.url(:thumb),:class => 'list_image') %>
-</td>
-<td class="list_description">
-<dl>
-<dt><%= libro.titulo %></dt>
-<dd><%= libro.cota %></dd>
-<dd>Autor: <%= libro.autor %></dd>
-<dd>Isbn: <%= libro.isbn %></dd>
-</dl>
-</td>
-</tr>
-<% end %>
-</table>
-<%= will_paginate @libros , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
-</div>
+<%= render(:partial => "layouts/login") %>
+
+	<div class ="titulo"><h1>Catálogo de libros</h1></div>
+	<div class ="busqueda">
+	  <%= form_for @search do |f| %>
+		<%= f.label :Buscar, :class => "buscar" %>
+		<%= f.text_field :cota_or_isbn_or_titulo_contains %>
+		<!-- etc... -->
+		<%= f.submit :buscar %>
+	  <% end %>
+	</div>
+
+	<%= will_paginate @libros , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
+
+	<table class="tabla_scaffold" width="98%">
+		<% @libros.each do |libro| %>
+		<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+			<td width="5%">
+				<% if libro.imagen.url(:thumb) == 'null' %>
+					<%= image_tag(libro.imagen.url(:thumb),:class => 'list_image') %>
+				<% else %>
+					<%= image_tag("libro.png",:class => 'list_image') %>
+				<% end %>
+			</td>
+			<td class="list_description">
+				<dl>
+				<dt><%= libro.titulo %></dt>
+				<dd><%= libro.cota %></dd>
+				<dd>Autor: <%= libro.autor %></dd>
+				<dd>Isbn: <%= libro.isbn %></dd>
+				</dl>
+			</td>
+		</tr>
+		<% end %>
+	</table>
+
+	<%= will_paginate @libros , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>

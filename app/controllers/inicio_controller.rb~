@@ -13,8 +13,12 @@ class InicioController < ApplicationController
   end
   
   def catalogo
-	@lib = Libro.all
+	@libros = Libro.all
 
+	respond_to do |format|
+      format.html # index.html.erb
+      format.json { render :json => @libros }
+    end
   end
 
  def olvido_clave
