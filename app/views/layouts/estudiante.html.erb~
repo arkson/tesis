@@ -68,8 +68,8 @@
 				<ul>
 					<li class ="nolink">Av. Los Ilustres,</li>
 					<li class ="nolink">Los Chaguaramos.</li>
-					<li>Facultad de Ciencias,</li>
-					<li>Universidad Central de Venezuela.</li>
+					<li class ="link"><a href="http://www.ciens.ucv.ve" target="_blank">Facultad de Ciencias,</a></li>
+					<li class ="link"><a href="http://www.ucv.ve" target="_blank">Universidad Central de Venezuela.</a></li>
 					<li class ="nolink">Caracas zona postal 1040</li>
 					<li class ="nolink">Apartado Postal 20513</li>
 					<li class ="nolink">Teléfono: (58212) 6051671/ 1665 / 2136 (FAX)</li>

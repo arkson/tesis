@@ -54,7 +54,7 @@ input[type=submit]:hover {
     background: #777777;
     cursor:pointer;
 }
-.actions input {  border:red solid 1px;}
+.actions input { margin: 1em 0 0 13.5em; }
 label {
     display: block;
     width: 150px;
@@ -135,6 +135,17 @@ select, textarea, input[type=file], input[type=checkbox] {
 		  height: 134px;
 		  width:173px;
 	  	  position:absolute;
+		}
+	.titulo_banner
+	{
+	  float:right;
+	  padding: 40px 40px 0 0;
+	}
+		.titulo_banner p{
+		  color:#ffffff;
+		  font:18px sans-serif;
+		  font-weight:bold;
+font-variant:small-caps;
 		}
 /* Fin Cabecera */	
 

@@ -16,10 +16,10 @@
 
 <% @ejemplares.each do |ejemplar| %>
 	<div class="entry">
-		<% if ejemplar.libro.imagen.url(:thumb) == 'null' %>
-			<%= image_tag(ejemplar.libro.imagen.url(:thumb),:class => 'list_image') %>
-		<% else %>
+		<% if ejemplar.libro.imagen_file_name == nil %>
 			<%= image_tag("libro.png",:class => 'list_image') %>
+		<% else %>
+			<%= image_tag(ejemplar.libro.imagen.url(:thumb),:class => 'list_image') %>
 		<% end %>
 		<h3><%= ejemplar.libro.titulo %>, <%= ejemplar.libro.autor %>, <%= ejemplar.libro.edicion %> edición</h3>
 		<h3><%= ejemplar.cota %></h3>

@@ -136,6 +136,17 @@ select, textarea, input[type=file], input[type=checkbox] {
 		  width:173px;
 	  	  position:absolute;
 		}
+	.titulo_banner
+	{
+	  float:right;
+	  padding: 40px 40px 0 0;
+	}
+		.titulo_banner p{
+		  color:#ffffff;
+		  font-size:18px;
+		  font-weight:bold;
+		  font-variant:small-caps;
+		}
 /* Fin Cabecera */	
 
 /* Inicio bordes */	

@@ -6,8 +6,7 @@
 /* Estilos para la informacion del inicio */
 	.panel
 	{
-	  padding: 140px 40px 0 0;
-	  float:right;
+	  padding: 100px 40px 0 0;
 	  text-align:right;
 	}
 	.panel #acceder
@@ -39,7 +38,7 @@
 	  text-decoration:underline;
 	}
 
-	.panel #acceder:hover,#catalogo:hover
+	.panel #acceder:hover
 	{
 	  background: #777777;
 	}

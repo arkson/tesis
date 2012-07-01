@@ -19,10 +19,10 @@
 
 <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
 	<td width="5%">
-		<% if ejemplar.libro.imagen.url(:thumb) == 'null' %>
-			<%= image_tag(ejemplar.libro.imagen.url(:thumb),:class => 'list_image') %>
-		<% else %>
+		<% if ejemplar.libro.imagen_file_name == nil %>
 			<%= image_tag("libro.png",:class => 'list_image') %>
+		<% else %>
+			<%= image_tag(ejemplar.libro.imagen.url(:thumb),:class => 'list_image') %>
 		<% end %>
 	</td>
 	<td class="list_description">
