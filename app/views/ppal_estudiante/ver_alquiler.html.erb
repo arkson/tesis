@@ -1,27 +1,23 @@
-<h1>Listado de alquileres</h1>
 
-<table>
-  <tr>
-    <th>Nombre </th>
-	 <th>Fecha de Inicio </th>
-    <th>Fecha de culminación</th>
-    <th>Estatus</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
-<% @alquileres.each do |alquiler| %>
-  <tr>
-    <td><%= alquiler.usuario.nombre %></td>
-	 <td><%= Date.strptime("31/01/2010", "%d/%m/%Y")  %></td>	
-    <td><%= alquiler.fecha_fin %></td>
-    <td><%= alquiler.estatus %></td>
-	<td><%= link_to 'Show', alquiler %></td>
-    
+<div class ="titulo"><h1>Alquileres realizados</h1></div>
 
-  </tr>
-<% end %>
+<table class="tabla_scaffold" width="75%">
+	<% @alquileres.each do |alquiler| %>
+	<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+
+		<td class="list_description">
+			<dl>
+				<dd>Fecha de inicio: <%= Date.strptime("31/01/2010", "%d/%m/%Y") %></dd>
+				<dd>Fecha de culminación: <%= alquiler.fecha_fin %></dd>
+				<dd>Estatus: <%= alquiler.estatus %></dd>
+			</dl>
+		</td>
+		<td class="ver_datos" width="10%">
+			<%= link_to 'Ver Datos', ppal_estudiante_ver_datos_path(:id => alquiler.id),:id => "links" %>
+		</td>
+	</tr>
+	<% end %>
 </table>
 
 

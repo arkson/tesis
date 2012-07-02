@@ -16,10 +16,6 @@ Tesis::Application.routes.draw do
 
   end
 
-  controller :alquileres do
-	post 'devolver_ejemplar' => :devolver	
-
-  end
 
   #get "sesiones/nuevo"
 
@@ -54,7 +50,7 @@ Tesis::Application.routes.draw do
   get "ppal_estudiante/index"
 
   get "ppal_estudiante/ver_alquiler"
-
+get "ppal_estudiante/ver_datos"
   get "ejemplares/index"
 
   get "libros/index"

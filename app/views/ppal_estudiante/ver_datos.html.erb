@@ -1,0 +1,73 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+<div class ="mostrar">
+<p>
+  <b>Usuario:</b>
+  <%= @alquiler.usuario.nombre %>
+</p>
+
+<p>
+  <b>Fecha Inicio:</b>
+  <%= @alquiler.created_at.strftime("%d-%m-%Y")%>
+</p>
+
+
+<p>
+  <b>Fecha fin:</b>
+  <%= @alquiler.fecha_fin.strftime("%d-%m-%Y") %> 
+</p></br>
+
+
+<p>
+  <b>Libros seleccionados:</b> </br>
+  <table>
+	  <tr>
+		 <th>Cota</th>
+		 <th>Titulo</th>
+		 <th>Autor</th>
+		 <th>Edicion</th>
+		 <th>Año</th>
+		 <th>Precio</th>
+		 <th>Estatus</th>
+		 <th></th>
+	  </tr>
+
+		<% @alquiler.line_item.each do |item| %>
+			<tr>
+				<td><%= item.ejemplar.cota %></td>
+				<td><%= item.ejemplar.libro.titulo %></td>
+				<td><%= item.ejemplar.libro.autor %></td>
+				<td><%= item.ejemplar.libro.edicion %></td>
+ 				<td><%= item.ejemplar.libro.ano %></td>
+				<td><%= number_to_currency(item.ejemplar.costo_alquiler) %></td>
+				<td><%= item.estatus_devolucion %><td>	
+			</tr> 
+		<% end %>
+		<tr>
+			
+			<td> </td>
+			<td> </td>
+			<td> </td>
+			<td> </td>
+			<td> </td>
+			<td> <%= number_to_currency(@alquiler.total_price)  %> </td>
+			
+		<tr>		  		
+	</table>
+</p>
+
+
+
+<p>
+  <b>Estatus:</b>
+  <%= @alquiler.estatus %>
+</p>
+</div>
+
+<% if Usuario.find(session[:usuario_id]).rol == 'Administrador' %>
+<%= link_to 'Editar', edit_alquiler_path(@alquiler), :id => "links" %>&nbsp
+<%= link_to 'Atrás', alquileres_path, :id => "links" %>
+<% else %>
+<%= link_to 'Atrás', ppal_estudiante_ver_alquiler_path, :id => "links" %>
+<% end %>

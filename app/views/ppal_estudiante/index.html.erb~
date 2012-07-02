@@ -4,18 +4,12 @@
 
 <div class ="titulo"><h1>Catalogo de libros</h1></div>
 
-<div class ="busqueda">
-  <%= form_for @search do |f| %>
-    <%= f.label :Buscar, :class => "buscar" %>
-    <%= f.text_field :libro_titulo_or_libro_cota_contains %>      
-    <%= f.submit :buscar %>
-  <% end %>
-</div>
+
 
 <%= will_paginate @ejemplares , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
 
 <% @ejemplares.each do |ejemplar| %>
-	
+	<div class="entry">
 		<% if ejemplar.libro.imagen_file_name == nil %>
 			<%= image_tag("libro.png",:class => 'list_image') %>
 		<% else %>
@@ -30,7 +24,7 @@
 				<%= button_to 'Agregar', lines_items_path(:ejemplar_id => ejemplar), :remote => true  %>
 			<% end %>
 		</div>
-	
+	</div>
 <% end %>
 
 <%= will_paginate @ejemplares , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>

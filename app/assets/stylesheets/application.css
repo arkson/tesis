@@ -194,6 +194,7 @@ select, textarea, input[type=file], input[type=checkbox] {
 	{
 	  font-weight:normal;
 	  cursor:pointer;
+	  margin-bottom:20px;
 	}
 
 	.informacion
@@ -219,6 +220,10 @@ select, textarea, input[type=file], input[type=checkbox] {
 	.paginacion a:hover
 	  {
 		color:#333333;
+	  }
+	.campo_busqueda
+	  {      
+		font-size:16px;
 	  }
 /* end LayoutCell */
 
