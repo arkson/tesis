@@ -60,8 +60,10 @@ Tesis::Application.routes.draw do
   get "areas_conocimientos/index"
 
   get "dependencias/index"
-
+  
   get "librerias/index"
+ 
+  get "reportes/example"
 
   resources :ejemplares
 

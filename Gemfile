@@ -8,6 +8,9 @@ gem 'mysql2'
 
 gem 'json'
 
+gem 'transaction-simple'
+
+gem 'pdf-writer'
 gem 'therubyracer'
 gem 'will_paginate', '~> 3.0.3'
 gem 'meta_search', '~> 1.1.3'
