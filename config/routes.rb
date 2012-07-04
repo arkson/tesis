@@ -50,7 +50,9 @@ Tesis::Application.routes.draw do
   get "ppal_estudiante/index"
 
   get "ppal_estudiante/ver_alquiler"
-
+  
+  get "ppal_estudiante/ver_datos"
+  
   get "ejemplares/index"
 
   get "libros/index"

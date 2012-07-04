@@ -1,6 +1,7 @@
 
 
 <div class ="titulo"><h1>Listado de libros</h1></div>
+
 <div class ="busqueda">
   <%= form_for @search do |f| %>
     <%= f.label :Buscar, :class => "buscar" %>
@@ -13,31 +14,32 @@
 <%= will_paginate @libros , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
 
 <table class="tabla_scaffold" width="98%">
-<% @libros.each do |libro| %>
-<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
-<td width="5%">
-<% if libro.imagen_file_name == nil %>
-<%= image_tag("libro.png",:class => 'list_image') %>
-<% else %>
-<%= image_tag(libro.imagen.url(:thumb),:class => 'list_image') %>
-<% end %>
-</td>
-<td class="list_description">
-<dl>
-<dt><%= libro.titulo %></dt>
-<dd><%= libro.cota %></dd>
-<dd>Autor: <%= libro.autor %></dd>
-<dd>Isbn: <%= libro.isbn %></dd>
-</dl>
-</td>
-<td class="list_actions" width="5%">
-<%= link_to image_tag("open.png", :alt => "Mostrar", :title => "Mostrar", :size => "18x18"), libro %><br />
-<%= link_to image_tag("editpaste.png", :alt => "Editar", :title => "Editar", :size => "18x18"), edit_libro_path(libro) %><br />
-<%= link_to image_tag("cross.png", :alt => "Eliminar", :title => "Eliminar", :size => "18x18"), libro, :confirm => '¿Estas seguro?', :method => :delete %>
-</td>
-</tr>
-<% end %>
+	<% @libros.each do |libro| %>
+	<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+		<td width="5%">
+			<% if libro.imagen_file_name == nil %>
+				<%= image_tag("libro.png",:class => 'list_image') %>
+			<% else %>
+				<%= image_tag(libro.imagen.url(:thumb),:class => 'list_image') %>
+			<% end %>
+		</td>
+		<td class="list_description">
+			<dl>
+				<dt><%= libro.titulo %></dt>
+				<dd><%= libro.cota %></dd>
+				<dd>Autor: <%= libro.autor %></dd>
+				<dd>Isbn: <%= libro.isbn %></dd>
+			</dl>
+		</td>
+		<td class="list_actions" width="5%">
+			<%= link_to image_tag("open.png", :alt => "Mostrar", :title => "Mostrar", :size => "18x18"), libro %><br />
+			<%= link_to image_tag("editpaste.png", :alt => "Editar", :title => "Editar", :size => "18x18"), edit_libro_path(libro) %><br />
+			<%= link_to image_tag("cross.png", :alt => "Eliminar", :title => "Eliminar", :size => "18x18"), libro, :confirm => '¿Estas seguro?', :method => :delete %>
+		</td>
+	</tr>
+	<% end %>
 </table>
+
 <%= will_paginate @libros , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
 
 <br />

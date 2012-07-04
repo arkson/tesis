@@ -30,11 +30,10 @@
 					<%= hidden_div_if(@cart.line_item.empty?, :id => 'cart') do %>
 						<%= render @cart %>
 					<% end %>
-
 			
 				</div>
 				<div id="main">
-					<div class = "migas"><%= render_breadcrumbs :separator => ' / ' %></div>
+					<div class = "migas">Usted está aquí: <%= render_breadcrumbs :separator => ' / ' %></div>
 					<%= yield %>
 				</div>
 			</div>

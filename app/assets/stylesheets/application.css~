@@ -143,9 +143,9 @@ select, textarea, input[type=file], input[type=checkbox] {
 	}
 		.titulo_banner p{
 		  color:#ffffff;
-		  font:18px sans-serif;
+		  font-size:18px;
 		  font-weight:bold;
-font-variant:small-caps;
+		  font-variant:small-caps;
 		}
 /* Fin Cabecera */	
 
@@ -194,6 +194,8 @@ font-variant:small-caps;
 	{
 	  font-weight:normal;
 	  cursor:pointer;
+border:red solid 1px;
+margin-bottom:20px;
 	}
 
 	.informacion
@@ -219,6 +221,10 @@ font-variant:small-caps;
 	.paginacion a:hover
 	  {
 		color:#333333;
+	  }
+	.campo_busqueda
+	  {      
+		font-size:16px;
 	  }
 /* end LayoutCell */
 
