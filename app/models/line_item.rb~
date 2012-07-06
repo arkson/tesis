@@ -12,7 +12,7 @@ class LineItem < ActiveRecord::Base
 	if not devolucion.nil?
 		devolucion.estatus
 	else
-		""
+		"En proceso"
 	end
   end
 

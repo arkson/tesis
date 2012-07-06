@@ -1,0 +1,11 @@
+<%= form_tag url_for (:controller => "reportes",:action => "listado_libros_ejemplares") do %>
+
+	<%= f.select "tipo_listado", "<option value = 'libros'>Listado de libros</option>
+                          <option value = 'ejemplares'>Listado de ejemplares</option>" %>
+
+	<%= f.select "ordenamiento", "<option value = 'cota'>Ordenados por cota</option>
+                          <option value = 'titulo'>Ordenados por titulo</option>" %>
+
+	<%= f.submit %>
+
+<% end %>

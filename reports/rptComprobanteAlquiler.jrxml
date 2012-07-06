@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptComprobanteAlquiler" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="xpath2">
+		<![CDATA[]]>
+	</queryString>
+	<field name="nombre" class="java.lang.String">
+		<fieldDescription><![CDATA[/alquileres/alquiler/usuario/nombre]]></fieldDescription>
+	</field>
+	<field name="id" class="java.lang.String">
+		<fieldDescription><![CDATA[id]]></fieldDescription>
+	</field>
+	<field name="fecha" class="java.lang.String">
+		<fieldDescription><![CDATA[created_at]]></fieldDescription>
+	</field>
+	<field name="periodo" class="java.lang.String">
+		<fieldDescription><![CDATA[/alquileres/alquiler/configuracion/periodo]]></fieldDescription>
+	</field>
+	<field name="ano" class="java.lang.String">
+		<fieldDescription><![CDATA[/alquileres/alquiler/configuracion/ano]]></fieldDescription>
+	</field>
+	<field name="cota_libro" class="java.lang.String">
+		<fieldDescription><![CDATA[/alquileres/alquiler/line-item/line-item/ejemplar/libro/cota]]></fieldDescription>
+	</field>
+	<field name="numero_ejemplar" class="java.lang.String">
+		<fieldDescription><![CDATA[/alquileres/alquiler/line-item/line-item/ejemplar/numero-ejemplar]]></fieldDescription>
+	</field>
+	<field name="titulo" class="java.lang.String">
+		<fieldDescription><![CDATA[/alquileres/alquiler/line-item/line-item/ejemplar/libro/titulo]]></fieldDescription>
+	</field>
+	<field name="autor" class="java.lang.String">
+		<fieldDescription><![CDATA[/alquileres/alquiler/line-item/line-item/ejemplar/libro/autor]]></fieldDescription>
+	</field>
+	<field name="costo_alquiler" class="java.lang.Double">
+		<fieldDescription><![CDATA[/alquileres/alquiler/line-item/line-item/ejemplar/costo-alquiler]]></fieldDescription>
+	</field>
+	<field name="cedula" class="java.lang.Double">
+		<fieldDescription><![CDATA[/alquileres/alquiler/usuario/cedula]]></fieldDescription>
+	</field>
+	<variable name="nombre_1" class="java.lang.Integer" resetType="Column" calculation="Count">
+		<variableExpression><![CDATA[$F{nombre}]]></variableExpression>
+	</variable>
+	<variable name="costo_alquiler_1" class="java.lang.Double" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{costo_alquiler}]]></variableExpression>
+	</variable>
+	<variable name="cota_ejemplar" class="java.lang.String">
+		<variableExpression><![CDATA[$F{cota_libro}+"."+$F{numero_ejemplar}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="1" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="101" splitType="Stretch">
+			<image>
+				<reportElement x="481" y="0" width="91" height="87"/>
+				<imageExpression class="java.lang.String"><![CDATA["/home/arcadio/Documentos/rails_apps/tesis/app/assets/images/ciencias.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="3" y="2" width="103" height="91"/>
+				<imageExpression class="java.lang.String"><![CDATA["/home/arcadio/Documentos/rails_apps/tesis/app/assets/images/ucv.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="223" y="56" width="167" height="14"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMPROBANTE DE ALQUILER
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="238" y="70" width="59" height="17"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PERIODO:
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="311" y="72" width="18" height="15"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[-]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="297" y="70" width="32" height="17"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{periodo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="329" y="70" width="38" height="17"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{ano}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="175" y="2" width="239" height="56"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[UNIVERSIDAD CENTRAL DE VENEZUELA
+FACULTAD DE CIENCIAS
+BIBLIOTECA ALONSO GAMERO
+BOLSA DEL LIBRO
+]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="105" splitType="Stretch">
+			<staticText>
+				<reportElement x="3" y="85" width="88" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[COTA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="113" y="85" width="100" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[TITULO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="435" y="0" width="46" height="20"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[FECHA:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="329" y="34" width="146" height="20"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[APELLIDOS Y NOMBRES:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="329" y="54" width="146" height="20"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CEDULA DE IDENTIDAD:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="267" y="85" width="100" height="20"/>
+				<textElement textAlignment="Left">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[AUTOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="435" y="85" width="117" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[COSTO DE ALQUILER]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="481" y="34" width="91" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0">
+				<reportElement x="481" y="54" width="91" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{cedula}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement x="113" y="0" width="131" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{titulo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="267" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{autor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="435" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{costo_alquiler}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="3" y="0" width="88" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$V{cota_ejemplar}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<staticText>
+				<reportElement x="414" y="0" width="100" height="20"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PRECIO TOTAL:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="514" y="0" width="34" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{costo_alquiler_1}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

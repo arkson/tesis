@@ -2,6 +2,8 @@ class PpalEstudianteController < ApplicationController
   before_filter :es_estudiante
   layout "estudiante"
   add_breadcrumb "Inicio", :ppal_estudiante_index_path
+  
+  
 
   def index
  	add_breadcrumb "Catálogo de libros", :ppal_estudiante_index_path
@@ -45,5 +47,10 @@ class PpalEstudianteController < ApplicationController
 
    
   end
+
+
+	
+
+
 
 end

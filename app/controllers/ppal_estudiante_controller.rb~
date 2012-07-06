@@ -2,6 +2,8 @@ class PpalEstudianteController < ApplicationController
   before_filter :es_estudiante
   layout "estudiante"
   add_breadcrumb "Inicio", :ppal_estudiante_index_path
+  
+  repond_to :xml, :pdf, :html
 
   def index
  	add_breadcrumb "Catálogo de libros", :ppal_estudiante_index_path
@@ -29,5 +31,26 @@ class PpalEstudianteController < ApplicationController
 
    
   end
+
+  def confirmar_datos 
+	@alquiler = Alquiler.new
+	 @config = current_config	
+    @cart = current_cart
+    if @cart.line_item.empty?
+		 redirect_to store_url, :notice => "Debe seleccionar al menos un libro"
+		 return
+	 end
+	@alquiler.add_line_items_from_cart(current_cart)
+	@alquiler.estatus = 'Prealquilado'
+	@alquiler.fecha_fin = @config[0].fecha_fin
+   	@alquiler.usuario = Usuario.find(session[:usuario_id])
+
+   
+  end
+
+
+	
+
+
 
 end

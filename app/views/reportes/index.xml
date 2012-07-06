@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<libros type="array">
+  <libro>
+    <titulo>Manual de Mineralogia (Tomo II)</titulo>
+    <lugar-impresion nil="true"></lugar-impresion>
+    <updated-at type="datetime" nil="true"></updated-at>
+    <imagen-updated-at type="datetime" nil="true"></imagen-updated-at>
+    <imagen-content-type nil="true"></imagen-content-type>
+    <cota>Q8.9</cota>
+    <editorial-id type="integer">1</editorial-id>
+    <area-conocimiento-id type="integer">1</area-conocimiento-id>
+    <imagen-file-size type="integer" nil="true"></imagen-file-size>
+    <edicion type="integer">0</edicion>
+    <isbn nil="true"></isbn>
+    <dependencia-id type="integer">2</dependencia-id>
+    <imagen-file-name nil="true"></imagen-file-name>
+    <id type="integer">2944</id>
+    <created-at type="datetime" nil="true"></created-at>
+    <autor>Klein-Hurlbut (Dana)</autor>
+    <ano type="integer">0</ano>
+  </libro>
+  <libro>
+    <titulo>Manual de Mineralogia (Tomo I)</titulo>
+    <lugar-impresion nil="true"></lugar-impresion>
+    <updated-at type="datetime" nil="true"></updated-at>
+    <imagen-updated-at type="datetime" nil="true"></imagen-updated-at>
+    <imagen-content-type nil="true"></imagen-content-type>
+    <cota>Q8.8</cota>
+    <editorial-id type="integer">1</editorial-id>
+    <area-conocimiento-id type="integer">1</area-conocimiento-id>
+    <imagen-file-size type="integer" nil="true"></imagen-file-size>
+    <edicion type="integer">0</edicion>
+    <isbn nil="true"></isbn>
+    <dependencia-id type="integer">2</dependencia-id>
+    <imagen-file-name nil="true"></imagen-file-name>
+    <id type="integer">2945</id>
+    <created-at type="datetime" nil="true"></created-at>
+    <autor>Klein-Hurlbut (Dana)</autor>
+    <ano type="integer">0</ano>
+  </libro>
+  <libro>
+    <titulo>Manual De Mineralogia</titulo>
+    <lugar-impresion nil="true"></lugar-impresion>
+    <updated-at type="datetime" nil="true"></updated-at>
+    <imagen-updated-at type="datetime" nil="true"></imagen-updated-at>
+    <imagen-content-type nil="true"></imagen-content-type>
+    <cota>Q8.7</cota>
+    <editorial-id type="integer">1</editorial-id>
+    <area-conocimiento-id type="integer">1</area-conocimiento-id>
+    <imagen-file-size type="integer" nil="true"></imagen-file-size>
+    <edicion type="integer">0</edicion>
+    <isbn nil="true"></isbn>
+    <dependencia-id type="integer">2</dependencia-id>
+    <imagen-file-name nil="true"></imagen-file-name>
+    <id type="integer">2946</id>
+    <created-at type="datetime" nil="true"></created-at>
+    <autor>Dana - Hurlbut</autor>
+    <ano type="integer">0</ano>
+  </libro>
+  <libro>
+    <titulo>Geografia Fisica</titulo>
+    <lugar-impresion nil="true"></lugar-impresion>
+    <updated-at type="datetime" nil="true"></updated-at>
+    <imagen-updated-at type="datetime" nil="true"></imagen-updated-at>
+    <imagen-content-type nil="true"></imagen-content-type>
+    <cota>Q8.6</cota>
+    <editorial-id type="integer">1</editorial-id>
+    <area-conocimiento-id type="integer">1</area-conocimiento-id>
+    <imagen-file-size type="integer" nil="true"></imagen-file-size>
+    <edicion type="integer">0</edicion>
+    <isbn nil="true"></isbn>
+    <dependencia-id type="integer">2</dependencia-id>
+    <imagen-file-name nil="true"></imagen-file-name>
+    <id type="integer">2947</id>
+    <created-at type="datetime" nil="true"></created-at>
+    <autor>Strahler, Arthur N.</autor>
+    <ano type="integer">0</ano>
+  </libro>
+  <libro>
+    <titulo>Principies of Geochemistry</titulo>
+    <lugar-impresion nil="true"></lugar-impresion>
+    <updated-at type="datetime" nil="true"></updated-at>
+    <imagen-updated-at type="datetime" nil="true"></imagen-updated-at>
+    <imagen-content-type nil="true"></imagen-content-type>
+    <cota>Q8.4</cota>
+    <editorial-id type="integer">1</editorial-id>
+    <area-conocimiento-id type="integer">1</area-conocimiento-id>
+    <imagen-file-size type="integer" nil="true"></imagen-file-size>
+    <edicion type="integer">0</edicion>
+    <isbn nil="true"></isbn>
+    <dependencia-id type="integer">2</dependencia-id>
+    <imagen-file-name nil="true"></imagen-file-name>
+    <id type="integer">2948</id>
+    <created-at type="datetime" nil="true"></created-at>
+    <autor>Mason, Brian</autor>
+    <ano type="integer">0</ano>
+  </libro>
+</libros>

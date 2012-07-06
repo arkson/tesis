@@ -50,7 +50,9 @@ Tesis::Application.routes.draw do
   get "ppal_estudiante/index"
 
   get "ppal_estudiante/ver_alquiler"
-get "ppal_estudiante/ver_datos"
+  
+  get "ppal_estudiante/ver_datos"
+  
   get "ejemplares/index"
 
   get "libros/index"
@@ -60,8 +62,12 @@ get "ppal_estudiante/ver_datos"
   get "areas_conocimientos/index"
 
   get "dependencias/index"
-
+  
   get "librerias/index"
+ 
+  get "reportes/comprobante_alquiler"
+ 
+  get "reportes/listado_libros_ejemplares"
 
   resources :ejemplares
 

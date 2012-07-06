@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alquileres type="array">
+  <alquiler>
+    <usuario-id type="integer">2</usuario-id>
+    <fecha-fin type="date">2012-10-29</fecha-fin>
+    <estatus>Alquilado</estatus>
+    <created-at type="datetime">2012-06-14T21:15:12Z</created-at>
+    <updated-at type="datetime">2012-06-22T20:10:07Z</updated-at>
+    <configuracion-id type="integer">1</configuracion-id>
+    <id type="integer">1</id>
+    <usuario>
+      <cedula>17532444</cedula>
+      <password-digest>$2a$10$0/qwof9qCFQnZBNKcg3QG.gxN7dQjzSXpgFvwRmpdo9lgHJwvg2c2</password-digest>
+      <correo>kenny.capote@gmail.com</correo>
+      <created-at type="datetime">2012-04-24T21:38:34Z</created-at>
+      <updated-at type="datetime">2012-06-19T20:12:22Z</updated-at>
+      <rol>Estudiante</rol>
+      <id type="integer">2</id>
+      <dependencia-id type="integer">2</dependencia-id>
+      <nombre>Kenny Locote</nombre>
+      <unid-creditos type="integer">170</unid-creditos>
+    </usuario>
+    <line-item type="array">
+      <line-item>
+        <ejemplar-id type="integer">12868</ejemplar-id>
+        <cart-id type="integer" nil="true"></cart-id>
+        <alquiler-id type="integer">1</alquiler-id>
+        <created-at type="datetime">2012-06-14T21:14:48Z</created-at>
+        <updated-at type="datetime">2012-06-14T21:15:12Z</updated-at>
+        <id type="integer">1</id>
+        <quantity type="integer">1</quantity>
+        <ejemplar>
+          <tipo-adquisicion>Donado</tipo-adquisicion>
+          <costo-alquiler type="integer">15</costo-alquiler>
+          <libreria-id type="integer">1</libreria-id>
+          <created-at type="datetime" nil="true"></created-at>
+          <libro-id type="integer">3498</libro-id>
+          <updated-at type="datetime">2012-06-14T21:15:12Z</updated-at>
+          <observacion nil="true"></observacion>
+          <en-uso>S</en-uso>
+          <activo type="boolean" nil="true"></activo>
+          <id type="integer">12868</id>
+          <numero-ejemplar>10</numero-ejemplar>
+          <nro-factura>NA</nro-factura>
+          <estatus-ejemplar>Prealquilado</estatus-ejemplar>
+          <fecha-ingreso type="date">2012-03-16</fecha-ingreso>
+          <libro>
+            <titulo>Biología </titulo>
+            <imagen-file-name nil="true"></imagen-file-name>
+            <ano type="integer">1990</ano>
+            <isbn nil="true"></isbn>
+            <edicion type="integer">0</edicion>
+            <lugar-impresion nil="true"></lugar-impresion>
+            <created-at type="datetime" nil="true"></created-at>
+            <updated-at type="datetime">2012-03-16T19:35:39Z</updated-at>
+            <imagen-content-type nil="true"></imagen-content-type>
+            <imagen-updated-at type="datetime" nil="true"></imagen-updated-at>
+            <cota>B1.11</cota>
+            <autor>Ville y Otros</autor>
+            <area-conocimiento-id type="integer">1</area-conocimiento-id>
+            <id type="integer">3498</id>
+            <dependencia-id type="integer">2</dependencia-id>
+            <imagen-file-size type="integer" nil="true"></imagen-file-size>
+            <editorial-id type="integer">1</editorial-id>
+          </libro>
+        </ejemplar>
+      </line-item>
+    </line-item>
+    <configuracion>
+      <ano type="integer">2012</ano>
+      <periodo type="integer">1</periodo>
+      <fecha-fin type="date">2012-10-29</fecha-fin>
+      <max-num-libro type="integer">2</max-num-libro>
+      <tipo-periodo>Normal</tipo-periodo>
+      <created-at type="datetime">2012-05-29T21:43:40Z</created-at>
+      <fecha-inicio type="date">2012-01-29</fecha-inicio>
+      <updated-at type="datetime">2012-05-29T21:43:40Z</updated-at>
+      <libro-repetido type="boolean">false</libro-repetido>
+      <activo type="boolean">true</activo>
+      <id type="integer">1</id>
+      <tiempo-prealquiler type="integer">47</tiempo-prealquiler>
+    </configuracion>
+  </alquiler>
+</alquileres>

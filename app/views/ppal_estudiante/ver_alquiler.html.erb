@@ -13,8 +13,9 @@
 				<dd>Estatus: <%= alquiler.estatus %></dd>
 			</dl>
 		</td>
-		<td class="ver_datos" width="10%">
+		<td class="ver_datos" width="25%">
 			<%= link_to 'Ver Datos', ppal_estudiante_ver_datos_path(:id => alquiler.id),:id => "links" %>
+			<%= link_to 'Comprobante',{:controller => "reportes", :action => "comprobante_alquiler", :id => alquiler.id}, :id => "links" %>
 		</td>
 	</tr>
 	<% end %>

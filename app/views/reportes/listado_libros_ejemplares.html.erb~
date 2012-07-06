@@ -1,0 +1,7 @@
+<%= form_tag url_for (:controller => "reportes",:action => "listado_libros_ejemplares") do %>
+
+	
+
+	<%= f.submit %>
+
+<% end %>
