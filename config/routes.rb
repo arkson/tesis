@@ -66,10 +66,10 @@ Tesis::Application.routes.draw do
   get "librerias/index"
  
   get "reportes/comprobante_alquiler"
+
+  get "reportes/libros_alquilados"
  
-  get "reportes/listado_libros_ejemplares"
- get "reportes/jasperb"
-  resources :ejemplares
+ resources :ejemplares
 
   resources :libros
 
