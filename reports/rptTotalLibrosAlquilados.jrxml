@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptComprobanteAlquiler" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="26"/>
+	<property name="ireport.y" value="96"/>
 	<style name="detalle" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
 		<conditionalStyle>
 			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
@@ -33,8 +33,14 @@
 	<field name="ejemplar_id" class="java.lang.String">
 		<fieldDescription><![CDATA[ancestor::ejemplar/id]]></fieldDescription>
 	</field>
+	<field name="ISBN" class="java.lang.String">
+		<fieldDescription><![CDATA[ancestor::libro/isbn]]></fieldDescription>
+	</field>
+	<field name="estatus_ejemplar" class="java.lang.String">
+		<fieldDescription><![CDATA[ancestor::libro/ancestor::ejemplar/estatus-ejemplar]]></fieldDescription>
+	</field>
 	<variable name="cota_ejemplar" class="java.lang.String">
-		<variableExpression><![CDATA[$F{cota_libro}+"."+$F{numero_ejemplar}]]></variableExpression>
+		<variableExpression><![CDATA[$F{cota_libro}+"."+"0"]]></variableExpression>
 	</variable>
 	<variable name="ejemplar_id_1" class="java.lang.Integer" resetType="Group" resetGroup="dependecias" calculation="Count">
 		<variableExpression><![CDATA[$F{ejemplar_id}]]></variableExpression>
@@ -42,26 +48,32 @@
 	<variable name="ejemplar_id_2" class="java.lang.Integer" calculation="Count">
 		<variableExpression><![CDATA[$F{ejemplar_id}]]></variableExpression>
 	</variable>
+	<variable name="cota_libro_1" class="java.lang.Integer" resetType="Group" resetGroup="Libros" calculation="Count">
+		<variableExpression><![CDATA[$F{cota_libro}]]></variableExpression>
+	</variable>
+	<variable name="alquilados" class="java.lang.String" resetType="Group" resetGroup="dependecias" calculation="Count">
+		<variableExpression><![CDATA[$F{estatus_ejemplar}.compareTo("Alquilado") == 0]]></variableExpression>
+	</variable>
 	<group name="dependecias">
 		<groupExpression><![CDATA[$F{dependencia_id}]]></groupExpression>
 		<groupHeader>
 			<band height="50" splitType="Stretch">
 				<staticText>
-					<reportElement x="0" y="30" width="88" height="20"/>
+					<reportElement x="72" y="30" width="88" height="20"/>
 					<textElement>
 						<font isBold="true"/>
 					</textElement>
 					<text><![CDATA[COTA]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="113" y="30" width="100" height="20"/>
+					<reportElement x="280" y="30" width="100" height="20"/>
 					<textElement>
 						<font isBold="true"/>
 					</textElement>
 					<text><![CDATA[TITULO]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="267" y="30" width="100" height="20"/>
+					<reportElement x="160" y="30" width="100" height="20"/>
 					<textElement textAlignment="Left">
 						<font isBold="true"/>
 					</textElement>
@@ -81,6 +93,27 @@
 					</textElement>
 					<textFieldExpression class="java.lang.String"><![CDATA[$F{dependencia}]]></textFieldExpression>
 				</textField>
+				<staticText>
+					<reportElement x="0" y="30" width="60" height="20"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[ISBN]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="355" y="20" width="100" height="30"/>
+					<textElement textAlignment="Center">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[EJEMPLARES ALQUILADOS]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="469" y="20" width="86" height="30"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[CANTIDAD DE EJEMPALRES]]></text>
+				</staticText>
 			</band>
 		</groupHeader>
 		<groupFooter>
@@ -100,6 +133,56 @@
 			</band>
 		</groupFooter>
 	</group>
+	<group name="Libros">
+		<groupExpression><![CDATA[$F{cota_libro}]]></groupExpression>
+		<groupHeader>
+			<band height="20">
+				<rectangle>
+					<reportElement style="detalle" x="-1" y="0" width="572" height="20"/>
+				</rectangle>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="libros">
+		<groupExpression><![CDATA[$F{cota_libro}]]></groupExpression>
+		<groupHeader>
+			<band height="50">
+				<textField evaluationTime="Group" evaluationGroup="Libros">
+					<reportElement x="469" y="0" width="86" height="20"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression class="java.lang.Integer"><![CDATA[$V{cota_libro_1}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="160" y="0" width="100" height="20"/>
+					<textElement markup="none">
+						<font isPdfEmbedded="false"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{autor}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="280" y="0" width="75" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{titulo}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="72" y="0" width="88" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{cota_libro}+".0"]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="3" y="0" width="61" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{ISBN}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="50"/>
+		</groupFooter>
+	</group>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -109,11 +192,11 @@
 	<pageHeader>
 		<band height="101" splitType="Stretch">
 			<staticText>
-				<reportElement x="223" y="56" width="167" height="14"/>
+				<reportElement x="213" y="58" width="167" height="14"/>
 				<textElement textAlignment="Center">
 					<font isBold="true"/>
 				</textElement>
-				<text><![CDATA[LIBROS ALQUILADOS
+				<text><![CDATA[TOTAL LIBROS ALQUILADOS
 
 ]]></text>
 			</staticText>
@@ -129,11 +212,11 @@ BOLSA DEL LIBRO
 ]]></text>
 			</staticText>
 			<image>
-				<reportElement x="0" y="2" width="103" height="91"/>
+				<reportElement x="3" y="2" width="103" height="91"/>
 				<imageExpression class="java.lang.String"><![CDATA["/app/assets/images/ucv.jpg"]]></imageExpression>
 			</image>
 			<image>
-				<reportElement x="478" y="0" width="91" height="87"/>
+				<reportElement x="481" y="0" width="91" height="87"/>
 				<imageExpression class="java.lang.String"><![CDATA["/app/assets/images/ciencias.jpg"]]></imageExpression>
 			</image>
 		</band>
@@ -155,26 +238,7 @@ BOLSA DEL LIBRO
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="20" splitType="Stretch">
-			<rectangle>
-				<reportElement style="detalle" x="0" y="0" width="572" height="20"/>
-			</rectangle>
-			<textField>
-				<reportElement x="267" y="0" width="100" height="20"/>
-				<textElement/>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{autor}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="113" y="0" width="131" height="20" isPrintWhenDetailOverflows="true"/>
-				<textElement/>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{titulo}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="3" y="0" width="88" height="20"/>
-				<textElement/>
-				<textFieldExpression class="java.lang.String"><![CDATA[$V{cota_ejemplar}]]></textFieldExpression>
-			</textField>
-		</band>
+		<band splitType="Stretch"/>
 	</detail>
 	<columnFooter>
 		<band splitType="Stretch"/>
