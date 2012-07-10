@@ -73,6 +73,8 @@ Tesis::Application.routes.draw do
 
   get "reportes/libros_adquiridos"
 
+  get "reportes/num_alquiler_escuela"
+
  resources :ejemplares
 
   resources :libros

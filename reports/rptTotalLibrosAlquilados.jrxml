@@ -9,6 +9,20 @@
 			<style mode="Opaque" backcolor="#F0EFEF"/>
 		</conditionalStyle>
 	</style>
+	<subDataset name="alquilados">
+		<queryString>
+			<![CDATA[select d.nombre, count(e.id) as numero_ejemplares
+from ejemplares e join libros l on (e.libro_id =l.id)
+	    join dependencias d on (l.dependencia_id= d.id)
+where e.estatus_ejemplar = "Alquilado"
+group by d.nombre]]>
+		</queryString>
+		<field name="nombre" class="java.lang.String"/>
+		<field name="numero_ejemplares" class="java.lang.Long"/>
+		<group name="nombre">
+			<groupExpression><![CDATA[$F{nombre}]]></groupExpression>
+		</group>
+	</subDataset>
 	<queryString language="xpath2">
 		<![CDATA[/ejemplares/ejemplar/libro/dependencia]]>
 	</queryString>
@@ -283,7 +297,7 @@ BOLSA DEL LIBRO
 		</band>
 	</pageFooter>
 	<summary>
-		<band height="58" splitType="Stretch">
+		<band height="66" splitType="Stretch">
 			<staticText>
 				<reportElement x="425" y="18" width="87" height="29"/>
 				<textElement textAlignment="Left">
