@@ -51,12 +51,12 @@ class ReportesController < ApplicationController
 										  where e.libro_id in (select libro_id
 															   from ejemplares 
 															   where estatus_ejemplar = 'Alquilado')	
-										   )) t order by t.dependencia_id asc ")
+										   )) t order by t.dependencia_id asc, t.libro_id ")
 
    	
 		xml = Builder::XmlMarkup.new 
 		xml_data = @coleccion.to_xml (:include => {:libro => {:include => :dependencia} } )     
-		file = File.new("/home/arcadio/my_xml_data_file.xml", "w")
+		file = File.new("/home/kenny/my_xml_data_file.xml", "w")
 		file.write(xml_data)
 		file.close
 
