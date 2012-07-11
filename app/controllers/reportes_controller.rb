@@ -70,7 +70,7 @@ class ReportesController < ApplicationController
 
 		params[:output_type] = "pdf"
 
-		@coleccion = Ejemplar.where('created_at  >= :tiempo1 and :tiempo2 <= created_at',{:tiempo1 => '2012/05/03', :tiempo2 => '2012/05/17' } )
+		@coleccion = Ejemplar.where('created_at  >= :tiempo1 and :tiempo2 <= created_at',{:tiempo1 => params[:finicio], :tiempo2 => params[:ffin] } )
 		send_doc( @coleccion.to_xml (:include => {:libro => {:include => :dependencia} } ), '/ejemplares/ejemplar/libro/dependencia', 'rptLibrosAdquiridos.jasper', "Libros Adquiridos", params[:output_type])
 	
 

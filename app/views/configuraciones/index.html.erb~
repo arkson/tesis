@@ -6,29 +6,30 @@
 <%= will_paginate @configuraciones , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
 
 <table class="tabla_scaffold" width="98%">
-<% @configuraciones.each do |configuracion| %>
-<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
-<td class="list_description">
-<dl>
-<dd>Periodo: <%= configuracion.periodo %></dd>
-<dd>Año: <%= configuracion.ano %></dd>
-<dd>Fecha inicio: <%= configuracion.fecha_inicio %></dd>
-<dd>Fecha fin: <%= configuracion.fecha_fin %></dd>
-<dd>Máx. num. libros: <%= configuracion.max_num_libro %></dd>
-<dd>Tiempo prealquiler: <%= configuracion.tiempo_prealquiler %></dd>
-<dd>Tipo periodo: <%= configuracion.tipo_periodo %></dd>
-</dl>
-</td>
-<td class="list_actions" width="5%">
-    <%= link_to image_tag("open.png", :alt => "Mostrar", :title => "Mostrar", :size => "18x18"), configuracion %>
-    <%= link_to image_tag("editpaste.png", :alt => "Editar", :title => "Editar", :size => "18x18"), edit_configuracion_path(configuracion) %>
-    <%= link_to image_tag("close.png", :alt => "Eliminar", :title => "Eliminar", :size => "18x18"), configuracion, :confirm => 'Estas Seguro(a)?', :method => :delete %>
-</td>
-</tr>
-<% end %>
+	<% @configuraciones.each do |configuracion| %>
+	<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+		<td class="list_description">
+			<dl>
+			<dd>Periodo: <%= configuracion.periodo %></dd>
+			<dd>Año: <%= configuracion.ano %></dd>
+			<dd>Fecha inicio: <%= configuracion.fecha_inicio %></dd>
+			<dd>Fecha fin: <%= configuracion.fecha_fin %></dd>
+			<dd>Máx. num. libros: <%= configuracion.max_num_libro %></dd>
+			<dd>Tiempo prealquiler: <%= configuracion.tiempo_prealquiler %></dd>
+			<dd>Tipo periodo: <%= configuracion.tipo_periodo %></dd>
+			</dl>
+		</td>
+		<td class="list_actions" width="5%">
+			<%= link_to image_tag("open.png", :alt => "Mostrar", :title => "Mostrar", :size => "18x18"), configuracion %>
+			<%= link_to image_tag("editpaste.png", :alt => "Editar", :title => "Editar", :size => "18x18"), edit_configuracion_path(configuracion) %>
+			<%= link_to image_tag("cross.png", :alt => "Eliminar", :title => "Eliminar", :size => "18x18"), configuracion, :confirm => 'Estas Seguro(a)?', :method => :delete %>
+		</td>
+	</tr>
+	<% end %>
 </table>
+
 <%= will_paginate @configuraciones , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
 
 <br />
 
-<button id="link"><%= link_to 'Nueva Configuración', new_configuracion_path %></button>
+<%= link_to 'Nueva Configuración', new_configuracion_path %>

@@ -31,6 +31,8 @@ Tesis::Application.routes.draw do
 
   get "ppal_admin/index"
 
+  get "ppal_admin/adquiridos"
+
   get "informacion/historia"
 
   get "informacion/servicios"
@@ -42,7 +44,7 @@ Tesis::Application.routes.draw do
   get "inicio/index"
 
   get "inicio/catalogo"
-  
+ 	 
   get "inicio/olvido_clave"
   
   post "inicio/olvido_clave"
@@ -72,6 +74,8 @@ Tesis::Application.routes.draw do
   get "reportes/total_libros_alquilados"
 
   get "reportes/libros_adquiridos"
+  
+  post "reportes/libros_adquiridos"
 
  resources :ejemplares
 

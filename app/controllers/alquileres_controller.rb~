@@ -115,7 +115,13 @@ class AlquileresController < ApplicationController
 		@devolucion.estatus = "Sin entregar"
 		@devolucion.save 
 	end
-	
+
+	@alquiler.line_item.each do |item|
+		@ejem = Ejemplar.find(item.ejemplar_id)
+		@ejem.estatus_ejemplar = 'Alquilado'	
+		@ejem.save
+	end		
+
     respond_to do |format|
       if @alquiler.update_attributes(params[:alquiler])
 

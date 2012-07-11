@@ -1,0 +1,16 @@
+
+
+<%= form_tag url_for(:controller => 'reportes', :action => 'libros_adquiridos')  do   %>
+		Por favor seleccione un rango de fechas
+		<div>
+			<label for="finicio">Fecha inicio:</label><br />
+			<%= date_select :finicio, Date.strptime(:finicio, "%d-%m-%Y") %>
+		</div>
+		<div>
+			<label for="ffin">Fecha fin:</label><br />
+			<%= date_select :ffin, Date.strptime(:ffin, "%d-%m-%Y") %>
+		</div>
+		<div class = "actions">
+			<%= submit_tag "Aceptar", :class => 'ingresar' %>
+		</div>
+	<% end %>

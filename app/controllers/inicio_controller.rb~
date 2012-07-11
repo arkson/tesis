@@ -1,5 +1,6 @@
 class InicioController < ApplicationController
-  skip_before_filter :authorize
+  skip_before_filter :authorize, :only => [:index, :catalogo, :olvido_clave]
+
 
 
   def index
@@ -13,7 +14,8 @@ class InicioController < ApplicationController
   end
   
   def catalogo
-	@libros = Libro.all
+	@search = Libro.search(params[:search])
+    @libros = @search.paginate(:page => params[:page], :per_page => 5)
 
 	respond_to do |format|
       format.html # index.html.erb

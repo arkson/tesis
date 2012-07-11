@@ -2,6 +2,7 @@ class InicioController < ApplicationController
   skip_before_filter :authorize
 
 
+
   def index
 	
 	@search = Noticia.where(:tipo_contenido => 'Noticia')

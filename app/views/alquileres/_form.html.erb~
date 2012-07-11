@@ -80,7 +80,6 @@
  <% if Usuario.find(session[:usuario_id]).rol == "Estudiante" %>
   <div class="actions">
 	<%= button_to "Alquilar", @alquiler, :method => :post %>
-<%= link_to 'Regresar', alquileres_path, :id => "links" %>
 
   </div>
  <% end %>

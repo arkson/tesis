@@ -26,7 +26,7 @@
 
 
 <div id="accordion">
-	<h3>Inicio</h3>
+	<h3><a href="#">Inicio</a></h3>
 	<div>
 		
 		<%= link_to "Menú principal del administrador del sitema", ppal_admin_index_path, :class => "" %>

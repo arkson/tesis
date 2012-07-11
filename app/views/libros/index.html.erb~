@@ -1,14 +1,16 @@
 
-
-<div class ="titulo"><h1>Listado de libros</h1></div>
 <div class ="busqueda">
   <%= form_for @search do |f| %>
-    <%= f.label :Buscar, :class => "buscar" %>
-    <%= f.text_field :cota_or_isbn_or_titulo_contains %>
-    <!-- etc... -->
+    <%= f.text_field :cota_or_isbn_or_titulo_contains, :class => "campo_busqueda" %>      
     <%= f.submit :buscar %>
   <% end %>
 </div>
+
+<div class ="titulo"><h1>Listado de libros</h1></div>
+
+<%= link_to 'Nuevo Libro', new_libro_path, :id => "links" %>
+
+<br />
 
 <%= will_paginate @libros , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
 

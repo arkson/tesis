@@ -1,12 +1,12 @@
 class LibrosController < ApplicationController
   	before_filter :es_adminitrador
 	layout "administrador"
-    add_breadcrumb "Inicio", :ppal_admin_index_path
-
+    add_breadcrumb "Mantenimiento", :ppal_admin_index_path
+	
   # GET /libros
   # GET /libros.json
   def index
-	add_breadcrumb "libros", libros_index_path
+	add_breadcrumb "Listado de libros", :libros_index_path
 	@search = Libro.search(params[:search])
     @libros = @search.paginate(:page => params[:page], :per_page => 5)
     respond_to do |format|
@@ -18,6 +18,7 @@ class LibrosController < ApplicationController
   # GET /libros/1
   # GET /libros/1.json
   def show
+	add_breadcrumb "Datos del libro", :libro_path
     @libro = Libro.find(params[:id])
 
     respond_to do |format|
@@ -29,6 +30,7 @@ class LibrosController < ApplicationController
   # GET /libros/new
   # GET /libros/new.json
   def new
+	add_breadcrumb "Nuevo libro", :new_libro_path
     @libro = Libro.new
 
     respond_to do |format|
@@ -39,6 +41,7 @@ class LibrosController < ApplicationController
 
   # GET /libros/1/edit
   def edit
+	add_breadcrumb "Editar libro", :edit_libro_path
     @libro = Libro.find(params[:id])
   end
 
@@ -49,7 +52,7 @@ class LibrosController < ApplicationController
 
     respond_to do |format|
       if @libro.save
-        format.html { redirect_to @libro, :notice => 'Libro was successfully created.' }
+        format.html { redirect_to @libro, :notice => 'Libro creado exitosamente.' }
         format.json { render :json => @libro, :status => :created, :location => @libro }
       else
         format.html { render :action => "new" }

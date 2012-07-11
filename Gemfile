@@ -19,6 +19,7 @@ gem "bcrypt-ruby", "~> 3.0.1"
 gem "galetahub-simple_captcha", :require => "simple_captcha"
 gem "rmagick", "~> 2.13.1"
 gem "breadcrumbs_on_rails", "~> 2.2.0"
+gem "amazon-ecs", "~> 2.2.4"
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

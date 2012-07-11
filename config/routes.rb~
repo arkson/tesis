@@ -42,7 +42,7 @@ Tesis::Application.routes.draw do
   get "inicio/index"
 
   get "inicio/catalogo"
-  
+ 	 
   get "inicio/olvido_clave"
   
   post "inicio/olvido_clave"
@@ -70,6 +70,10 @@ Tesis::Application.routes.draw do
   get "reportes/libros_alquilados"
   
   get "reportes/total_libros_alquilados"
+
+  get "reportes/libros_adquiridos"
+  
+  post "reportes/libros_adquiridos"
 
  resources :ejemplares
 

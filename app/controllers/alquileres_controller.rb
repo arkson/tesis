@@ -126,7 +126,7 @@ class AlquileresController < ApplicationController
       if @alquiler.update_attributes(params[:alquiler])
 
 
-        format.html {redirect_to :action => "edit", :id => @alquiler.id, :notice => 'Alquiler was successfully updated.'}
+        format.html {redirect_to :action => "edit", :id => @alquiler.id, :notice => 'Alquiler actualizado exitosamente.'}
         format.json { head :ok }
       else
         format.html { render :action => "edit" }

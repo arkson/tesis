@@ -1,5 +1,9 @@
 <%= render(:partial => "layouts/login") %>
 
+<% if notice %>
+	<p class="notice"><%= notice %></p>
+<% end %>
+
 <table>
 
 <% @noticias.each do |noticia| %>
