@@ -76,4 +76,20 @@ class ReportesController < ApplicationController
 
 	end
 
+
+	def num_alquiler_escuela 
+		params[:output_type] = "pdf"
+		@coleccion = Alquiler.where(:configuracion_id => '1').order('alquileres.usuario_id asc') 
+
+		xml = Builder::XmlMarkup.new 
+		xml_data = @coleccion.to_xml (:include => {:usuario => {:include => :dependencia} } )     
+		file = File.new("/home/kenny/my_xml_data_file.xml", "w")
+		file.write(xml_data)
+		file.close
+    	send_doc( @coleccion.to_xml (:include => {:usuario => {:include => :dependencia} } ), '/alquiler/alquileres/usuario/dependencia', 'rptNumUsuariosEscuela.jasper', "Libros Adquiridos", params[:output_type])
+
+	
+	
+	end
+
 end

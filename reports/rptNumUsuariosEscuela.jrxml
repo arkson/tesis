@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptNumUsuariosEscuela" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="96"/>
+	<style name="detalle" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{dependencias_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="xpath2">
+		<![CDATA[/alquileres/alquiler/usuario/dependencia]]>
+	</queryString>
+	<field name="dependencia" class="java.lang.String">
+		<fieldDescription><![CDATA[nombre]]></fieldDescription>
+	</field>
+	<field name="usuario_id" class="java.lang.String">
+		<fieldDescription><![CDATA[ancestor::usuario/id]]></fieldDescription>
+	</field>
+	<variable name="usuario_id_1" class="java.lang.Integer" resetType="Group" resetGroup="usuarios" calculation="DistinctCount">
+		<variableExpression><![CDATA[$F{usuario_id}]]></variableExpression>
+	</variable>
+	<group name="usuarios">
+		<groupExpression><![CDATA[$F{usuario_id}]]></groupExpression>
+		<groupHeader>
+			<band height="50">
+				<textField>
+					<reportElement x="14" y="0" width="100" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{dependencia}]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Group" evaluationGroup="usuarios">
+					<reportElement x="315" y="0" width="100" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Integer"><![CDATA[$V{usuario_id_1}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="50"/>
+		</groupFooter>
+	</group>
+	<group name="dependencias">
+		<groupExpression><![CDATA[$F{dependencia}]]></groupExpression>
+		<groupHeader>
+			<band height="50"/>
+		</groupHeader>
+		<groupFooter>
+			<band height="50"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="100" splitType="Stretch">
+			<staticText>
+				<reportElement x="142" y="56" width="273" height="14"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NÚMERO DE ALQUILERES POR ESCUELA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="164" y="0" width="239" height="56"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[UNIVERSIDAD CENTRAL DE VENEZUELA
+FACULTAD DE CIENCIAS
+BIBLIOTECA ALONSO GAMERO
+BOLSA DEL LIBRO
+]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="14" y="41" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Escuela]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="142" y="41" width="115" height="20"/>
+				<textElement/>
+				<text><![CDATA[Ejemplares alquilados]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="292" y="41" width="143" height="20"/>
+				<textElement/>
+				<text><![CDATA[Nro de usuarios por Escuela]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="37" splitType="Stretch">
+			<printWhenExpression><![CDATA[false]]></printWhenExpression>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
