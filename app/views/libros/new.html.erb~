@@ -1,14 +1,4 @@
-        <div id="buscador_nuevo_libro">
-		 <%# form_tag url_for(:action => "buscar_amazon") do%>
-          <% form_remote_tag :url => url_for(:action => "buscar2") do%>
-            <b>Buscar:</b>
-            <input id="isbn_buscar" name="isbn_buscar" type="text" style="float:none;margin:0;" />
-            <form method="post" action="/backend/libros/buscar2" class="button-to"><div><input type="submit" value="Amazon" style="float:none;margin:0;" /></div></form>
-           <%end%>
-          <% form_tag url_for(:action => "buscar_otro_buscador") do%>
-				<form method="post" action="/backend/libros/buscar_otro_buscador" class="button-to"><div><input type="submit" value="Otro" style="float:none;clear:both;margin:0;" /></div></form>
-          <%end%>
-        </div>
+
 
 <div class = "editar">
 	<div class = "editar_titulo"><h1>Nuevo libro</h1></div>

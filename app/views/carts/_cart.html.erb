@@ -1,3 +1,7 @@
+<% if notice %>
+	<p class="notice"><%= notice %></p>
+<% end %>
+
 
 <div class="cart_title">Tu Alquiler</div>
 <table>
@@ -11,10 +15,5 @@
 </table>
  
 
-<%= button_to "Alquilar", new_alquiler_path, :method => :get, :class => "alquilar" %>
+<%= button_to "Alquilar", ppal_estudiante_confirmar_alquiler_path, :method => :get, :class => "alquilar" %>
 <%= button_to 'Vaciar', cart, :method => :delete, :confirm => '¿Estas seguro?' %>
-
-
-<% if notice %>
-	<p id="notice"><%= notice %></p>
-<% end %>

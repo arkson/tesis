@@ -44,6 +44,7 @@ class PpalEstudianteController < ApplicationController
 	@alquiler.estatus = 'Prealquilado'
 	@alquiler.fecha_fin = @config[0].fecha_fin
    	@alquiler.usuario = Usuario.find(session[:usuario_id])
+
    
   end
 

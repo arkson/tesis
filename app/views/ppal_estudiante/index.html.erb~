@@ -49,9 +49,9 @@
 			
 			<% if not @configuracion.empty? %>
 
-				<% if ejemplar.estatus_ejemplar == "Solicitado" %>
+				<% if ejemplar.estatus_ejemplar == "Solicitado" and ejemplar.line_item.cart_id == @cart.id %>
 					<%= button_to 'Agregar', lines_items_path(:ejemplar_id => ejemplar), :remote => true, :id => "message6-show"  %>
-					<div id="message6" style="color:red;padding-left:10px;">Este ejemplar ya fue solicitado. Click para cerrar</div>
+					<div id="message6" style="color:red;padding-left:10px;">Este ejemplar ya fue solicitado. <a style="cursor:pointer">Click para cerrar</a></div>
 				<% else %>
 					<%= button_to 'Agregar', lines_items_path(:ejemplar_id => ejemplar), :remote => true %>
 				<% end %>

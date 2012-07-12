@@ -4,13 +4,11 @@
 		Por favor seleccione un rango de fechas
 		<div>
 			<label for="finicio">Fecha inicio:</label><br />
-			<% #date_select :finicio, params[:finicio] %>
-			<%= text_field_tag :finicio, params[:finicio] %>
+			<%= date_select :finicio %>
 		</div>
 		<div>
 			<label for="ffin">Fecha fin:</label><br />
-			<% #date_select :ffin, params[:ffin] %>
-			<%= text_field_tag :ffin, params[:ffin] %>
+			<%= date_select :ffin %>
 		</div>
 		<div class = "actions">
 			<%= submit_tag "Aceptar", :class => 'ingresar' %>

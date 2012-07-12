@@ -5,7 +5,7 @@ $(function() {
 	$( "#dialog-form" ).dialog({
 		   autoOpen: false,
 		   modal: true,
-		   title: "INICIO DE SESION",
+		   title: "CONFIRMACION DE ALQUILER",
 		   width: 550,
 		   minWidth: 400,
 		   maxWidth: 650,
@@ -14,7 +14,7 @@ $(function() {
 	});
 
 
-	$( "#acceder" )
+	$( "#confirmar" )
 		.button()
 		.click(function() {
 			$( "#dialog-form" ).dialog( "open" );
@@ -29,88 +29,11 @@ $(function() {
 <div class="demo">
 
 <div id="dialog-form" class="login">
-		<p>
+	<p>
 		<b>Datos del Usuario</b>
 	</p>
 
-  	<p>
-	  <b>Cedula:</b>
-	  <%= @alquiler.usuario.cedula %>
-	</p>
-
-
-	<p>
-	  <b>Nombre:</b>
-	  <%= @alquiler.usuario.nombre %>
-	</p>
-
-	
-
-
-  <p>
- 	 <b>Libros seleccionados</b>
-  </p>
-	
-	<table>
-	  <tr>
-		 <th>Cota</th>
-		 <th>Titulo</th>
-		 <th>Autor</th>
-		 <th>Edicion</th>
-		 <th>Año</th>
-		 <th>Precio</th>
-		 <th>Estatus</th>
-		 <th></th>
-	  </tr>
-
-		<% @alquiler.line_item.each do |item| %>
-			<tr>
-			<td><%= item.ejemplar.cota %></td>
-			<td><%= item.ejemplar.libro.titulo %></td>
-			<td><%= item.ejemplar.libro.autor %></td>
-			<td><%= item.ejemplar.libro.edicion %></td>
-			<td><%= item.ejemplar.libro.ano %></td>
-			<td><%= number_to_currency(item.ejemplar.costo_alquiler) %></td> 
-			<td><%= item.estatus_devolucion %><td>
-					
-			<td><% if Usuario.find(session[:usuario_id]).rol == "Administrador" or Usuario.find(session[:usuario_id]).rol == "Operador" and @alquiler.estatus == "Alquilado" and item.estatus_devolucion == "Sin entregar" %>
-						
-			    
-			  <%= button_to("Devolver", {:controller => "devoluciones", :action => "update", :line_item_id => item.id}, :method => :put)%>
-
-			<% end %></	td>	
-			
-			</tr> 
-		<% end %>
-
-
-		<tr>
-			
-			<td> </td>
-			<td> </td>
-			<td> </td>
-			<td> </td>
-			<td> </td>
-			<td> <%= number_to_currency(@alquiler.total_price)  %> </td>
-			
-		<tr>		  		
-	</table>
-
-
-<p>
-  <b>Estatus:</b>
-  <%= @alquiler.estatus %> 
-  <% if Usuario.find(session[:usuario_id]).rol == "Administrador" or Usuario.find(session[:usuario_id]).rol == "Operador" and @alquiler.estatus == "Prealquilado"  %>
-	<%= button_to "Entregar libros", @alquiler, :method => :put %>
-  <% end %>	
-</p>
-	
- <% if Usuario.find(session[:usuario_id]).rol == "Estudiante" %>
-  <div class="actions">
-	<%= button_to "Alquilar", @alquiler, :method => :post %>
-
-  </div>
- <% end %>
+  	
 </div>
 
 </div>

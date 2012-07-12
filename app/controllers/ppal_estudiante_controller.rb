@@ -32,8 +32,9 @@ class PpalEstudianteController < ApplicationController
    
   end
 
-  def confirmar_datos 
-	@alquiler = Alquiler.new
+  def confirmar_alquiler 
+	
+    @alquiler = Alquiler.new
 	 @config = current_config	
     @cart = current_cart
     if @cart.line_item.empty?
@@ -44,7 +45,13 @@ class PpalEstudianteController < ApplicationController
 	@alquiler.estatus = 'Prealquilado'
 	@alquiler.fecha_fin = @config[0].fecha_fin
    	@alquiler.usuario = Usuario.find(session[:usuario_id])
+	
 
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render :json => @alquiler }
+    end
+  
    
   end
 

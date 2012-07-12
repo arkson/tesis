@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptNumUsuariosEscuela" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="96"/>
+	<property name="ireport.y" value="0"/>
 	<style name="detalle" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
 		<conditionalStyle>
 			<conditionExpression><![CDATA[$V{dependencias_COUNT}%2 == 0]]></conditionExpression>
@@ -13,41 +13,59 @@
 		<![CDATA[/alquileres/alquiler/usuario/dependencia]]>
 	</queryString>
 	<field name="dependencia" class="java.lang.String">
-		<fieldDescription><![CDATA[nombre]]></fieldDescription>
+		<fieldDescription><![CDATA[ancestor::line-item/ancestor::line-item/ancestor::alquiler/usuario/dependencia/nombre]]></fieldDescription>
 	</field>
 	<field name="usuario_id" class="java.lang.String">
-		<fieldDescription><![CDATA[ancestor::usuario/id]]></fieldDescription>
+		<fieldDescription><![CDATA[ancestor::line-item/ancestor::line-item/ancestor::alquiler/usuario/id
+]]></fieldDescription>
+	</field>
+	<field name="ejemplar_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[id]]></fieldDescription>
 	</field>
 	<variable name="usuario_id_1" class="java.lang.Integer" resetType="Group" resetGroup="usuarios" calculation="DistinctCount">
 		<variableExpression><![CDATA[$F{usuario_id}]]></variableExpression>
 	</variable>
+	<variable name="ejemplares_num" class="java.lang.Integer" resetType="Group" resetGroup="dependencias" calculation="Count">
+		<variableExpression><![CDATA[$F{ejemplar_id}]]></variableExpression>
+	</variable>
+	<variable name="ejemplar_id_1" class="java.lang.Integer" resetType="Group" resetGroup="dependencias" calculation="Count">
+		<variableExpression><![CDATA[$F{ejemplar_id}]]></variableExpression>
+	</variable>
 	<group name="usuarios">
 		<groupExpression><![CDATA[$F{usuario_id}]]></groupExpression>
 		<groupHeader>
-			<band height="50">
-				<textField>
-					<reportElement x="14" y="0" width="100" height="20"/>
-					<textElement/>
-					<textFieldExpression class="java.lang.String"><![CDATA[$F{dependencia}]]></textFieldExpression>
-				</textField>
+			<band height="20">
+				<rectangle>
+					<reportElement style="detalle" x="0" y="0" width="572" height="20"/>
+				</rectangle>
 				<textField evaluationTime="Group" evaluationGroup="usuarios">
 					<reportElement x="315" y="0" width="100" height="20"/>
 					<textElement/>
 					<textFieldExpression class="java.lang.Integer"><![CDATA[$V{usuario_id_1}]]></textFieldExpression>
 				</textField>
+				<textField>
+					<reportElement x="14" y="0" width="100" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{dependencia}]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Group" evaluationGroup="dependencias">
+					<reportElement x="142" y="0" width="115" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Integer"><![CDATA[$V{ejemplar_id_1}]]></textFieldExpression>
+				</textField>
 			</band>
 		</groupHeader>
 		<groupFooter>
-			<band height="50"/>
+			<band/>
 		</groupFooter>
 	</group>
 	<group name="dependencias">
 		<groupExpression><![CDATA[$F{dependencia}]]></groupExpression>
 		<groupHeader>
-			<band height="50"/>
+			<band/>
 		</groupHeader>
 		<groupFooter>
-			<band height="50"/>
+			<band/>
 		</groupFooter>
 	</group>
 	<background>
@@ -76,6 +94,14 @@ BIBLIOTECA ALONSO GAMERO
 BOLSA DEL LIBRO
 ]]></text>
 			</staticText>
+			<image>
+				<reportElement x="0" y="0" width="103" height="91"/>
+				<imageExpression class="java.lang.String"><![CDATA["/app/assets/images/ucv.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="481" y="0" width="91" height="87"/>
+				<imageExpression class="java.lang.String"><![CDATA["/app/assets/images/ciencias.jpg"]]></imageExpression>
+			</image>
 		</band>
 	</pageHeader>
 	<columnHeader>
@@ -98,7 +124,7 @@ BOLSA DEL LIBRO
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="37" splitType="Stretch">
+		<band splitType="Stretch">
 			<printWhenExpression><![CDATA[false]]></printWhenExpression>
 		</band>
 	</detail>
@@ -106,7 +132,18 @@ BOLSA DEL LIBRO
 		<band splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band splitType="Stretch"/>
+		<band height="20" splitType="Stretch">
+			<textField evaluationTime="Report">
+				<reportElement x="532" y="0" width="37" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="452" y="0" width="77" height="20"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.String"><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+		</band>
 	</pageFooter>
 	<summary>
 		<band height="42" splitType="Stretch"/>

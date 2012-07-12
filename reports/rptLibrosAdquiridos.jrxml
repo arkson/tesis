@@ -39,6 +39,9 @@
 	<field name="tipo_adquisicion" class="java.lang.String">
 		<fieldDescription><![CDATA[ancestor::ejemplar/tipo-adquisicion]]></fieldDescription>
 	</field>
+	<field name="created_at" class="java.lang.String">
+		<fieldDescription><![CDATA[ancestor::libro/ancestor::ejemplar/created-at]]></fieldDescription>
+	</field>
 	<variable name="cota_ejemplar" class="java.lang.String">
 		<variableExpression><![CDATA[$F{cota_libro}+"."+$F{numero_ejemplar}]]></variableExpression>
 	</variable>
@@ -172,15 +175,20 @@ BOLSA DEL LIBRO
 				<textElement/>
 				<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="322" y="0" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[ancestor::libro/ancestor::ejemplar/created-at]]></text>
+			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
 		<band height="20" splitType="Stretch">
 			<rectangle>
-				<reportElement style="detalle" x="0" y="0" width="572" height="20"/>
+				<reportElement style="detalle" stretchType="RelativeToTallestObject" x="0" y="0" width="572" height="20"/>
 			</rectangle>
 			<textField>
-				<reportElement x="330" y="0" width="100" height="20"/>
+				<reportElement x="379" y="0" width="51" height="20"/>
 				<textElement/>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{autor}]]></textFieldExpression>
 			</textField>
@@ -203,6 +211,11 @@ BOLSA DEL LIBRO
 				<reportElement x="455" y="0" width="100" height="20"/>
 				<textElement/>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{edicion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="304" y="0" width="86" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{created_at}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
