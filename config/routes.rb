@@ -83,6 +83,10 @@ Tesis::Application.routes.draw do
  
   get "reportes/libros_sin_alquiler"
 
+  get "reportes/solvencia"
+
+  get "reportes/deudores"
+
   resources :ejemplares
 
   resources :libros

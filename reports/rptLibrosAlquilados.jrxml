@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptComprobanteAlquiler" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="26"/>
+	<property name="ireport.y" value="10"/>
 	<style name="detalle" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
 		<conditionalStyle>
 			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
@@ -107,7 +107,7 @@
 		<band height="1" splitType="Stretch"/>
 	</title>
 	<pageHeader>
-		<band height="101" splitType="Stretch">
+		<band height="130" splitType="Stretch">
 			<staticText>
 				<reportElement x="223" y="56" width="167" height="14"/>
 				<textElement textAlignment="Center">
@@ -136,23 +136,22 @@ BOLSA DEL LIBRO
 				<reportElement x="478" y="0" width="91" height="87"/>
 				<imageExpression class="java.lang.String"><![CDATA["/app/assets/images/ciencias.jpg"]]></imageExpression>
 			</image>
-		</band>
-	</pageHeader>
-	<columnHeader>
-		<band height="78" splitType="Stretch">
 			<staticText>
-				<reportElement x="435" y="0" width="46" height="20"/>
+				<reportElement x="437" y="110" width="46" height="20"/>
 				<textElement textAlignment="Right">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[FECHA:]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement x="481" y="0" width="74" height="20"/>
+				<reportElement x="483" y="110" width="74" height="20"/>
 				<textElement/>
 				<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="41" splitType="Stretch"/>
 	</columnHeader>
 	<detail>
 		<band height="20" splitType="Stretch">

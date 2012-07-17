@@ -1,27 +1,214 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptLibrosSinAlquilar" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptComprobanteAlquiler" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="detalle" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="xpath2">
+		<![CDATA[/ejemplares/ejemplar/libro/dependencia]]>
+	</queryString>
+	<field name="cota_libro" class="java.lang.String">
+		<fieldDescription><![CDATA[ancestor::libro/cota]]></fieldDescription>
+	</field>
+	<field name="titulo" class="java.lang.String">
+		<fieldDescription><![CDATA[ancestor::libro/titulo]]></fieldDescription>
+	</field>
+	<field name="autor" class="java.lang.String">
+		<fieldDescription><![CDATA[ancestor::libro/autor]]></fieldDescription>
+	</field>
+	<field name="numero_ejemplar" class="java.lang.String">
+		<fieldDescription><![CDATA[ancestor::ejemplar/numero-ejemplar]]></fieldDescription>
+	</field>
+	<field name="dependencia" class="java.lang.String">
+		<fieldDescription><![CDATA[nombre]]></fieldDescription>
+	</field>
+	<field name="dependencia_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[id]]></fieldDescription>
+	</field>
+	<field name="ejemplar_id" class="java.lang.String">
+		<fieldDescription><![CDATA[ancestor::ejemplar/id]]></fieldDescription>
+	</field>
+	<field name="created_at" class="java.lang.String">
+		<fieldDescription><![CDATA[ancestor::libro/ancestor::ejemplar/created-at]]></fieldDescription>
+	</field>
+	<variable name="cota_ejemplar" class="java.lang.String">
+		<variableExpression><![CDATA[$F{cota_libro}+"."+$F{numero_ejemplar}]]></variableExpression>
+	</variable>
+	<variable name="ejemplar_id_1" class="java.lang.Integer" resetType="Group" resetGroup="dependecias" calculation="Count">
+		<variableExpression><![CDATA[$F{ejemplar_id}]]></variableExpression>
+	</variable>
+	<variable name="ejemplar_id_2" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{ejemplar_id}]]></variableExpression>
+	</variable>
+	<group name="dependecias">
+		<groupExpression><![CDATA[$F{dependencia_id}]]></groupExpression>
+		<groupHeader>
+			<band height="50" splitType="Stretch">
+				<staticText>
+					<reportElement x="0" y="30" width="88" height="20"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[COTA]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="113" y="30" width="100" height="20"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[TITULO]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="267" y="30" width="100" height="20"/>
+					<textElement textAlignment="Left">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[AUTOR]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="3" y="10" width="57" height="20"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[ESCUELA:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="60" y="10" width="100" height="20"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{dependencia}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="34">
+				<textField evaluationTime="Group" evaluationGroup="dependecias">
+					<reportElement x="537" y="10" width="35" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Integer"><![CDATA[$V{ejemplar_id_1}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="437" y="10" width="100" height="20"/>
+					<textElement textAlignment="Right">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[TOTAL LIBROS:]]></text>
+				</staticText>
+			</band>
+		</groupFooter>
+	</group>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch"/>
+		<band height="1" splitType="Stretch"/>
 	</title>
 	<pageHeader>
-		<band height="35" splitType="Stretch"/>
+		<band height="137" splitType="Stretch">
+			<staticText>
+				<reportElement x="175" y="58" width="239" height="14"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[LIBROS SIN ALQUILAR
+
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="175" y="2" width="239" height="56"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[UNIVERSIDAD CENTRAL DE VENEZUELA
+FACULTAD DE CIENCIAS
+BIBLIOTECA ALONSO GAMERO
+BOLSA DEL LIBRO
+]]></text>
+			</staticText>
+			<image>
+				<reportElement x="480" y="0" width="91" height="87"/>
+				<imageExpression class="java.lang.String"><![CDATA["/app/assets/images/ciencias.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="2" y="1" width="103" height="91"/>
+				<imageExpression class="java.lang.String"><![CDATA["/app/assets/images/ucv.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="437" y="117" width="46" height="20"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[FECHA:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="483" y="117" width="74" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="61" splitType="Stretch"/>
+		<band height="34" splitType="Stretch"/>
 	</columnHeader>
 	<detail>
-		<band height="125" splitType="Stretch"/>
+		<band height="20" splitType="Stretch">
+			<rectangle>
+				<reportElement style="detalle" x="0" y="0" width="572" height="20"/>
+			</rectangle>
+			<textField>
+				<reportElement x="267" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{autor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="113" y="0" width="131" height="20" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{titulo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="3" y="0" width="88" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$V{cota_ejemplar}]]></textFieldExpression>
+			</textField>
+		</band>
 	</detail>
 	<columnFooter>
-		<band height="45" splitType="Stretch"/>
+		<band splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="54" splitType="Stretch"/>
+		<band height="23" splitType="Stretch">
+			<textField evaluationTime="Report">
+				<reportElement x="535" y="0" width="37" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="0" width="77" height="20"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.String"><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+		</band>
 	</pageFooter>
 	<summary>
-		<band height="42" splitType="Stretch"/>
+		<band height="41" splitType="Stretch">
+			<staticText>
+				<reportElement x="367" y="0" width="170" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="Serif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL LIBROS ALQUILADOS:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="537" y="0" width="34" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{ejemplar_id_2}]]></textFieldExpression>
+			</textField>
+		</band>
 	</summary>
 </jasperReport>

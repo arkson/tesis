@@ -84,28 +84,78 @@ class ReportesController < ApplicationController
 	def libros_sin_alquiler
 		fecha = Time.now - 2.year   
 		params[:output_type] = "pdf"
-		@coleccion = Ejemplar.find_by_sql(['select * from 
-											((select e.*, d.nombre as dependencia, b.titulo
-											from ejemplares e join lines_items l on (e.id = l.ejemplar_id)
-											join libros b on (e.libro_id = b.id) 
-											join dependencias d on (b.dependencia_id = d.id) 		
-											where e.created_at <= ?)  
-											union
-											(select e.*, d.nombre as dependencia, b.titulo
-											from ejemplares e join lines_items l on (e.id = l.ejemplar_id)
-											join libros b on (e.libro_id = b.id) 
-											join dependencias  d on (b.dependencia_id = d.id)
-											where e.id not in (select ejemplar_id 
-															   from lines_items )
-											and e.created_at <= ?)) t order by t.dependencia, titulo asc ',fecha, fecha] )
+		@coleccion = Ejemplar.find_by_sql(['select * from ((select e.*, d.nombre as dependencia, b.titulo
+															from ejemplares e join lines_items l on (e.id = l.ejemplar_id)
+															join libros b on (e.libro_id = b.id) 
+															join dependencias d on (b.dependencia_id = d.id) 		
+															where e.fecha_ingreso <= ?
+															and e.id in (select ejemplar_id 
+																			   from lines_items 
+																			   group by ejemplar_id
+															   		     	   having max(created_at) <= ? ) )
+															union
+															(select e.*, d.nombre as dependencia, b.titulo
+															from ejemplares e left join lines_items l on (e.id = l.ejemplar_id)
+															join libros b on (e.libro_id = b.id) 
+															join dependencias  d on (b.dependencia_id = d.id)
+															where e.id not in (select ejemplar_id 
+															from lines_items ) and e.fecha_ingreso <= ? )) t order by t.dependencia, titulo asc ',fecha, fecha, fecha] )
 
 		xml = Builder::XmlMarkup.new 
 		xml_data = @coleccion.to_xml (:include => {:libro => {:include => :dependencia} } )     
 		file = File.new("/home/kenny/my_xml_data_file.xml", "w")
 		file.write(xml_data)
 		file.close	
+					
+		send_doc( @coleccion.to_xml (:include => {:libro => {:include => :dependencia} } ), '/ejemplares/ejemplar/libro/dependencia', 'rptLibrosSinAlquilar.jasper', "Libros Sin Alquilar", params[:output_type])
+
 		
-		head :ok
+	end
+
+
+	def solvencia
+		params[:output_type] = "pdf"
+		
+		@coleccion = Usuario.where(:id => 1)#params[:usuario_d])
+		
+   
+        xml = Builder::XmlMarkup.new 
+		xml_data = @coleccion.to_xml (:include => { :dependencia => {} })     
+		file = File.new("/home/kenny/my_xml_data_file.xml", "w")
+		file.write(xml_data)
+		file.close	
+	  	
+		send_doc( @coleccion.to_xml (:include => { :dependencia => {} }  ), '/usuarios/usuario/dependencia', 'rptSolvencia.jasper', "Solvencia", params[:output_type])		
+				
+
+	end 
+
+
+	def deudores 
+		params[:output_type] = "pdf"		
+#		@coleccion = Usuario.find_by_sql(select * 
+#from usuarios u join alquileres a on (u.id = a.usuario_id)
+#join devoluciones d  on (a.id = d.alquiler_id) 
+#join configuraciones c on (c.id = a.configuracion_id  )
+#where d.estatus = "Sin entregar")
+
 	end
 
 end
+
+
+
+
+#Calendar.getInstance().get(Calendar.MONTH) == new java.lang.Integer(1) ? "enero":
+# (Calendar.getInstance().get(Calendar.MONTH) == new java.lang.Integer(2)?"febrero":
+# (Calendar.getInstance().get(Calendar.MONTH) == new java.lang.Integer(3)?"marzo":
+# (Calendar.getInstance().get(Calendar.MONTH) == new java.lang.Integer(4)?"Abril":
+# (Calendar.getInstance().get(Calendar.MONTH) == new java.lang.Integer(5)?"mayo":
+# (Calendar.getInstance().get(Calendar.MONTH) == new java.lang.Integer(6)?"junio":
+# (Calendar.getInstance().get(Calendar.MONTH) == new java.lang.Integer(7)?"julio":
+# (Calendar.getInstance().get(Calendar.MONTH) == new java.lang.Integer(8)?"agosto":
+# (Calendar.getInstance().get(Calendar.MONTH) == new java.lang.Integer(9)?"septiembre":
+# (Calendar.getInstance().get(Calendar.MONTH) == new java.lang.Integer(10)?"octubre":
+# (Calendar.getInstance().get(Calendar.MONTH) == new java.lang.Integer(11)?"noviembre":
+# (Calendar.getInstance().get(Calendar.MONTH) == new java.lang.Integer(12)?"diciembre")))))))))))
+
