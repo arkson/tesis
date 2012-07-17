@@ -119,11 +119,7 @@ class ReportesController < ApplicationController
 		@coleccion = Usuario.where(:id => 1)#params[:usuario_d])
 		
    
-        xml = Builder::XmlMarkup.new 
-		xml_data = @coleccion.to_xml (:include => { :dependencia => {} })     
-		file = File.new("/home/kenny/my_xml_data_file.xml", "w")
-		file.write(xml_data)
-		file.close	
+      
 	  	
 		send_doc( @coleccion.to_xml (:include => { :dependencia => {} }  ), '/usuarios/usuario/dependencia', 'rptSolvencia.jasper', "Solvencia", params[:output_type])		
 				
@@ -133,11 +129,22 @@ class ReportesController < ApplicationController
 
 	def deudores 
 		params[:output_type] = "pdf"		
-#		@coleccion = Usuario.find_by_sql(select * 
-#from usuarios u join alquileres a on (u.id = a.usuario_id)
-#join devoluciones d  on (a.id = d.alquiler_id) 
-#join configuraciones c on (c.id = a.configuracion_id  )
-#where d.estatus = "Sin entregar")
+        @configuracion = current_config
+		 	
+		@coleccion = Usuario.find_by_sql(['select distinct (u.cedula ), u.nombre, u.dependencia_id
+											from usuarios u join alquileres a on (u.id = a.usuario_id)
+											join devoluciones d  on (a.id = d.alquiler_id) 
+											join configuraciones c on (c.id = a.configuracion_id  )
+											where d.estatus = "Sin entregar"
+											and ((c.ano <= ? and c.periodo < ?) or (c.ano < ?)) order by u.dependencia_id, u.cedula asc ',@configuracion[0].ano,@configuracion[0].periodo, @configuracion[0].ano  ]
+)
+        xml = Builder::XmlMarkup.new 
+		xml_data = @coleccion.to_xml (:include => { :dependencia => {} })     
+		file = File.new("/home/kenny/my_xml_data_file.xml", "w")
+		file.write(xml_data)
+		file.close	
+
+		send_doc( @coleccion.to_xml (:include => { :dependencia => {} }  ), '/usuarios/usuario/dependencia', 'rptDeudores.jasper', "Listado de Deudores", params[:output_type])		
 
 	end
 
@@ -146,16 +153,4 @@ end
 
 
 
-#Calendar.getInstance().get(Calendar.MONTH) == new java.lang.Integer(1) ? "enero":
-# (Calendar.getInstance().get(Calendar.MONTH) == new java.lang.Integer(2)?"febrero":
-# (Calendar.getInstance().get(Calendar.MONTH) == new java.lang.Integer(3)?"marzo":
-# (Calendar.getInstance().get(Calendar.MONTH) == new java.lang.Integer(4)?"Abril":
-# (Calendar.getInstance().get(Calendar.MONTH) == new java.lang.Integer(5)?"mayo":
-# (Calendar.getInstance().get(Calendar.MONTH) == new java.lang.Integer(6)?"junio":
-# (Calendar.getInstance().get(Calendar.MONTH) == new java.lang.Integer(7)?"julio":
-# (Calendar.getInstance().get(Calendar.MONTH) == new java.lang.Integer(8)?"agosto":
-# (Calendar.getInstance().get(Calendar.MONTH) == new java.lang.Integer(9)?"septiembre":
-# (Calendar.getInstance().get(Calendar.MONTH) == new java.lang.Integer(10)?"octubre":
-# (Calendar.getInstance().get(Calendar.MONTH) == new java.lang.Integer(11)?"noviembre":
-# (Calendar.getInstance().get(Calendar.MONTH) == new java.lang.Integer(12)?"diciembre")))))))))))
 
