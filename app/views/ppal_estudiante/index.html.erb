@@ -1,67 +1,109 @@
+<script>
+$(function() {
+
+
+	$( "#1,#2,#3,#4,#5" )
+		.button()
+		.click(function() {
+			$( "#dialog-form" ).dialog( "open" );
+	});
+});
+</script>
+
 <% if notice %>
 	<p class="notice"><%= notice %></p>
 <% end %>
 
     <script type="text/javascript">
+
+
         $(document).ready(function() {
+			
             $("#message6").message("hide");
-         
-            $("#message6").click(function() {
-                $("#message6").message("hide");
-            });
 
             $("#message6-show").click(function() {
                 $("#message6").message("show");
             });
+         
+            $("#message6").click(function() {
+                $("#message6").message("hide");
+            });         
+
+				
+
         });
+		
+
     </script>
 
 <div class ="busqueda">
   <%= form_for @search do |f| %>
-    <%= f.text_field :libro_titulo_or_libro_cota_contains, :class => "campo_busqueda" %>      
-    <%= f.submit :buscar %>
+    <%= f.text_field :titulo_or_cota_contains, :class => "campo_busqueda" %>      
+    <%= f.submit :Buscar %>
   <% end %>
 </div>
 
 <div class ="titulo"><h1>Catalogo de libros</h1></div>
 
-<%= will_paginate @ejemplares , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
-
-<% @ejemplares.each do |ejemplar| %>
+<%= will_paginate @libros , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
+<% @verdetalle = 0 %>
+<% @libros.each do |libro| %>
 
 	<div class="entry">
 
-		<% if ejemplar.libro.imagen_file_name == nil %>
+		<% if libro.imagen_file_name == nil %>
 			<%= image_tag("libro.png",:class => 'list_image') %>
 		<% else %>
-			<%= image_tag(ejemplar.libro.imagen.url(:thumb),:class => 'list_image') %>
+			<%= image_tag(libro.imagen.url(:thumb),:class => 'list_image') %>
 		<% end %>
+		<% @verdetalle = @verdetalle + 1 %>
+		<h3><%= libro.titulo %>, <%= libro.autor %>, <%= libro.edicion %> edición</h3>
+		<h3><%= libro.cota %></h3>
+		<h3><button  onclick='$("#<%= @verdetalle %>").toggle(200);'> Ver ejemplares </button></h3>
 
-		<h3><%= ejemplar.libro.titulo %>, <%= ejemplar.libro.autor %>, <%= ejemplar.libro.edicion %> edición</h3>
-		
-		<h3><%= ejemplar.cota %></h3>
-		
-		<div class="observ"><%= sanitize(ejemplar.observacion) %> </div>
-		
-		<div class="price_line">
+			<div id ="<%= @verdetalle %>" style="display:none;">
+				<% libro.ejemplar.each  do |e| %>
+					<h3>Cota: <%= e.cota %></h3>
+					<div class="observ">Observación: <%= sanitize(e.observacion) %> </div>
+					<div class="price_line">
 
-			<span class="price"><%= number_to_currency(ejemplar.costo_alquiler) %></span>
-			
-			<% if not @configuracion.empty? %>
+						<span class="price">Costo: <%= number_to_currency(e.costo_alquiler) %></span>
+						
+							<% if not @configuracion.empty? %>
 
-				<% if ejemplar.estatus_ejemplar == "Solicitado" %>
-					<%= button_to 'Agregar', lines_items_path(:ejemplar_id => ejemplar), :remote => true, :id => "message6-show"  %>
-					<div id="message6" style="color:red;padding-left:10px;">Este ejemplar ya fue solicitado. <a style="cursor:pointer">Click para cerrar</a></div>
-				<% else %>
-					<%= button_to 'Agregar', lines_items_path(:ejemplar_id => ejemplar), :remote => true %>
+								<% if e.estatus_ejemplar == "Solicitado" %>
+
+									<%= button_to 'Agregar', lines_items_path(:ejemplar_id => e), :remote => true, :id => "message6-show"  %>
+									<div id="message6" style="color:red;padding-left:10px;">
+										Este ejemplar ya fue solicitado. <a style="cursor:pointer">Click para cerrar</a>
+									</div>
+
+								<% else %>
+
+									<%= button_to 'Agregar', lines_items_path(:ejemplar_id => e), :remote => true %>
+					
+								<% end %>
+
+							<% end %>				
+
+					</div>
 				<% end %>
+			</div>
+		
 
-			<% end %>
-
-		</div>
+		
 	</div>
 
 <% end %>
 
-<%= will_paginate @ejemplares , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
+<%= will_paginate @libros , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
+<div class="demo">
 
+<div id="dialog-form">
+
+
+	cooooo
+
+</div>
+
+</div><!-- End demo -->	

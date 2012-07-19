@@ -54,6 +54,8 @@ Tesis::Application.routes.draw do
   get "ppal_estudiante/ver_alquiler"
   
   get "ppal_estudiante/ver_datos"
+
+  get "ppal_estudiante/confirmar_alquiler"
   
   get "ejemplares/index"
 
@@ -75,11 +77,15 @@ Tesis::Application.routes.draw do
 
   get "reportes/libros_adquiridos"
   
-  post "reportes/libros_adquiridos"
-
   get "reportes/num_alquiler_escuela"
+ 
+  get "reportes/libros_sin_alquiler"
 
- resources :ejemplares
+  get "reportes/solvencia"
+
+  get "reportes/deudores"
+
+  resources :ejemplares
 
   resources :libros
 

@@ -51,7 +51,12 @@
 	<h3><a href="#">Reportes</a></h3>
 	<div>
 		<ul>
-			<li><%= link_to "Libros adquiridos", ppal_admin_adquiridos_path, :class => "" %></li>
+			<li><%= link_to "Libros adquiridos", reportes_libros_adquiridos_path, :class => "" %></li>
+			<li><%= link_to "Ejemplares alquilados", reportes_libros_alquilados_path, :class => "" %></li>
+			<li><%= link_to "Libros sin alquilar", reportes_libros_sin_alquiler_path, :class => "" %></li>
+			<li><%= link_to "Alquileres por escuela", reportes_num_alquiler_escuela_path, :class => "" %></li>
+			<li><%= link_to "Libros alquilados", reportes_total_libros_alquilados_path, :class => "" %></li>
+			<li><%= link_to "Deudores", reportes_deudores_path, :class => "" %></li>
 		</ul>
 	</div>
 	<h3><a href="#">Usuarios</a></h3>

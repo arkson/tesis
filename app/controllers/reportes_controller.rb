@@ -1,11 +1,6 @@
 require 'jasper-bridge'
 
-
-
-
-
 class ReportesController < ApplicationController
-	
 
    include Jasper::Bridge
 
@@ -101,12 +96,7 @@ class ReportesController < ApplicationController
 															where e.id not in (select ejemplar_id 
 															from lines_items ) and e.fecha_ingreso <= ? )) t order by t.dependencia, titulo asc ',fecha, fecha, fecha] )
 
-		xml = Builder::XmlMarkup.new 
-		xml_data = @coleccion.to_xml (:include => {:libro => {:include => :dependencia} } )     
-		file = File.new("/home/kenny/my_xml_data_file.xml", "w")
-		file.write(xml_data)
-		file.close	
-					
+	
 		send_doc( @coleccion.to_xml (:include => {:libro => {:include => :dependencia} } ), '/ejemplares/ejemplar/libro/dependencia', 'rptLibrosSinAlquilar.jasper', "Libros Sin Alquilar", params[:output_type])
 
 		
@@ -138,11 +128,7 @@ class ReportesController < ApplicationController
 											where d.estatus = "Sin entregar"
 											and ((c.ano <= ? and c.periodo < ?) or (c.ano < ?)) order by u.dependencia_id, u.cedula asc ',@configuracion[0].ano,@configuracion[0].periodo, @configuracion[0].ano  ]
 )
-        xml = Builder::XmlMarkup.new 
-		xml_data = @coleccion.to_xml (:include => { :dependencia => {} })     
-		file = File.new("/home/kenny/my_xml_data_file.xml", "w")
-		file.write(xml_data)
-		file.close	
+        
 
 		send_doc( @coleccion.to_xml (:include => { :dependencia => {} }  ), '/usuarios/usuario/dependencia', 'rptDeudores.jasper', "Listado de Deudores", params[:output_type])		
 

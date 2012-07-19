@@ -1,5 +1,3 @@
-
-
 	<p>
 		<b>Datos del Usuario</b>
 	</p>
@@ -15,12 +13,9 @@
 	  <%= @alquiler.usuario.nombre %>
 	</p>
 
-	
-
-
-  <p>
+	<p>
  	 <b>Libros seleccionados</b>
-  </p>
+  	</p>
 	
 	<table>
 	  <tr>
@@ -76,9 +71,7 @@
   <% end %>	
 </p>
 	
- <% if Usuario.find(session[:usuario_id]).rol == "Estudiante" %>
-  <div class="actions">
-	<%= button_to "Alquilar", @alquiler, :method => :post %>
-	<%= button_to 'Cancelar', @cart, :method => :delete, :confirm => '¿Estas seguro?' %>
+  <div style="padding-top:20px;">
+	<div style="float:left;margin-left:10px;"><%= button_to "Alquilar", @alquiler, :method => :post %></div>
+	<div><%= button_to 'Cancelar', @cart, :method => :delete %> </div>
   </div>
- <% end %>
