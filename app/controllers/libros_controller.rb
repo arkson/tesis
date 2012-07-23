@@ -45,52 +45,6 @@ class LibrosController < ApplicationController
     @libro = Libro.find(params[:id])
   end
 
-  def buscar_amazon
-    @data = params[:isbn]
-
-    begin
-    Amazon::Ecs.configure do |options|
-      options[:aWS_access_key_id] = 'AKIAIZ372MMDUEUTLORA'
-      options[:aWS_secret_key] = '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'
-    end
-
-    res = Amazon::Ecs.item_search(@data, {:response_group => 'Medium', :sort => 'salesrank'})
-
-    res.items.each do |item|
-          @libro = Libro.new
-          @libro.id_escuela = 1
-
-      item.get('asin')
-      item.get('itemattributes/title')
-      atts = item.search_and_convert('itemattributes')
-
-       @libro.imagen_url = "/images/libros/libro.jpg"
-
-       begin
-       @libro.imagen_url = item.get_hash("smallimage")[:url] || "Imagen No definida"
-       rescue
-       end
-
-      @libro.titulo = atts.get('title') || "Titulo No definido"
-
-      if  atts.get_array('author').empty?
-        @libro.autor =  "Autor No definido"
-      else
-         @libro.autor =  atts.get_array('author')
-      end
-
-      @libro.isbn = atts.get('isbn')
-      @libro.edicion = atts.get('edition') || "Edición No definida"
-      @libro.editorial = atts.get('publisher') || "Editorial No definida"
-    end
-
-    rescue
-      flash[:notice] = 'Hay un error de conexión'
-    end
-    #  dbh.disconnect
-  end
-
-
   # POST /libros
   # POST /libros.json
   def create

@@ -1,5 +1,4 @@
-<!--- BUSCADOR DE NUEVO LIBRO -->
-
+<!--- BUSCADOR DE NUEVO LIBRO 
 <%= form_tag url_for(:controller => 'libros', :action => 'buscar_amazon') do %>
 	<div>
 		<% text_field_tag :isbn, params[:isbn] %>
@@ -7,7 +6,7 @@
 	<div class = "actions">
 		<%= submit_tag "Buscar", :class => 'ingresar' %>
 	</div>
-<% end %>
+<% end %>-->
 
 
 <%= form_for(@libro) do |f| %>

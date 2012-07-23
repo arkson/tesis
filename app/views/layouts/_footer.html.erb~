@@ -1,39 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>..::Bolsa del Libro::..</title>
-  <%= stylesheet_link_tag "application" %>
-  <%= javascript_include_tag :application %>
-  <%= csrf_meta_tags %>
- 
-</head>
-<body>
-
-	<div class="wrapper">
-
-		<%= render(:partial => "layouts/menu") %>
-		<div class="Header">
-			<div class="logo"><%= link_to "", inicio_index_path %></div>
-			<div class="titulo_banner"><p>Bolsa del Libro</p></ br><p>Servicio de Prestamo Rental</p></div> 
-			<div class="panel">
-    		<button id="acceder">Iniciar sesión</button>			
-			<%= link_to "Catálogo de libros", inicio_catalogo_path, :id => "links" %>
-			</div>
-		</div>
-
-        <div class = "borde_superior"></div>
-
-		<div class="Contenido">			
-			<%= yield %>
-		</div>
-
-	
-		<!--<div class="push"></div>-->	
-		
-	</div>
-
-	<div class = "borde_inferior"></div>
-	<div class="Footer">
+<div class="Footer">
 			<div class="Footer-text">
 				<ul>
 					<li class ="nolink">Información General</li>
@@ -64,6 +29,3 @@
 				</ul>					
 			</div>
 	</div>
-
-</body>
-</html>
