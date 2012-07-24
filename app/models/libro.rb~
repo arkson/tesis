@@ -1,3 +1,4 @@
+
 class Libro < ActiveRecord::Base
   belongs_to :editorial
   belongs_to :area_conocimiento
@@ -6,8 +7,7 @@ class Libro < ActiveRecord::Base
   
  
   
-  before_destroy :ensure_not_referenced_by_any_line_item
-
+  
 
   validates :cota, :titulo, :autor,:edicion, :ano, :presence => true  
   validates :cota, :isbn,  :uniqueness => true

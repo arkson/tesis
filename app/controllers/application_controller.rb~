@@ -63,9 +63,16 @@ class ApplicationController < ActionController::Base
 	end
 
   end
-	
+ 
 
-  	
+  public
+  def get_imagen 
+	if isbn != nil 
+		@books = GoogleBooks.search('isbn:8429146083')
+		
+ 	end
+	@books.first.image_link  
+  end	
 
 	  
 

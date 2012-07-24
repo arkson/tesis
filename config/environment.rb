@@ -2,6 +2,7 @@
 require File.expand_path('../application', __FILE__)
 require "pdf/writer"
 require "pdf/simpletable"
+require 'googlebooks'
 # Initialize the rails application
 Tesis::Application.initialize!
 

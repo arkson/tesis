@@ -77,6 +77,8 @@ Tesis::Application.routes.draw do
 
   get "reportes/libros_adquiridos"
   
+  post "reportes/libros_adquiridos"
+
   get "reportes/num_alquiler_escuela"
  
   get "reportes/libros_sin_alquiler"
@@ -87,7 +89,9 @@ Tesis::Application.routes.draw do
 
   resources :ejemplares
 
-  resources :libros
+  resources :libros do
+	get :get_imagen
+  end
 
   resources :editoriales
 

@@ -1,3 +1,4 @@
+
 class Libro < ActiveRecord::Base
   belongs_to :editorial
   belongs_to :area_conocimiento
@@ -16,8 +17,6 @@ class Libro < ActiveRecord::Base
   def titulo_and_autor
   	[titulo,autor].join(' | ')
   end
-
-
 
 
 end

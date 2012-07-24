@@ -1,3 +1,5 @@
+require 'googlebooks'
+
 class LibrosController < ApplicationController
   	before_filter :es_adminitrador
 	layout "administrador"
@@ -6,6 +8,10 @@ class LibrosController < ApplicationController
   # GET /libros
   # GET /libros.json
   def index
+
+	#@books = GoogleBooks.search('isbn:8420540021')
+	
+
 	add_breadcrumb "Listado de libros", :libros_index_path
 	@search = Libro.search(params[:search])
     @libros = @search.paginate(:page => params[:page], :per_page => 5)
@@ -88,4 +94,6 @@ class LibrosController < ApplicationController
       format.json { head :ok }
     end
   end
+
+
 end

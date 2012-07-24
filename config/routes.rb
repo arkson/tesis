@@ -89,7 +89,7 @@ Tesis::Application.routes.draw do
 
   resources :ejemplares
 
-  resources :libros
+  resources :libros 
 
   resources :editoriales
 

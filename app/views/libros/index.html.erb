@@ -22,7 +22,11 @@
 	<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
 		<td width="5%">
 			<% if libro.imagen_file_name == nil %>
-				<%= image_tag("libro.png",:class => 'list_image') %>
+				<% if libro.isbn != nil %>	
+					<%= image_tag(get_imagen,:class => 'list_image' )  %>
+						
+				<% end %>
+	
 			<% else %>
 				<%= image_tag(libro.imagen.url(:thumb),:class => 'list_image') %>
 			<% end %>
