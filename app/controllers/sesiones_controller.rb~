@@ -11,6 +11,7 @@ class SesionesController < ApplicationController
 
 		if usuario and usuario.authenticate(params[:password])
 			session[:usuario_id] = usuario.id
+session[:usuario_nombre] = usuario.nombre
 			if usuario.rol == 'Administrador'
 				redirect_to ppal_admin_index_url
 			elsif usuario.rol == 'Operador'
@@ -19,11 +20,11 @@ class SesionesController < ApplicationController
 					redirect_to ppal_estudiante_index_url
 			end
 		else
-			redirect_to inicio_index_url, :alert => "Combinacion de Usuario/clave invalido(a)"
+			redirect_to inicio_index_url, :alert => "Combinación de Usuario/clave inválido(a)"
 		end
 
 	else
-		redirect_to inicio_index_url, :alert => "Captcha Invalido"
+		redirect_to inicio_index_url, :alert => "Texto de la imágen Inválido"
 	end
 
   end

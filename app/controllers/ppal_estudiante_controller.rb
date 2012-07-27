@@ -6,17 +6,19 @@ class PpalEstudianteController < ApplicationController
   
 
   def index
- add_breadcrumb "Listado de libros", :libros_index_path
-	@ejemplares = Ejemplar.all
+ 	add_breadcrumb "Listado de libros", :libros_index_path	
  	add_breadcrumb "Catálogo de libros", :ppal_estudiante_index_path
 	@query = Libro.where(" id in (select libro_id from ejemplares where estatus_ejemplar = 'Disponible' or estatus_ejemplar = 'Solicitado' )").order('cota asc')
-
-
-#find_by_sql("select * from libros where id in (select libro_id from ejemplares where estatus_ejemplar = 'Disponible' or estatus_ejemplar = 'Solicitado' )" )
 	@search = @query.search(params[:search])
-	@libros =  @search.paginate(:page => params[:page], :per_page =>5)
+	@libros = @search.paginate(:page => params[:page], :per_page =>5)
+
 	@cart = current_cart 
 	@configuracion = current_config
+
+	respond_to do |format|
+      format.html # index.html.erb
+      format.json { render :json => @libros }
+    end
 
   end
 

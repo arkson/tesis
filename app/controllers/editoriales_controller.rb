@@ -49,7 +49,7 @@ class EditorialesController < ApplicationController
 
     respond_to do |format|
       if @editorial.save
-        format.html { redirect_to @editorial, :notice => 'Editorial was successfully created.' }
+        format.html { redirect_to @editorial, :notice => 'Editorial creada exitosamente.' }
         format.json { render :json => @editorial, :status => :created, :location => @editorial }
       else
         format.html { render :action => "new" }
@@ -65,7 +65,7 @@ class EditorialesController < ApplicationController
 
     respond_to do |format|
       if @editorial.update_attributes(params[:editorial])
-        format.html { redirect_to @editorial, :notice => 'Editorial was successfully updated.' }
+        format.html { redirect_to @editorial, :notice => 'Editorial actualizada exitosamente.' }
         format.json { head :ok }
       else
         format.html { render :action => "edit" }

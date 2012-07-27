@@ -1,9 +1,9 @@
 class UsuariosController < ApplicationController
   before_filter :es_adminitrador
   layout "administrador"
-  add_breadcrumb "Usuario", :ppal_admin_index_path
+  add_breadcrumb "Inicio", :ppal_admin_index_path
   def index
-	add_breadcrumb "Listado de Usuario", :ppal_admin_index_path
+	add_breadcrumb "Listado de Usuario", :usuarios_path
 	@search = Usuario.search(params[:search])
     @usuario = @search.order(:nombre)
     @usuarios = @usuario.paginate(:page => params[:page], :per_page => 5)

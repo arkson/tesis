@@ -112,7 +112,7 @@ class AlquileresController < ApplicationController
 
     @alquiler.devolucion.each do |dev|
 		@devolucion = Devolucion.find(dev.id) 	
-		@devolucion.estatus = "Sin entregar"
+		@devolucion.estatus = "Sin devolver"
 		@devolucion.save 
 	end
 

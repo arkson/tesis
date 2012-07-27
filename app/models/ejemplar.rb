@@ -6,6 +6,9 @@ class Ejemplar < ActiveRecord::Base
   before_destroy :ensure_not_referenced_by_any_line_item
 
   validates :numero_ejemplar, :libro, :tipo_adquisicion, :costo_alquiler, :presence => true
+  validates :numero_ejemplar, :numericality => {:greater_than => 0}	
+  validates :costo_alquiler, :numericality => {:greater_than => 0}	
+
   #validates :cota, :uniqueness => true
   
   private

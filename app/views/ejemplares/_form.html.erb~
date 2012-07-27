@@ -12,12 +12,17 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :libro %><br />
+    <%= f.collection_select :libro_id, Libro.all, :id, :titulo_and_autor %>
+  </div>
+	
+  <div class="field">
     <%= f.label :numero_ejemplar %><br />
-    <%= f.text_field :numero_ejemplar %>
+    <%= f.number_field :numero_ejemplar %>
   </div>
   <div class="field">
     <%= f.label :costo_alquiler %><br />
-    <%= f.text_field :costo_alquiler %>
+    <%= f.number_field :costo_alquiler %>
   </div>
   <div class="field">
     <%= f.label :tipo_adquisicion %><br />
@@ -25,8 +30,8 @@
                           <option value = 'Coordinacion Academica'>Coordinación Académica</option>
 						  <option value = 'Centro de Estudiantes'>Centro de Estudiantes</option>
 						  <option value = 'Donacion Grado'>Donación Grado</option>
-						  <option value = 'Extraviado'>Extraviado</option>
-						  <option value = 'Reparacion'>Reparación</option>" %>
+						  <option value = 'Donacion Instituciones'>Donación Instituciones</option>
+						  <option value = 'Donacion Personal'>Donación Personal</option>" %>
   </div>
   <div class="field">
     <%= f.label :fecha_ingreso %><br />
@@ -40,14 +45,7 @@
     <%= f.label :nro_factura %><br />
     <%= f.text_field :nro_factura %>
   </div>
-  <div class="field">
-    <%= f.label :en_uso %><br />
-    <%= f.text_field :en_uso %>
-  </div>
-  <div class="field">
-    <%= f.label :activo %><br />
-    <%= f.check_box :activo %>
-  </div>
+  
   <div class="field">
     <%= f.label :estatus_ejemplar %><br />
     <%= f.select "estatus_ejemplar", "<option value = 'Prealquilado'>Prealquilado</option>
@@ -56,10 +54,7 @@
 						  <option value = 'Extraviado'>Extraviado</option>
 						  <option value = 'Reparacion'>Reparación</option>" %>
   </div>
-  <div class="field">
-    <%= f.label :libro %><br />
-    <%= f.collection_select :libro_id, Libro.all, :id, :titulo_and_autor %>
-  </div>
+  
   <div class="field">
     <%= f.label :libreria %><br />
     <%= f.collection_select :libreria_id, Libreria.all, :id, :nombre %>

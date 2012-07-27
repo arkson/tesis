@@ -10,9 +10,7 @@ $(function() {
 });
 </script>
 
-<% if notice %>
-	<p class="notice"><%= notice %></p>
-<% end %>
+
 
     <script type="text/javascript">
 
@@ -34,12 +32,16 @@ $(function() {
         });
 		
 
-    </script>
+</script>
+
+<% if flash[:notice] %>
+	<p class="notice"><%= flash[:notice] %></p>
+<% end %>
 
 <div class ="busqueda">
   <%= form_for @search do |f| %>
     <%= f.text_field :titulo_or_cota_contains, :class => "campo_busqueda" %>      
-    <%= f.submit :buscar %>
+    <%= f.submit :Buscar %>
   <% end %>
 </div>
 
@@ -63,17 +65,19 @@ $(function() {
 
 			<div id ="<%= @verdetalle %>" style="display:none;">
 				<% libro.ejemplar.each  do |e| %>
+				  <% if e.estatus_ejemplar == "Solicitado" or e.estatus_ejemplar == "Disponible"   %>
 					<h3>Cota: <%= e.cota %></h3>
+<h3>id: <%= e.id %></h3>
 					<div class="observ">Observación: <%= sanitize(e.observacion) %> </div>
 					<div class="price_line">
 
-						<span class="price">Costo: <%= number_to_currency(e.costo_alquiler) %></span>
+						<span class="price">Costo: <%= number_to_currency(e.costo_alquiler, :unit => "Bs.") %></span>
 						
 							<% if not @configuracion.empty? %>
 
 								<% if e.estatus_ejemplar == "Solicitado" %>
 
-									<%= button_to 'Agregar', lines_items_path(:ejemplar_id => e), :remote => true, :id => "message6-show"  %>
+									
 									<div id="message6" style="color:red;padding-left:10px;">
 										Este ejemplar ya fue solicitado. <a style="cursor:pointer">Click para cerrar</a>
 									</div>
@@ -87,6 +91,7 @@ $(function() {
 							<% end %>				
 
 					</div>
+				 <% end %>
 				<% end %>
 			</div>
 		
@@ -97,13 +102,4 @@ $(function() {
 <% end %>
 
 <%= will_paginate @libros , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
-<div class="demo">
 
-<div id="dialog-form">
-
-
-	cooooo
-
-</div>
-
-</div><!-- End demo -->	

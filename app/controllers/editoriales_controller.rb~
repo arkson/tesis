@@ -7,8 +7,8 @@ class EditorialesController < ApplicationController
   # GET /editoriales
   # GET /editoriales.json
   def index
-    @editoriales = Editorial.all
-
+	@search = Editorial.search(params[:search])
+    @editoriales = @search.paginate(:page => params[:page], :per_page => 5)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @editoriales }

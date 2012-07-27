@@ -208,6 +208,47 @@
     </step>
 
   <step>
+    <name>Database lookup</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>tesis development</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema/>
+      <table>libros</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>cota_libro</name>
+        <field>cota</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>id</name>
+        <rename>id_libro</rename>
+        <default/>
+        <type>Integer</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>173</xloc>
+      <yloc>175</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>Insert &#47; Update</name>
     <type>InsertUpdate</type>
     <description/>
@@ -260,11 +301,6 @@
         <update>Y</update>
       </value>
       <value>
-        <name>en_uso</name>
-        <rename>en_uso</rename>
-        <update>Y</update>
-      </value>
-      <value>
         <name>libro_id</name>
         <rename>id_libro</rename>
         <update>Y</update>
@@ -299,50 +335,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>479</xloc>
       <yloc>295</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>ejemplares</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>Bolsa vieja</connection>
-    <sql>SELECT
-  e.id
-, l.cota as cota_libro
-, e.cota
-, e.costo_alquiler
-, e.tipo_adquisicion
-, e.fecha_ingreso
-, e.observacion
-, e.nro_factura
-, e.en_uso
-, e.activo
-, e.contador
-, e.libreria_id
-, e.created_at
-, e.updated_at
-, e.usuario_id
-, e.fecha_alquiler
-FROM ejemplars e join libros l on (e.libro_id = l.id)
-order by e.libro_id asc
-</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>74</xloc>
-      <yloc>256</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -422,8 +414,8 @@ Alert(&quot;index of &apos;o&apos;, search from position 7 : &quot; + str3);
     </step>
 
   <step>
-    <name>Database lookup</name>
-    <type>DBLookup</type>
+    <name>ejemplares</name>
+    <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
     <copies>1</copies>
@@ -431,33 +423,36 @@ Alert(&quot;index of &apos;o&apos;, search from position 7 : &quot; + str3);
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>tesis development</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema/>
-      <table>libros</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>cota_libro</name>
-        <field>cota</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>id</name>
-        <rename>id_libro</rename>
-        <default/>
-        <type>Integer</type>
-      </value>
-    </lookup>
+    <connection>Bolsa vieja</connection>
+    <sql>SELECT
+  e.id
+, l.cota as cota_libro
+, e.cota
+, e.costo_alquiler
+, e.tipo_adquisicion
+, e.fecha_ingreso
+, e.observacion
+, e.nro_factura
+, e.en_uso
+, e.activo
+, e.contador
+, e.libreria_id
+, e.created_at
+, e.updated_at
+, e.usuario_id
+, e.fecha_alquiler
+FROM ejemplars e join libros l on (e.libro_id = l.id)
+order by e.libro_id asc
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>173</xloc>
-      <yloc>175</yloc>
+      <xloc>74</xloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

@@ -15,7 +15,7 @@
 		</td>
 		<td class="ver_datos" width="25%">
 			<%= link_to 'Ver Datos', ppal_estudiante_ver_datos_path(:id => alquiler.id),:id => "links" %>
-			<%= link_to 'Comprobante',{:controller => "reportes", :action => "comprobante_alquiler", :id => alquiler.id}, :id => "links" %>
+			<%= link_to 'Comprobante',{:controller => "reportes", :action => "comprobante_alquiler", :id => alquiler.id}, :id => "links", :target => "_blank" %>
 		</td>
 	</tr>
 	<% end %>

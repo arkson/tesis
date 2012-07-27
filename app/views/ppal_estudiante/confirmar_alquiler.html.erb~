@@ -27,6 +27,7 @@
 		 <th>Precio</th>
 		 <th>Estatus</th>
 		 <th></th>
+		 <th></th>
 	  </tr>
 
 		<% @alquiler.line_item.each do |item| %>
@@ -38,12 +39,11 @@
 			<td><%= item.ejemplar.libro.ano %></td>
 			<td><%= number_to_currency(item.ejemplar.costo_alquiler) %></td> 
 			<td><%= item.estatus_devolucion %><td>
-					
-			<td><% if Usuario.find(session[:usuario_id]).rol == "Administrador" or Usuario.find(session[:usuario_id]).rol == "Operador" and @alquiler.estatus == "Alquilado" and item.estatus_devolucion == "Sin entregar" %>
-						
-			    
-			  <%= button_to("Devolver", {:controller => "devoluciones", :action => "update", :line_item_id => item.id}, :method => :put)%>
-
+			<td><% if @alquiler.estatus == "Prealquilado" %> 					
+			
+			<td><%= link_to image_tag("cross.png", :alt => "Eliminar", :title => "Eliminar", :size => "18x18"), {:controller => "lines_items",:action => "destroy", :id => item.id}, :confirm => '¿Estas seguro?', :method => :delete %>
+			
+			
 			<% end %></	td>	
 			
 			</tr> 
@@ -72,6 +72,6 @@
 </p>
 	
   <div style="padding-top:20px;">
-	<div style="float:left;margin-left:10px;"><%= button_to "Alquilar", @alquiler, :method => :post %></div>
+	<div style="float:left;margin-right:10px;"><%= button_to "Alquilar", @alquiler, :method => :post %></div>
 	<div><%= button_to 'Cancelar', @cart, :method => :delete %> </div>
   </div>

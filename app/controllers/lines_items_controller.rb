@@ -107,11 +107,13 @@ class LinesItemsController < ApplicationController
   # DELETE /lines_items/1.json
   def destroy
     @lin_items = LineItem.find(params[:id])
+	alquiler_id = @lin_items.alquiler_id
     @lin_items.destroy
-
     respond_to do |format|
-      format.html { redirect_to lines_items_url }
+      format.html { redirect_to :controller => 'ppal_estudiante',:action=>"confirmar_alquiler", :id=>alquiler_id}
       format.json { head :ok }
     end
   end
+
+  	
 end

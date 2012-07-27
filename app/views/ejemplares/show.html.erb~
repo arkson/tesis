@@ -60,5 +60,5 @@
 </p>
 </div>
 
-<%= link_to 'Editar', edit_ejemplar_path(@ejemplar) %> &nbsp
-<%= link_to 'Regresar', ejemplares_path %>
+<%= link_to 'Editar', edit_ejemplar_path(@ejemplar), :id => "links" %> &nbsp
+<%= link_to 'Regresar', ejemplares_path, :id => "links" %>

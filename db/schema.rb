@@ -75,14 +75,12 @@ ActiveRecord::Schema.define(:version => 20120613223341) do
   end
 
   create_table "ejemplares", :force => true do |t|
-    t.string   "numero_ejemplar"
-    t.decimal  "costo_alquiler",   :precision => 10, :scale => 0
+    t.integer  "numero_ejemplar"
+    t.decimal  "costo_alquiler",   :precision => 10, :scale => 2
     t.string   "tipo_adquisicion"
     t.date     "fecha_ingreso"
     t.text     "observacion"
     t.string   "nro_factura"
-    t.string   "en_uso"
-    t.boolean  "activo"
     t.string   "estatus_ejemplar"
     t.integer  "libro_id"
     t.integer  "libreria_id"
@@ -106,8 +104,8 @@ ActiveRecord::Schema.define(:version => 20120613223341) do
     t.string   "autor"
     t.string   "imagen_content_type"
     t.string   "imagen_file_name"
-    t.integer  "imagen_file_size"
     t.datetime "imagen_updated_at"
+    t.integer  "imagen_file_size"
     t.integer  "edicion"
     t.string   "lugar_impresion"
     t.integer  "ano"
@@ -139,8 +137,8 @@ ActiveRecord::Schema.define(:version => 20120613223341) do
     t.string   "titulo"
     t.string   "imagen_content_type"
     t.string   "imagen_file_name"
-    t.integer  "imagen_file_size"
     t.datetime "imagen_updated_at"
+    t.integer  "imagen_file_size"
     t.text     "contenido"
     t.string   "tipo_contenido"
     t.date     "fecha"

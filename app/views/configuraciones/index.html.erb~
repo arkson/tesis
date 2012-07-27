@@ -32,4 +32,4 @@
 
 <br />
 
-<%= link_to 'Nueva Configuración', new_configuracion_path %>
+<%= link_to 'Nueva Configuración', new_configuracion_path, :id => "links" %>

@@ -9,8 +9,8 @@ class LibrosController < ApplicationController
   # GET /libros.json
   def index
 
-	#@books = GoogleBooks.search('isbn:8420540021')
-	
+	#@books = GoogleBooks.search('isbn:8420540021')	
+	#@imagen = @books.first.image_link 
 
 	add_breadcrumb "Listado de libros", :libros_index_path
 	@search = Libro.search(params[:search])

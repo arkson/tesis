@@ -1,0 +1,16 @@
+--- 
+applications: 
+  .: 
+    mem: 256M
+    instances: 1
+    framework: 
+      info: 
+        mem: 256M
+        exec: 
+        description: Rails Application
+      name: rails3
+    services: 
+      mysql-54dac: 
+        type: mysql
+    name: tesis
+    url: ${name}.${target-base}

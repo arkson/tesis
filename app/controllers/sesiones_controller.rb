@@ -11,6 +11,7 @@ class SesionesController < ApplicationController
 
 		if usuario and usuario.authenticate(params[:password])
 			session[:usuario_id] = usuario.id
+			session[:usuario_nombre] = usuario.nombre
 			if usuario.rol == 'Administrador'
 				redirect_to ppal_admin_index_url
 			elsif usuario.rol == 'Operador'

@@ -2,7 +2,7 @@
 
 <div class ="busqueda">
   <%= form_for @search do |f| %>
-    <%= f.text_field :nombre_contains, :class => "campo_busqueda"  %>
+    <%= f.text_field :nombre_or_cedula_contains, :class => "campo_busqueda"  %>
     <!-- etc... -->
     <%= f.submit :buscar%>
   <% end %>
@@ -10,7 +10,7 @@
 
 <div class ="titulo"><h1>Listado de usuarios</h1></div>
 
-<%= link_to 'Nuevo usuario', new_libro_path, :id => "links" %>
+<%= link_to 'Nuevo usuario', new_usuario_path, :id => "links" %>
 
 <br />
 <%= will_paginate @usuarios , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>

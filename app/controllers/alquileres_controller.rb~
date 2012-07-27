@@ -76,7 +76,7 @@ class AlquileresController < ApplicationController
 		@ejem.estatus_ejemplar = 'Prealquilado'	
 		@ejem.save
 	end	
-		
+	
   respond_to do |format|
       if @alquiler.save
 		  
@@ -89,7 +89,7 @@ class AlquileresController < ApplicationController
 				@devolucion.line_item_id = item.id
 				@devolucion.save	
 		end	
-        format.html { redirect_to ppal_estudiante_index_path, :notice => 'Tu alquiler se ha realizado con éxito.' }
+        format.html { redirect_to ppal_estudiante_index_path, :notice => fading_flash_message('Tu alquiler se ha realizado con éxito.', 5)	 }
         format.json { render :json => @alquiler, :status => :created, :location => @alquiler }
 			  		
 		
@@ -112,7 +112,7 @@ class AlquileresController < ApplicationController
 
     @alquiler.devolucion.each do |dev|
 		@devolucion = Devolucion.find(dev.id) 	
-		@devolucion.estatus = "Sin entregar"
+		@devolucion.estatus = "Sin devolver"
 		@devolucion.save 
 	end
 
@@ -126,7 +126,7 @@ class AlquileresController < ApplicationController
       if @alquiler.update_attributes(params[:alquiler])
 
 
-        format.html {redirect_to :action => "edit", :id => @alquiler.id, :notice => 'Alquiler was successfully updated.'}
+        format.html {redirect_to :action => "edit", :id => @alquiler.id, :notice => 'Alquiler actualizado exitosamente.'}
         format.json { head :ok }
       else
         format.html { render :action => "edit" }

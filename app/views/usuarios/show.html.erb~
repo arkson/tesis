@@ -22,7 +22,7 @@
 
 <p>
   <b>Dependencia:</b>
-  <%= @usuario.libro.dependencia %>
+  <%= @usuario.dependencia %>
 </p>
 </div>
 

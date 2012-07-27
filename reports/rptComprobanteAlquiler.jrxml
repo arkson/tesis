@@ -212,7 +212,7 @@ BOLSA DEL LIBRO
 		<band splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="23" splitType="Stretch">
+		<band height="41" splitType="Stretch">
 			<textField evaluationTime="Report">
 				<reportElement x="535" y="0" width="37" height="20"/>
 				<textElement/>
@@ -223,6 +223,11 @@ BOLSA DEL LIBRO
 				<textElement textAlignment="Right"/>
 				<textFieldExpression class="java.lang.String"><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="3" y="3" width="352" height="36"/>
+				<textElement/>
+				<text><![CDATA[NOTA: DEBE PRESENTAR ESTE COMPROBANTE EN CAJA PARA CANCCELAR EL COSTO DEL ALQUILER]]></text>
+			</staticText>
 		</band>
 	</pageFooter>
 	<summary>

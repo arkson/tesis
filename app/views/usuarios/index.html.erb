@@ -2,7 +2,7 @@
 
 <div class ="busqueda">
   <%= form_for @search do |f| %>
-    <%= f.text_field :nombre_contains, :class => "campo_busqueda"  %>
+    <%= f.text_field :nombre_or_cedula_contains, :class => "campo_busqueda"  %>
     <!-- etc... -->
     <%= f.submit :buscar%>
   <% end %>

@@ -1,13 +1,14 @@
 
-<div class ="titulo"><h1>Listado de editoriales</h1></div>
+
 <div class ="busqueda">
   <%= form_for @search do |f| %>
-    <%= f.label :Buscar, :class => "buscar" %>
-    <%= f.text_field :nombre_contains %>
+    <%= f.text_field :nombre_contains, :class => "campo_busqueda" %>
     <!-- etc... -->
     <%= f.submit :buscar%>
   <% end %>
 </div>
+
+<div class ="titulo"><h1>Listado de editoriales</h1></div>
 
 <%= will_paginate @editoriales , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
 
@@ -22,7 +23,7 @@
 <td class="list_actions" width="5%">
     <%= link_to image_tag("open.png", :alt => "Mostrar", :title => "Mostrar", :size => "18x18"), editorial %>
     <%= link_to image_tag("editpaste.png", :alt => "Editar", :title => "Editar", :size => "18x18"), edit_editorial_path(editorial) %>
-    <%= link_to image_tag("close.png", :alt => "Eliminar", :title => "Eliminar", :size => "18x18"), editorial, :confirm => '¿Estas seguro?', :method => :delete %>
+    <%= link_to image_tag("cross.png", :alt => "Eliminar", :title => "Eliminar", :size => "18x18"), editorial, :confirm => '¿Estas seguro?', :method => :delete %>
 </td>
 </tr>
 <% end %>
@@ -30,4 +31,4 @@
 <%= will_paginate @editoriales , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
 <br />
 
-<button id="link"><%= link_to 'Nueva Editorial', new_editorial_path %></button>
+<%= link_to 'Nueva Editorial', new_editorial_path, :id => "links" %>

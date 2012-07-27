@@ -15,5 +15,5 @@
 </table>
  
 
-<%= button_to "Alquilar", new_alquiler_path, :method => :get, :class => "alquilar" %>
+<%= button_to "Alquilar", ppal_estudiante_confirmar_alquiler_path, :method => :get, :class => "alquilar" %>
 <%= button_to 'Vaciar', cart, :method => :delete, :confirm => '¿Estas seguro?' %>

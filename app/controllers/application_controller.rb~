@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery
   include SimpleCaptcha::ControllerHelpers
-  
+  include ActionView::Helpers::OutputSafetyHelper
   
 
 
@@ -67,13 +67,26 @@ class ApplicationController < ActionController::Base
 
   public
   def get_imagen 
+    imagen = "" 
 	if isbn != nil 
 		@books = GoogleBooks.search('isbn:8429146083')
-		
+		imagen = @books.first.image_link 
  	end
-	@books.first.image_link  
+	imagen 
   end	
 
-	  
+def fading_flash_message(text, seconds=3)
+  raw text +
+    <<-EOJS
+      <script type='text/javascript'>
+        Event.observe(window, 'load',function() { 
+          setTimeout(function() {
+            message_id = $('notice') ? 'notice';
+            new Effect.Fade(message_id);
+          }, #{seconds*1000});
+        }, false);
+      </script>
+    EOJS
+end	  
 
 end
