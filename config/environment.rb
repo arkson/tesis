@@ -4,6 +4,7 @@ require "pdf/writer"
 require "pdf/simpletable"
 require 'googlebooks'
 # Initialize the rails application
+ 
 Tesis::Application.initialize!
 
 Mime::Type.register 'application/pdf', :pdf

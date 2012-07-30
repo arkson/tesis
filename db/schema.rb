@@ -102,9 +102,9 @@ ActiveRecord::Schema.define(:version => 20120613223341) do
     t.string   "cota"
     t.string   "titulo"
     t.string   "autor"
-    t.string   "imagen_content_type"
-    t.string   "imagen_file_name"
     t.datetime "imagen_updated_at"
+    t.string   "imagen_file_name"
+    t.string   "imagen_content_type"
     t.integer  "imagen_file_size"
     t.integer  "edicion"
     t.string   "lugar_impresion"
@@ -135,9 +135,9 @@ ActiveRecord::Schema.define(:version => 20120613223341) do
 
   create_table "noticias", :force => true do |t|
     t.string   "titulo"
-    t.string   "imagen_content_type"
-    t.string   "imagen_file_name"
     t.datetime "imagen_updated_at"
+    t.string   "imagen_file_name"
+    t.string   "imagen_content_type"
     t.integer  "imagen_file_size"
     t.text     "contenido"
     t.string   "tipo_contenido"

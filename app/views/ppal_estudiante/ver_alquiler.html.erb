@@ -8,7 +8,7 @@
 
 		<td class="list_description">
 			<dl>
-				<dd>Fecha de inicio: <%= Date.strptime("31/01/2010", "%d/%m/%Y") %></dd>
+				<dd>Fecha de inicio: <%= alquiler.created_at.strftime("%d-%m-%Y") %></dd>
 				<dd>Fecha de culminación: <%= alquiler.fecha_fin %></dd>
 				<dd>Estatus: <%= alquiler.estatus %></dd>
 			</dl>

@@ -45,7 +45,7 @@
 			<td><%= number_to_currency(item.ejemplar.costo_alquiler) %></td> 
 			<td><%= item.estatus_devolucion %><td>
 					
-			<td><% if Usuario.find(session[:usuario_id]).rol == "Administrador" or Usuario.find(session[:usuario_id]).rol == "Operador" and @alquiler.estatus == "Alquilado" and item.estatus_devolucion == "Sin entregar" %>
+			<td><% if Usuario.find(session[:usuario_id]).rol == "Administrador" or Usuario.find(session[:usuario_id]).rol == "Operador" and @alquiler.estatus == "Alquilado" and item.estatus_devolucion == "Sin devolver" %>
 						
 			    
 			  <%= button_to("Devolver", {:controller => "devoluciones", :action => "update", :line_item_id => item.id}, :method => :put)%>

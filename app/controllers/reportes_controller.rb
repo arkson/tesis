@@ -125,7 +125,7 @@ class ReportesController < ApplicationController
 											from usuarios u join alquileres a on (u.id = a.usuario_id)
 											join devoluciones d  on (a.id = d.alquiler_id) 
 											join configuraciones c on (c.id = a.configuracion_id  )
-											where d.estatus = "Sin entregar"
+											where d.estatus = "Sin devolver"
 											and ((c.ano <= ? and c.periodo < ?) or (c.ano < ?)) order by u.dependencia_id, u.cedula asc ',@configuracion[0].ano,@configuracion[0].periodo, @configuracion[0].ano  ]
 )
         

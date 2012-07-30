@@ -1,10 +1,15 @@
 class ApplicationController < ActionController::Base
   
-  before_filter :authorize
+  before_filter :authorize, :set_timezone 	
 
   protect_from_forgery
   include SimpleCaptcha::ControllerHelpers
   
+
+
+  def set_timezone  
+	Time.zone = 'America/Caracas'
+  end  
   
 
 

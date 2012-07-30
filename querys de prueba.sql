@@ -49,6 +49,10 @@ ON DELETE SET NULL
 ON UPDATE CASCADE;
 
 
+cédulas de prueba
+17922539
+19175702
+
 
 
 

@@ -16,33 +16,36 @@
 		<fieldDescription><![CDATA[ancestor::line-item/ancestor::line-item/ancestor::alquiler/usuario/dependencia/nombre]]></fieldDescription>
 	</field>
 	<field name="usuario_id" class="java.lang.String">
-		<fieldDescription><![CDATA[ancestor::line-item/ancestor::line-item/ancestor::alquiler/usuario/id
-]]></fieldDescription>
+		<fieldDescription><![CDATA[ancestor::line-item/ancestor::line-item/ancestor::alquiler/usuario/id]]></fieldDescription>
 	</field>
 	<field name="ejemplar_id" class="java.lang.Integer">
 		<fieldDescription><![CDATA[id]]></fieldDescription>
 	</field>
-	<variable name="usuario_id_1" class="java.lang.Integer" resetType="Group" resetGroup="usuarios" calculation="DistinctCount">
-		<variableExpression><![CDATA[$F{usuario_id}]]></variableExpression>
-	</variable>
 	<variable name="ejemplares_num" class="java.lang.Integer" resetType="Group" resetGroup="dependencias" calculation="Count">
 		<variableExpression><![CDATA[$F{ejemplar_id}]]></variableExpression>
 	</variable>
 	<variable name="ejemplar_id_1" class="java.lang.Integer" resetType="Group" resetGroup="dependencias" calculation="Count">
 		<variableExpression><![CDATA[$F{ejemplar_id}]]></variableExpression>
 	</variable>
-	<group name="usuarios">
-		<groupExpression><![CDATA[$F{usuario_id}]]></groupExpression>
+	<variable name="ejemplar_id_2" class="java.lang.Integer" resetType="Group" resetGroup="dependencias" calculation="Count">
+		<variableExpression><![CDATA[$F{ejemplar_id}]]></variableExpression>
+	</variable>
+	<variable name="usuario_id_2" class="java.lang.Integer" resetType="Group" resetGroup="dependencias" calculation="Count">
+		<variableExpression><![CDATA[$F{usuario_id}]]></variableExpression>
+	</variable>
+	<variable name="usuario_id_1" class="java.lang.Integer" resetType="Group" resetGroup="dependencias" calculation="Count">
+		<variableExpression><![CDATA[$F{usuario_id}]]></variableExpression>
+	</variable>
+	<variable name="usuario_id_3" class="java.lang.Integer" resetType="Group" resetGroup="dependencias" calculation="DistinctCount">
+		<variableExpression><![CDATA[$F{usuario_id}]]></variableExpression>
+	</variable>
+	<group name="dependencias">
+		<groupExpression><![CDATA[$F{dependencia}]]></groupExpression>
 		<groupHeader>
 			<band height="20">
 				<rectangle>
 					<reportElement style="detalle" x="0" y="0" width="572" height="20"/>
 				</rectangle>
-				<textField evaluationTime="Group" evaluationGroup="usuarios">
-					<reportElement x="315" y="0" width="100" height="20"/>
-					<textElement/>
-					<textFieldExpression class="java.lang.Integer"><![CDATA[$V{usuario_id_1}]]></textFieldExpression>
-				</textField>
 				<textField>
 					<reportElement x="14" y="0" width="100" height="20"/>
 					<textElement/>
@@ -50,19 +53,15 @@
 				</textField>
 				<textField evaluationTime="Group" evaluationGroup="dependencias">
 					<reportElement x="142" y="0" width="115" height="20"/>
-					<textElement/>
-					<textFieldExpression class="java.lang.Integer"><![CDATA[$V{ejemplar_id_1}]]></textFieldExpression>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression class="java.lang.Integer"><![CDATA[$V{ejemplar_id_2}]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Group" evaluationGroup="dependencias">
+					<reportElement x="292" y="0" width="143" height="20"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression class="java.lang.Integer"><![CDATA[$V{usuario_id_3}]]></textFieldExpression>
 				</textField>
 			</band>
-		</groupHeader>
-		<groupFooter>
-			<band/>
-		</groupFooter>
-	</group>
-	<group name="dependencias">
-		<groupExpression><![CDATA[$F{dependencia}]]></groupExpression>
-		<groupHeader>
-			<band/>
 		</groupHeader>
 		<groupFooter>
 			<band/>
