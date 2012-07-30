@@ -25,7 +25,12 @@
 				<% if libro.isbn != nil %>
 					<% @isbn = ('isbn:' + libro.isbn) %>
 					<% @books = GoogleBooks.search('isbn:'+libro.isbn.gsub("-","")) %>
-					<%= image_tag(@books.first.image_link,:class => 'list_image' )  %>
+					<% if @books.first.nil? %>
+						<%= image_tag("libro.png",:class => 'list_image') %>						
+				
+					<% else %>
+						<%= image_tag(@books.first.image_link,:class => 'list_image' )  %>
+					<% end %>		
 				<% else %>
 					<%= image_tag("libro.png",:class => 'list_image') %>						
 				<% end %>	
