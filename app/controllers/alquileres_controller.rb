@@ -4,10 +4,10 @@ class AlquileresController < ApplicationController
 
  
   add_breadcrumb "Inicio", :alquileres_path
-
+  add_breadcrumb "Mantenimiento", :ppal_admin_index_path
 
   def index
-    # @alquileres = Alquiler.all
+    add_breadcrumb "Listado de alquileres", :alquileres_path
 	@search = Alquiler.search(params[:search])
     @alquileres = @search.paginate(:page => params[:page], :per_page => 5)
     respond_to do |format|
@@ -19,6 +19,7 @@ class AlquileresController < ApplicationController
   # GET /alquileres/1
   # GET /alquileres/1.json
   def show
+	add_breadcrumb "Datos del alquiler", :alquiler_path
     @alquiler = Alquiler.find(params[:id])
 
     respond_to do |format|
@@ -51,6 +52,7 @@ class AlquileresController < ApplicationController
 
   # GET /alquileres/1/edit
   def edit
+	add_breadcrumb "Editar alquiler", :edit_alquiler_path
     @alquiler = Alquiler.find(params[:id])
   end
 

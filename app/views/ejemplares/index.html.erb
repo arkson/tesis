@@ -9,6 +9,8 @@
 
 <div class ="titulo"><h1>Listado de ejemplares</h1></div>
 
+<%= link_to 'Nuevo Ejemplar', new_ejemplar_path, :id => "links" %>
+
 <%= will_paginate @ejemplares , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
 
 <table class="tabla_scaffold" width="98%">

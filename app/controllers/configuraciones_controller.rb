@@ -3,8 +3,10 @@ class ConfiguracionesController < ApplicationController
   before_filter :es_adminitrador
 
   layout "administrador"
-  add_breadcrumb "Inicio", :configuraciones_path
+  add_breadcrumb "Mantenimiento", :ppal_admin_index_path
+
   def index
+	add_breadcrumb "Listado de configuraciones", :configuraciones_path
 	@search = Configuracion.search(params[:search])
     @configuraciones = @search.paginate(:page => params[:page], :per_page => 5)
 
@@ -17,6 +19,7 @@ class ConfiguracionesController < ApplicationController
   # GET /configuraciones/1
   # GET /configuraciones/1.json
   def show
+	add_breadcrumb "Datos de la configuración", :configuracion_path
     @configuracion = Configuracion.find(params[:id])
 
     respond_to do |format|
@@ -28,6 +31,7 @@ class ConfiguracionesController < ApplicationController
   # GET /configuraciones/new
   # GET /configuraciones/new.json
   def new
+	add_breadcrumb "Nueva configuración", :new_configuracion_path
     @configuracion = Configuracion.new
 
     respond_to do |format|
@@ -38,6 +42,7 @@ class ConfiguracionesController < ApplicationController
 
   # GET /configuraciones/1/edit
   def edit
+	add_breadcrumb "Editar configuración", :edit_configuracion_path
     @configuracion = Configuracion.find(params[:id])
   end
 

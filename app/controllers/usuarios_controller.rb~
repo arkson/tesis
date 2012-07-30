@@ -1,9 +1,10 @@
 class UsuariosController < ApplicationController
   before_filter :es_adminitrador
   layout "administrador"
-  add_breadcrumb "Inicio", :ppal_admin_index_path
+  add_breadcrumb "Mantenimiento", :ppal_admin_index_path
+
   def index
-	add_breadcrumb "Listado de Usuario", :usuarios_index_path
+	add_breadcrumb "Listado de Usuario", :usuarios_path
 	@search = Usuario.search(params[:search])
     @usuario = @search.order(:nombre)
     @usuarios = @usuario.paginate(:page => params[:page], :per_page => 5)
@@ -16,6 +17,7 @@ class UsuariosController < ApplicationController
   # GET /usuarios/1
   # GET /usuarios/1.json
   def show
+	add_breadcrumb "Mostrar usuario", :usuario_path
     @usuario = Usuario.find(params[:id])
 
     respond_to do |format|
@@ -27,6 +29,7 @@ class UsuariosController < ApplicationController
   # GET /usuarios/new
   # GET /usuarios/new.json
   def new
+	add_breadcrumb "Nuevo usuario", :new_usuario_path
     @usuario = Usuario.new
 
     respond_to do |format|
@@ -37,6 +40,7 @@ class UsuariosController < ApplicationController
 
   # GET /usuarios/1/edit
   def edit
+	add_breadcrumb "Editar usuario", :new_usuario_path
     @usuario = Usuario.find(params[:id])
   end
 
@@ -47,8 +51,7 @@ class UsuariosController < ApplicationController
 
     respond_to do |format|
       if @usuario.save
-	#ClaveMailer.olvido_clave(@usuario).deliver
-	format.html { redirect_to usuarios_url,:notice => "Usuario #{@usuario.nombre} fue creado exitosamente." }
+		format.html { redirect_to usuarios_url,:notice => "Usuario #{@usuario.nombre} fue creado exitosamente." }
         format.json { render :json => @usuario, :status => :created, :location => @usuario }
       else
         format.html { render :action => "new" }

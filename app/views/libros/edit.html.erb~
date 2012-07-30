@@ -8,6 +8,6 @@
 	<div class="clear"></div>
 </div>
 
-<div class = "form"><%= render 'form' %></div>
+<div class = "formulario"><%= render 'form' %></div>
 
 

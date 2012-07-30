@@ -3,10 +3,12 @@ class DependenciasController < ApplicationController
   before_filter :es_adminitrador
 
   layout "administrador"
-
+  add_breadcrumb "Mantenimiento", :ppal_admin_index_path
   # GET /dependencias
   # GET /dependencias.json
   def index
+
+	add_breadcrumb "Listado de dependencias", :dependencias_index_path
 	@search = Dependencia.search(params[:search])
     @dependencias = @search.paginate(:page => params[:page], :per_page => 5)
     respond_to do |format|
@@ -18,6 +20,7 @@ class DependenciasController < ApplicationController
   # GET /dependencias/1
   # GET /dependencias/1.json
   def show
+	add_breadcrumb "Datos de la dependencia", :dependencia_path
     @dependencia = Dependencia.find(params[:id])
 
     respond_to do |format|
@@ -29,6 +32,7 @@ class DependenciasController < ApplicationController
   # GET /dependencias/new
   # GET /dependencias/new.json
   def new
+	add_breadcrumb "Nueva dependencia", :new_dependencia_path
     @dependencia = Dependencia.new
 
     respond_to do |format|
@@ -39,6 +43,7 @@ class DependenciasController < ApplicationController
 
   # GET /dependencias/1/edit
   def edit
+	add_breadcrumb "Editar dependencia", :edit_dependencia_path
     @dependencia = Dependencia.find(params[:id])
   end
 

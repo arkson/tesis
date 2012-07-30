@@ -1,12 +1,14 @@
 
 
-<div class ="titulo"><h1>Listado de noticias</h1></div>
+
 <div class ="busqueda">
   <%= form_for @search do |f| %>
     <%= f.text_field :titulo_contains, :class => "campo_busqueda" %>
     <%= f.submit :buscar%>
   <% end %>
 </div>
+
+<div class ="titulo"><h1>Listado de noticias</h1></div>
 
 <%= will_paginate @noticias , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
 

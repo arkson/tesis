@@ -67,7 +67,6 @@ $(function() {
 				<% libro.ejemplar.each  do |e| %>
 				  <% if e.estatus_ejemplar == "Solicitado" or e.estatus_ejemplar == "Disponible"   %>
 					<h3>Cota: <%= e.cota %></h3>
-<h3>id: <%= e.id %></h3>
 					<div class="observ">Observación: <%= sanitize(e.observacion) %> </div>
 					<div class="price_line">
 

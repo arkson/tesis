@@ -1,8 +1,10 @@
 class NoticiasController < ApplicationController
   before_filter :es_adminitrador
   layout "administrador"
-  add_breadcrumb "Inicio", :noticias_path
+  add_breadcrumb "Mantenimiento", :ppal_admin_index_path
+
   def index
+	add_breadcrumb "Listado de Noticias", :noticias_path
 	@search = Noticia.search(params[:search])
     @noticias = @search.paginate(:page => params[:page], :per_page => 5)
     respond_to do |format|
@@ -14,6 +16,7 @@ class NoticiasController < ApplicationController
   # GET /noticias/1
   # GET /noticias/1.json
   def show
+	add_breadcrumb "Mostrar noticia", :noticias_path
     @noticia = Noticia.find(params[:id])
 
     respond_to do |format|
@@ -25,6 +28,7 @@ class NoticiasController < ApplicationController
   # GET /noticias/new
   # GET /noticias/new.json
   def new
+	add_breadcrumb "Nuevo noticia", :new_noticias_path
     @noticia = Noticia.new
 
     respond_to do |format|
@@ -35,6 +39,7 @@ class NoticiasController < ApplicationController
 
   # GET /noticias/1/edit
   def edit
+	add_breadcrumb "Editar noticia", :edit_noticia_path
     @noticia = Noticia.find(params[:id])
   end
 
@@ -45,7 +50,7 @@ class NoticiasController < ApplicationController
 
     respond_to do |format|
       if @noticia.save
-        format.html { redirect_to @noticia, :notice => 'Noticia was successfully created.' }
+        format.html { redirect_to @noticia, :notice => 'Noticia creada exitosamente.' }
         format.json { render :json => @noticia, :status => :created, :location => @noticia }
       else
         format.html { render :action => "new" }
@@ -61,7 +66,7 @@ class NoticiasController < ApplicationController
 
     respond_to do |format|
       if @noticia.update_attributes(params[:noticia])
-        format.html { redirect_to @noticia, :notice => 'Noticia was successfully updated.' }
+        format.html { redirect_to @noticia, :notice => 'Noticia actualizada exitosamente.' }
         format.json { head :ok }
       else
         format.html { render :action => "edit" }

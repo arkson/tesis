@@ -2,7 +2,7 @@
 	<div class = "editar_titulo"><h1>Editar usuario</h1></div>
 
 	<div class = "editar_opciones">
-	<%= link_to 'Mostrar', @usuario %> &nbsp
+	<%= link_to 'Mostrar', @usuario, :id => "links" %> &nbsp
 	<%= link_to 'Regresar', usuarios_path, :id => "links" %>
 	</div>
 	<div class="clear"></div>

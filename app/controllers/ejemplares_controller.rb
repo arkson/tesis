@@ -3,11 +3,12 @@ class EjemplaresController < ApplicationController
   before_filter :es_adminitrador
 
   layout "administrador"
-	add_breadcrumb "Inicio", :ppal_admin_index_path
+  add_breadcrumb "Mantenimiento", :ppal_admin_index_path
   # GET /ejemplares
   # GET /ejemplares.json
   def index
-	add_breadcrumb "ejemplares", ejemplares_index_path 
+
+	add_breadcrumb "Listado de ejemplares", :ejemplares_index_path
 	@search = Ejemplar.search(params[:search])
     @ejemplares = @search.paginate(:page => params[:page], :per_page => 5)
 
@@ -20,6 +21,7 @@ class EjemplaresController < ApplicationController
   # GET /ejemplares/1
   # GET /ejemplares/1.json
   def show
+	add_breadcrumb "Datos del ejemplar", :ejemplar_path
     @ejemplar = Ejemplar.find(params[:id])
 
     respond_to do |format|
@@ -31,6 +33,7 @@ class EjemplaresController < ApplicationController
   # GET /ejemplares/new
   # GET /ejemplares/new.json
   def new
+	add_breadcrumb "Nuevo ejemplar", :new_ejemplar_path
     @ejemplar = Ejemplar.new
 
     respond_to do |format|
@@ -41,6 +44,7 @@ class EjemplaresController < ApplicationController
 
   # GET /ejemplares/1/edit
   def edit
+	add_breadcrumb "Editar ejemplar", :edit_ejemplar_path
     @ejemplar = Ejemplar.find(params[:id])
   end
 

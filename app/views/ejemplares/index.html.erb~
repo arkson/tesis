@@ -1,7 +1,4 @@
 
-
-<div class ="titulo"><h1>Listado de ejemplares</h1></div>
-
 <div class ="busqueda">
   <%= form_for @search do |f| %>
     <%= f.text_field :libro_titulo_or_libro_cota_contains, :class => "campo_busqueda" %>
@@ -9,6 +6,8 @@
     <%= f.submit :buscar %>
   <% end %>
 </div>
+
+<div class ="titulo"><h1>Listado de ejemplares</h1></div>
 
 <%= will_paginate @ejemplares , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
 

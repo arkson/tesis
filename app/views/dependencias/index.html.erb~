@@ -1,14 +1,14 @@
 
 
-<div class ="titulo"><h1>Listado de dependencias</h1></div>
+
 <div class ="busqueda">
   <%= form_for @search do |f| %>
-    <%= f.label :Buscar, :class => "buscar" %>
-    <%= f.text_field :nombre_contains %>
-    <!-- etc... -->
+    <%= f.text_field :nombre_contains, :class => "campo_busqueda" %>
     <%= f.submit :buscar %>
   <% end %>
 </div>
+
+<div class ="titulo"><h1>Listado de dependencias</h1></div>
 
 <%= will_paginate @dependencias , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
 
@@ -22,8 +22,8 @@
 </dl>
 </td>
 <td class="list_actions" width="5%">
-    <%= link_to image_tag("open.png", :alt => "Mostrar", :title => "Mostrar", :size => "18x18"), dependencia %>
-    <%= link_to image_tag("editpaste.png", :alt => "Editar", :title => "Editar", :size => "18x18"), edit_dependencia_path(dependencia) %>
+    <%= link_to image_tag("open.png", :alt => "Mostrar", :title => "Mostrar", :size => "18x18"), dependencia %><br />
+    <%= link_to image_tag("editpaste.png", :alt => "Editar", :title => "Editar", :size => "18x18"), edit_dependencia_path(dependencia) %><br />
     <%= link_to image_tag("cross.png", :alt => "Eliminar", :title => "Eliminar", :size => "18x18"), dependencia, :confirm => '¿Estas seguro?', :method => :delete %>
 </td>
 </tr>

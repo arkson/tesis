@@ -10,6 +10,8 @@
 
 <div class ="titulo"><h1>Listado de noticias</h1></div>
 
+<button id="link"><%= link_to 'Nueva noticia', new_noticia_path %></button>
+
 <%= will_paginate @noticias , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
 
 <table class="tabla_scaffold" width="98%">

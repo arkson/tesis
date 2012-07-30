@@ -1,6 +1,11 @@
-<h1>Editing libreria</h1>
+<div class = "editar">
+	<div class = "editar_titulo"><h1>Editar libreria</h1></div>
 
-<%= render 'form' %>
+	<div class = "editar_opciones">
+	<%= link_to 'Mostrar', @libreria, :id => "links" %> &nbsp
+	<%= link_to 'Regresar', librerias_path, :id => "links" %>
+	</div>
+	<div class="clear"></div>
+</div>
 
-<%= link_to 'Mostrar', @libreria %> |
-<%= link_to 'Eliminar', librerias_path %>
+<div class = "formulario"><%= render 'form' %></div>

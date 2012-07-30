@@ -3,10 +3,11 @@ class EditorialesController < ApplicationController
   before_filter :es_adminitrador
 
   layout "administrador"
-
+  add_breadcrumb "Mantenimiento", :ppal_admin_index_path
   # GET /editoriales
   # GET /editoriales.json
   def index
+	add_breadcrumb "Listado de editoriales", :editoriales_index_path
 	@search = Editorial.search(params[:search])
     @editoriales = @search.paginate(:page => params[:page], :per_page => 5)
     respond_to do |format|
@@ -18,6 +19,7 @@ class EditorialesController < ApplicationController
   # GET /editoriales/1
   # GET /editoriales/1.json
   def show
+	add_breadcrumb "Datos de la editorial", :editorial_path
     @editorial = Editorial.find(params[:id])
 
     respond_to do |format|
@@ -29,6 +31,7 @@ class EditorialesController < ApplicationController
   # GET /editoriales/new
   # GET /editoriales/new.json
   def new
+	add_breadcrumb "Nueva editorial", :new_editorial_path
     @editorial = Editorial.new
 
     respond_to do |format|
@@ -39,6 +42,7 @@ class EditorialesController < ApplicationController
 
   # GET /editoriales/1/edit
   def edit
+	add_breadcrumb "Editar editorial", :edit_editorial_path
     @editorial = Editorial.find(params[:id])
   end
 

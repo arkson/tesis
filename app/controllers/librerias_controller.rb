@@ -1,10 +1,11 @@
 class LibreriasController < ApplicationController
   before_filter :es_adminitrador 
   layout "administrador"
-
+  add_breadcrumb "Mantenimiento", :ppal_admin_index_path
   # GET /librerias
   # GET /librerias.json
   def index
+	add_breadcrumb "Listado de librerias", :librerias_index_path
     @librerias = Libreria.all
 
     respond_to do |format|
@@ -16,6 +17,7 @@ class LibreriasController < ApplicationController
   # GET /librerias/1
   # GET /librerias/1.json
   def show
+	add_breadcrumb "Datos de la librería", :librerias_path
     @libreria = Libreria.find(params[:id])
 
     respond_to do |format|
@@ -27,6 +29,7 @@ class LibreriasController < ApplicationController
   # GET /librerias/new
   # GET /librerias/new.json
   def new
+	add_breadcrumb "Nueva librería", :new_libreria_path
     @libreria = Libreria.new
 
     respond_to do |format|
@@ -37,6 +40,7 @@ class LibreriasController < ApplicationController
 
   # GET /librerias/1/edit
   def edit
+	add_breadcrumb "Editar librería", :edit_libreria_path
     @libreria = Libreria.find(params[:id])
   end
 
@@ -47,7 +51,7 @@ class LibreriasController < ApplicationController
 
     respond_to do |format|
       if @libreria.save
-        format.html { redirect_to @libreria, :notice => 'Libreria was successfully created.' }
+        format.html { redirect_to @libreria, :notice => 'Libreria creada exitosamente.' }
         format.json { render :json => @libreria, :status => :created, :location => @libreria }
       else
         format.html { render :action => "new" }
@@ -63,7 +67,7 @@ class LibreriasController < ApplicationController
 
     respond_to do |format|
       if @libreria.update_attributes(params[:libreria])
-        format.html { redirect_to @libreria, :notice => 'Libreria was successfully updated.' }
+        format.html { redirect_to @libreria, :notice => 'Libreria actualizada exitosamente.' }
         format.json { head :ok }
       else
         format.html { render :action => "edit" }
