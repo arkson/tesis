@@ -1,7 +1,7 @@
 
 <div class ="busqueda">
   <%= form_for @search do |f| %>
-    <%= f.text_field :libro_titulo_or_libro_cota_contains, :class => "campo_busqueda" %>
+    <%= f.text_field :libro_titulo_or_libro_cota_or_estatus_ejemplar_contains, :class => "campo_busqueda" %>
       
     <%= f.submit :buscar %>
   <% end %>
@@ -28,9 +28,13 @@
 	<td class="list_description">
 		<dl>
 		<dt><%= ejemplar.cota %></dt>
-		<dd><%= ejemplar.libro.titulo_and_autor %></dd>
-		<dd>Autor: <%= ejemplar.costo_alquiler %></dd>
+		<dd><%= link_to ejemplar.libro.titulo_and_autor,ejemplar.libro %></dd>
+		<dd>Costo: <%= ejemplar.costo_alquiler %></dd>
 		<dd>Isbn: <%= ejemplar.libro.isbn %></dd>
+		<dd>Estatus: <%= ejemplar.estatus_ejemplar %></dd>	
+		<% if ejemplar.estatus_ejemplar == 'Alquilado' or ejemplar.estatus_ejemplar == 'Prealquilado' %>
+			<dd>Alquilado por: <%= link_to ejemplar.usuario.nombre, ejemplar.usuario  %></dd>		
+		<% end %>
 		</dl>
 	</td>
 	<td class="list_actions" width="5%">

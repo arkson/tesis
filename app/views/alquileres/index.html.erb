@@ -20,7 +20,7 @@
 
 		<td class="list_description">
 			<dl>
-				<dt>Nombre: <%= alquiler.usuario.nombre %></dt>
+				<dt>Nombre: <%= link_to alquiler.usuario.nombre,alquiler.usuario %></dt>
 				<dd>Fecha de Inicio: <%= Date.strptime("31/01/2010", "%d/%m/%Y") %></dd>
 				<dd>Fecha de culminación: <%= alquiler.fecha_fin %></dd>
 				<dd><%= alquiler.estatus %></dd>

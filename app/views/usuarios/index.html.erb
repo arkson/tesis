@@ -24,7 +24,7 @@
 <dd> Cédula: <%= usuario.cedula %></dd>
 <dd> Correo: <%= usuario.correo %></dd>
 <dd> Unid. creditos: <%= usuario.unid_creditos %></dd>
-<dd> Dependencia: <%= usuario.dependencia.nombre %></dd>
+<dd> Dependencia: <%=link_to usuario.dependencia.nombre,usuario.dependencia  %></dd>
 <dd> Rol: <%= usuario.rol %></dd>
 </dl>
 </td>

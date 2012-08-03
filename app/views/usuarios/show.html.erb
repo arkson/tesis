@@ -22,9 +22,9 @@
 
 <p>
   <b>Dependencia:</b>
-  <%= @usuario.dependencia.nombre %>
+  <%= link_to @usuario.dependencia.nombre, @usuario.dependencia %>
 </p>
 </div>
 
 <%= link_to 'Editar', edit_usuario_path(@usuario), :id => "links" %> &nbsp
-<%= link_to 'Regresar', usuarios_path, :id => "links" %>
+<%= link_to 'Regresar', :back , :id => "links" %>

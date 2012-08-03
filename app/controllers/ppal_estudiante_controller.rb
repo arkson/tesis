@@ -62,9 +62,27 @@ class PpalEstudianteController < ApplicationController
    
   end
 
-
+  def ver_ejemplar
+	add_breadcrumb "Datos del ejemplar", :ppal_estudiante_ver_ejemplar_path
+    @ejemplar = Ejemplar.find(params[:id])
+	@cart = current_cart 
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render :json => @ejemplar }
+    end	
 	
+	
+  end
 
 
+  def ver_libro
+	add_breadcrumb "Datos del libro", :ppal_estudiante_ver_libro_path
+    @libro = Libro.find(params[:id])
+    @cart = current_cart 
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render :json => @libro }
+    end 		
 
+  end	
 end

@@ -1,11 +1,7 @@
-<% if notice %>
-<p id="notice"><%= notice %></p>
-<% end %>
-
 <div class ="mostrar">
 <p>
   <b>Libro:</b>
-  <%= link_to @ejemplar.libro.titulo_and_autor,@ejemplar.libro  %>
+  <%= link_to @ejemplar.libro.titulo_and_autor,ppal_estudiante_ver_libro_path(:id =>@ejemplar.libro.id)  %>
 </p>
 
 <p>
@@ -45,11 +41,8 @@
   <%= @ejemplar.estatus_ejemplar %>
 </p>
 
-<p>
-  <b>Libreria:</b>
-  <%= link_to @ejemplar.libreria.nombre, @ejemplar.libreria %>
-</p>
+
 </div>
 
-<%= link_to 'Editar', edit_ejemplar_path(@ejemplar), :id => "links" %> &nbsp
+
 <%= link_to 'Regresar', :back	, :id => "links" %>

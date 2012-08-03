@@ -1,6 +1,3 @@
-<% if notice %>
-<p id="notice"><%= notice %></p>
-<% end %>
 <div class = "mostrar">
 <p>
   <b>Cota:</b>
@@ -44,19 +41,18 @@
 
 <p>
   <b>Editorial:</b>
-  <%= link_to @libro.editorial.nombre, @libro.editorial %>
+  <%=  @libro.editorial.nombre %>
 </p>
 
 <p>
   <b>Area conocimiento:</b>
-  <%= link_to @libro.area_conocimiento.nombre,@libro.area_conocimiento %>
+  <%=  @libro.area_conocimiento.nombre %>
 </p>
 
 <p>
   <b>Dependencia:</b>
-  <%= link_to @libro.dependencia.nombre, @libro.dependencia %>
+  <%=  @libro.dependencia.nombre %>
 </p>
 </div>
 
-<%= link_to 'Editar', edit_libro_path(@libro), :id => "links" %> &nbsp
 <%= link_to 'Regresar', :back, :id => "links" %>

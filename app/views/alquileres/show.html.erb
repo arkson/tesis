@@ -4,7 +4,7 @@
 <div class ="mostrar">
 <p>
   <b>Usuario:</b>
-  <%= @alquiler.usuario.nombre %>
+  <%= link_to @alquiler.usuario.nombre, @alquiler.usuario %>
 </p>
 
 <p>
@@ -35,8 +35,8 @@
 
 		<% @alquiler.line_item.each do |item| %>
 			<tr>
-				<td><%= item.ejemplar.cota %></td>
-				<td><%= item.ejemplar.libro.titulo %></td>
+				<td><%= link_to item.ejemplar.cota,item.ejemplar %></td>
+				<td><%= link_to item.ejemplar.libro.titulo,item.ejemplar.libro  %></td>
 				<td><%= item.ejemplar.libro.autor %></td>
 				<td><%= item.ejemplar.libro.edicion %></td>
  				<td><%= item.ejemplar.libro.ano %></td>
@@ -67,7 +67,7 @@
 
 <% if Usuario.find(session[:usuario_id]).rol == 'Administrador' %>
 <%= link_to 'Editar', edit_alquiler_path(@alquiler), :id => "links" %>&nbsp
-<%= link_to 'Atrás', alquileres_path, :id => "links" %>
+<%= link_to 'Atrás', :back, :id => "links" %>
 <% else %>
 <%= link_to 'Atrás', ppal_estudiante_ver_alquiler_path, :id => "links" %>
 <% end %>

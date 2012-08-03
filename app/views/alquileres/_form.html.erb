@@ -13,7 +13,7 @@
 
 	<p>
 	  <b>Nombre:</b>
-	  <%= @alquiler.usuario.nombre %>
+	  <%= link_to @alquiler.usuario.nombre,@alquiler.usuario  %>
 	</p>
 
 	
@@ -37,8 +37,8 @@
 
 		<% @alquiler.line_item.each do |item| %>
 			<tr>
-			<td><%= item.ejemplar.cota %></td>
-			<td><%= item.ejemplar.libro.titulo %></td>
+			<td><%= link_to item.ejemplar.cota,item.ejemplar  %></td>
+			<td><%= link_to item.ejemplar.libro.titulo,item.ejemplar.libro  %></td>
 			<td><%= item.ejemplar.libro.autor %></td>
 			<td><%= item.ejemplar.libro.edicion %></td>
 			<td><%= item.ejemplar.libro.ano %></td>
