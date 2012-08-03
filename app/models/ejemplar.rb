@@ -36,12 +36,12 @@ class Ejemplar < ActiveRecord::Base
 	end
   end
 
-  def usuario
+  def alquiler
 	if line_item.empty? 
 		return nil
 	else
 		
-		return line_item.joins(:devolucion).where(" (devoluciones.estatus ='Sin retirar' or devoluciones.estatus = 'Sin devolver') and lines_items.ejemplar_id = :ejemplar_id   ",{ :ejemplar_id => id })[0].devolucion.alquiler.usuario
+		return line_item.joins(:devolucion).where(" (devoluciones.estatus ='Sin retirar' or devoluciones.estatus = 'Sin devolver') and lines_items.ejemplar_id = :ejemplar_id   ",{ :ejemplar_id => id })[0].devolucion.alquiler
 	end
 	
   end		
