@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<div class ="mostrar">
 <p>
   <b>Periodo:</b>
   <%= @configuracion.periodo %>
@@ -39,7 +39,7 @@
   <b>Tipo periodo:</b>
   <%= @configuracion.tipo_periodo %>
 </p>
+</div>
 
-
-<%= link_to 'Editar', edit_configuracion_path(@configuracion) %> |
-<%= link_to 'Regresar', configuraciones_path %>
+<%= link_to 'Editar', edit_configuracion_path(@configuracion), :id => "links" %> &nbsp
+<%= link_to 'Regresar', :back, :id => "links" %>

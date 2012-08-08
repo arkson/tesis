@@ -20,9 +20,11 @@
 
 		<td class="list_description">
 			<dl>
-				<dt>Nombre: <%= link_to alquiler.usuario.nombre,alquiler.usuario %></dt>
-				<dd>Fecha de Inicio: <%= Date.strptime("31/01/2010", "%d/%m/%Y") %></dd>
-				<dd>Fecha de culminación: <%= alquiler.fecha_fin %></dd>
+				<dt>Nro Alquiler : <%= alquiler.id %></dt>
+				<dd>Nombre: <%= link_to alquiler.usuario.nombre,alquiler.usuario %></dd>
+				<dd>Cédula: <%= link_to alquiler.usuario.cedula,alquiler.usuario %></dd>
+				<dd>Fecha de Inicio: <%= alquiler.created_at.strftime("%d/%m/%Y") %> </dd>
+				<dd>Fecha de culminación: <%= alquiler.fecha_fin.strftime("%d/%m/%Y") %></dd>
 				<dd><%= alquiler.estatus %></dd>
 			</dl>
 		</td>

@@ -12,12 +12,12 @@
 
 <p>
   <b>Fecha inicio:</b>
-  <%= @configuracion.fecha_inicio %>
+  <%= @configuracion.fecha_inicio.strftime("%d/%m/%Y") %>
 </p>
 
 <p>
   <b>Fecha fin:</b>
-  <%= @configuracion.fecha_fin %>
+  <%= @configuracion.fecha_fin.strftime("%d/%m/%Y") %>
 </p>
 
 <p>

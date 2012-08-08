@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :periodo, "Periodo: " %>
+    <%= f.label :periodo, "Periodo: " %><br />
     <%= f.select "periodo", "<option value = '1'>1</option>
                           <option value = '2'>2</option>" %>
   </div>
@@ -48,7 +48,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :activo %><br />
+    <%= f.label :activa %><br />
     <%= f.check_box :activo %>
   </div>
 

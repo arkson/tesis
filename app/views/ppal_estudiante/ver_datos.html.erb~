@@ -35,8 +35,8 @@
 
 		<% @alquiler.line_item.each do |item| %>
 			<tr>
-				<td><%= item.ejemplar.cota %></td>
-				<td><%= item.ejemplar.libro.titulo %></td>
+				<td><%= link_to item.ejemplar.cota, ppal_estudiante_ver_ejemplar_path(:id => item.ejemplar.id) %></td>
+				<td><%= link_to item.ejemplar.libro.titulo,ppal_estudiante_ver_libro_path(:id => item.ejemplar.libro.id) %></td>
 				<td><%= item.ejemplar.libro.autor %></td>
 				<td><%= item.ejemplar.libro.edicion %></td>
  				<td><%= item.ejemplar.libro.ano %></td>
@@ -51,7 +51,7 @@
 			<td> </td>
 			<td> </td>
 			<td> </td>
-			Total:<td> <%= number_to_currency(@alquiler.total_price, :unit => "Bs.")  %> </td>
+			<td> <%= number_to_currency(@alquiler.total_price, :unit => "Bs.")  %> </td>
 			
 		<tr>		  		
 	</table>
@@ -65,9 +65,6 @@
 </p>
 </div>
 
-<% if Usuario.find(session[:usuario_id]).rol == 'Administrador' %>
-<%= link_to 'Editar', edit_alquiler_path(@alquiler), :id => "links" %>&nbsp
-<%= link_to 'Atrás', alquileres_path, :id => "links" %>
-<% else %>
-<%= link_to 'Atrás', ppal_estudiante_ver_alquiler_path, :id => "links" %>
-<% end %>
+
+<%= link_to 'Regresar', :back, :id => "links" %>
+

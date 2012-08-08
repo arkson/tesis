@@ -10,18 +10,20 @@
 	<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
 		<td class="list_description">
 			<dl>
+			<dd>Nro: <%= configuracion.id %></dd>
 			<dd>Periodo: <%= configuracion.periodo %></dd>
 			<dd>Año: <%= configuracion.ano %></dd>
-			<dd>Fecha inicio: <%= configuracion.fecha_inicio %></dd>
+			<dd>Fecha inicio: <%= configuracion.fecha_inicio.strftime("%d/%m/%Y") %></dd>
 			<dd>Fecha fin: <%= configuracion.fecha_fin %></dd>
 			<dd>Máx. num. libros: <%= configuracion.max_num_libro %></dd>
 			<dd>Tiempo prealquiler: <%= configuracion.tiempo_prealquiler %></dd>
 			<dd>Tipo periodo: <%= configuracion.tipo_periodo %></dd>
+			<dd>Activa: <%=configuracion.activo ? "Activa": "Inactiva" %></dd>
 			</dl>
 		</td>
 		<td class="list_actions" width="5%">
-			<%= link_to image_tag("open.png", :alt => "Mostrar", :title => "Mostrar", :size => "18x18"), configuracion %>
-			<%= link_to image_tag("editpaste.png", :alt => "Editar", :title => "Editar", :size => "18x18"), edit_configuracion_path(configuracion) %>
+			<%= link_to image_tag("open.png", :alt => "Mostrar", :title => "Mostrar", :size => "18x18"), configuracion %><br />
+			<%= link_to image_tag("editpaste.png", :alt => "Editar", :title => "Editar", :size => "18x18"), edit_configuracion_path(configuracion) %><br />
 			<%= link_to image_tag("cross.png", :alt => "Eliminar", :title => "Eliminar", :size => "18x18"), configuracion, :confirm => 'Estas Seguro(a)?', :method => :delete %>
 		</td>
 	</tr>

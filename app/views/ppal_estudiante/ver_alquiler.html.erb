@@ -8,8 +8,9 @@
 
 		<td class="list_description">
 			<dl>
-				<dd>Fecha de inicio: <%= alquiler.created_at.strftime("%d-%m-%Y") %></dd>
-				<dd>Fecha de culminación: <%= alquiler.fecha_fin %></dd>
+				<dd>Nro Alquiler : <%= alquiler.id %></dd>
+				<dd>Fecha de inicio: <%= alquiler.created_at.strftime("%d/%m/%Y") %></dd>
+				<dd>Fecha de culminación: <%= alquiler.fecha_fin.strftime("%d/%m/%Y") %></dd>
 				<dd>Estatus: <%= alquiler.estatus %></dd>
 			</dl>
 		</td>
