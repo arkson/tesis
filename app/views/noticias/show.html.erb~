@@ -21,5 +21,5 @@
 </p>
 </div>
 
-<%= link_to 'Edit', edit_noticia_path(@noticia), :id => "links" %> &nbsp
-<%= link_to 'Back', noticias_path, :id => "links" %>
+<%= link_to 'Editar', edit_noticia_path(@noticia), :id => "links" %> &nbsp
+<%= link_to 'Regresar', :back, :id => "links" %>

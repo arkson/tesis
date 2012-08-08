@@ -1,22 +1,15 @@
 
 	<script>
+
+
+
 	$(function() {
 		$( "#accordion" ).accordion({
-			eventType: 'click',
-			autoClose: false,
-			saveState: true,
-			disableLink: true,
-			showCount: true,
-			speed: 'fast'
-					})
-	});
-	$(function() {
-		$( "#accordionResizer" ).resizable({
-			minHeight: 140,
-			resize: function() {
-				$( "#accordion" ).accordion( "resize" );
-			}
+   			'header': 'h3',
+   			'fillSpace': false,
+		   	'active': 3
 		});
+		
 	});
 	</script>
 

@@ -63,7 +63,7 @@ $(function() {
 			<%= show_simple_captcha(:image_style => 'simply_blue', :distortion => 'medium',:label => "")  %>
 		</div>
 		<div class = "actions">
-			<%= submit_tag "Entrar", :class => 'ingresar' %>
+			<%= submit_tag "Entrar", :id => 'links' %>
 		</div>
 		<button id="olvido">Olvidó su clave?</button>
 
@@ -83,7 +83,7 @@ $(function() {
 			<%= text_field_tag :cedula, params[:cedula] %>
 		</div>
 		<div class = "actions">
-			<%= submit_tag "Aceptar", :class => 'ingresar' %>
+			<%= submit_tag "Aceptar", :id => 'links' %>
 		</div>
 	<% end %>
 

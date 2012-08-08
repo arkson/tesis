@@ -13,20 +13,20 @@
 <%= will_paginate @editoriales , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
 
 <table class="tabla_scaffold" width="98%">
-<% @editoriales.each do |editorial| %>
-<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
-<td class="list_description">
-<dl>
-<dt> <%= editorial.nombre %></dt>
-</dl>
-</td>
-<td class="list_actions" width="5%">
-    <%= link_to image_tag("open.png", :alt => "Mostrar", :title => "Mostrar", :size => "18x18"), editorial %>
-    <%= link_to image_tag("editpaste.png", :alt => "Editar", :title => "Editar", :size => "18x18"), edit_editorial_path(editorial) %>
-    <%= link_to image_tag("cross.png", :alt => "Eliminar", :title => "Eliminar", :size => "18x18"), editorial, :confirm => '¿Estas seguro?', :method => :delete %>
-</td>
-</tr>
-<% end %>
+	<% @editoriales.each do |editorial| %>
+		<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+			<td class="list_description">
+				<dl>
+				<dt> <%= editorial.nombre %></dt>
+				</dl>
+			</td>
+			<td class="list_actions" width="5%">
+				<%= link_to image_tag("open.png", :alt => "Mostrar", :title => "Mostrar", :size => "18x18"), editorial %><br />
+				<%= link_to image_tag("editpaste.png", :alt => "Editar", :title => "Editar", :size => "18x18"), edit_editorial_path(editorial) %><br />
+				<%= link_to image_tag("cross.png", :alt => "Eliminar", :title => "Eliminar", :size => "18x18"), editorial, :confirm => '¿Estas seguro?', :method => :delete %>
+			</td>
+		</tr>
+	<% end %>
 </table>
 <%= will_paginate @editoriales , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
 <br />

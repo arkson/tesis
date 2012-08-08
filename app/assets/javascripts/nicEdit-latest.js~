@@ -49,7 +49,7 @@ var nicEditorPane=bkClass.extend({construct:function(D,C,B,A){this.ne=C;this.elm
 
 var nicSelectOptions = {
 	buttons : {
-		'fontSize' : {name : __('Select Font Size'), type : 'nicEditorFontSizeSelect', command : 'fontsize'},
+		'fontSize' : {name : __('Select Tamano de letra'), type : 'nicEditorFontSizeSelect', command : 'fontsize'},
 		'fontFamily' : {name : __('Select Font Family'), type : 'nicEditorFontFamilySelect', command : 'fontname'},
 		'fontFormat' : {name : __('Select Font Format'), type : 'nicEditorFontFormatSelect', command : 'formatBlock'}
 	}

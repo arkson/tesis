@@ -13,7 +13,6 @@ overflow: auto;
 margin-top: 1em;
 border-bottom: 1px dotted #77d;
 min-height: 100px;
-width:78%;
 
 img {
 
@@ -139,10 +138,12 @@ margin-right: 3em;
 //#END:side
 }
 
-
   .ver_datos {
     font-size:    x-small;
     text-align:   center;
     padding-left: 1em;
 	padding-top:2em;
+
+  }
+  .ver_datos a{
   }

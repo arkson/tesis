@@ -2,7 +2,7 @@
 
 <div class ="titulo"><h1>Alquileres realizados</h1></div>
 
-<table class="tabla_scaffold" width="75%">
+<table class="tabla_scaffold" width="65%">
 	<% @alquileres.each do |alquiler| %>
 	<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
 
@@ -13,7 +13,7 @@
 				<dd>Estatus: <%= alquiler.estatus %></dd>
 			</dl>
 		</td>
-		<td class="ver_datos" width="25%">
+		<td class="ver_datos" width="35%">
 			<%= link_to 'Ver Datos', ppal_estudiante_ver_datos_path(:id => alquiler.id),:id => "links" %>
 			<%= link_to 'Comprobante',{:controller => "reportes", :action => "comprobante_alquiler", :id => alquiler.id}, :id => "links", :target => "_blank" %>
 		</td>

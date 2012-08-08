@@ -48,9 +48,10 @@ $(function() {
 <div class ="titulo"><h1>Catalogo de libros</h1></div>
 
 <%= will_paginate @libros , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
-<% @verdetalle = 0 %>
-<% @libros.each do |libro| %>
 
+<% @cont = 0 %> 
+<% @libros.each do |libro| %>
+<% @cont = @cont + 1 %> 	
 	<div class="entry">
 
 		<% if libro.imagen_file_name == nil %>
@@ -58,45 +59,19 @@ $(function() {
 		<% else %>
 			<%= image_tag(libro.imagen.url(:thumb),:class => 'list_image') %>
 		<% end %>
-		<% @verdetalle = @verdetalle + 1 %>
+		
 		<h3><%= libro.titulo %>, <%= libro.autor %>, <%= libro.edicion %> edición</h3>
 		<h3><%= libro.cota %></h3>
-		<h3><button  onclick='$("#<%= @verdetalle %>").toggle(200);'> Ver ejemplares </button></h3>
-
-			<div id ="<%= @verdetalle %>" style="display:none;">
-				<% libro.ejemplar.each  do |e| %>
-				  <% if e.estatus_ejemplar == "Solicitado" or e.estatus_ejemplar == "Disponible"   %>
-					<h3>Cota: <%= e.cota %></h3>
-<h3>id: <%= e.id %></h3>
-					<div class="observ">Observación: <%= sanitize(e.observacion) %> </div>
-					<div class="price_line">
-
-						<span class="price">Costo: <%= number_to_currency(e.costo_alquiler, :unit => "Bs.") %></span>
-						
-							<% if not @configuracion.empty? %>
-
-								<% if e.estatus_ejemplar == "Solicitado" %>
-
-									
-									<div id="message6" style="color:red;padding-left:10px;">
-										Este ejemplar ya fue solicitado. <a style="cursor:pointer">Click para cerrar</a>
-									</div>
-
-								<% else %>
-
-									<%= button_to 'Agregar', lines_items_path(:ejemplar_id => e), :remote => true %>
-					
-								<% end %>
-
-							<% end %>				
-
-					</div>
-				 <% end %>
-				<% end %>
-			</div>
-		
-
-		
+	
+		<div id = "total<%=@cont%>">	
+		<%= render(:partial => "libros/total_libro", :locals => {:libro => libro} ) %>	
+		</div>
+		<div class="price_line"> 
+			<span class="price">Costo: <%= number_to_currency(libro.precio_minimo, :unit => "Bs.") %>  </span>		
+			<% if not @configuracion.empty? %>
+				<%= button_to 'Agregar', lines_items_path(:libro_id => libro.id,:cont => @cont ), :remote => true %>
+		    <% end %>	
+		</div>
 	</div>
 
 <% end %>

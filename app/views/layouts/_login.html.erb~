@@ -1,12 +1,93 @@
-
-
-<div class="Menu">
-	<ul id="nav">
-		<li class="top"><%= link_to "Inicio", inicio_index_path, :class => "top_link" %></li>
-		<li class="top"><%= link_to "Historia", informacion_historia_path, :class => "top_link" %></li>
-		<li class="top"><%= link_to "Servicios", informacion_servicios_path, :class => "top_link" %></li>
-		<li class="top"><%= link_to "Normativas", informacion_normativas_path, :class => "top_link" %></li>
-		<li class="top"><%= link_to "Horarios", informacion_horarios_path, :class => "top_link" %></li>
-	</ul>
+<script>
+$(function() {
+	$( "#dialog:ui-dialog" ).dialog( "destroy" );		
 	
+	$( "#dialog-form" ).dialog({
+		   autoOpen: false,
+		   modal: true,
+		   title: "INICIO DE SESION",
+		   width: 550,
+		   minWidth: 400,
+		   maxWidth: 650,
+		   closeText: "cerrar",
+		   show: "fade"
+	});
+	$( "#dialog-form2" ).dialog({
+		   autoOpen: false,
+		   modal: true,
+		   title: "RECUPERAR CLAVE",
+		   width: 550,
+		   minWidth: 400,
+		   maxWidth: 650,
+		   closeText: "cerrar",
+		   show: "fade"
+	});
+
+	$( "#acceder" )
+		.button()
+		.click(function() {
+			$( "#dialog-form" ).dialog( "open" );
+		});
+
+	$( "#olvido" )
+		.button()
+		.click(function() {
+			$( "#dialog-form2" ).dialog( "open" );
+			$( "#dialog-form" ).dialog( "close" );
+		});
+
+});
+</script>
+
+
+
+<div class="demo">
+
+<div id="dialog-form" class="login">
+	<% if flash[:alert] %>
+		<p class="alerta"><%= flash[:alert] %></p>
+	<% end %>	
+
+	<%= form_tag url_for (:controller => "sesiones",:action => "crear") do %>
+	
+		<div>
+			<label for="cedula">Cédula:</label><br />
+			<%= text_field_tag :cedula, params[:cedula] %>
+		</div>
+		<div>
+			<label for="clave">Clave:</label><br />
+			<%= password_field_tag :password, params[:password] %>
+		</div>
+		<div>
+			<label>Texto de la imagen:</label><br />
+			<%= show_simple_captcha(:image_style => 'simply_blue', :distortion => 'medium',:label => "")  %>
+		</div>
+		<div class = "actions">
+			<%= submit_tag "Entrar", :id => 'links' %>
+		</div>
+		<button id="olvido">Olvidó su clave?</button>
+
+	<% end %>
 </div>
+
+
+<div id="dialog-form2" class="login">
+	<% if flash[:alert] %>
+		<p class="alerta"><%= flash[:alert] %></p>
+	<% end %>
+
+	<%= form_tag url_for(:controller => 'inicio', :action => 'olvido_clave')  do   %>
+		Por favor introduzca los datos solicitados
+		<div>
+			<label for="cedula">Cédula:</label><br />
+			<%= text_field_tag :cedula, params[:cedula] %>
+		</div>
+		<div class = "actions">
+			<%= submit_tag "Aceptar", :class => 'ingresar' %>
+		</div>
+	<% end %>
+
+</div>
+
+
+</div><!-- End demo -->	

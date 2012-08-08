@@ -53,6 +53,7 @@
   	  padding:5px;
   	  border-radius: 5px;
 	  cursor:pointer;
+	  font-size: 12px;
 	}  
 	#links:hover
 	{
@@ -85,7 +86,7 @@
   .list_actions {
     font-size:    x-small;
     text-align:   center;
-    padding-left: 1em;
+    padding-left: 0.5em;
   }
 
   .list_line_even {
@@ -142,10 +143,15 @@
   {
 	padding-left: 25px;
   }
-
- .nicEdit-panelContain
+  .nicEdit-panelContain
   {
-	border:red solid 1px;
+	margin-top:20px;
+  }
+  .nicEdit-panel
+  {
+  }
+  .nicEdit-main
+  {
   }
 
 .alquilar input[type=submit]{background:#ffffff;}

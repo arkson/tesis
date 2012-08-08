@@ -8,14 +8,14 @@
 
 		<td class="list_description">
 			<dl>
-				<dd>Fecha de inicio: <%= Date.strptime("31/01/2010", "%d/%m/%Y") %></dd>
+				<dd>Fecha de inicio: <%= alquiler.created_at.strftime("%d-%m-%Y") %></dd>
 				<dd>Fecha de culminación: <%= alquiler.fecha_fin %></dd>
 				<dd>Estatus: <%= alquiler.estatus %></dd>
 			</dl>
 		</td>
 		<td class="ver_datos" width="25%">
 			<%= link_to 'Ver Datos', ppal_estudiante_ver_datos_path(:id => alquiler.id),:id => "links" %>
-			<%= link_to 'Comprobante',{:controller => "reportes", :action => "comprobante_alquiler", :id => alquiler.id}, :id => "links" %>
+			<%= link_to 'Comprobante',{:controller => "reportes", :action => "comprobante_alquiler", :id => alquiler.id}, :id => "links", :target => "_blank" %>
 		</td>
 	</tr>
 	<% end %>
