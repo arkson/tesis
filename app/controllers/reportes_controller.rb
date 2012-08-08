@@ -18,7 +18,11 @@ class ReportesController < ApplicationController
 		#@coleccion = Alquiler.joins( [{:line_item => :ejemplar}], :usuario )
         @coleccion = Alquiler.where(:id => params[:id])
 		send_doc( @coleccion.to_xml ({:include => {:usuario => {}, :configuracion => {}, :line_item => {:include => {:ejemplar => {:include=>:libro}} }	 }}), '/alquileres/alquiler/line-item/line-item/ejemplar/libro', 'rptComprobanteAlquiler.jasper', "Recibo de Alquiler", params[:output_type])
-       
+#       	xml = Builder::XmlMarkup.new 
+#		xml_data = @coleccion.to_xml ({:include => {:usuario => {}, :configuracion => {}, :line_item => {:include => {:ejemplar => {:include=>:libro}} }	 }})    
+#		file = File.new("/home/kenny/my_xml_data_file.xml", "w")
+#		file.write(xml_data)
+#		file.close
 			
 	end
 

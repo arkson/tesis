@@ -6,7 +6,13 @@ if ($('#cart tr').length == 1) { $('#cart').show('blind', 1000); }
 
 //#END_HIGHLIGHT
 $('#cart').html("<%=j render @cart %>");
+$('#total<%=@cont%>').html("<%=j render :partial => 'libros/total_libro', :locals => {:libro => @libro}  %>");
 
 $('#current_item').css({'background-color':'#ffffff'}).
   animate({'background-color':'yellow'}, 1000);
+
+
+
+
+
 

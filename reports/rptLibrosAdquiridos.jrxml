@@ -175,11 +175,6 @@ BOLSA DEL LIBRO
 				<textElement/>
 				<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
-			<staticText>
-				<reportElement x="322" y="0" width="100" height="20"/>
-				<textElement/>
-				<text><![CDATA[ancestor::libro/ancestor::ejemplar/created-at]]></text>
-			</staticText>
 		</band>
 	</columnHeader>
 	<detail>

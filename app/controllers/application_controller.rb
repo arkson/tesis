@@ -1,15 +1,19 @@
+require 'monitor'
+
 class ApplicationController < ActionController::Base
+  attr_reader :ejemplar
   
+
   before_filter :authorize, :set_timezone 	
 
   protect_from_forgery
   include SimpleCaptcha::ControllerHelpers
   
-
-
+  
   def set_timezone  
 	Time.zone = 'America/Caracas'
   end  
+  
   
 
 
@@ -80,6 +84,58 @@ class ApplicationController < ActionController::Base
 	imagen 
   end	
 
-	  
+
+#  public
+#  def get_proximo_ejemplar(libro_id)
+#		libro = Libro.find(libro_id)
+#		       
+#		if(libro.cantidad_disponible >= 1)
+#			synchronize do
+#				@ejemplar = libro.ejemplar.where(:estatus_ejemplar =>'Disponible').first				
+#				@ejemplar.estatus_ejemplar = "Solicitado"
+#				@ejemplar.save
+#				return @ejemplar
+#			end			
+#		else
+#			redirect_to ppal_estudiante_index_path, :notice => "Los ejemplares estan agotados"} 
+#			return nil
+#		end
+#		
+#  end	
+
+
+  def get_proximo_ejemplar(libro_id)		
+	libro = Libro.find(libro_id)
+	m = Observar.get_proximo_ejemplar(libro)  
+    
+  end	
 
 end
+
+
+class Observar < Monitor
+	attr_reader :ejemplar
+    
+
+  public
+  def self.get_proximo_ejemplar(libro)
+		
+			mutex = Mutex.new 	
+        
+			if(libro.cantidad_disponible >= 1)
+				mutex.synchronize do
+					@ejemplar = libro.ejemplar.where(:estatus_ejemplar =>'Disponible').first				
+					@ejemplar.estatus_ejemplar = "Solicitado"
+					@ejemplar.save
+					return @ejemplar
+				end			
+			else 
+				
+				return nil
+			end
+		
+  end		  
+  
+
+end 
+

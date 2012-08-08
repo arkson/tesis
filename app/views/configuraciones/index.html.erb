@@ -10,6 +10,7 @@
 	<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
 		<td class="list_description">
 			<dl>
+			<dd>Nro: <%= configuracion.id %></dd>
 			<dd>Periodo: <%= configuracion.periodo %></dd>
 			<dd>Año: <%= configuracion.ano %></dd>
 			<dd>Fecha inicio: <%= configuracion.fecha_inicio %></dd>
@@ -17,6 +18,7 @@
 			<dd>Máx. num. libros: <%= configuracion.max_num_libro %></dd>
 			<dd>Tiempo prealquiler: <%= configuracion.tiempo_prealquiler %></dd>
 			<dd>Tipo periodo: <%= configuracion.tipo_periodo %></dd>
+			<dd>Activa: <%=configuracion.activo ? "Activa": "Inactiva" %></dd>
 			</dl>
 		</td>
 		<td class="list_actions" width="5%">

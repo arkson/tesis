@@ -47,43 +47,51 @@ class LinesItemsController < ApplicationController
   def create
    @config = current_config
    @cart = current_cart
-   @ejem = Ejemplar.find(params[:ejemplar_id])
-		 	
-   #@alq = Alquiler.all
-  
-   @alq = Alquiler.joins(:line_item => :ejemplar).where( "estatus_ejemplar = 'Alquilado' or estatus_ejemplar = 'Prealquilado' "  )
-   var = 0
+   @ejem = get_proximo_ejemplar(params[:libro_id])
+   if !@ejem.nil? 	
+	   @libro  = @ejem.libro		 	
+	   @cont = params[:cont]
+	   
+	   @alq = Alquiler.joins(:line_item => :ejemplar).where( "estatus_ejemplar = 'Alquilado' or estatus_ejemplar = 'Prealquilado' "  )
+	   var = 0
 
-   if (!@alq.empty?)
-	var = @alq[0].total_libros	
-   end
+	   if (!@alq.empty?)
+		var = @alq[0].total_libros	
+	   end
 
-		 
-
-   if (@cart.total_ejemplares +  var)  < @config[0].max_num_libro   
-		if !(@ejem.estatus_ejemplar == 'Solicitado')    
-			@ejem.estatus_ejemplar = 'Solicitado'
-			@lin_items = @cart.add_ejemplar(@ejem.id, @config[0].libro_repetido )
-			  	respond_to do |format|
-				  if @lin_items.save and @ejem.save
-					 format.html { redirect_to ppal_estudiante_index_path}
-					 format.js { @current_item = @lin_items }
-					 format.json { render :json => @lin_items, :status => :created, :location => @lin_items }
-					else
-					 format.html { render :action => "new" }
-					 format.json { render :json => @lin_items.errors, :status => :unprocessable_entity }
-					end
-				 end
-		else
-			redirect_to ppal_estudiante_index_url, :alert => "El ejemplar ya ha sido seleccionado, puede intentar más tarde, en caso de que haya sido liberado"
-		end 
-	else
-		redirect_to ppal_estudiante_index_url, :alert => "Ha excedido el número máximo de ejemplares"
+			 
 		
+	   if (@cart.total_ejemplares +  var)  < @config[0].max_num_libro   
+	#		if !(@ejem.estatus_ejemplar == 'Solicitado')    
+	#			@ejem.estatus_ejemplar = 'Solicitado'
+				@lin_items = @cart.add_ejemplar(@ejem.id, @config[0].libro_repetido )
+				  	respond_to do |format|
+					  if @lin_items.save and @ejem.save
+						 format.html { redirect_to ppal_estudiante_index_path}
+						 format.js { @current_item = @lin_items, libro = @libro }
+						 format.json { render format.json , :status => :created, :location => @lin_items }
+						else
+						 format.html { render :action => "new" }
+						 format.json { render :json => @lin_items.errors, :status => :unprocessable_entity }
+						end
+					 end
+	#		else
+	#			redirect_to ppal_estudiante_index_url, :alert => "El ejemplar ya ha sido seleccionado, puede intentar más tarde, en caso de que haya sido liberado"
+	#		end 
+		else
 
-   end	
+			
+			redirect_to ppal_estudiante_index_url, :notice => "Ha excedido el número máximo de ejemplares"
+			
 
-
+	   end	
+	else	
+#		respond_to do |format|
+#		 flash.now[:error]="ASJASDA"
+#		 format.html { render :nothing => true }
+#		 format.js
+#		end
+	end
   end
 
 

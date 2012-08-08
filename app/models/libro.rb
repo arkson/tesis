@@ -19,4 +19,20 @@ class Libro < ActiveRecord::Base
   end
 
 
+  public
+  def cantidad_disponible
+    ejemplar.where("estatus_ejemplar = 'Disponible' ").count      
+		  		
+  end
+
+ def precio_minimo 	
+	ejemplar.where("estatus_ejemplar = 'Disponible' or estatus_ejemplar = 'Solicitado'").order('costo_alquiler asc').first.costo_alquiler 
+
+ end 	
+ 	
+ def precio_maximo
+	ejemplar.where("estatus_ejemplar = 'Disponible' or estatus_ejemplar = 'Solicitado'").order('costo_alquiler asc').last.costo_alquiler 
+ end
+
+
 end

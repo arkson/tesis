@@ -44,6 +44,7 @@ class Ejemplar < ActiveRecord::Base
 		return line_item.joins(:devolucion).where(" (devoluciones.estatus ='Sin retirar' or devoluciones.estatus = 'Sin devolver') and lines_items.ejemplar_id = :ejemplar_id   ",{ :ejemplar_id => id })[0].devolucion.alquiler
 	end
 	
-  end		
+  end
+
 
 end

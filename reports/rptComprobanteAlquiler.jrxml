@@ -51,6 +51,9 @@
 	<variable name="periodo" class="java.lang.String">
 		<variableExpression><![CDATA[$F{periodo}.compareTo( "1" ) == 0 ? "I" : "II"]]></variableExpression>
 	</variable>
+	<variable name="costo_correcto" class="java.lang.String">
+		<variableExpression><![CDATA[String.format("%.2f", $F{costo_alquiler})]]></variableExpression>
+	</variable>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -104,11 +107,11 @@ BOLSA DEL LIBRO
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{periodo}]]></textFieldExpression>
 			</textField>
 			<image>
-				<reportElement x="0" y="2" width="103" height="91"/>
+				<reportElement x="3" y="2" width="103" height="91"/>
 				<imageExpression class="java.lang.String"><![CDATA["/app/assets/images/ucv.jpg"]]></imageExpression>
 			</image>
 			<image>
-				<reportElement x="478" y="0" width="91" height="87"/>
+				<reportElement x="481" y="0" width="91" height="87"/>
 				<imageExpression class="java.lang.String"><![CDATA["/app/assets/images/ciencias.jpg"]]></imageExpression>
 			</image>
 		</band>
@@ -137,18 +140,18 @@ BOLSA DEL LIBRO
 				<text><![CDATA[FECHA:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="329" y="34" width="146" height="20"/>
+				<reportElement x="289" y="33" width="146" height="20"/>
 				<textElement textAlignment="Right">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[APELLIDOS Y NOMBRES:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="329" y="54" width="146" height="20"/>
+				<reportElement x="289" y="58" width="146" height="20"/>
 				<textElement textAlignment="Right">
 					<font isBold="true" isUnderline="false"/>
 				</textElement>
-				<text><![CDATA[CEDULA DE IDENTIDAD:]]></text>
+				<text><![CDATA[CEDULA:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="267" y="85" width="100" height="20"/>
@@ -164,13 +167,13 @@ BOLSA DEL LIBRO
 				</textElement>
 				<text><![CDATA[COSTO DE ALQUILER]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="481" y="34" width="91" height="20"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="441" y="33" width="128" height="20"/>
 				<textElement/>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{nombre}]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0">
-				<reportElement x="481" y="54" width="91" height="20"/>
+				<reportElement x="441" y="58" width="91" height="20"/>
 				<textElement/>
 				<textFieldExpression class="java.lang.Double"><![CDATA[$F{cedula}]]></textFieldExpression>
 			</textField>
@@ -187,14 +190,9 @@ BOLSA DEL LIBRO
 				<reportElement style="detalle" x="0" y="0" width="572" height="20"/>
 			</rectangle>
 			<textField>
-				<reportElement x="267" y="0" width="100" height="20"/>
+				<reportElement x="267" y="0" width="147" height="20"/>
 				<textElement/>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{autor}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="435" y="0" width="100" height="20"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression class="java.lang.Double"><![CDATA[$F{costo_alquiler}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="113" y="0" width="131" height="20"/>
@@ -205,6 +203,16 @@ BOLSA DEL LIBRO
 				<reportElement x="3" y="0" width="88" height="20"/>
 				<textElement/>
 				<textFieldExpression class="java.lang.String"><![CDATA[$V{cota_ejemplar}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="538" y="0" width="17" height="20"/>
+				<textElement/>
+				<text><![CDATA[Bs.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="438" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$V{costo_correcto}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
@@ -244,6 +252,11 @@ BOLSA DEL LIBRO
 				<textElement/>
 				<textFieldExpression class="java.lang.Double"><![CDATA[$V{costo_alquiler_1}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="552" y="10" width="17" height="20"/>
+				<textElement/>
+				<text><![CDATA[Bs.]]></text>
+			</staticText>
 		</band>
 	</summary>
 </jasperReport>

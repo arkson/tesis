@@ -45,7 +45,7 @@ class PpalEstudianteController < ApplicationController
 	 @config = current_config	
     @cart = current_cart
     if @cart.line_item.empty?
-		 redirect_to store_url, :notice => "Debe seleccionar al menos un libro"
+		 redirect_to ppal_estudiante_index_path, :notice => "Debe seleccionar al menos un libro"
 		 return
 	 end
 	@alquiler.add_line_items_from_cart(current_cart)
