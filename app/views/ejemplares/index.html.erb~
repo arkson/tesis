@@ -34,7 +34,7 @@
 		<dd>Estatus: <%= ejemplar.estatus_ejemplar %></dd>	
 		<% if ejemplar.estatus_ejemplar == 'Alquilado' or ejemplar.estatus_ejemplar == 'Prealquilado' %>
 			<dd>Alquilado por: <%= link_to ejemplar.alquiler.usuario.nombre, ejemplar.alquiler.usuario  %></dd>	
-			<dd> <%= link_to "Ver alquiler:", ejemplar.alquiler  %></dd>	
+			<dd> <%= link_to "Ver alquiler", ejemplar.alquiler  %></dd>	
 		<% end %>
 		</dl>
 	</td>

@@ -28,7 +28,9 @@
 		</tr>
 	<% end %>
 </table>
+
 <%= will_paginate @editoriales , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
+
 <br />
 
 <%= link_to 'Nueva Editorial', new_editorial_path, :id => "links" %>

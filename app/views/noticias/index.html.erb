@@ -3,7 +3,7 @@
 
 <div class ="busqueda">
   <%= form_for @search do |f| %>
-    <%= f.text_field :titulo_contains, :class => "campo_busqueda" %>
+    <%= f.text_field :titulo_contains, :value => "Buscar por título", :onfocus =>"this.value=''", :onblur =>"this.value='Buscar por título'", :class => "campo_busqueda" %>
     <%= f.submit :buscar%>
   <% end %>
 </div>

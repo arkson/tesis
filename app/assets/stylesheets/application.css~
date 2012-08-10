@@ -70,6 +70,7 @@ label {
 }
 select, textarea, input[type=file], input[type=checkbox] {
   margin-left: 0.5em;  
+  font-size: 12px;
 }
 
 .usuario{ color:#ffffff;line-height:25px; font-weight:bold;font-size: 12px;}
@@ -101,7 +102,7 @@ select, textarea, input[type=file], input[type=checkbox] {
 #error_explanation
 {
   border: thin solid #8b0000;
-    background: #ffc0cb;
+  background: #ffc0cb;
 }
 /* 
 .wrapper 

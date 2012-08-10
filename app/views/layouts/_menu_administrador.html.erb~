@@ -16,7 +16,7 @@
 			eventType: 'click',
 			autoClose: false,
 			saveState: true,
-			disableLink: false,
+			disableLink: true,
 			showCount: true,
 			speed: 'fast'
 					})

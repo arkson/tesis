@@ -4,7 +4,7 @@
 
 <div class ="busqueda">
   <%= form_for @search do |f| %>
-    <%= f.text_field :usuario_cedula_contains, :class => "campo_busqueda" %>
+    <%= f.text_field :usuario_cedula_contains, :value => "Buscar por nombre o cédula", :onfocus =>"this.value=''", :onblur =>"this.value='Buscar por nombre o cédula'", :class => "campo_busqueda" %>
     <!-- etc... -->
     <%= f.submit :buscar%>
   <% end %>

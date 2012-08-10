@@ -10,6 +10,8 @@
 
 <div class ="titulo"><h1>Listado de dependencias</h1></div>
 
+<button id="link"><%= link_to 'Nueva Dependencia', new_dependencia_path %></button>
+
 <%= will_paginate @dependencias , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
 
 <table class="tabla_scaffold" width="98%">

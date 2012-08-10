@@ -5,8 +5,8 @@
 <% end %>
 
 <div class ="busqueda">
-  <%= form_for @search do |f| %>
-    <%= f.text_field :titulo_or_cota_contains, :class => "campo_busqueda" %>      
+  <%= form_for @search, :url => ppal_estudiante_index_path, :html => {:method => :get} do |f| %>
+    <%= f.text_field :titulo_or_cota_contains, :value => "Buscar por título o cota", :onfocus =>"this.value=''", :onchange =>"this.value='Buscar por título o cota'",:class => "campo_busqueda" %>      
     <%= f.submit :Buscar %>
   <% end %>
 </div>
