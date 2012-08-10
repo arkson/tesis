@@ -5,7 +5,7 @@
 <% end %>
 
 <div class ="busqueda">
-  <%= form_for @search do |f| %>
+  <%= form_for @search, :url => ppal_estudiante_index_path, :html => {:method => :get} do |f| %>
     <%= f.text_field :titulo_or_cota_contains, :class => "campo_busqueda" %>      
     <%= f.submit :Buscar %>
   <% end %>

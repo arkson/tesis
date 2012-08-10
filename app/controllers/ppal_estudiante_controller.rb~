@@ -6,12 +6,10 @@ class PpalEstudianteController < ApplicationController
   
 
   def index
- 	add_breadcrumb "Listado de libros", :libros_index_path	
- 	add_breadcrumb "Catálogo de libros", :ppal_estudiante_index_path
-	@query = Libro.where(" id in (select libro_id from ejemplares where estatus_ejemplar = 'Disponible' or estatus_ejemplar = 'Solicitado' )").order('cota asc')
-	@search = @query.search(params[:search])
-	@libros =  @search.paginate(:page => params[:page], :per_page =>5)
-
+ 	add_breadcrumb "Listado de libros", :libros_index_path
+	@search = Libro.search(params[:search])
+    @libros = @search.paginate(:page => params[:page], :per_page => 5)
+    
 	@cart = current_cart 
 	@configuracion = current_config
 
@@ -45,7 +43,7 @@ class PpalEstudianteController < ApplicationController
 	 @config = current_config	
     @cart = current_cart
     if @cart.line_item.empty?
-		 redirect_to store_url, :notice => "Debe seleccionar al menos un libro"
+		 redirect_to ppal_estudiante_index_path, :notice => "Debe seleccionar al menos un libro"
 		 return
 	 end
 	@alquiler.add_line_items_from_cart(current_cart)
@@ -62,9 +60,27 @@ class PpalEstudianteController < ApplicationController
    
   end
 
-
+  def ver_ejemplar
+	add_breadcrumb "Datos del ejemplar", :ppal_estudiante_ver_ejemplar_path
+    @ejemplar = Ejemplar.find(params[:id])
+	@cart = current_cart 
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render :json => @ejemplar }
+    end	
 	
+	
+  end
 
 
+  def ver_libro
+	add_breadcrumb "Datos del libro", :ppal_estudiante_ver_libro_path
+    @libro = Libro.find(params[:id])
+    @cart = current_cart 
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render :json => @libro }
+    end 		
 
+  end	
 end
