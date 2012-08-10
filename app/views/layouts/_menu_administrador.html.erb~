@@ -5,12 +5,26 @@
 
 	$(function() {
 		$( "#accordion" ).accordion({
+<<<<<<< HEAD
    			'header': 'h3',
    			'fillSpace': false,
 		   	'active': 3
 		});
 		
 	});
+=======
+			eventType: 'click',
+			autoClose: false,
+			saveState: true,
+			disableLink: false,
+			showCount: true,
+			speed: 'fast'
+					})
+
+		
+	});
+	
+>>>>>>> 3a8920f29970d57ccd7ff21a22513c7f8439c8ee
 	</script>
 
 

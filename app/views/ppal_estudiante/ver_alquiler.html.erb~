@@ -8,6 +8,10 @@
 
 		<td class="list_description">
 			<dl>
+<<<<<<< HEAD
+=======
+				<dd>Nro Alquiler : <%= alquiler.id %></dd>
+>>>>>>> 3a8920f29970d57ccd7ff21a22513c7f8439c8ee
 				<dd>Fecha de inicio: <%= alquiler.created_at.strftime("%d-%m-%Y") %></dd>
 				<dd>Fecha de culminación: <%= alquiler.fecha_fin %></dd>
 				<dd>Estatus: <%= alquiler.estatus %></dd>

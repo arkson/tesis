@@ -20,9 +20,11 @@
 
 		<td class="list_description">
 			<dl>
-				<dt>Nombre: <%= alquiler.usuario.nombre %></dt>
-				<dd>Fecha de Inicio: <%= Date.strptime("31/01/2010", "%d/%m/%Y") %></dd>
-				<dd>Fecha de culminación: <%= alquiler.fecha_fin %></dd>
+				<dt>Nro Alquiler : <%= alquiler.id %></dt>
+				<dd>Nombre: <%= link_to alquiler.usuario.nombre,alquiler.usuario %></dd>
+				<dd>Cédula: <%= link_to alquiler.usuario.cedula,alquiler.usuario %></dd>
+				<dd>Fecha de Inicio: <%= alquiler.fecha_inicio.strftime("%d/%m/%Y") %> </dd>
+				<dd>Fecha de culminación: <%= alquiler.fecha_fin.strftime("%d/%m/%Y") %></dd>
 				<dd><%= alquiler.estatus %></dd>
 			</dl>
 		</td>
@@ -30,7 +32,7 @@
 			<%= link_to image_tag("open.png", :alt => "Mostrar", :title => "Mostrar", :size => "18x18"), alquiler %><br />
 			<% if Usuario.find(session[:usuario_id]).rol == 'Administrador' %>
 				<%= link_to image_tag("editpaste.png", :alt => "Editar", :title => "Editar", :size => "18x18"), edit_alquiler_path(alquiler) %><br />
-				<%= link_to image_tag("cross.png", :alt => "Eliminar", :title => "Eliminar", :size => "18x18"), alquiler, :confirm => '¿Estas seguro?', :method => :delete %>
+				
 			<% end %>	
 		</td>
 		</tr>

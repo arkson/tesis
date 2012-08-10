@@ -1,38 +1,4 @@
-<script>
-$(function() {
 
-
-	$( "#1,#2,#3,#4,#5" )
-		.button()
-		.click(function() {
-			$( "#dialog-form" ).dialog( "open" );
-	});
-});
-</script>
-
-
-
-    <script type="text/javascript">
-
-
-        $(document).ready(function() {
-			
-            $("#message6").message("hide");
-
-            $("#message6-show").click(function() {
-                $("#message6").message("show");
-            });
-         
-            $("#message6").click(function() {
-                $("#message6").message("hide");
-            });         
-
-				
-
-        });
-		
-
-</script>
 
 <% if flash[:notice] %>
 	<p class="notice"><%= flash[:notice] %></p>

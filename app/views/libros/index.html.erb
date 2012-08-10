@@ -6,7 +6,15 @@
   <%= form_for @search do |f| %>
     <%= f.text_field :cota_or_isbn_or_titulo_contains, :class => "campo_busqueda" %>      
     <%= f.submit :buscar %>
+
   <% end %>
+
+<p>
+  Ordenar por:
+  <%= sort_link @search, :cota %> |
+  <%= sort_link @search, :isbn %> |
+  <%= sort_link @search, :titulo %>
+</p>
 </div>
 
 <div class ="titulo"><h1>Listado de libros</h1></div>
