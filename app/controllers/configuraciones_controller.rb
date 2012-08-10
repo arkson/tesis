@@ -61,11 +61,11 @@ class ConfiguracionesController < ApplicationController
 		    format.json { render :json => @configuracion.errors, :status => :unprocessable_entity }
 		  end
 		elsif es_valida(@configuracion) == 2
-		@configuracion.errors.add(:activa, "Sólo puede haber una configuración activa")
+		@configuracion.errors.add(:error, "Sólo puede haber una configuración activa")
 			format.html { render :action => "new" }
 		    format.json { render :json => @configuracion.errors, :status => :unprocessable_entity }
 		else
-			@configuracion.errors.add(:fechas, "Las fechas se solapan con otra configuración existente")
+			@configuracion.errors.add(:error, "Las fechas se solapan con otra configuración existente")
 			format.html { render :action => "new" }
 		    format.json { render :json => @configuracion.errors, :status => :unprocessable_entity }
 			
@@ -77,9 +77,10 @@ class ConfiguracionesController < ApplicationController
   # PUT /configuraciones/1.json
   def update
     @configuracion = Configuracion.find(params[:id])
-
+	i = es_valida_update(params[:configuracion],@configuracion.id) 
+	
     respond_to do |format|
-		if 	es_valida(params[:configuracion]) == 1			
+		if 	es_valida_update(params[:configuracion],@configuracion.id) == 1			
 		  if @configuracion.update_attributes(params[:configuracion])
 		    format.html { redirect_to @configuracion, :notice => 'Configuracion was successfully updated.' }
 		    format.json { head :ok }
@@ -87,12 +88,12 @@ class ConfiguracionesController < ApplicationController
 		    format.html { render :action => "edit" }
 		    format.json { render :json => @configuracion.errors, :status => :unprocessable_entity }
 		  end
-		elsif es_valida(@configuracion) == 2
-		@configuracion.errors.add(:activa, "Sólo puede haber una configuración activa")
+		elsif es_valida_update(params[:configuracion],@configuracion.id) == 2
+		@configuracion.errors.add(:error, "Sólo puede haber una configuración activa")
 			format.html { render :action => "edit" }
 		    format.json { render :json => @configuracion.errors, :status => :unprocessable_entity }
 		else
-			@configuracion.errors.add(:fechas, "Las fechas se solapan con otra configuración existente")
+			@configuracion.errors.add(:error, "Las fechas se solapan con otra configuración existente")
 			format.html { render :action => "edit" }
 		    format.json { render :json => @configuracion.errors, :status => :unprocessable_entity }
 			
@@ -122,15 +123,10 @@ class ConfiguracionesController < ApplicationController
 	if((@temp[0].id != config.id) and (config.activo))
 		return 2			
 	end	
-	
-
-	print("_____________*****************____temp_______ #{@temp[0].id}____config__#{config.activo}__#{config.id}  "  )	
-
 	@temp=nil
+    @temp = Configuracion.where(' id <> :id  and   ((:tiempo1 >= fecha_inicio and  :tiempo1  <= fecha_fin) or (:tiempo2 >= fecha_inicio and  :tiempo2  <= fecha_fin)) ', {:tiempo1 => config.fecha_inicio, :tiempo2 => config.fecha_fin,:id =>id } )
 
-    @temp = Configuracion.where('((:tiempo1 >= fecha_inicio and  :tiempo1  <= fecha_fin) or (:tiempo2 >= fecha_inicio and  :tiempo2  <= fecha_fin)) and id <> :id  )  ', {:tiempo1 => config.fecha_inicio, :tiempo2 => config.fecha_fin,:id =>config.id } )
-# 	print("_____________*****************____temp_______ #{@temp[0].id}____config__#{config.id}  "  )	
-	if @temp.nil? 	
+	if @temp.count == 0  	
 		return 1
 	else	
 		return 3
@@ -138,5 +134,28 @@ class ConfiguracionesController < ApplicationController
 			
   end
 
+  #return 1: la configuracion es valida
+  #return 2: ya existe una configuración activa
+  #return 3: configuración solapada
+  def es_valida_update(array, id)
+	@temp = Configuracion.where( :activo => true)
+	if ((@temp[0].id != id ) and (array['activo'].to_i == 1)) 
+		return 2			
+	end	
+
+    fecha_ini = array['fecha_inicio(1i)'] + "-" + array['fecha_inicio(2i)'] + "-" +array['fecha_inicio(3i)']
+	fecha_fin = array['fecha_fin(1i)'] + "-" + array['fecha_fin(2i)'] + "-" +array['fecha_fin(3i)']
+	
+	@temp=nil
+    @temp = Configuracion.where(' id <> :id  and   ((:tiempo1 >= fecha_inicio and  :tiempo1  <= fecha_fin) or (:tiempo2 >= fecha_inicio and  :tiempo2  <= fecha_fin)) ', {:tiempo1 => fecha_ini, :tiempo2 => fecha_fin,:id =>id } )
+
+	if @temp.count == 0 	
+		return 1
+	else	
+		return 3
+	end
+
+	
+  end		
 	
 end

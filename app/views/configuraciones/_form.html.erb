@@ -23,11 +23,11 @@
 
   <div class="field">
     <%= f.label :fecha_inicio %><br />
-    <%= f.date_select :fecha_inicio %>
+    <%= f.date_select :fecha_inicio,:order => [:day, :month, :year]%>
   </div>
   <div class="field">
     <%= f.label :fecha_fin %><br />
-    <%= f.date_select :fecha_fin %>
+    <%= f.date_select :fecha_fin, :order => [:day, :month, :year] %>
   </div>
   <div class="field">
     <%= f.label :max_num_libro , "Máximo número de libros" %><br />

@@ -5,7 +5,10 @@ class Configuracion < ActiveRecord::Base
      validates :tiempo_prealquiler, :numericality => {:greater_than_or_equal_to => 0}  
      validates :ano, :numericality => {:greater_than_or_equal_to => 2012}
 
-	before_destroy :ensure_not_referenced_by_any_alquiler
+
+   
+  
+	before_destroy :ensure_not_referenced_by_any_alquiler,:message => "Existen alquileres asociados a esta configuración"
 
 
   def ensure_not_referenced_by_any_alquiler
@@ -17,6 +20,6 @@ class Configuracion < ActiveRecord::Base
 	end
   end
 	
-
+	
      
 end
