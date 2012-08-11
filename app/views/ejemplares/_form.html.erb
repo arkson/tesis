@@ -13,13 +13,16 @@
 
   <div class="field">
     <%= f.label :libro %><br />
-    <%= f.collection_select :libro_id, Libro.all, :id, :titulo_and_autor %>
+    <%= f.collection_select :libro_id, Libro.order('titulo asc'), :id, :titulo_and_autor %>
   </div>
+
 	
   <div class="field">
     <%= f.label :numero_ejemplar %><br />
     <%= f.number_field :numero_ejemplar %>
   </div>
+
+
   <div class="field">
     <%= f.label :costo_alquiler %><br />
     <%= f.number_field :costo_alquiler %>
@@ -59,6 +62,8 @@
     <%= f.label :libreria %><br />
     <%= f.collection_select :libreria_id, Libreria.all, :id, :nombre %>
   </div>
+	
+  
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -1,5 +1,7 @@
 Tesis::Application.routes.draw do
   
+  resources :donaciones
+
   resources :solvencias
 
   resources :devoluciones

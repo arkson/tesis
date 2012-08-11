@@ -52,7 +52,7 @@ class EjemplaresController < ApplicationController
   # POST /ejemplares.json
   def create
     @ejemplar = Ejemplar.new(params[:ejemplar])
-
+    @ejemplar.cota = [ @ejemplar.libro.cota, @ejemplar.numero_ejemplar].join('.')
     respond_to do |format|
       if @ejemplar.save
         format.html { redirect_to @ejemplar, :notice => 'Ejemplar was successfully created.' }

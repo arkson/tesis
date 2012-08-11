@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Ejemplar:</b>
+  <%= @donacion.ejemplar %>
+</p>
+
+<p>
+  <b>Usuario:</b>
+  <%= @donacion.usuario %>
+</p>
+
+
+<%= link_to 'Edit', edit_donacion_path(@donacion) %> |
+<%= link_to 'Back', donaciones_path %>

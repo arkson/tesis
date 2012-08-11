@@ -25,8 +25,8 @@
 			<dl>
 				<dt>Nro Solvencia : <%= solvencia.id %></dt>
 				<dd>Estatus: <%= solvencia.estatus %>  </dd>    	
-				<dd>Cédula: <%=  solvencia.usuario.cedula  %></dd>
-				<dd>Nombre: <%=  solvencia.usuario.nombre  %></dd>
+				<dd>Cédula: <%= link_to solvencia.usuario.cedula,solvencia.usuario  %></dd>
+				<dd>Nombre: <%= link_to solvencia.usuario.nombre, solvencia.usuario   %></dd>
 				<dd>Tipo: <%= solvencia.tipo_solvencia %></dd>
 				<dd>Fecha de Solicitud: <%= solvencia.created_at.strftime("%d/%m/%Y") %> </dd>
 			</dl>

@@ -2,14 +2,17 @@ class Ejemplar < ActiveRecord::Base
   belongs_to :libro
   belongs_to :libreria
   has_many :line_item
-
+  	
   before_destroy :ensure_not_referenced_by_any_line_item
-
+   
   validates :numero_ejemplar, :libro, :tipo_adquisicion, :costo_alquiler, :presence => true
   validates :numero_ejemplar, :numericality => {:greater_than => 0}	
   validates :costo_alquiler, :numericality => {:greater_than => 0}	
+ 
 
-  #validates :cota, :uniqueness => true
+  attr_accessible :cota
+  attr_accessor :cota
+ 
   
   private
   # ensure that there are no line items referencing this product
@@ -24,8 +27,11 @@ class Ejemplar < ActiveRecord::Base
 	
   public
   def cota
-     [libro.cota,numero_ejemplar].join('.')
+     @cota = [libro.cota,numero_ejemplar].join('.')
+	
   end
+
+  
 
   def ensure_not_referenced_by_any_line_item
 	if line_item.empty?
