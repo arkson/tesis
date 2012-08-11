@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120811001537) do
+ActiveRecord::Schema.define(:version => 20120811141734) do
 
   create_table "alquileres", :force => true do |t|
     t.integer  "usuario_id"
@@ -70,6 +70,16 @@ ActiveRecord::Schema.define(:version => 20120811001537) do
 
   add_index "devoluciones", ["alquiler_id"], :name => "index_devoluciones_on_alquiler_id"
   add_index "devoluciones", ["line_item_id"], :name => "index_devoluciones_on_line_item_id"
+
+  create_table "donaciones", :force => true do |t|
+    t.integer  "ejemplar_id"
+    t.integer  "usuario_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "donaciones", ["ejemplar_id"], :name => "index_donaciones_on_ejemplar_id"
+  add_index "donaciones", ["usuario_id"], :name => "index_donaciones_on_usuario_id"
 
   create_table "editoriales", :force => true do |t|
     t.string   "nombre"
