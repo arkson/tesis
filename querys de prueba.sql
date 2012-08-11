@@ -48,6 +48,14 @@ ADD CONSTRAINT usuarios_fk_dependencias FOREIGN KEY (dependencia_id) REFERENCES 
 ON DELETE SET NULL 
 ON UPDATE CASCADE;
 
+ALTER TABLE solvencias
+ADD CONSTRAINT solvecias_fk_usuarios FOREIGN KEY (usuario_id) REFERENCES usuarios (id)
+ON DELETE SET NULL 
+ON UPDATE CASCADE;
+
+ALTER TABLE ejemplares MODIFY COLUMN numero_ejemplar INTEGER  NOT NULL,
+ DROP PRIMARY KEY,
+ ADD PRIMARY KEY  USING BTREE(id, numero_ejemplar);
 
 cédulas de prueba
 17922539

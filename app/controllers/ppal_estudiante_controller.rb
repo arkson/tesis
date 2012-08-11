@@ -130,7 +130,7 @@ class PpalEstudianteController < ApplicationController
 		end
 
 	else
-		redirect_to ppal_estudiante_index_path, :notice => "Usted ya posee una solvencia en proceso"			
+		redirect_to ppal_estudiante_index_path, :notice => "Usted ya posee una solvencia en proceso"	 
 	end	
 	
   end	
