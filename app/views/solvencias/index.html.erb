@@ -1,0 +1,50 @@
+<% if flash[:notice] %>
+	<p class="notice"><%= flash[:notice] %></p>
+<% end %>
+
+
+
+<div class ="busqueda">
+  <%= form_for @search do |f| %>
+    <%= f.text_field :usuario_cedula_contains, :value => "Buscar por cédula", :onfocus =>"this.value=''", :onblur =>"this.value='Buscar por cédula'", :class => "campo_busqueda" %>
+      
+    <%= f.submit :buscar %>
+  <% end %>
+</div>
+
+
+<div class ="titulo"><h1>Listado de Solvencias</h1></div>
+
+<%= will_paginate @solvencias , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
+
+<table class="tabla_scaffold" width="98%">
+
+<% @solvencias.each do |solvencia| %>
+  <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+ 	 <td class="list_description">
+			<dl>
+				<dt>Nro Solvencia : <%= solvencia.id %></dt>
+				<dd>Estatus: <%= solvencia.estatus %>  </dd>    	
+				<dd>Cédula: <%=  solvencia.usuario.cedula  %></dd>
+				<dd>Nombre: <%=  solvencia.usuario.nombre  %></dd>
+				<dd>Tipo: <%= solvencia.tipo_solvencia %></dd>
+				<dd>Fecha de Solicitud: <%= solvencia.created_at.strftime("%d/%m/%Y") %> </dd>
+			</dl>
+		</td>
+		<td class="list_actions" width="5%">
+			<%= link_to image_tag("icon_pdf.gif", :alt => "PDF", :title => "PDF", :size => "18x18"), {:controller => "reportes", :action => "solvencia", :usuario_id => solvencia.usuario.id }, :target => "_blank", :method => :post%><br />
+
+			<%= link_to image_tag("check.gif", :alt => "Marcar como entregada", :title => "Marcar como entregada", :size => "18x18"), solvencia, :method => :put%><br />	
+			
+		</td>  
+  </tr>
+<% end %>
+</table>
+
+<%= will_paginate @solvencias , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
+
+<br />
+
+
+
+

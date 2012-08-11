@@ -1,0 +1,30 @@
+<% if flash[:notice] %>
+	<p class="notice"><%= flash[:notice] %></p>
+<% end %>
+
+
+<%= will_paginate @solvencia , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
+<div class ="titulo"><h1>Solvencias Solicitadas</h1></div>
+
+<table class="tabla_scaffold" width="65%">
+	<% @solvencia.each do |solvencia| %>
+	<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+
+		<td class="list_description">
+			<dl>
+				<dt>Nro de Solvencia : <%= solvencia.id %></<dt>
+				<dd>Fecha de solicitud: <%= solvencia.created_at.strftime("%d/%m/%Y") %></dd>
+				<dd>Tipo de solvencia: <%= solvencia.tipo_solvencia %></dd>
+				<dd>Estatus: <%= solvencia.estatus %></dd>
+			</dl>
+		</td>
+		<td class="ver_datos" width="35%">
+			
+		</td>
+	</tr>
+	<% end %>
+</table>
+<%= will_paginate @solvencia , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
+
+
+

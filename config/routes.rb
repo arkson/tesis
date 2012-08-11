@@ -1,5 +1,7 @@
 Tesis::Application.routes.draw do
   
+  resources :solvencias
+
   resources :devoluciones
 
   resources :alquileres
@@ -48,6 +50,8 @@ Tesis::Application.routes.draw do
   get "inicio/olvido_clave"
   
   post "inicio/olvido_clave"
+
+  post "ppal_estudiante/guardar_solicitud_solvencia"	
   
   get "ppal_estudiante/index"
 
@@ -60,6 +64,10 @@ Tesis::Application.routes.draw do
   get "ppal_estudiante/ver_libro"
 
   get "ppal_estudiante/confirmar_alquiler"
+
+  get "ppal_estudiante/ver_solvencias"
+
+  get "ppal_estudiante/enviar_solicitud_solvencia"
   
   get "ejemplares/index"
 
@@ -87,7 +95,7 @@ Tesis::Application.routes.draw do
  
   get "reportes/libros_sin_alquiler"
 
-  get "reportes/solvencia"
+  post "reportes/solvencia"
 
   get "reportes/deudores"
 

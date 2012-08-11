@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120613223341) do
+ActiveRecord::Schema.define(:version => 20120811001537) do
 
   create_table "alquileres", :force => true do |t|
     t.integer  "usuario_id"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20120613223341) do
     t.integer  "configuracion_id"
   end
 
+  add_index "alquileres", ["configuracion_id"], :name => "alquileres_fk_conf"
   add_index "alquileres", ["usuario_id"], :name => "index_alquileres_on_usuario_id"
 
   create_table "areas_conocimientos", :force => true do |t|
@@ -34,6 +35,8 @@ ActiveRecord::Schema.define(:version => 20120613223341) do
     t.datetime "updated_at"
     t.integer  "usuario_id"
   end
+
+  add_index "carts", ["usuario_id"], :name => "carts_fk_usuario"
 
   create_table "configuraciones", :force => true do |t|
     t.integer  "periodo"
@@ -102,9 +105,9 @@ ActiveRecord::Schema.define(:version => 20120613223341) do
     t.string   "cota"
     t.string   "titulo"
     t.string   "autor"
-    t.datetime "imagen_updated_at"
-    t.string   "imagen_file_name"
     t.string   "imagen_content_type"
+    t.string   "imagen_file_name"
+    t.datetime "imagen_updated_at"
     t.integer  "imagen_file_size"
     t.integer  "edicion"
     t.string   "lugar_impresion"
@@ -130,14 +133,15 @@ ActiveRecord::Schema.define(:version => 20120613223341) do
     t.integer  "alquiler_id"
   end
 
+  add_index "lines_items", ["alquiler_id"], :name => "lines_items_fk_alquiler"
   add_index "lines_items", ["cart_id"], :name => "index_lines_items_on_cart_id"
   add_index "lines_items", ["ejemplar_id"], :name => "index_lines_items_on_ejemplar_id"
 
   create_table "noticias", :force => true do |t|
     t.string   "titulo"
-    t.datetime "imagen_updated_at"
-    t.string   "imagen_file_name"
     t.string   "imagen_content_type"
+    t.string   "imagen_file_name"
+    t.datetime "imagen_updated_at"
     t.integer  "imagen_file_size"
     t.text     "contenido"
     t.string   "tipo_contenido"
@@ -154,6 +158,16 @@ ActiveRecord::Schema.define(:version => 20120613223341) do
   end
 
   add_index "simple_captcha_data", ["key"], :name => "idx_key"
+
+  create_table "solvencias", :force => true do |t|
+    t.string   "estatus"
+    t.integer  "usuario_id"
+    t.string   "tipo_solvencia"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "solvencias", ["usuario_id"], :name => "index_solvencias_on_usuario_id"
 
   create_table "usuarios", :force => true do |t|
     t.string   "nombre"

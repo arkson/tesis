@@ -1,8 +1,8 @@
 class AlquileresController < ApplicationController
-
+  before_filter :es_adminitrador	
   layout "administrador"
-
- 
+  
+  
   add_breadcrumb "Inicio", :alquileres_path
   add_breadcrumb "Mantenimiento", :ppal_admin_index_path
 

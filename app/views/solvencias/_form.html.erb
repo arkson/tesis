@@ -1,0 +1,29 @@
+<%= form_for(@solvencia) do |f| %>
+  <% if @solvencia.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@solvencia.errors.count, "error") %> prohibited this solvencia from being saved:</h2>
+
+      <ul>
+      <% @solvencia.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :estatus %><br />
+    <%= f.text_field :estatus %>
+  </div>
+  <div class="field">
+    <%= f.label :usuario %><br />
+    <%= f.text_field :usuario %>
+  </div>
+  <div class="field">
+    <%= f.label :tipo_solvencia %><br />
+    <%= f.text_field :tipo_solvencia %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

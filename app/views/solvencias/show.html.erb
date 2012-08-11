@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Estatus:</b>
+  <%= @solvencia.estatus %>
+</p>
+
+<p>
+  <b>Usuario:</b>
+  <%= @solvencia.usuario %>
+</p>
+
+<p>
+  <b>Tipo solvencia:</b>
+  <%= @solvencia.tipo_solvencia %>
+</p>
+
+
+<%= link_to 'Edit', edit_solvencia_path(@solvencia) %> |
+<%= link_to 'Back', solvencias_path %>

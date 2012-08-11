@@ -109,7 +109,7 @@ class ReportesController < ApplicationController
 	def solvencia
 		params[:output_type] = "pdf"
 		
-		@coleccion = Usuario.where(:id => 1)#params[:usuario_d])
+		@coleccion = Usuario.where(:id => params[:usuario_id])
 		
    
       

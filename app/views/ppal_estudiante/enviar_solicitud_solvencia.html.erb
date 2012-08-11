@@ -1,0 +1,25 @@
+<% if flash[:notice] %>
+	<p class="notice"><%= flash[:notice] %></p>
+<% end %>
+<div class ="titulo"><h1>Solicitud de Solvencias</h1></div>
+
+<% if @sw == true %>
+   <%= form_tag url_for (:controller => "ppal_estudiante",:action => "guardar_solicitud_solvencia") do %>
+	
+				<label>Indique el tipo de solvencia:</label><br />
+				<%= select_tag "tipo_solvencia",
+							"<option value = 'Cambio de Escuela'>Cambio de Escuela</option>
+		                     <option value = 'Cambio de Facultad'>Cambio de Facultad</option>
+		                     <option value = 'Cambio de Universidad'>Cambio de Universidad</option>
+		                     <option value = 'Retiro Total'>Retiro Total</option>
+		                     <option value = 'Retiro Temporal'>Retiro Temporal</option>
+		                     <option value = 'Grado'>Grado</option>".html_safe   %>  <%= submit_tag "Enviar", :id => 'links' %>
+	
+
+	<% end %>		
+<%else%>
+	<p class="notice">Usted no se encuentra solvente con la bolsa del libro, cancele sus dedudas para poder realizar la solicitud</p>
+
+<%end%>
+
+

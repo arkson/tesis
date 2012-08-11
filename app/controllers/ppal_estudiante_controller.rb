@@ -25,8 +25,9 @@ class PpalEstudianteController < ApplicationController
 
   def ver_alquiler
 	add_breadcrumb "Alquileres realizados", :ppal_estudiante_ver_alquiler_path
-	@alquileres = Alquiler.where(:usuario_id => session[:usuario_id])
 	@cart = current_cart 
+	@alquileres = Alquiler.where(:usuario_id => session[:usuario_id]).order('created_at desc').paginate(:page => params[:page], :per_page =>5)
+
 
   end
 
@@ -82,7 +83,59 @@ class PpalEstudianteController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @libro }
-    end 		
-
+    end
+		
   end	
+
+  def ver_solvencias
+    add_breadcrumb "Solvencias", :ppal_estudiante_ver_solvencias_path
+	@cart = current_cart 
+	@solvencia = Solvencia.where(:usuario_id => params[:usuario_id]).order('created_at desc').paginate(:page => params[:page], :per_page =>5)
+
+
+
+  end		
+
+
+  def enviar_solicitud_solvencia
+	 @cart = current_cart 	
+	 @sw = es_solvente(session[:usuario_id])	
+	 
+	
+
+	 
+  end	
+
+  def ver_solvencias
+	add_breadcrumb "Listado de Solvencias", :ppal_estudiante_ver_solvencias_path	
+	 @cart = current_cart 	
+
+	@solvencia = Solvencia.where(:usuario_id => session[:usuario_id] ).order('created_at desc').paginate(:page => params[:page], :per_page =>5)
+		
+  end	
+
+
+  def guardar_solicitud_solvencia
+ 	@temp = Solvencia.where(:usuario_id => session[:usuario_id], :estatus => "Solicitud Enviada" )
+
+	if es_solvente(session[:usuario_id])== true and @temp.count == 0
+		@solvencia = Solvencia.new
+		@solvencia.estatus = "Solicitud Enviada"
+		@solvencia.tipo_solvencia = params[:tipo_solvencia]
+		@solvencia.usuario_id = session[:usuario_id]
+		if @solvencia.save	
+			redirect_to ppal_estudiante_index_path, :notice => "Su solicitud ha sido procesada exitosamente, puede retirarla en las oficinas de la bolsa del libro"
+		else
+			redirect_to ppal_estudiante_index_path, :notice => "La solicitud no pudo ser procesada, intente más tarde"
+		end
+
+	else
+		redirect_to ppal_estudiante_index_path, :notice => "Usted ya posee una solvencia en proceso"			
+	end	
+	
+  end	
+ 
+
+
+
 end
