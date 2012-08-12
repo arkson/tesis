@@ -80,4 +80,11 @@ class DonacionesController < ApplicationController
       format.json { head :ok }
     end
   end
+
+
+  def buscar_usuario
+	
+
+  end
+
 end

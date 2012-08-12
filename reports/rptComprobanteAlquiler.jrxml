@@ -39,6 +39,12 @@
 	<field name="periodo" class="java.lang.String">
 		<fieldDescription><![CDATA[ancestor::ejemplar/ancestor::line-item/ancestor::line-item/ancestor::alquiler/configuracion/periodo]]></fieldDescription>
 	</field>
+	<field name="fecha_alquiler" class="java.lang.String">
+		<fieldDescription><![CDATA[ancestor::ejemplar/ancestor::line-item/ancestor::line-item/ancestor::alquiler/created-at]]></fieldDescription>
+	</field>
+	<field name="alquiler_id" class="java.lang.String">
+		<fieldDescription><![CDATA[ancestor::ejemplar/ancestor::line-item/ancestor::line-item/ancestor::alquiler/id]]></fieldDescription>
+	</field>
 	<variable name="nombre_1" class="java.lang.Integer" resetType="Column" calculation="Count">
 		<variableExpression><![CDATA[$F{nombre}]]></variableExpression>
 	</variable>
@@ -53,6 +59,9 @@
 	</variable>
 	<variable name="costo_correcto" class="java.lang.String">
 		<variableExpression><![CDATA[String.format("%.2f", $F{costo_alquiler})]]></variableExpression>
+	</variable>
+	<variable name="fecha_correcta" class="java.lang.String">
+		<variableExpression><![CDATA[$F{fecha_alquiler}.substring( 0, 10 )]]></variableExpression>
 	</variable>
 	<background>
 		<band splitType="Stretch"/>
@@ -117,71 +126,120 @@ BOLSA DEL LIBRO
 		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="105" splitType="Stretch">
+		<band height="109" splitType="Stretch">
+			<rectangle>
+				<reportElement x="3" y="17" width="123" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="3" y="37" width="123" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="3" y="57" width="123" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="126" y="17" width="80" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="126" y="37" width="80" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="126" y="57" width="80" height="20"/>
+			</rectangle>
 			<staticText>
-				<reportElement x="3" y="85" width="88" height="20"/>
-				<textElement>
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[COTA]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="113" y="85" width="100" height="20"/>
-				<textElement>
+				<reportElement x="109" y="89" width="100" height="20"/>
+				<textElement verticalAlignment="Bottom">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[TITULO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="435" y="0" width="46" height="20"/>
-				<textElement textAlignment="Right">
+				<reportElement x="6" y="37" width="120" height="20"/>
+				<textElement textAlignment="Left">
 					<font isBold="true"/>
 				</textElement>
-				<text><![CDATA[FECHA:]]></text>
+				<text><![CDATA[FECHA DE EMISIÓN:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="289" y="33" width="146" height="20"/>
+				<reportElement x="292" y="17" width="146" height="20"/>
 				<textElement textAlignment="Right">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[APELLIDOS Y NOMBRES:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="289" y="58" width="146" height="20"/>
+				<reportElement x="292" y="42" width="146" height="20"/>
 				<textElement textAlignment="Right">
 					<font isBold="true" isUnderline="false"/>
 				</textElement>
 				<text><![CDATA[CEDULA:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="267" y="85" width="100" height="20"/>
-				<textElement textAlignment="Left">
+				<reportElement x="263" y="89" width="100" height="20"/>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[AUTOR]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="435" y="85" width="117" height="20"/>
-				<textElement>
+				<reportElement x="431" y="89" width="117" height="20"/>
+				<textElement verticalAlignment="Bottom">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[COSTO DE ALQUILER]]></text>
 			</staticText>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="441" y="33" width="128" height="20"/>
+				<reportElement x="444" y="17" width="128" height="20"/>
 				<textElement/>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{nombre}]]></textFieldExpression>
 			</textField>
 			<textField pattern="###0">
-				<reportElement x="441" y="58" width="91" height="20"/>
+				<reportElement x="444" y="42" width="91" height="20"/>
 				<textElement/>
 				<textFieldExpression class="java.lang.Double"><![CDATA[$F{cedula}]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement x="481" y="0" width="74" height="20"/>
+				<reportElement x="132" y="37" width="74" height="20"/>
 				<textElement/>
 				<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="6" y="57" width="120" height="16" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" lineSpacing="Single" markup="none">
+					<font fontName="SansSerif" size="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+				</textElement>
+				<text><![CDATA[FECHA DE ALQUILER:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="6" y="17" width="95" height="20"/>
+				<textElement textAlignment="Left">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NRO. ALQUILER:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="132" y="17" width="59" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{alquiler_id}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="132" y="57" width="74" height="16"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{fecha_alquiler}.substring( 0, 10 )]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-1" y="89" width="88" height="20"/>
+				<textElement verticalAlignment="Bottom">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[COTA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="0" width="129" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DATOS DEL ALQUILER]]></text>
+			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
@@ -205,13 +263,13 @@ BOLSA DEL LIBRO
 				<textFieldExpression class="java.lang.String"><![CDATA[$V{cota_ejemplar}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="538" y="0" width="17" height="20"/>
+				<reportElement x="497" y="0" width="17" height="20"/>
 				<textElement/>
 				<text><![CDATA[Bs.]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="438" y="0" width="100" height="20"/>
-				<textElement/>
+				<reportElement x="440" y="0" width="57" height="20"/>
+				<textElement textAlignment="Right"/>
 				<textFieldExpression class="java.lang.String"><![CDATA[$V{costo_correcto}]]></textFieldExpression>
 			</textField>
 		</band>
