@@ -67,6 +67,10 @@ class DevolucionesController < ApplicationController
 		@ejemplar = Ejemplar.find(item.ejemplar_id)
 		@ejemplar.estatus_ejemplar='Diponible'
  	    @ejemplar.save
+		if Devolucion.where(:alquiler_id => @alquiler.id, :estatus => 'Sin devolver' ).count == 0
+			@alquiler.estatus = "Alquiler Finalizado"
+			@alquiler.save	 		
+		end
         format.html { redirect_to :controller => 'alquileres', :action => "edit", :id => @alquiler.id, :notice => 'Devolucion was successfully updated.' }  
         format.json { head :ok }
       else

@@ -83,6 +83,7 @@ class DonacionesController < ApplicationController
 
 
   def buscar_usuario
+	@usuario = Usuario.find(params[:usuario_id])
 	
 
   end
