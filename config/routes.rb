@@ -166,7 +166,24 @@ Tesis::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
+
+  scope '(:locale)' do
+  resources :auditorias
+  resources :donaciones
+  resources :solvencias
+  resources :devoluciones
+  resources :alquileres
+  resources :configuraciones
+  resources :noticias
+  resources :libros
+  resources :ejemplares
+  resources :libros 
+  resources :editoriales
+  resources :areas_conocimientos
+  resources :dependencias
+  resources :librerias  	
    root :to => 'inicio#index'
+  end	
 
   # See how all your routes lay out with "rake routes"
 
