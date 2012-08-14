@@ -1,24 +1,4 @@
 
-	<script>
-
-
-
-	$(function() {
-		$( "#accordion" ).accordion({
-   			'header': 'h3',
-   			'fillSpace': false,
-		   	'active': 3
-		});
-		
-	});
-
-	
-	</script>
-
-
-
-
-
 
 <div id="accordion">
 	<h3><a href="#">Inicio</a></h3>
@@ -51,6 +31,7 @@
 		<ul>			
 			<li><%= link_to "Alquileres por escuela", reportes_num_alquiler_escuela_path, :target => "_blank" %></li>
 			<li><%= link_to "Ejemplares alquilados", reportes_libros_alquilados_path, :target => "_blank" %></li>
+			<li><%= link_to "Libros adquiridos", ppal_admin_adquiridos_path %></li>
 			<li><%= link_to "Libros alquilados", reportes_total_libros_alquilados_path, :target => "_blank" %></li>
 			<li><%= link_to "Libros sin alquilar", reportes_libros_sin_alquiler_path, :target => "_blank" %></li>
 			<li><%= link_to "Listado de Deudores", reportes_deudores_path, :target => "_blank" %></li>
@@ -63,4 +44,3 @@
 		</ul>
 	</div>
 </div>
-

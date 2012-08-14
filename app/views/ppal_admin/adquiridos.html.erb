@@ -1,16 +1,16 @@
 
 
-<%= form_tag url_for(:controller => 'reportes', :action => 'libros_adquiridos')  do   %>
+<%= form_tag url_for(:controller => 'reportes', :action => 'libros_adquiridos'), :target => "_blank"  do   %>
 		Por favor seleccione un rango de fechas
 		<div>
 			<label for="finicio">Fecha inicio:</label><br />
-			<%= date_select :finicio %>
+			<%= text_field :finicio, params[:finicio], :id => "calendario" %>
 		</div>
 		<div>
 			<label for="ffin">Fecha fin:</label><br />
-			<%= date_select :ffin %>
+			<%= text_field :ffin, params[:ffin], :id => "calendario2" %>
 		</div>
 		<div class = "actions">
 			<%= submit_tag "Aceptar", :class => 'ingresar' %>
 		</div>
-	<% end %>
+<% end %>

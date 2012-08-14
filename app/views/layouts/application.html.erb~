@@ -20,7 +20,6 @@
 			<% if session[:usuario_id] %>
 				<% if Usuario.find(session[:usuario_id]).rol == "Administrador" %>
 					<%= link_to "Usuario:" + (session[:usuario_nombre]), ppal_admin_index_path, :class => "usuario" %>
-				
 				<% else %>
 					<%= link_to "Usuario:" + (session[:usuario_nombre]), ppal_estudiante_index_path, :class => "usuario" %>	  
 				<% end %>>

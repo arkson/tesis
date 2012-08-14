@@ -5,26 +5,14 @@
 
 	$(function() {
 		$( "#accordion" ).accordion({
-<<<<<<< HEAD
    			'header': 'h3',
    			'fillSpace': false,
 		   	'active': 3
 		});
 		
 	});
-=======
-			eventType: 'click',
-			autoClose: false,
-			saveState: true,
-			disableLink: true,
-			showCount: true,
-			speed: 'fast'
-					})
 
-		
-	});
 	
->>>>>>> 3a8920f29970d57ccd7ff21a22513c7f8439c8ee
 	</script>
 
 
@@ -52,6 +40,9 @@
 			<li><%= link_to "Librerias", librerias_index_path, :class => "" %></li>
 			<li><%= link_to "Libros", libros_index_path, :class => "" %></li>
 			<li><%= link_to "Noticias", noticias_path, :class => "" %></li>
+			<li><%= link_to "Solvencias", solvencias_path, :class => "" %></li>
+			<li><%= link_to "Donaciones", donaciones_path, :class => "" %></li>
+			<li><%= link_to "Auditorias", auditorias_path, :class => "" %></li>
 
 		</ul>
 	</div>
@@ -60,6 +51,7 @@
 		<ul>			
 			<li><%= link_to "Alquileres por escuela", reportes_num_alquiler_escuela_path, :target => "_blank" %></li>
 			<li><%= link_to "Ejemplares alquilados", reportes_libros_alquilados_path, :target => "_blank" %></li>
+			<li><%= link_to "Libros adquiridos", ppal_admin_adquiridos_path %></li>
 			<li><%= link_to "Libros alquilados", reportes_total_libros_alquilados_path, :target => "_blank" %></li>
 			<li><%= link_to "Libros sin alquilar", reportes_libros_sin_alquiler_path, :target => "_blank" %></li>
 			<li><%= link_to "Listado de Deudores", reportes_deudores_path, :target => "_blank" %></li>
@@ -72,4 +64,3 @@
 		</ul>
 	</div>
 </div>
-

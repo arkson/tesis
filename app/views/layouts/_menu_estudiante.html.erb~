@@ -1,38 +1,4 @@
-<style>
-		#accordion
-		{
-		  width:200px;
-		  margin:0 40px 0 0;
-		  float:right;
-		}
-		  #accordion div
-		  {
-		    padding:10px 0 0 15px;
-		    color:#555555;
-		  }
- 		  #accordion h3
-		  {
-		   padding:10px 0 0 15px;
-		   background:#0070ba;
-		   margin:1px;
-		  }
- 		  #accordion h3 a
-		  { 
-		   color:#ffffff;
-		   line-height:20px;
-		  }
-		  #accordion a
-		  {
-		   text-decoration:none;
-		   color:#555555;
-		   line-height:20px;			
-		  }
-		  #accordion a:hover
-		  {
-		   text-decoration:none;
-		   color:#333333;			
-		  }
-	</style>
+
 	<script>
 	$(function() {
 		$( "#accordion" ).accordion({
@@ -59,13 +25,14 @@
 		<ul>
 			<li><%= link_to "Catalogo de libros", ppal_estudiante_index_path, :class => "" %></li>
 			<li><%= link_to "Alquileres realizados", ppal_estudiante_ver_alquiler_path, :class => "" %></li>
+			<li><%= link_to "Solvencias Solicitadas", ppal_estudiante_ver_solvencias_path, :class => "" %></li>
 		</ul>
 	</div>
 	<h3><a href="#">Solicitudes</a></h3>
 	<div>
 		<ul>
-            		<li><a>Comprobante de alquiler</a></li>
-			<li><a>Solvencias</a></li>
+            <li><a>Comprobante de alquiler</a></li>
+			<li><%= link_to "Solicitar Solvencia", ppal_estudiante_enviar_solicitud_solvencia_path, :class => "" %></li>
 			<li><a>Cambiar clave</a></li>
 		</ul>
 	</div>

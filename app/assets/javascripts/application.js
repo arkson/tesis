@@ -12,3 +12,26 @@
 //= require_tree .
 
 
+$(function (){		
+		
+
+		$("#accordion").accordion();
+		$("#accordion").accordion("activate", 0);
+
+        $('#calendario').datepicker({
+			nextText: "Sig.",
+			prevText: "Ant.",
+			monthNames: ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Deciembre"],
+			dayNamesMin: ["Di", "Lu", "Ma", "Me", "Je", "Ve", "Sa"]
+			
+		});
+
+		$('#calendario2').datepicker({
+			nextText: "Sig.",
+			prevText: "Ant.",
+			monthNames: ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Deciembre"],
+			dayNamesMin: ["Di", "Lu", "Ma", "Me", "Je", "Ve", "Sa"]
+			
+		});
+
+});

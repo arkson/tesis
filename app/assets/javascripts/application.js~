@@ -8,6 +8,7 @@
 //= require jquery-ui
 //= require jquery_ujs
 //= require nicEdit-latest
+//= require message
 //= require_tree .
 
 
