@@ -58,11 +58,13 @@ class DevolucionesController < ApplicationController
   def update
     @dev = Devolucion.where(:line_item_id => params[:line_item_id ])
 	@devolucion = @dev[0]
+	@temp = @devolucion.dup
     @devolucion.estatus = 'Devuelto'
     @devolucion.fecha = Time.now
 	@alquiler = Alquiler.find(@devolucion.alquiler_id) 
     respond_to do |format|
       if @devolucion.update_attributes(params[:devolucion])
+		guardar_log(session[:usuario_id], self.class.name,__method__.to_s, @temp,@devolucion)
 		item = LineItem.find(params[:line_item_id ] )	
 		@ejemplar = Ejemplar.find(item.ejemplar_id)
 		@ejemplar.estatus_ejemplar='Diponible'

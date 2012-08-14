@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  usuario: 
+  controlador: MyString
+  accion: MyString
+  estado_anterior: MyText
+  estado_posterior: MyText
+
+two:
+  usuario: 
+  controlador: MyString
+  accion: MyString
+  estado_anterior: MyText
+  estado_posterior: MyText

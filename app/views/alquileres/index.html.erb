@@ -25,8 +25,10 @@
 				<dd>Nombre: <%= link_to alquiler.usuario.nombre,alquiler.usuario %></dd>
 				<dd>Cédula: <%= link_to alquiler.usuario.cedula,alquiler.usuario %></dd>
 				<dd>Fecha de Inicio: <%= alquiler.created_at.strftime("%d/%m/%Y") %> </dd>
+				<dd>Libros Alquilados: <%= alquiler.line_item.count %>				
 				<dd>Fecha de culminación: <%= alquiler.fecha_fin.strftime("%d/%m/%Y") %></dd>
 				<dd><%= alquiler.estatus %></dd>
+			
 			</dl>
 		</td>
 		<td class="list_actions" width="5%">

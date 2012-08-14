@@ -53,6 +53,7 @@ class EditorialesController < ApplicationController
 
     respond_to do |format|
       if @editorial.save
+		guardar_log(session[:usuario_id], self.class.name,__method__.to_s, @editorial,nil )
         format.html { redirect_to @editorial, :notice => 'Editorial creada exitosamente.' }
         format.json { render :json => @editorial, :status => :created, :location => @editorial }
       else
@@ -66,9 +67,10 @@ class EditorialesController < ApplicationController
   # PUT /editoriales/1.json
   def update
     @editorial = Editorial.find(params[:id])
-
+	@temp = @editorial.dup
     respond_to do |format|
       if @editorial.update_attributes(params[:editorial])
+		guardar_log(session[:usuario_id], self.class.name,__method__.to_s, @temp,@editorial )
         format.html { redirect_to @editorial, :notice => 'Editorial actualizada exitosamente.' }
         format.json { head :ok }
       else
@@ -82,7 +84,9 @@ class EditorialesController < ApplicationController
   # DELETE /editoriales/1.json
   def destroy
     @editorial = Editorial.find(params[:id])
+	@temp = @editorial.dup
     @editorial.destroy
+	guardar_log(session[:usuario_id], self.class.name,__method__.to_s, @temp,nil )
 
     respond_to do |format|
       format.html { redirect_to editoriales_url }

@@ -1,4 +1,9 @@
 class DonacionesController < ApplicationController
+ 
+  before_filter :es_adminitrador
+  layout "administrador"
+
+
   # GET /donaciones
   # GET /donaciones.json
   def index
@@ -40,7 +45,7 @@ class DonacionesController < ApplicationController
   # POST /donaciones
   # POST /donaciones.json
   def create
-    @donacion = Donacion.new(params[:donacion])
+    @donacion = Donacion.new
 
     respond_to do |format|
       if @donacion.save
@@ -83,9 +88,23 @@ class DonacionesController < ApplicationController
 
 
   def buscar_usuario
-	@usuario = Usuario.find(params[:usuario_id])
-	
+	@usuario = Usuario.find_by_cedula(params[:cedula])
+    print("asaaddddddddddddddddddddddddd")
+    respond_to do |format|
+      #format.html { redirect_to ppal_estudiante_index_path}
+	 format.js 
+	 #format.json { render format.json , :status => :created, :location => @lin_items }
+    end
 
   end
+
+#select_tag :category, 
+#       options_for_select(
+#           Category.find(:all,:select=>"name,id").collect{|c| [c.name,c.id]}),
+#       :onchange => remote_function(:url => {:controller => "posts", 
+#                                             :action => "filter_post",
+#                                             :filter =>"category"}, 
+#                                    :with=>"'category_id=' + $('#category').val()") %>
+
 
 end

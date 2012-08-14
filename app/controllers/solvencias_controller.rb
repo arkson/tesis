@@ -47,6 +47,7 @@ class SolvenciasController < ApplicationController
 
     respond_to do |format|
       if @solvencia.save
+		guardar_log(session[:usuario_id], self.class.name,__method__.to_s, @solvencia,nil )
         format.html { redirect_to @solvencia, :notice => 'Solvencia was successfully created.' }
         format.json { render :json => @solvencia, :status => :created, :location => @solvencia }
       else
@@ -60,10 +61,12 @@ class SolvenciasController < ApplicationController
   # PUT /solvencias/1.json
   def update
     @solvencia = Solvencia.find(params[:id])
+	@temp = @solvencia.dup
 	@solvencia.estatus= "Solvencia Entregada"		
 
     respond_to do |format|
       if @solvencia.update_attributes(params[:solvencia])
+		guardar_log(session[:usuario_id], self.class.name,__method__.to_s, @temp,@solvencia )
         format.html { redirect_to :action => "index" }
         format.json { head :ok }
       else
@@ -78,8 +81,9 @@ class SolvenciasController < ApplicationController
   # DELETE /solvencias/1.json
   def destroy
     @solvencia = Solvencia.find(params[:id])
+	@temp = @solvencia.dup
     @solvencia.destroy
-
+	guardar_log(session[:usuario_id], self.class.name,__method__.to_s, @temp,nil )
     respond_to do |format|
       format.html { redirect_to solvencias_url }
       format.json { head :ok }

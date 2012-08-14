@@ -54,6 +54,7 @@ class ConfiguracionesController < ApplicationController
     respond_to do |format|
 		if 	es_valida(@configuracion) == 1
 		  if @configuracion.save
+			guardar_log(session[:usuario_id], self.class.name,__method__.to_s, @configuracion,nil )	
 		    format.html { redirect_to @configuracion, :notice => 'Configuracion was successfully created.' }
 		    format.json { render :json => @configuracion, :status => :created, :location => @configuracion }
 		  else
@@ -77,11 +78,13 @@ class ConfiguracionesController < ApplicationController
   # PUT /configuraciones/1.json
   def update
     @configuracion = Configuracion.find(params[:id])
-	i = es_valida_update(params[:configuracion],@configuracion.id) 
+	@temp = @configuracion.dup
+	print "********************#{@temp.id}" 	
 	
     respond_to do |format|
 		if 	es_valida_update(params[:configuracion],@configuracion.id) == 1			
 		  if @configuracion.update_attributes(params[:configuracion])
+			guardar_log(session[:usuario_id], self.class.name,__method__.to_s, @temp,@configuracion )
 		    format.html { redirect_to @configuracion, :notice => 'Configuracion was successfully updated.' }
 		    format.json { head :ok }
 		  else
@@ -106,8 +109,9 @@ class ConfiguracionesController < ApplicationController
   # DELETE /configuraciones/1.json
   def destroy
     @configuracion = Configuracion.find(params[:id])
+	@temp = @configuracion.dup
     @configuracion.destroy
-
+	guardar_log(session[:usuario_id], self.class.name,__method__.to_s, @temp,nil )
     respond_to do |format|
       format.html { redirect_to configuraciones_url }
       format.json { head :ok }

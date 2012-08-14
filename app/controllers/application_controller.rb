@@ -130,7 +130,41 @@ class ApplicationController < ActionController::Base
   end
 
 
+
+  def guardar_log(usuario_id, controlador, accion, estado_anterior, estado_posterior)	
+	begin
 	
+		#< br/>.		<%= simple_format auto_link sanitize comentario.texto_completo %>
+		@auditoria = Auditoria.new	
+		@auditoria.usuario_id = usuario_id
+		@auditoria.controlador = controlador
+		@auditoria.accion = accion
+
+
+		@auditoria.estado_anterior = ""
+		estado_anterior.attributes.each do |attr|
+			@auditoria.estado_anterior = @auditoria.estado_anterior + attr[0].to_s + ": " + attr[1].to_s + " \n " 				
+		end
+
+		@auditoria.estado_posterior = ""
+		if estado_posterior.nil?
+			@auditoria.estado_posterior = ""
+		else
+			@auditoria.estado_posterior = ""
+			estado_posterior.attributes.each do |attr| 
+				@auditoria.estado_posterior = @auditoria.estado_posterior + attr[0].to_s + ": " + attr[1].to_s + " \n "
+			end
+		end
+
+		@auditoria.save
+	rescue Exception => exc
+
+		print "____________________________#{exc.message}" 
+	
+	end	
+  end
+
+
 
 end
 

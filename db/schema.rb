@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120811141734) do
+ActiveRecord::Schema.define(:version => 20120814010050) do
 
   create_table "alquileres", :force => true do |t|
     t.integer  "usuario_id"
@@ -29,6 +29,18 @@ ActiveRecord::Schema.define(:version => 20120811141734) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "auditorias", :force => true do |t|
+    t.integer  "usuario_id"
+    t.string   "controlador"
+    t.string   "accion"
+    t.text     "estado_anterior"
+    t.text     "estado_posterior"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "auditorias", ["usuario_id"], :name => "index_auditorias_on_usuario_id"
 
   create_table "carts", :force => true do |t|
     t.datetime "created_at"

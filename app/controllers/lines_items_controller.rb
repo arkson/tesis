@@ -67,6 +67,7 @@ class LinesItemsController < ApplicationController
 				@lin_items = @cart.add_ejemplar(@ejem.id, @config[0].libro_repetido )
 				  	respond_to do |format|
 					  if @lin_items.save and @ejem.save
+						 guardar_log(session[:usuario_id], self.class.name,__method__.to_s, @temp,nil )	
 						 format.html { redirect_to ppal_estudiante_index_path}
 						 format.js { @current_item = @lin_items, libro = @libro }
 						 format.json { render format.json , :status => :created, :location => @lin_items }

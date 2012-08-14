@@ -1,0 +1,42 @@
+
+<div class ="busqueda">
+  <%= form_for @search do |f| %>
+    <%= f.text_field :usuario_cedula_or_usuario_nombre_or_accion_or_controlador_contains, :value => "Buscar por nombre, cédula o acción", :onfocus =>"this.value=''", :onblur =>"this.value='Buscar por nombre, cédula o acción'", :class => "campo_busqueda" %>
+
+    <!-- etc... -->
+    <%= f.submit :buscar%>
+  <% end %>
+</div>
+
+
+<div class ="titulo"><h1>Auditorías</h1></div>
+
+<%= will_paginate @configuraciones , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
+
+<table class="tabla_scaffold" width="98%">
+	<% @auditorias.each do |auditoria| %>
+	<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+		<td class="list_description">
+			<dl>
+			<dd>Cédula: <%= link_to auditoria.usuario.cedula, auditoria.usuario  %></dd>
+			<dd>Nombre: <%= link_to auditoria.usuario.nombre, auditoria.usuario %></dd>
+			<dd>Tipo de usuario: <%= auditoria.usuario.rol %>
+			<dd>Controlador: <%= auditoria.controlador %></dd>
+			<dd>Acción: <%=  auditoria.accion %></dd>
+			<dd>Estado anterior: <%= truncate(strip_tags(auditoria.estado_anterior), :length => 80) %></dd>
+			<dd>Estado posterior: <%= truncate(strip_tags(auditoria.estado_posterior), :length => 80) %></dd>
+			<dd>Fecha: <%= auditoria.created_at.strftime("%d/%m/%Y %X")  %></dd>
+			</dl>
+		</td>
+		<td class="list_actions" width="5%">
+			<%= link_to image_tag("open.png", :alt => "Mostrar", :title => "Mostrar", :size => "18x18"), auditoria %><br />
+		</td>
+	</tr>
+	<% end %>
+</table>
+
+
+<%= will_paginate @configuraciones , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
+
+
+

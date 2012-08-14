@@ -49,6 +49,7 @@ class AreasConocimientosController < ApplicationController
 
     respond_to do |format|
       if @area_conocimiento.save
+		guardar_log(session[:usuario_id], self.class.name,__method__.to_s, @area_conocimiento,nil )	
         format.html { redirect_to @area_conocimiento, :notice => 'Area conocimiento was successfully created.' }
         format.json { render :json => @area_conocimiento, :status => :created, :location => @area_conocimiento }
       else
@@ -62,9 +63,10 @@ class AreasConocimientosController < ApplicationController
   # PUT /areas_conocimientos/1.json
   def update
     @area_conocimiento = AreaConocimiento.find(params[:id])
-
+	@temp = @area_conocimiento.dup
     respond_to do |format|
       if @area_conocimiento.update_attributes(params[:area_conocimiento])
+		guardar_log(session[:usuario_id], self.class.name,__method__.to_s, @temp,@area_conocimiento )	
         format.html { redirect_to @area_conocimiento, :notice => 'Area conocimiento was successfully updated.' }
         format.json { head :ok }
       else
@@ -78,8 +80,9 @@ class AreasConocimientosController < ApplicationController
   # DELETE /areas_conocimientos/1.json
   def destroy
     @area_conocimiento = AreaConocimiento.find(params[:id])
+	@temp = @area_conocimiento.dup
     @area_conocimiento.destroy
-
+	guardar_log(session[:usuario_id], self.class.name,__method__.to_s, @temp,nil )	
     respond_to do |format|
       format.html { redirect_to areas_conocimientos_url }
       format.json { head :ok }

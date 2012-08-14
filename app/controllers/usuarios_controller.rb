@@ -51,6 +51,7 @@ class UsuariosController < ApplicationController
 
     respond_to do |format|
       if @usuario.save
+		guardar_log(session[:usuario_id], self.class.name,__method__.to_s, @usuario,nil )
 		format.html { redirect_to usuarios_url,:notice => "Usuario #{@usuario.nombre} fue creado exitosamente." }
         format.json { render :json => @usuario, :status => :created, :location => @usuario }
       else
@@ -64,9 +65,10 @@ class UsuariosController < ApplicationController
   # PUT /usuarios/1.json
   def update
     @usuario = Usuario.find(params[:id])
-
+	@temp = @usuario.dup
     respond_to do |format|
       if @usuario.update_attributes(params[:usuario])
+		guardar_log(session[:usuario_id], self.class.name,__method__.to_s, @temp,@usuario)
 		format.html { redirect_to usuarios_url,:notice => 'Usuario #{@usuario.nombre} fue actualizado correctamente.' }
         format.json { head :ok }
       else
@@ -80,8 +82,9 @@ class UsuariosController < ApplicationController
   # DELETE /usuarios/1.json
   def destroy
     @usuario = Usuario.find(params[:id])
+	@temp = @usuario.dup
     @usuario.destroy
-
+	guardar_log(session[:usuario_id], self.class.name,__method__.to_s, @temp,nil )
     respond_to do |format|
       format.html { redirect_to usuarios_url }
       format.json { head :ok }

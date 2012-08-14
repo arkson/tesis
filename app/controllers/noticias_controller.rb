@@ -47,9 +47,10 @@ class NoticiasController < ApplicationController
   # POST /noticias.json
   def create
     @noticia = Noticia.new(params[:noticia])
-
+	
     respond_to do |format|
       if @noticia.save
+		guardar_log(session[:usuario_id], self.class.name,__method__.to_s, @noticia,nil )
         format.html { redirect_to @noticia, :notice => 'Noticia creada exitosamente.' }
         format.json { render :json => @noticia, :status => :created, :location => @noticia }
       else
@@ -63,9 +64,10 @@ class NoticiasController < ApplicationController
   # PUT /noticias/1.json
   def update
     @noticia = Noticia.find(params[:id])
-
+	@temp = @noticia.dup
     respond_to do |format|
       if @noticia.update_attributes(params[:noticia])
+		guardar_log(session[:usuario_id], self.class.name,__method__.to_s, @temp,@noticia)
         format.html { redirect_to @noticia, :notice => 'Noticia actualizada exitosamente.' }
         format.json { head :ok }
       else
@@ -79,8 +81,9 @@ class NoticiasController < ApplicationController
   # DELETE /noticias/1.json
   def destroy
     @noticia = Noticia.find(params[:id])
+	@temp = @noticia.dup
     @noticia.destroy
-
+	guardar_log(session[:usuario_id], self.class.name,__method__.to_s, @temp,nil )
     respond_to do |format|
       format.html { redirect_to noticias_url }
       format.json { head :ok }

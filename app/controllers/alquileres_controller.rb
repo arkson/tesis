@@ -1,7 +1,7 @@
 class AlquileresController < ApplicationController
-  before_filter :es_adminitrador	
+ # before_filter :es_adminitrador	
   layout "administrador"
-
+  	
 
   
   add_breadcrumb "Inicio", :alquileres_path
@@ -9,7 +9,7 @@ class AlquileresController < ApplicationController
 
   def index
     add_breadcrumb "Listado de alquileres", :alquileres_path
-	@search = Alquiler.search(params[:search])
+	@search = Alquiler.order('id desc').search(params[:search])
     @alquileres = @search.paginate(:page => params[:page], :per_page => 5)
     respond_to do |format|
       format.html # index.html.erb
@@ -82,7 +82,7 @@ class AlquileresController < ApplicationController
 		
   respond_to do |format|
       if @alquiler.save
-		  
+	  guardar_log(session[:usuario_id], self.class.name,__method__.to_s, @alquiler,nil )	   
 		  Cart.destroy(session[:cart_id])
 		  session[:cart_id] = nil
 		  @alquiler.line_item.each do |item|
@@ -97,12 +97,15 @@ class AlquileresController < ApplicationController
 			  		
 		
       else
-        format.html { render :action => "new" }
+		  
+		format.html { redirect_to ppal_estudiante_index_path, :notice => "no se pudo guarda el alquiler satisfactoriamente" }
         format.json { render :json => @alquiler.errors, :status => :unprocessable_entity }
       end
     end
 
+	
 
+	
 
 
   end
@@ -111,6 +114,7 @@ class AlquileresController < ApplicationController
   # PUT /alquileres/1.json
   def update
     @alquiler = Alquiler.find(params[:id])
+	@temp = @alquiler.dup
 	@alquiler.estatus = "Alquilado" 
 
     @alquiler.devolucion.each do |dev|
@@ -124,10 +128,11 @@ class AlquileresController < ApplicationController
 		@ejem.estatus_ejemplar = 'Alquilado'	
 		@ejem.save
 	end		
-
+	 
+	 
     respond_to do |format|
       if @alquiler.update_attributes(params[:alquiler])
-
+		guardar_log(session[:usuario_id], self.class.name,__method__.to_s, @temp,@alquiler )	
 
         format.html {redirect_to :action => "edit", :id => @alquiler.id, :notice => 'Alquiler actualizado exitosamente.'}
         format.json { head :ok }
@@ -143,8 +148,9 @@ class AlquileresController < ApplicationController
   # DELETE /alquileres/1.json
   def destroy
     @alquiler = Alquiler.find(params[:id])
+	@temp = @alquiler.dup
     @alquiler.destroy
-
+	guardar_log(session[:usuario_id], self.class.name,__method__.to_s, @temp,nil )	
     respond_to do |format|
       format.html { redirect_to alquileres_url }
       format.json { head :ok }

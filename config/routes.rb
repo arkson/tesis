@@ -1,5 +1,7 @@
 Tesis::Application.routes.draw do
   
+  resources :auditorias
+
   resources :donaciones
 
   resources :solvencias
@@ -100,6 +102,8 @@ Tesis::Application.routes.draw do
   post "reportes/solvencia"
 
   get "reportes/deudores"
+
+  get "donaciones/buscar_usuario"
 
   resources :ejemplares
 

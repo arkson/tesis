@@ -52,9 +52,10 @@ class EjemplaresController < ApplicationController
   # POST /ejemplares.json
   def create
     @ejemplar = Ejemplar.new(params[:ejemplar])
-    @ejemplar.cota = [ @ejemplar.libro.cota, @ejemplar.numero_ejemplar].join('.')
+	
     respond_to do |format|
       if @ejemplar.save
+		guardar_log(session[:usuario_id], self.class.name,__method__.to_s, @ejemplar,nil )
         format.html { redirect_to @ejemplar, :notice => 'Ejemplar was successfully created.' }
         format.json { render :json => @ejemplar, :status => :created, :location => @ejemplar }
       else
@@ -68,9 +69,10 @@ class EjemplaresController < ApplicationController
   # PUT /ejemplares/1.json
   def update
     @ejemplar = Ejemplar.find(params[:id])
-
+	@temp = @ejemplar.dup
     respond_to do |format|
       if @ejemplar.update_attributes(params[:ejemplar])
+		guardar_log(session[:usuario_id], self.class.name,__method__.to_s, @temp,@ejemplar)
         format.html { redirect_to @ejemplar, :notice => 'Ejemplar was successfully updated.' }
         format.json { head :ok }
       else
@@ -84,8 +86,9 @@ class EjemplaresController < ApplicationController
   # DELETE /ejemplares/1.json
   def destroy
     @ejemplar = Ejemplar.find(params[:id])
+	@temp = @ejemplar.dup
     @ejemplar.destroy
-
+	guardar_log(session[:usuario_id], self.class.name,__method__.to_s, @temp,nil )
     respond_to do |format|
       format.html { redirect_to ejemplares_url }
       format.json { head :ok }

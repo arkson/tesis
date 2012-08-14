@@ -51,6 +51,7 @@ class LibreriasController < ApplicationController
 
     respond_to do |format|
       if @libreria.save
+		guardar_log(session[:usuario_id], self.class.name,__method__.to_s, @libreria,nil )
         format.html { redirect_to @libreria, :notice => 'Libreria creada exitosamente.' }
         format.json { render :json => @libreria, :status => :created, :location => @libreria }
       else
@@ -64,9 +65,11 @@ class LibreriasController < ApplicationController
   # PUT /librerias/1.json
   def update
     @libreria = Libreria.find(params[:id])
+	@temp = @libreria.dup
 
     respond_to do |format|
       if @libreria.update_attributes(params[:libreria])
+		guardar_log(session[:usuario_id], self.class.name,__method__.to_s, @temp,@libreria )
         format.html { redirect_to @libreria, :notice => 'Libreria actualizada exitosamente.' }
         format.json { head :ok }
       else
@@ -80,8 +83,9 @@ class LibreriasController < ApplicationController
   # DELETE /librerias/1.json
   def destroy
     @libreria = Libreria.find(params[:id])
+	@temp = @libreria.dup
     @libreria.destroy
-
+	guardar_log(session[:usuario_id], self.class.name,__method__.to_s, @temp,nil )
     respond_to do |format|
       format.html { redirect_to librerias_url }
       format.json { head :ok }

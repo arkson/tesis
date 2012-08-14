@@ -26,7 +26,7 @@ class LibrosController < ApplicationController
   def show
 	add_breadcrumb "Datos del libro", :libro_path
     @libro = Libro.find(params[:id])
-
+		
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @libro }
@@ -38,7 +38,7 @@ class LibrosController < ApplicationController
   def new
 	add_breadcrumb "Nuevo libro", :new_libro_path
     @libro = Libro.new
-
+	
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json => @libro }
@@ -58,6 +58,7 @@ class LibrosController < ApplicationController
 
     respond_to do |format|
       if @libro.save
+		guardar_log(session[:usuario_id], self.class.name,__method__.to_s, @libro,nil )
         format.html { redirect_to @libro, :notice => 'Libro creado exitosamente.' }
         format.json { render :json => @libro, :status => :created, :location => @libro }
       else
@@ -65,15 +66,20 @@ class LibrosController < ApplicationController
         format.json { render :json => @libro.errors, :status => :unprocessable_entity }
       end
     end
+
+
+
   end
 
   # PUT /libros/1
   # PUT /libros/1.json
   def update
     @libro = Libro.find(params[:id])
-
+	@temp = @libro.dup
     respond_to do |format|
       if @libro.update_attributes(params[:libro])
+		guardar_log(session[:usuario_id], self.class.name,__method__.to_s, @temp,@libro  )
+
         format.html { redirect_to @libro, :notice => 'Libro was successfully updated.' }
         format.json { head :ok }
       else
@@ -87,8 +93,9 @@ class LibrosController < ApplicationController
   # DELETE /libros/1.json
   def destroy
     @libro = Libro.find(params[:id])
+	@temp = @libro.dump
     @libro.destroy
-
+	guardar_log(session[:usuario_id], self.class.name,__method__.to_s, @temp,nil )
     respond_to do |format|
       format.html { redirect_to libros_url }
       format.json { head :ok }

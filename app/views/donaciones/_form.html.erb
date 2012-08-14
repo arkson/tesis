@@ -17,11 +17,18 @@
   </div>
   <div id = "ejemplar_desc"></div>		
   <div class="field">
-    <%= f.label :usuario %><br />
-    <%= f.text_field :usuario %>
+    <%= f.label :usuario  %><br />
+    <%= f.text_field :usuario, :onchange => buscar_usuario_donaciones_path %>
   </div>
   <div id = "usuario_desc"></div>	
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+
+
+
+
+
+

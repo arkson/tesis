@@ -54,6 +54,7 @@ class DependenciasController < ApplicationController
 
     respond_to do |format|
       if @dependencia.save
+		guardar_log(session[:usuario_id], self.class.name,__method__.to_s, @dependencia,nil )
         format.html { redirect_to @dependencia, :notice => 'Dependencia was successfully created.' }
         format.json { render :json => @dependencia, :status => :created, :location => @dependencia }
       else
@@ -67,9 +68,10 @@ class DependenciasController < ApplicationController
   # PUT /dependencias/1.json
   def update
     @dependencia = Dependencia.find(params[:id])
-
+	@temp = @dependencia.dup 	
     respond_to do |format|
       if @dependencia.update_attributes(params[:dependencia])
+		guardar_log(session[:usuario_id], self.class.name,__method__.to_s, @temp,@dependencia )
         format.html { redirect_to @dependencia, :notice => 'Dependencia was successfully updated.' }
         format.json { head :ok }
       else
@@ -83,7 +85,9 @@ class DependenciasController < ApplicationController
   # DELETE /dependencias/1.json
   def destroy
     @dependencia = Dependencia.find(params[:id])
+	@temp = @dependencia.dup 	
     @dependencia.destroy
+	guardar_log(session[:usuario_id], self.class.name,__method__.to_s, @temp,nil )
 
     respond_to do |format|
       format.html { redirect_to dependencias_url }

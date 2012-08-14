@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<div class = "mostrar">
+<p>
+  <b>Cédula:</b>
+  <%= link_to @auditoria.usuario.cedula, @auditoria.usuario %>
+</p>
+
+<p>
+  <b>Nombre:</b>
+  <%= link_to @auditoria.usuario.nombre, @auditoria.usuario %>
+</p>
+
+<p>
+  <b>tipo de usuario:</b>
+  <%= @auditoria.usuario.rol %>
+</p>
+
+
+<p>
+  <b>Controlador:</b>
+  <%= @auditoria.controlador %>
+</p>
+
+<p>
+  <b>Acción:</b>
+  <%= @auditoria.accion %>
+</p>
+
+<p>
+  <b>Estado anterior:</b>
+  <%=sanitize @auditoria.estado_anterior %>
+</p>
+
+<p>
+  <b>Estado posterior:</b>
+  <%=sanitize @auditoria.estado_posterior %>
+</p>
+<p>
+<b>Fecha:</b>
+  <%= @auditoria.created_at.strftime("%d/%m/%Y %X") %>
+</p>
+</div>
+
+
+<%= link_to 'Regresar', auditorias_path, :id => "links" %>

@@ -123,7 +123,8 @@ class PpalEstudianteController < ApplicationController
 		@solvencia.estatus = "Solicitud Enviada"
 		@solvencia.tipo_solvencia = params[:tipo_solvencia]
 		@solvencia.usuario_id = session[:usuario_id]
-		if @solvencia.save	
+		if @solvencia.save
+		guardar_log(session[:usuario_id], self.class.name,__method__.to_s, @solvencia,nil )	
 			redirect_to ppal_estudiante_index_path, :notice => "Su solicitud ha sido procesada exitosamente, puede retirarla en las oficinas de la bolsa del libro"
 		else
 			redirect_to ppal_estudiante_index_path, :notice => "La solicitud no pudo ser procesada, intente más tarde"
