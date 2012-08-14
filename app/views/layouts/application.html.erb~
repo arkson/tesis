@@ -11,7 +11,7 @@
 
 	<div class="wrapper">
 
-		<%= render(:partial => "layouts/menu") %>
+		
 		<div class="Header">
 			<div class="logo"><%= link_to "", inicio_index_path %></div>
 			<div class="titulo_banner"><p>Bolsa del Libro</p></ br><p>Servicio de Prestamo Rental</p></div> 
@@ -31,20 +31,18 @@
     		
 			</div>
 		</div>
-
-        <div class = "borde_superior"></div>
+		<%= render(:partial => "layouts/menu") %>
 
 		<div class="Contenido">			
 			<%= yield %>
 		</div>
 
-	
-		<!--<div class="push"></div>-->	
+		<%= render(:partial => "layouts/footer") %>	
+		
 		
 	</div>
 
-	<div class = "borde_inferior"></div>
-	<%= render(:partial => "layouts/footer") %>
+
 
 </body>
 </html>

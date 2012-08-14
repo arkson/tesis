@@ -25,7 +25,14 @@ html, body
 
 
 /* Inicio de listas de contenido */
-
+a
+{
+  text-decoration:none;
+}
+a:hover
+{
+  text-decoration:underline;
+}
 ul
 {
   list-style: none;
@@ -83,6 +90,7 @@ select, textarea, input[type=file], input[type=checkbox] {
   background: #CCCCCC;
   border-top: 2px solid red;
   border-bottom: 2px solid red;
+  border-radius: 5px;
   text-align: center;
   margin: 10px auto;
   padding: 5px 20px;
@@ -94,6 +102,7 @@ select, textarea, input[type=file], input[type=checkbox] {
   background: #FFF6BF;
   border-top: 2px solid #FFD324;
   border-bottom: 2px solid #FFD324;
+  border-radius: 5px;
   text-align: center;
   margin: 10px auto;
   padding: 5px 20px;
@@ -105,14 +114,12 @@ select, textarea, input[type=file], input[type=checkbox] {
   border: thin solid #8b0000;
   background: #ffc0cb;
 }
-/* 
+/
 .wrapper 
 {
   min-height: 100%;
-  height: auto !important;
-  height: 100%;
 }
- */
+
 
 /* Inicio Menu */
 .Menu
@@ -126,7 +133,7 @@ select, textarea, input[type=file], input[type=checkbox] {
 #nav li.top {float:left; height:35px;}
 #nav li a.top_link {float:left; height:35px; line-height:40px; color:#acacac; text-decoration:none; font-weight:bold; padding:0 20px 0 20px; cursor:pointer;}
 
-#nav li:hover a.top_link {color:#ffffff; background: #00508b no-repeat;}
+#nav li:hover a.top_link {color:#ffffff; background: #0070ba no-repeat; border-radius: 0 0 5px 5px;}
 #nav li:active a.top_link {color:#ffffff; background: #00508b no-repeat;}
 /* Fin Menu */
 
@@ -194,13 +201,15 @@ select, textarea, input[type=file], input[type=checkbox] {
   line-height:25px;
   text-align:justify;
   width:63%;
-  min-width:63%;
+	overflow:auto;
+    padding-bottom: 188px;}  /* must be same height as the footer */
+
 }
 .Contenido_estud
 {
   margin: 50px 0 50px 0;
-  min-height:250px; 
-  width: 100%;   
+  min-height:250px;  
+  padding:0 0 0 40px; 
   font-size: 12px;
 }
 .Contenido_admin
@@ -229,6 +238,7 @@ select, textarea, input[type=file], input[type=checkbox] {
 		font-size: 12px;
 		margin:5px;
 	  }
+	
 	.paginacion a
 	{
 	  background:#0070ba;
@@ -243,6 +253,19 @@ select, textarea, input[type=file], input[type=checkbox] {
 	  {
 		color:#333333;
 	  }
+
+	.pagination
+	  {
+		float: right;
+	  }
+	  .pagination li {
+		float: left;
+		padding-left:10px;
+		}
+		.pagination span {
+		float: left;
+		padding-left:10px;
+		}
 	.campo_busqueda
 	  {      
 		font-size:16px;
@@ -289,10 +312,9 @@ select, textarea, input[type=file], input[type=checkbox] {
 
 /* begin Footer */
 
-.Footer, .push 
+.Footer
 {
-  height:188px; 
-  clear:both;
+  height:188px;
   background-image: url(bannerdeabajo.jpg);
   background-repeat:repeat-x;
 }
