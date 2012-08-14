@@ -115,11 +115,10 @@ select, textarea, input[type=file], input[type=checkbox] {
   background: #ffc0cb;
 }
 /
-/*.wrapper 
+.wrapper 
 {
-  margin: auto; 
-  border:yellow solid 1px;
-}*/
+  min-height: 100%;
+}
 
 
 /* Inicio Menu */
@@ -202,7 +201,9 @@ select, textarea, input[type=file], input[type=checkbox] {
   line-height:25px;
   text-align:justify;
   width:63%;
-  min-width:63%;
+	overflow:auto;
+    padding-bottom: 188px;}  /* must be same height as the footer */
+
 }
 .Contenido_estud
 {
@@ -311,10 +312,14 @@ select, textarea, input[type=file], input[type=checkbox] {
 
 /* begin Footer */
 
-.Footer, .push 
+.Footer
 {
-  height:188px; 
-  clear:both;
+position: relative;
+
+    margin-top: -188px; /* negative value of footer height */
+    clear:both;
+
+  height:188px;
   background-image: url(bannerdeabajo.jpg);
   background-repeat:repeat-x;
 }
