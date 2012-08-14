@@ -8,7 +8,6 @@
 
 
 .entry {
-
 overflow: auto;
 margin-top: 1em;
 border-bottom: 1px dotted #77d;
@@ -73,11 +72,15 @@ margin-right: 3em;
 
 #columns {
   background: white;
+  font-size: 12px;
+  margin: auto; 
+  min-height:350px;
 
   #main {
     margin-left: 17em;
-    padding: 1em;
+    padding-left: 1em;
     background: #ffffff;
+	margin-right: 22em;
   }
 
 //#START:side
@@ -87,7 +90,7 @@ margin-right: 3em;
     width: 13em;
     background: #ffffff;
     border-right:1px dotted #77d;
-    
+
 /* START_HIGHLIGHT */
     form, div {
       display: inline;
@@ -100,7 +103,8 @@ margin-right: 3em;
     #cart {
       font-size: smaller;
       color:     #000000;
-	  
+	  font-size: 12px;
+
 	  .cart_title{color: #226; font: 150% sans-serif;}
 
 	  .item_price, .total_line {

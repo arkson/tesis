@@ -51,6 +51,8 @@ Tesis::Application.routes.draw do
 
   get "inicio/catalogo"
  	 
+  get "inicio/catalogo_categorias"
+
   get "inicio/olvido_clave"
   
   post "inicio/olvido_clave"

@@ -191,6 +191,17 @@ ActiveRecord::Schema.define(:version => 20120814010050) do
 
   add_index "solvencias", ["usuario_id"], :name => "index_solvencias_on_usuario_id"
 
+  create_table "sugerencias", :force => true do |t|
+    t.string   "comentario"
+    t.integer  "usuarios_id"
+    t.integer  "libros_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sugerencias", ["libros_id"], :name => "index_sugerencias_on_libros_id"
+  add_index "sugerencias", ["usuarios_id"], :name => "index_sugerencias_on_usuarios_id"
+
   create_table "usuarios", :force => true do |t|
     t.string   "nombre"
     t.string   "cedula"

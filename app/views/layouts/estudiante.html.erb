@@ -9,21 +9,26 @@
 </head>
 <body class="<%= controller.controller_name %>">
 
-	<div class="wrapper">
-	<% usuario = Usuario.find(session[:usuario_id]) %>
-		<%= render(:partial => "layouts/menu") %>
+
+		<% usuario = Usuario.find(session[:usuario_id]) %>
+		
 		<div class="Header">
+
 			<div class="logo"><%= link_to "", ppal_estudiante_index_path %></div> 
+			<div class="titulo_banner"><p>Bolsa del Libro</p></ br><p>Servicio de Prestamo Rental</p></div>
 			<div class="panel">
-    		<a class = "usuario">Usuario: <%= usuario.nombre %></a> <% if session[:usuario_id] %> <%= button_to 'Cerrar Sesion', logout_path, :method => :delete, :class => 'cerrar-sesion' %><% end %>
+    			<a class = "usuario">Usuario: <%= usuario.nombre %></a> <% if session[:usuario_id] %> <%= button_to 'Cerrar Sesion', logout_path, :method => :delete, :class => 'cerrar-sesion' %><% end %>
 			</div>
+
 		</div>
 
-        <div class = "borde_superior"></div>
+		<%= render(:partial => "layouts/menu") %>
+        <!--<div class = "borde_superior"></div>-->
 
 		<div class="Contenido_estud">
 			<%= render(:partial => "layouts/menu_estudiante") %>			
 			<div id="columns">
+
 				<div id="side">
 
 					<%= hidden_div_if(@cart.line_item.empty?, :id => 'cart') do %>
@@ -31,19 +36,21 @@
 					<% end %>
 			
 				</div>
+
 				<div id="main">
 					<div class = "migas">Usted está aquí: <%= render_breadcrumbs :separator => ' / ' %></div>
 					<%= yield %>
 				</div>
+			
 			</div>
 		</div>
 
 	
 		<!--<div class="push"></div>-->		
 		
-	</div>
 
-	<div class = "borde_inferior"></div>
+
+	<!--<div class = "borde_inferior"></div>-->
 	<%= render(:partial => "layouts/footer") %>
 
 </body>

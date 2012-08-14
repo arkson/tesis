@@ -7,37 +7,48 @@
   <%= csrf_meta_tags %>
  
 </head>
-<body>
+<body class="<%= controller.controller_name %>">
 
-	<div class="wrapper">
-	<% usuario =Usuario.find(session[:usuario_id]) %>
-		<%= render(:partial => "layouts/menu") %>
+	
+		<% usuario = Usuario.find(session[:usuario_id]) %>
+		
 		<div class="Header">
+
 			<div class="logo"><%= link_to "", ppal_admin_index_path %></div> 
 			<div class="titulo_banner"><p>Bolsa del Libro</p></ br><p>Servicio de Prestamo Rental</p></div>
 			<div class="panel">
-			<% if session[:usuario_id] %>
-    		<a class = "usuario">Usuario: <%= usuario.nombre %></a> <%= button_to 'Cerrar Sesion', logout_path, :method => :delete, :class => 'cerrar-sesion' %>
-			<% end %>
-			</div>
+				<% if session[:usuario_id] %>
+					<a class = "usuario">Usuario: <%= usuario.nombre %></a> <%= button_to 'Cerrar Sesion', logout_path, :method => :delete, :class => 'cerrar-sesion' %>
+				<% end %>
 		</div>
 
-        <div class = "borde_superior"></div>
+		</div>
 
+		<%= render(:partial => "layouts/menu") %>
+        <!--<div class = "borde_superior"></div>-->
 		<div class="Contenido_admin">
-			<%= render(:partial => "layouts/menu_administrador") %>
-			<div class="informacion">
-			<div class = "migas">Usted está aquí: <%= render_breadcrumbs :separator => ' / ' %></div>			
-			<%= yield %>
+				<%= render(:partial => "layouts/menu_administrador") %>				
+			<div id="columns">
+
+				<div id="side">
+					<div>
+					</div>			
+				</div>
+
+				<div id="main">
+					<div class = "migas">Usted está aquí: <%= render_breadcrumbs :separator => ' / ' %></div>
+					<%= yield %>
+				</div>
+
+
+
 			</div>
 		</div>
-
-	
 		<!--<div class="push"></div>-->	
 		
-	</div>
+	
 
-	<div class = "borde_inferior"></div>
+	<!--<div class = "borde_inferior"></div>-->
 	<%= render(:partial => "layouts/footer") %>
 
 </body>

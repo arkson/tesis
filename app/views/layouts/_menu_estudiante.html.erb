@@ -1,24 +1,4 @@
 
-	<script>
-	$(function() {
-		$( "#accordion" ).accordion({
-			fillSpace: true
-		})
-	});
-	$(function() {
-		$( "#accordionResizer" ).resizable({
-			minHeight: 140,
-			resize: function() {
-				$( "#accordion" ).accordion( "resize" );
-			}
-		});
-	});
-	</script>
-
-
-
-
-
 <div id="accordion">
 	<h3><%= link_to "Inicio", ppal_estudiante_index_path, :class => "" %></h3>
 	<div>
