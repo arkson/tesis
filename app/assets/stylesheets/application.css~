@@ -201,9 +201,6 @@ select, textarea, input[type=file], input[type=checkbox] {
   line-height:25px;
   text-align:justify;
   width:63%;
-	overflow:auto;
-    padding-bottom: 188px;}  /* must be same height as the footer */
-
 }
 .Contenido_estud
 {
@@ -314,6 +311,11 @@ select, textarea, input[type=file], input[type=checkbox] {
 
 .Footer
 {
+position: relative;
+
+    margin-top: -188px; /* negative value of footer height */
+    clear:both;
+
   height:188px;
   background-image: url(bannerdeabajo.jpg);
   background-repeat:repeat-x;

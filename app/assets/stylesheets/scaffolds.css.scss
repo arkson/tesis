@@ -24,6 +24,7 @@
 	margin:0;
 	padding:0;
 	width:40px;
+	font-size: 12px;
   }
 
   #link
@@ -99,18 +100,12 @@
 
   .mostrar
   {
- 	background: #fafafa;
-  	border-radius: 5px;	
-	margin:10px 0 10px 0;
+	overflow: auto;
+	margin-top: 1em;
+	border-top: 1px dotted #77d;
+	min-height: 100px;
   }
-  .mostrar p 
-  {
- 	padding: 5px 0 5px 20px;
-  }  
-  .mostrar p b
-  {
-	font-size:14px;
-  }
+
   .editar
   {
 	border:fafafa solid 1px;
@@ -146,12 +141,17 @@
   .nicEdit-panelContain
   {
 	margin-top:20px;
+	
   }
   .nicEdit-panel
   {
+	
   }
   .nicEdit-main
   {
+	max-height : 100px;
+	resize: none;
+	
   }
 
 .alquilar input[type=submit]{background:#ffffff;}

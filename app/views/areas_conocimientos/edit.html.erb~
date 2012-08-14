@@ -1,9 +1,9 @@
 <div class = "editar">
-	<div class = "editar_titulo"><h1>Editar libro</h1></div>
+	<div class = "editar_titulo"><h1>Editar área de conocimiento</h1></div>
 
 	<div class = "editar_opciones">
 	<%= link_to 'Mostrar', @area_conocimiento, :id => "links" %> &nbsp
-	<%= link_to 'Regresar', areas_conocimientos_path, :id => "links" %>
+	<%= link_to 'Regresar', :back, :id => "links" %>
 	</div>
 	<div class="clear"></div>
 </div>
