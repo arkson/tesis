@@ -1,4 +1,5 @@
-es
+es:
+
   number:
     currency:
       format:
@@ -7,3 +8,72 @@ es
         separator: ","
         delimiter: "."
         format:    "%n&nbsp;%u"
+
+  activerecord:
+    models:
+      libro: "Libro"
+    attributes:
+      libro:
+        isbn: "ISBN"
+        cota:  "Cota"
+        titulo: "Titulo"
+        autor:  "Autor"
+        edicion: "Edicion"
+        lugar_impresion : "Lugar de impresión"
+        ano: "Año"
+    models:
+       editorial: "Editorial"
+    models:
+       area_conocimiento: "Area de Conocimiento"
+    models:
+       dependencia: "Dependencia"
+    models:
+       libreria: "Libreria"
+    models:
+       configuracion: "Configuración"
+    attributes:
+       configuracion:
+         max_num_libro: "Máximo número de libros"
+         tiempo_prealquiler: "Tiempo de prealquiler"
+         ano:  "Año"
+    models:
+       ejemplar: "Ejemplar"
+    attributes:
+       ejemplar:
+         numero_ejemplar: "Numero de ejemplar"
+         costo_alquiler: "Costo alquiler"
+    models:
+       noticia: "Noticia"
+    attributes:
+       noticia:
+         titulo: "Titulo"              		
+         contenido: "Contenido" 
+    errors:
+      messages:
+        inclusion: "no est&aacute; incluido en la lista"
+        blank:     "no puede quedar en blanco"
+        not_a_number: "tiene que ser un número"
+        greater_than: "tiene que ser un número mayor"	
+        greater_than_or_equal_to: "tiene que ser un número mayor"
+        taken: "no puede existri otro registro igual" 	  
+  errors:
+    template:
+      body:        "Hay problemas con los siguientes campos:"
+      header:
+        one:       "1 error ha impedido que este %{model} se guarde"
+        other:     "%{count} errores han impedido que este %{model} se guarde"
+  
+  date:
+    formats:
+      default: "%d/%M/%Y"
+      long: "%e %B %Y"
+      short: "%d/%M/%y"
+    order: [:day, :month, :year ]
+    month_names: [~, Enero, Febrero, Marzo, Abril, Mayo, Junio, Juillet,Julio, Septiembre, Octubre, Noviembre, Diciembre]
+    
+   
+
+
+
+
+

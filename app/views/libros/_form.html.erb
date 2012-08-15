@@ -4,7 +4,9 @@
 <%= form_for(@libro) do |f| %>
   <% if @libro.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@libro.errors.count, "error") %> prohibited this libro from being saved:</h2>
+     <h2><%= t('errors.template.header', :count=>@libro.errors.size,:model=>t('activerecord.models.libro')) %>.</h2>
+	 <p><%= t('errors.template.body') %></p>
+
 
       <ul>
       <% @libro.errors.full_messages.each do |msg| %>
@@ -59,6 +61,6 @@
     <%= f.collection_select :dependencia_id, Dependencia.all, :id, :nombre %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit  %>
   </div>
 <% end %>

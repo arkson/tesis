@@ -15,7 +15,7 @@ class Configuracion < ActiveRecord::Base
 	if alquiler.empty?
 		return true
 	else
-		errors.add(:base, 'Alquiler present')
+		errors.add(:base, 'Alquileres presentes para esta configuración')
 		return false
 	end
   end

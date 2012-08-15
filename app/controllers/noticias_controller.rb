@@ -28,7 +28,7 @@ class NoticiasController < ApplicationController
   # GET /noticias/new
   # GET /noticias/new.json
   def new
-	add_breadcrumb "Nuevo noticia", :new_noticias_path
+	add_breadcrumb "Nuevo noticia", :new_noticia_path
     @noticia = Noticia.new
 
     respond_to do |format|

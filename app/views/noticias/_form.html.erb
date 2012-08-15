@@ -2,8 +2,8 @@
 <%= form_for(@noticia) do |f| %>
   <% if @noticia.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@noticia.errors.count, "error") %> ha impedido guardar la noticia:</h2>
-
+       <h2><%= t('errors.template.header', :count=>@noticia.errors.size,:model=>t('activerecord.models.noticia')) %>.</h2>
+	   <p><%= t('errors.template.body') %></p>
       <ul>
       <% @noticia.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>

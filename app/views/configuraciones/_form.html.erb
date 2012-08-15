@@ -1,7 +1,8 @@
 <%= form_for(@configuracion) do |f| %>
   <% if @configuracion.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@configuracion.errors.count, "error") %> prohibited this configuracion from being saved:</h2>
+     <h2><%= t('errors.template.header', :count=>@configuracion.errors.size,:model=>t('activerecord.models.configuracion')) %>.</h2>
+	 <p><%= t('errors.template.body') %></p>
 
       <ul>
       <% @configuracion.errors.full_messages.each do |msg| %>

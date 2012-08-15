@@ -183,7 +183,11 @@ Tesis::Application.routes.draw do
 	  resources :editoriales
 	  resources :areas_conocimientos
 	  resources :dependencias
-	  resources :librerias  	
+	  resources :librerias  
+      resources :usuarios  
+      resources :lines_items
+
+  resources :carts	
 	   root :to => 'inicio#index'
   end	
 
