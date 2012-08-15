@@ -22,32 +22,41 @@ es:
         lugar_impresion : "Lugar de impresión"
         ano: "Año"
     models:
-       editorial: "Editorial"
+      editorial: "Editorial"
     models:
-       area_conocimiento: "Area de Conocimiento"
+      area_conocimiento: "Area de Conocimiento"
     models:
-       dependencia: "Dependencia"
+      dependencia: "Dependencia"
     models:
-       libreria: "Libreria"
+      libreria: "Libreria"
     models:
-       configuracion: "Configuración"
+      configuracion: "Configuración"
     attributes:
-       configuracion:
-         max_num_libro: "Máximo número de libros"
-         tiempo_prealquiler: "Tiempo de prealquiler"
-         ano:  "Año"
+      configuracion:
+        max_num_libro: "Máximo número de libros"
+        tiempo_prealquiler: "Tiempo de prealquiler"
+        ano:  "Año"
     models:
-       ejemplar: "Ejemplar"
+      ejemplar: "Ejemplar"
     attributes:
-       ejemplar:
-         numero_ejemplar: "Numero de ejemplar"
-         costo_alquiler: "Costo alquiler"
+      ejemplar:
+        numero_ejemplar: "Numero de ejemplar"
+        costo_alquiler: "Costo alquiler"
     models:
-       noticia: "Noticia"
+      noticia: "Noticia"
     attributes:
-       noticia:
-         titulo: "Titulo"              		
-         contenido: "Contenido" 
+      noticia:
+        titulo: "Titulo"              		
+        contenido: "Contenido" 
+    models:
+      usuario: "Usuario"
+    attributes:
+      usuario:
+        cedula: "Cédula"
+        nombre: "Nombre"
+        correo: "Correo"
+        unid_creditos: "Unidades de crédito"
+        password_digest: "Clave"
     errors:
       messages:
         inclusion: "no est&aacute; incluido en la lista"
@@ -70,10 +79,42 @@ es:
       short: "%d/%M/%y"
     order: [:day, :month, :year ]
     month_names: [~, Enero, Febrero, Marzo, Abril, Mayo, Junio, Juillet,Julio, Septiembre, Octubre, Noviembre, Diciembre]
-    
-   
+  
+  usuarios:
+    form:   
+      submit: "Guardar"
+
+  areas_conocimientos:
+    form:   
+      submit: "Guardar"
+
+  configuraciones:
+    form:   
+      submit: "Guardar"
+  
+  dependencias:   
+    form:   
+      submit: "Guardar"
+
+  editoriales:
+    form:   
+      submit: "Guardar"
+
+  ejemplares:
+    form:   
+      submit: "Guardar"
+
+  librerias:
+    form:   
+      submit: "Guardar"
+
+  libros:
+    form:   
+      submit: "Guardar"
+
+  noticias:
+    form:   
+      submit: "Guardar"
 
 
-
-
-
+ 
