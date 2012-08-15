@@ -1,10 +1,10 @@
 <% if notice %>
-	<p class="notice"><%= notice %></p>
+	<p id="notice"><%= notice %></p>
 <% end %>
 
 <div class ="busqueda">
   <%= form_for @search do |f| %>
-    <%= f.text_field :cota_or_isbn_or_titulo_contains, :class => "campo_busqueda" %>      
+    <%= f.text_field :cota_or_isbn_or_titulo_contains, :value => "Buscar por cota, isbn o título", :onfocus =>"this.value=''", :onblur =>"this.value='Buscar por cota, isbn o título'", :class => "campo_busqueda" %>      
     <%= f.submit :buscar %>
 
   <% end %>

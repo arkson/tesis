@@ -9,7 +9,7 @@
 
 <p>
   <b>Fecha Inicio:</b>
-  <%= @alquiler.created_at.strftime("%d/%m/%Y"))%>
+  <%= @alquiler.created_at.strftime("%d/%m/%Y")%>
 </p>
 
 

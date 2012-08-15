@@ -80,7 +80,7 @@ class LibrosController < ApplicationController
       if @libro.update_attributes(params[:libro])
 		guardar_log(session[:usuario_id], self.class.name,__method__.to_s, @temp,@libro  )
 
-        format.html { redirect_to @libro, :notice => 'Libro was successfully updated.' }
+        format.html { redirect_to @libro, :notice => 'Libro actualizado exitosamente.' }
         format.json { head :ok }
       else
         format.html { render :action => "edit" }

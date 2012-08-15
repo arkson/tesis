@@ -1,5 +1,5 @@
 <% if notice %>
-<p id="notice"><%= notice %></p>
+<p class="notice"><%= notice %></p>
 <% end %>
 <div class = "mostrar">
 <p>
@@ -44,19 +44,19 @@
 
 <p>
   <b>Editorial:</b>
-  <%= @libro.editorial.nombre %>
+  <%= link_to @libro.editorial.nombre, @libro.editorial %>
 </p>
 
 <p>
   <b>Area conocimiento:</b>
-  <%= @libro.area_conocimiento.nombre %>
+  <%= link_to @libro.area_conocimiento.nombre,@libro.area_conocimiento %>
 </p>
 
 <p>
   <b>Dependencia:</b>
-  <%= @libro.dependencia.nombre %>
+  <%= link_to @libro.dependencia.nombre, @libro.dependencia %>
 </p>
 </div>
 
 <%= link_to 'Editar', edit_libro_path(@libro), :id => "links" %> &nbsp
-<%= link_to 'Regresar', libros_path, :id => "links" %>
+<%= link_to 'Regresar', :back, :id => "links" %>
