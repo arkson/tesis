@@ -5,7 +5,7 @@
 <div class ="mostrar">
 <p>
   <b>Libro:</b>
-  <%= @ejemplar.libro.titulo_and_autor %>
+  <%= link_to @ejemplar.libro.titulo_and_autor,@ejemplar.libro  %>
 </p>
 
 <p>
@@ -39,15 +39,6 @@
   <%= @ejemplar.nro_factura %>
 </p>
 
-<p>
-  <b>En uso:</b>
-  <%= @ejemplar.en_uso %>
-</p>
-
-<p>
-  <b>Activo:</b>
-  <%= @ejemplar.activo %>
-</p>
 
 <p>
   <b>Estatus ejemplar:</b>
@@ -56,9 +47,9 @@
 
 <p>
   <b>Libreria:</b>
-  <%= @ejemplar.libreria.nombre %>
+  <%= link_to @ejemplar.libreria.nombre, @ejemplar.libreria %>
 </p>
 </div>
 
 <%= link_to 'Editar', edit_ejemplar_path(@ejemplar), :id => "links" %> &nbsp
-<%= link_to 'Regresar', ejemplares_path, :id => "links" %>
+<%= link_to 'Regresar', :back	, :id => "links" %>

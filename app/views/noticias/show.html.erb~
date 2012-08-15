@@ -1,4 +1,4 @@
-<p class="notice"><%= notice %></p>
+
 <div class = "mostrar">
 <p>
   <b>Titulo:</b>
@@ -22,4 +22,4 @@
 </div>
 
 <%= link_to 'Editar', edit_noticia_path(@noticia), :id => "links" %> &nbsp
-<%= link_to 'Regresar', :back, :id => "links" %>
+<%= link_to 'Regresar', noticias_path, :id => "links" %>

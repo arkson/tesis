@@ -83,7 +83,7 @@ $(function() {
 			<%= text_field_tag :cedula, params[:cedula] %>
 		</div>
 		<div class = "actions">
-			<%= submit_tag "Aceptar", :class => 'ingresar' %>
+			<%= submit_tag "Aceptar", :id => 'links' %>
 		</div>
 	<% end %>
 

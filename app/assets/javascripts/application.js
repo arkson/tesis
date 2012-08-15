@@ -16,7 +16,8 @@ $(function (){
 		
 
 		$("#accordion").accordion();
-		$("#accordion").accordion("activate", 0);
+	
+		$("#accordion").accordion("activate", 2);
 
         $('#calendario').datepicker({
 			nextText: "Sig.",
@@ -33,5 +34,43 @@ $(function (){
 			dayNamesMin: ["Di", "Lu", "Ma", "Me", "Je", "Ve", "Sa"]
 			
 		});
+
+
+		$( "#dialog:ui-dialog" ).dialog( "destroy" );		
+	
+		$( "#dialog-form" ).dialog({
+			   autoOpen: false,
+			   modal: true,
+			   title: "INICIO DE SESION",
+			   width: 550,
+			   minWidth: 400,
+			   maxWidth: 650,
+			   closeText: "cerrar",
+			   show: "fade"
+		});
+		$( "#dialog-form2" ).dialog({
+			   autoOpen: false,
+			   modal: true,
+			   title: "RECUPERAR CLAVE",
+			   width: 550,
+			   minWidth: 400,
+			   maxWidth: 650,
+			   closeText: "cerrar",
+			   show: "fade"
+		});
+
+		$( "#acceder" )
+			.button()
+			.click(function() {
+				$( "#dialog-form" ).dialog( "open" );
+			});
+
+		$( "#olvido" )
+			.button()
+			.click(function() {
+				$( "#dialog-form2" ).dialog( "open" );
+				$( "#dialog-form" ).dialog( "close" );
+			});
+
 
 });

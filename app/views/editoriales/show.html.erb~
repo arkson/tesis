@@ -8,5 +8,5 @@
 </p>
 </div>
 
-<%= link_to 'Editar', edit_editorial_path(@editorial) %> |
-<%= link_to 'Regresar', editoriales_path %>
+<%= link_to 'Editar', edit_editorial_path(@editorial), :id => "links" %> &nbsp
+<%= link_to 'Regresar', :back, :id => "links" %>
