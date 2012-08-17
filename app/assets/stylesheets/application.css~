@@ -114,7 +114,7 @@ select, textarea, input[type=file], input[type=checkbox] {
   border: thin solid #8b0000;
   background: #ffc0cb;
 }
-/
+
 .wrapper 
 {
   min-height: 100%;
@@ -256,12 +256,25 @@ select, textarea, input[type=file], input[type=checkbox] {
 		float: right;
 	  }
 	  .pagination li {
-		float: left;
-		padding-left:10px;
+		 float: left;
+		 background:#0070ba;
+	 	 border-radius: 3px;
+		 margin-right:2px;
 		}
+		.pagination a
+		{
+		  color:#ffffff;
+		  padding:3px;
+		  text-decoration:none;
+		}
+		.pagination a:hover
+		  {
+			color:#333333;
+		  }
+
 		.pagination span {
-		float: left;
-		padding-left:10px;
+		  float: left;
+		  margin-right:6px;
 		}
 	.campo_busqueda
 	  {      
@@ -311,11 +324,6 @@ select, textarea, input[type=file], input[type=checkbox] {
 
 .Footer
 {
-position: relative;
-
-    margin-top: -188px; /* negative value of footer height */
-    clear:both;
-
   height:188px;
   background-image: url(bannerdeabajo.jpg);
   background-repeat:repeat-x;

@@ -8,10 +8,6 @@
 </div>
 
 <div class ="titulo"><h1><%= link_to 'Catalogo de libros', inicio_catalogo_path %></h1></div>
-<div style="margin-bottom:30px;">
-	<%= render(:partial => "layouts/categorias") %>
-
-
 	<div style="font-size:12px;float:left;">
 	  Ordenar por:
 	  <%= sort_link @search, :cota %> |
@@ -21,11 +17,10 @@
 	</div>
 	
 	<%= will_paginate(@libros, :renderer => PaginationListLinkRenderer, :first_label => "« Primera",
-	  :previous_label => "Anterior",
+	  :previous_label => "‹ Anterior",
 	  :summary_label => "%d - %d de %d",
-	  :next_label => "Siguiente",
-	  :last_label => "Última") %>
-</div>
+	  :next_label => "Siguiente ›",
+	  :last_label => "Última »") %>
 
 	<table class="tabla_scaffold" width="100%">
 		<% @libros.each do |libro| %>

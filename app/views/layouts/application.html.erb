@@ -22,7 +22,7 @@
 					<%= link_to "Usuario:" + (session[:usuario_nombre]), ppal_admin_index_path, :class => "usuario" %>
 				<% else %>
 					<%= link_to "Usuario:" + (session[:usuario_nombre]), ppal_estudiante_index_path, :class => "usuario" %>	  
-				<% end %>>
+				<% end %>
 				<%= button_to 'Cerrar Sesion', logout_path, :method => :delete, :class => 'cerrar-sesion' %>
 			<% else %>
 				<button id="acceder">Iniciar sesión</button>			

@@ -1,36 +1,53 @@
 <%= render(:partial => "layouts/login") %>
 
 <div class ="busqueda">
-  <%= form_for @search do |f| %>
-    <%= f.text_field :titulo_or_cota_or_isbn_contains, :class => "campo_busqueda" %>      
+  <%= form_for @search, :url => inicio_catalogo_path, :html => {:method => :get} do |f| %>
+    <%= f.text_field :titulo_or_cota_or_isbn_contains, :value => "Buscar por cota, isbn o título", :onfocus =>"this.value=''", :onblur =>"this.value='Buscar por cota, isbn o título'", :class => "campo_busqueda" %> 
+  
     <%= f.submit :buscar %>
   <% end %>
 </div>
 
-<div class ="titulo"><h1>Catalogo de libros</h1></div>
+<div class ="titulo"><h1><%= link_to 'Catalogo de libros', inicio_catalogo_path %></h1></div>
 
-	<%= will_paginate @libros , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
+<%= render(:partial => "layouts/categorias") %>
 
-	<table class="tabla_scaffold" width="98%">
-		<% @libros.each do |libro| %>
-		<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
-			<td width="5%">
-				<% if libro.imagen_file_name == nil %>
-					<%= image_tag("libro.png",:class => 'list_image') %>
-				<% else %>
-					<%= image_tag(libro.imagen.url(:thumb),:class => 'list_image') %>
-				<% end %>
-			</td>
-			<td class="list_description">
-				<dl>
-				<dt><%= libro.titulo %></dt>
-				<dd><%= libro.cota %></dd>
-				<dd>Autor: <%= libro.autor %></dd>
-				<dd>Isbn: <%= libro.isbn %></dd>
-				</dl>
-			</td>
-		</tr>
-		<% end %>
-	</table>
 
-	<%= will_paginate @libros , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
+	<div style="font-size:12px;float:left;">
+	  Ordenar por:
+	  <%= sort_link @search, :cota %> |
+	  <%= sort_link @search, :isbn %> |
+	  <%= sort_link @search, :titulo %>
+
+	</div>
+	
+	<%= will_paginate(@libros, :renderer => PaginationListLinkRenderer, :first_label => "« Primera",
+	  :previous_label => "Anterior",
+	  :summary_label => "%d - %d de %d",
+	  :next_label => "Siguiente",
+	  :last_label => "Última") %>
+
+
+<table class="tabla_scaffold" width="100%">
+	<% @libros.each do |libro| %>
+	<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+		<td width="5%">
+			<% if libro.imagen_file_name == nil %>
+				<%= image_tag("libro.png",:class => 'list_image') %>
+			<% else %>
+				<%= image_tag(libro.imagen.url(:thumb),:class => 'list_image') %>
+			<% end %>
+		</td>
+		<td class="list_description">
+			<dl>
+			<dt><%= libro.titulo %></dt>
+			<dd><%= libro.cota %></dd>
+			<dd>Autor: <%= libro.autor %></dd>
+			<dd>Isbn: <%= libro.isbn %></dd>
+			</dl>
+		</td>
+	</tr>
+	<% end %>
+</table>
+
+<%= will_paginate @libros , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>

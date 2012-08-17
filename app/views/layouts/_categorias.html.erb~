@@ -3,8 +3,12 @@
 Catálogo por Escuelas:
 
 
-	<%= link_to 'Computación', url_for(:controller=>'inicio', 
-:action=>'catalogo_categorias', :param => "1") %>(<%= @query %>) |
+	<%= link_to 'Computación', 
+if Usuario.find(session[:usuario_id]).rol == "Estudiante"  
+url_for(:controller=>'ppal_estudiante', :action=>'ecatalogo_categorias', :param => "1")  
+else  url_for(:controller=>'inicio', :action=>'catalogo_categorias', :param => "1")  
+end  
+%>(<%= @query %>) |
 	<%= link_to 'Biología', url_for(:controller=>'inicio',
 :action=>'catalogo_categorias', :param => "2") %>(<%= @query2 %>) |
 	<%= link_to 'Física', url_for(:controller=>'inicio',

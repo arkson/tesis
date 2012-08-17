@@ -6,25 +6,47 @@ class PpalEstudianteController < ApplicationController
   
 
   def index
- 	add_breadcrumb "Listado de libros", :libros_index_path
-	@search = Libro.search(params[:search])
-    @libros = @search.paginate(:page => params[:page], :per_page => 5)
-    
+ 	add_breadcrumb "Listado de libros", :libros_index_path	
+ 	add_breadcrumb "Catálogo de libros", :ppal_estudiante_index_path
+	@query = Libro.where(" id in (select libro_id from ejemplares where estatus_ejemplar = 'Disponible' or estatus_ejemplar = 'Solicitado' )").order('cota asc')
+	
+	
+
 	@cart = current_cart 
 	@configuracion = current_config
-
+	@categorias = categorias
 	respond_to do |format|
       format.html # index.html.erb
-      format.json { render :json => @libros }
+	  format.js
     end
 
   end
 
+  def ecatalogo_categorias
+	@query = Libro.where('area_conocimiento_id = :param',{:param => params[:param]})
+	@count = @query.count
+	@search = @query.search(params[:search])
+    @libros = @search.paginate(:page => params[:page], :per_page => 5)
+
+	@cart = current_cart 
+	@configuracion = current_config
+	@categorias = categorias
+	respond_to do |format|
+      format.html # index.html.erb
+      format.json { render :json => @libros }
+    end
+  end
+
+
+  def autocomplete_libro_titulo
+    render :json => Libro.search(params['term'])
+  end
 
   def ver_alquiler
 	add_breadcrumb "Alquileres realizados", :ppal_estudiante_ver_alquiler_path
-	@alquileres = Alquiler.where(:usuario_id => session[:usuario_id])
 	@cart = current_cart 
+	@alquileres = Alquiler.where(:usuario_id => session[:usuario_id]).order('created_at desc').paginate(:page => params[:page], :per_page =>5)
+
 
   end
 
@@ -80,7 +102,60 @@ class PpalEstudianteController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @libro }
-    end 		
-
+    end
+		
   end	
+
+  def ver_solvencias
+    add_breadcrumb "Solvencias", :ppal_estudiante_ver_solvencias_path
+	@cart = current_cart 
+	@solvencia = Solvencia.where(:usuario_id => params[:usuario_id]).order('created_at desc').paginate(:page => params[:page], :per_page =>5)
+
+
+
+  end		
+
+
+  def enviar_solicitud_solvencia
+	 @cart = current_cart 	
+	 @sw = es_solvente(session[:usuario_id])	
+	 
+	
+
+	 
+  end	
+
+  def ver_solvencias
+	add_breadcrumb "Listado de Solvencias", :ppal_estudiante_ver_solvencias_path	
+	 @cart = current_cart 	
+
+	@solvencia = Solvencia.where(:usuario_id => session[:usuario_id] ).order('created_at desc').paginate(:page => params[:page], :per_page =>5)
+		
+  end	
+
+
+  def guardar_solicitud_solvencia
+ 	@temp = Solvencia.where(:usuario_id => session[:usuario_id], :estatus => "Solicitud Enviada" )
+
+	if es_solvente(session[:usuario_id])== true and @temp.count == 0
+		@solvencia = Solvencia.new
+		@solvencia.estatus = "Solicitud Enviada"
+		@solvencia.tipo_solvencia = params[:tipo_solvencia]
+		@solvencia.usuario_id = session[:usuario_id]
+		if @solvencia.save
+		guardar_log(session[:usuario_id], self.class.name,__method__.to_s, @solvencia,nil )	
+			redirect_to ppal_estudiante_index_path, :notice => "Su solicitud ha sido procesada exitosamente, puede retirarla en las oficinas de la bolsa del libro"
+		else
+			redirect_to ppal_estudiante_index_path, :notice => "La solicitud no pudo ser procesada, intente más tarde"
+		end
+
+	else
+		redirect_to ppal_estudiante_index_path, :notice => "Usted ya posee una solvencia en proceso"	 
+	end	
+	
+  end	
+ 
+
+
+
 end

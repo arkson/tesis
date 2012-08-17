@@ -14,14 +14,29 @@ class PpalEstudianteController < ApplicationController
 
 	@cart = current_cart 
 	@configuracion = current_config
-
+	@categorias = categorias
 	respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @libros }
+	  format.js
     end
 
   end
 
+  def ecatalogo_categorias
+	@query = Libro.where('area_conocimiento_id = :param',{:param => params[:param]})
+	@count = @query.count
+	@search = @query.search(params[:search])
+    @libros = @search.paginate(:page => params[:page], :per_page => 5)
+
+	@cart = current_cart 
+	@configuracion = current_config
+	@categorias = categorias
+	respond_to do |format|
+      format.html # index.html.erb
+      format.json { render :json => @libros }
+    end
+  end
 
   def ver_alquiler
 	add_breadcrumb "Alquileres realizados", :ppal_estudiante_ver_alquiler_path

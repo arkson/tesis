@@ -51,6 +51,8 @@ Tesis::Application.routes.draw do
 
   get "inicio/catalogo"
  	 
+  get "inicio/catalogo_categorias"
+
   get "inicio/olvido_clave"
   
   post "inicio/olvido_clave"
@@ -166,7 +168,28 @@ Tesis::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-   root :to => 'inicio#index'
+
+  scope '(:locale)' do
+	  resources :auditorias
+	  resources :donaciones
+	  resources :solvencias
+	  resources :devoluciones
+	  resources :alquileres
+	  resources :configuraciones
+	  resources :noticias
+	  resources :libros
+	  resources :ejemplares
+	  resources :libros 
+	  resources :editoriales
+	  resources :areas_conocimientos
+	  resources :dependencias
+	  resources :librerias  
+      resources :usuarios  
+      resources :lines_items
+
+  resources :carts	
+	   root :to => 'inicio#index'
+  end	
 
   # See how all your routes lay out with "rake routes"
 

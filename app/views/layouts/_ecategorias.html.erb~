@@ -1,0 +1,19 @@
+<div style="font-size:12px; background:   #ebf3ff;margin-bottom:2px;">
+
+Catálogo por Escuelas:
+
+
+	<%= link_to 'Computación', url_for(:controller=>'ppal_estudiante', 
+:action=>'ecatalogo_categorias', :param => "1") %>(<%= @query %>) |
+	<%= link_to 'Biología', url_for(:controller=>'ppal_estudiante',
+:action=>'ecatalogo_categorias', :param => "2") %>(<%= @query2 %>) |
+	<%= link_to 'Física', url_for(:controller=>'ppal_estudiante',
+:action=>'ecatalogo_categorias', :param => "3") %>(<%= @query3 %>) |
+	<%= link_to 'Matemática', url_for(:controller=>'ppal_estudiante',
+:action=>'ecatalogo_categorias', :param => "4") %>(<%= @query4 %>)
+	<%= link_to 'Química', url_for(:controller=>'ppal_estudiante',
+:action=>'ecatalogo_categorias', :param => "5") %>(<%= @query5 %>)
+
+
+
+</div>

@@ -1,23 +1,38 @@
 
-
 <% if flash[:notice] %>
 	<p class="notice"><%= flash[:notice] %></p>
 <% end %>
 
 <div class ="busqueda">
   <%= form_for @search, :url => ppal_estudiante_index_path, :html => {:method => :get} do |f| %>
-    <%= f.text_field :titulo_or_cota_contains, :value => "Buscar por título o cota", :onfocus =>"this.value=''", :onblur =>"this.value='Buscar por título o cota'",:class => "campo_busqueda" %>      
+    <%= f.text_field :titulo_or_cota_contains, :value => "Buscar por título o cota", :onfocus =>"this.value=''", :onblur =>"this.value='Buscar por título o cota'",:class => "campo_busqueda", :id => "tags" %>      
     <%= f.submit :Buscar %>
   <% end %>
 </div>
 
 <div class ="titulo"><h1>Catalogo de libros</h1></div>
+<div style="line-height:25px;display: block;margin-bottom:30px;">
+	<%= render(:partial => "layouts/ecategorias") %>
 
-<%= will_paginate @libros , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
+	<div style="font-size:12px;float:left;position:absolute;">
+	  Ordenar por:
+	  <%= sort_link @search, :cota %> |
+	  <%= sort_link @search, :isbn %> |
+	  <%= sort_link @search, :titulo %>
+
+	</div>
+	
+	<%= will_paginate(@libros, :renderer => PaginationListLinkRenderer, :first_label => "Primera",
+	  :previous_label => "Anterior",
+	  :summary_label => "%d - %d de %d",
+	  :next_label => "Siguiente",
+	  :last_label => "Última") %>
+</div>
 
 <% @cont = 0 %> 
 <% @libros.each do |libro| %>
-<% @cont = @cont + 1 %> 	
+<% @cont = @cont + 1 %> 
+	
 	<div class="entry">
 
 		<% if libro.imagen_file_name == nil %>
@@ -41,6 +56,7 @@
 	</div>
 
 <% end %>
+
 
 <%= will_paginate @libros , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
 

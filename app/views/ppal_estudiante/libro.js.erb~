@@ -1,0 +1,5 @@
+<% @libros.each do |libro| %>
+
+
+
+<% end %>
