@@ -1,7 +1,8 @@
 <% if notice %>
-<p id="notice"><%= notice %></p>
+<p class="notice"><%= notice %></p>
 <% end %>
-<div class ="mostrar">
+
+<div>
 <p>
   <b>Usuario:</b>
   <%= @alquiler.usuario.nombre %>
@@ -20,7 +21,7 @@
 
 
 <p>
-  <b>Libros seleccionados:</b> </br>
+  <b>Libros seleccionados:</b> 
   <table>
 	  <tr>
 		 <th>Cota</th>
@@ -60,11 +61,13 @@
 
 
 <p>
-  <b>Estatus:</b>
+  <b>Estatus del alquiler:</b>
   <%= @alquiler.estatus %>
 </p>
+
+
 </div>
-
-
+</br>
 <%= link_to 'Regresar', :back, :id => "links" %>
+
 

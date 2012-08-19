@@ -1,7 +1,8 @@
 <% if notice %>
-<p id="notice"><%= notice %></p>
+<p class="notice"><%= notice %></p>
 <% end %>
-<div class ="mostrar">
+
+<div>
 <p>
   <b>Usuario:</b>
   <%= @alquiler.usuario.nombre %>
@@ -9,18 +10,18 @@
 
 <p>
   <b>Fecha Inicio:</b>
-  <%= @alquiler.created_at.strftime("%d-%m-%Y")%>
+  <%= @alquiler.created_at.strftime("%d/%m/%Y")%>
 </p>
 
 
 <p>
   <b>Fecha fin:</b>
-  <%= @alquiler.fecha_fin.strftime("%d-%m-%Y") %> 
+  <%= @alquiler.fecha_fin.strftime("%d/%m/%Y") %> 
 </p></br>
 
 
 <p>
-  <b>Libros seleccionados:</b> </br>
+  <b>Libros seleccionados:</b> 
   <table>
 	  <tr>
 		 <th>Cota</th>
@@ -60,11 +61,13 @@
 
 
 <p>
-  <b>Estatus:</b>
+  <b>Estatus del alquiler:</b>
   <%= @alquiler.estatus %>
 </p>
+
+
 </div>
 
-
 <%= link_to 'Regresar', :back, :id => "links" %>
+
 

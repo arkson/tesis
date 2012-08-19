@@ -111,7 +111,9 @@ Tesis::Application.routes.draw do
 
   resources :ejemplares
 
-  resources :libros 
+  resources :libros  do
+   get :autocomplete_libro_titulo, :on => :collection
+  end
 
   resources :editoriales
 

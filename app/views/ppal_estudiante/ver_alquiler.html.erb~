@@ -1,23 +1,23 @@
+<% if flash[:notice] %>
+	<p class="notice"><%= flash[:notice] %></p>
+<% end %>
 
 
 <div class ="titulo"><h1>Alquileres realizados</h1></div>
 
-<table class="tabla_scaffold" width="75%">
+<table class="tabla_scaffold">
 	<% @alquileres.each do |alquiler| %>
 	<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
 
 		<td class="list_description">
 			<dl>
-<<<<<<< HEAD
-=======
 				<dd>Nro Alquiler : <%= alquiler.id %></dd>
->>>>>>> 3a8920f29970d57ccd7ff21a22513c7f8439c8ee
-				<dd>Fecha de inicio: <%= alquiler.created_at.strftime("%d-%m-%Y") %></dd>
-				<dd>Fecha de culminación: <%= alquiler.fecha_fin %></dd>
+				<dd>Fecha de inicio: <%= alquiler.created_at.strftime("%d/%m/%Y") %></dd>
+				<dd>Fecha de culminación: <%= alquiler.fecha_fin.strftime("%d/%m/%Y") %></dd>
 				<dd>Estatus: <%= alquiler.estatus %></dd>
 			</dl>
 		</td>
-		<td class="ver_datos" width="25%">
+		<td class="ver_datos" width="35%">
 			<%= link_to 'Ver Datos', ppal_estudiante_ver_datos_path(:id => alquiler.id),:id => "links" %>
 			<%= link_to 'Comprobante',{:controller => "reportes", :action => "comprobante_alquiler", :id => alquiler.id}, :id => "links", :target => "_blank" %>
 		</td>
@@ -25,4 +25,4 @@
 	<% end %>
 </table>
 
-
+<%= will_paginate @alquileres , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>

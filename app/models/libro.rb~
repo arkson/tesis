@@ -6,7 +6,7 @@ class Libro < ActiveRecord::Base
   has_many :ejemplar 
   
  
-  
+  attr_accessor :libro_titulo_cota
   
 
   validates :cota, :titulo, :autor,:edicion, :ano, :presence => true  
@@ -14,22 +14,10 @@ class Libro < ActiveRecord::Base
 
   has_attached_file :imagen, :styles => { :medium => "300x300>", :thumb => "60x60>" }
 
-  after_save :load_into_soulmate
-
-  def load_into_soulmate
-    loader = Soulmate::Loader.new("libro")
-    loader.add("term" => titulo, "id" => id)
-  end
-
-  def self.search(term)
-    matches = Soulmate::Matcher.new('libro').matches_for_term(term)
-    matches.collect {|match| {"id" => match["id"], "label" => match["term"], "value" => match["term"] } }
-  end
-
   def titulo_and_autor
   	[titulo,autor].join(' | ')
   end
-
+  public 
 
   public
   def cantidad_disponible
@@ -48,3 +36,5 @@ class Libro < ActiveRecord::Base
 
 
 end
+
+

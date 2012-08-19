@@ -2,10 +2,10 @@
 	<p class="notice"><%= flash[:notice] %></p>
 <% end %>
 
-<%= will_paginate @alquileres , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
+
 <div class ="titulo"><h1>Alquileres realizados</h1></div>
 
-<table class="tabla_scaffold" width="65%">
+<table class="tabla_scaffold" width="100%">
 	<% @alquileres.each do |alquiler| %>
 	<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
 

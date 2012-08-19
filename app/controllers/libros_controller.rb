@@ -1,17 +1,19 @@
 require 'googlebooks'
 
 class LibrosController < ApplicationController
-  	before_filter :es_adminitrador
+	before_filter :es_adminitrador
+  	skip_before_filter :es_adminitrador, :only => :autocomplete_libro_titulo
+
 	layout "administrador"
     add_breadcrumb "Mantenimiento", :ppal_admin_index_path
-	
+
+	autocomplete :libro, :titulo
   # GET /libros
   # GET /libros.json
   def index
 
 	#@books = GoogleBooks.search('isbn:8420540021')	
 	#@imagen = @books.first.image_link 
-
 	add_breadcrumb "Listado de libros", :libros_index_path
 	@search = Libro.search(params[:search])
     @libros = @search.paginate(:page => params[:page], :per_page => 5)

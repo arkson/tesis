@@ -1,0 +1,11 @@
+
+class PpalEstudiante < ActiveRecord::Base
+
+ 
+  attr_accessor :libro_titulo 
+
+  
+
+end
+
+

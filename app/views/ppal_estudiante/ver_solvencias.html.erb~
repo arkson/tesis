@@ -18,7 +18,9 @@
 				<dd>Estatus: <%= solvencia.estatus %></dd>
 			</dl>
 		</td>
-		
+		<td class="ver_datos" width="35%">
+			
+		</td>
 	</tr>
 	<% end %>
 </table>

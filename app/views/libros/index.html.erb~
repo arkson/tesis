@@ -4,7 +4,8 @@
 
 <div class ="busqueda">
   <%= form_for @search do |f| %>
-    <%= f.text_field :cota_or_isbn_or_titulo_contains, :value => "Buscar por cota, isbn o título", :onfocus =>"this.value=''", :onblur =>"this.value='Buscar por cota, isbn o título'", :class => "campo_busqueda" %>      
+    <%= f.autocomplete_field :cota_or_isbn_or_titulo_contains, autocomplete_libro_titulo_libros_path, :value => "Buscar por cota, isbn o título", :onfocus =>"this.value=''", :onblur =>"this.value='Buscar por cota, isbn o título'", :class => "campo_busqueda", :size => 75 %>   
+ 
     <%= f.submit :buscar %>
 
   <% end %>
@@ -12,7 +13,7 @@
 
 <div class ="titulo"><h1>Listado de libros</h1></div>
 <%= link_to 'Nuevo Libro', new_libro_path, :id => "links" %>
-<div style="line-height:25px;display: block;margin-bottom:30px;margin-top:30px;">
+<div style="line-height:25px;display: block;margin-bottom:30px;margin-top:20px;">
 
 
 	<div style="font-size:12px;float:left;position:absolute;">

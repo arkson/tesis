@@ -72,7 +72,7 @@ $(function (){
 				$( "#dialog-form" ).dialog( "close" );
 			});
 
-var availableTags = [
+		var availableTags = [
 			"ActionScript",
 			"AppleScript",
 			"Asp",

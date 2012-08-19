@@ -1,18 +1,12 @@
-<!--- BUSCADOR DE NUEVO LIBRO 
-<%= form_tag url_for(:controller => 'libros', :action => 'buscar_amazon') do %>
-	<div>
-		<% text_field_tag :isbn, params[:isbn] %>
-	</div>	
-	<div class = "actions">
-		<%= submit_tag "Buscar", :class => 'ingresar' %>
-	</div>
-<% end %>-->
+
 
 
 <%= form_for(@libro) do |f| %>
   <% if @libro.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@libro.errors.count, "error") %> prohibited this libro from being saved:</h2>
+     <h2><%= t('errors.template.header', :count=>@libro.errors.size,:model=>t('activerecord.models.libro')) %>.</h2>
+	 <p><%= t('errors.template.body') %></p>
+
 
       <ul>
       <% @libro.errors.full_messages.each do |msg| %>
@@ -25,6 +19,7 @@
   <div class="field">
     <%= f.label :cota %><br />
     <%= f.text_field :cota %>
+<%= f.autocomplete_field :libro_titulo, autocomplete_libro_titulo_libros_path %>
   </div>
   <div class="field">
     <%= f.label :titulo %><br />
@@ -67,6 +62,6 @@
     <%= f.collection_select :dependencia_id, Dependencia.all, :id, :nombre %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit t('.submit') %>
   </div>
 <% end %>

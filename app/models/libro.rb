@@ -6,7 +6,7 @@ class Libro < ActiveRecord::Base
   has_many :ejemplar 
   
  
-  
+  attr_accessor :libro_titulo
   
 
   validates :cota, :titulo, :autor,:edicion, :ano, :presence => true  
@@ -17,7 +17,7 @@ class Libro < ActiveRecord::Base
   def titulo_and_autor
   	[titulo,autor].join(' | ')
   end
-
+  public 
 
   public
   def cantidad_disponible
@@ -36,3 +36,5 @@ class Libro < ActiveRecord::Base
 
 
 end
+
+

@@ -9,6 +9,7 @@
 //= require jquery_ujs
 //= require nicEdit-latest
 //= require message
+//= require autocomplete-rails
 //= require_tree .
 
 
