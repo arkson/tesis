@@ -48,6 +48,7 @@ GEM
     galetahub-simple_captcha (0.1.3)
     googlebooks (0.0.6)
       httparty
+    googlecharts (1.6.8)
     hike (1.2.1)
     httparty (0.8.3)
       multi_json (~> 1.0)
@@ -146,6 +147,7 @@ DEPENDENCIES
   coffee-rails (~> 3.1.1)
   galetahub-simple_captcha
   googlebooks
+  googlecharts
   jasper-bridge
   jquery-rails
   json

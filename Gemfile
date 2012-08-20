@@ -21,6 +21,7 @@ gem "rmagick", "~> 2.13.1"
 gem "breadcrumbs_on_rails", "~> 2.2.0"
 gem "googlebooks"
 gem 'rails3-jquery-autocomplete'
+gem 'googlecharts'
 
 #gem "amazon-ecs", "~> 2.2.4"
 # Gems used only for assets and not required
