@@ -10,9 +10,22 @@
 
 <div class ="titulo"><h1>Listado de editoriales</h1></div>
 
-<%= will_paginate @editoriales , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
+<div style="line-height:25px;display: block;margin-bottom:30px;margin-top:20px;">
 
-<table class="tabla_scaffold" width="98%">
+
+	<div style="font-size:12px;float:left;">		
+		<%= link_to 'Nueva Editorial', new_editorial_path, :id => "links" %>
+
+	</div>
+	
+	<%= will_paginate(@libros, :renderer => PaginationListLinkRenderer, :first_label => "Primera",
+	  :previous_label => "Anterior",
+	  :summary_label => "%d - %d de %d",
+	  :next_label => "Siguiente",
+	  :last_label => "Última") %>
+</div>
+
+<table class="tabla_scaffold" width="100%">
 	<% @editoriales.each do |editorial| %>
 		<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
 			<td class="list_description">
@@ -31,6 +44,4 @@
 
 <%= will_paginate @editoriales , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
 
-<br />
 
-<%= link_to 'Nueva Editorial', new_editorial_path, :id => "links" %>

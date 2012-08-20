@@ -1,6 +1,4 @@
-<%= form_tag url_for (:controller => "libros",:action => "autocomplete_libro_titulo") do %>
-  <%= autocomplete_field_tag 'libro_titulo', '', autocomplete_libro_titulo_libros_path, :size => 75 %>
-<% end %>
+
 
 
 
@@ -14,20 +12,27 @@
 
 <div class ="titulo"><h1>Listado de alquileres</h1></div>
 
-<%= will_paginate @alquileres , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
+<div style="line-height:25px;display: block;margin-bottom:30px;margin-top:20px;">
 
-<table class="tabla_scaffold" width="98%">
+	<%= will_paginate(@libros, :renderer => PaginationListLinkRenderer, :first_label => "Primera",
+	  :previous_label => "Anterior",
+	  :summary_label => "%d - %d de %d",
+	  :next_label => "Siguiente",
+	  :last_label => "Última") %>
+</div>
+
+<table class="tabla_scaffold" width="100%">
 	<% @alquileres.each do |alquiler| %>
 		<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
 
 		<td class="list_description">
 			<dl>
-				<dt>Nro Alquiler : <%= alquiler.id %></dt>
-				<dd>Periodo: <%= alquiler.configuracion.periodo %> | Año: <%= alquiler.configuracion.ano %>  </dd>    	
 				<dd>Nombre: <%= link_to alquiler.usuario.nombre,alquiler.usuario %></dd>
 				<dd>Cédula: <%= link_to alquiler.usuario.cedula,alquiler.usuario %></dd>
-				<dd>Fecha de Inicio: <%= alquiler.created_at.strftime("%d/%m/%Y") %> </dd>
-				<dd>Fecha de culminación: <%= alquiler.fecha_fin.strftime("%d/%m/%Y") %></dd>
+				<dt>Nro Alquiler : <%= alquiler.id %></dt>
+				<dd>Periodo: <%= alquiler.configuracion.periodo %> | Año: <%= alquiler.configuracion.ano %>  </dd> 
+				<dd>Fecha de Inicio: <%= alquiler.created_at.strftime("%d/%m/%Y") %> |
+				Fecha de culminación: <%= alquiler.fecha_fin.strftime("%d/%m/%Y") %></dd>
 				<dd>Libros Alquilados: <%= alquiler.line_item.count %>				
 
 				<dd>Estatus: <b><%= alquiler.estatus %></b></dd>

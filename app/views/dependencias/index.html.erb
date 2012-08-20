@@ -10,11 +10,24 @@
 
 <div class ="titulo"><h1>Listado de dependencias</h1></div>
 
-<button id="link"><%= link_to 'Nueva Dependencia', new_dependencia_path %></button>
 
-<%= will_paginate @dependencias , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
 
-<table class="tabla_scaffold" width="98%">
+<div style="line-height:25px;display: block;margin-bottom:30px;margin-top:20px;">
+
+
+	<div style="font-size:12px;float:left;">
+		<button id="link"><%= link_to 'Nueva Dependencia', new_dependencia_path %></button>
+
+	</div>
+	
+	<%= will_paginate(@libros, :renderer => PaginationListLinkRenderer, :first_label => "Primera",
+	  :previous_label => "Anterior",
+	  :summary_label => "%d - %d de %d",
+	  :next_label => "Siguiente",
+	  :last_label => "Última") %>
+</div>
+
+<table class="tabla_scaffold" width="100%">
 <% @dependencias.each do |dependencia| %>
 <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
 <td class="list_description">
@@ -32,6 +45,4 @@
 <% end %>
 </table>
 <%= will_paginate @dependencias , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
-<br />
 
-<button id="link"><%= link_to 'Nueva Dependencia', new_dependencia_path %></button>

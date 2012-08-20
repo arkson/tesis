@@ -1,7 +1,7 @@
 
 <div class ="busqueda">
   <%= form_for @search do |f| %>
-    <%= f.text_field :libro_titulo_or_libro_cota_or_estatus_ejemplar_contains, :value => "Buscar por cota, título o estatus", :onfocus =>"this.value=''", :onblur =>"this.value='Buscar por cota, título o estatus'", :class => "campo_busqueda" %>
+    <%= f.text_field :libro_titulo_or_libro_cota_or_estatus_ejemplar_contains, :value => "Buscar por cota, título o estatus", :onfocus =>"this.value=''", :class => "campo_busqueda" %>
       
     <%= f.submit :buscar %>
   <% end %>
@@ -9,11 +9,20 @@
 
 <div class ="titulo"><h1>Listado de ejemplares</h1></div>
 
-<%= link_to 'Nuevo Ejemplar', new_ejemplar_path, :id => "links" %>
+<div style="line-height:25px;display: block;margin-bottom:30px;margin-top:20px;">
+	<div style="font-size:12px;float:left;">		
+		<%= link_to 'Nuevo Ejemplar', new_ejemplar_path, :id => "links" %>
 
-<%= will_paginate @ejemplares , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
+	</div>
 
-<table class="tabla_scaffold" width="98%">
+	<%= will_paginate(@libros, :renderer => PaginationListLinkRenderer, :first_label => "Primera",
+	  :previous_label => "Anterior",
+	  :summary_label => "%d - %d de %d",
+	  :next_label => "Siguiente",
+	  :last_label => "Última") %>
+</div>
+
+<table class="tabla_scaffold" width="100%">
 
 <% @ejemplares.each do |ejemplar| %>
 
@@ -51,6 +60,5 @@
 
 <%= will_paginate @ejemplares , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
 
-<br />
 
-<%= link_to 'Nuevo Ejemplar', new_ejemplar_path, :id => "links" %>
+

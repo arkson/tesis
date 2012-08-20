@@ -11,16 +11,9 @@
 
 <div class ="titulo"><h1>Auditorias</h1></div>
 
-<div style="line-height:25px;display: block;margin-bottom:30px;margin-top:20px;">
+<%= will_paginate @configuraciones , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
 
-	<%= will_paginate(@libros, :renderer => PaginationListLinkRenderer, :first_label => "Primera",
-	  :previous_label => "Anterior",
-	  :summary_label => "%d - %d de %d",
-	  :next_label => "Siguiente",
-	  :last_label => "Última") %>
-</div>
-
-<table class="tabla_scaffold" width="100%">
+<table class="tabla_scaffold" width="98%">
 	<% @auditorias.each do |auditoria| %>
 	<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
 		<td class="list_description">

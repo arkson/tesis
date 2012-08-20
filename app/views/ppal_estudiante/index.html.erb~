@@ -5,7 +5,7 @@
 
 <div class ="busqueda">
   <%= form_for @search, :url => ppal_estudiante_index_path, :html => {:method => :get} do |f| %>
-    <%= f.autocomplete_field :titulo_or_cota_contains, autocomplete_libro_titulo_cota_libros_path, :value => "Buscar por título o cota", :onfocus =>"this.value=''", :onblur =>"this.value='Buscar por título o cota'",:class => "campo_busqueda", :autocomplete => autocomplete_libro_titulo_cota_libros_path, :size => 60 %>      
+    <%= f.autocomplete_field :titulo_or_cota_contains, autocomplete_libro_titulo_libros_path, :value => "Buscar por título o cota", :onfocus =>"this.value=''" :size => 60 %>      
     <%= f.submit :Buscar %>
   <% end %>
 </div>

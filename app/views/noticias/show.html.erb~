@@ -1,4 +1,6 @@
-
+<% if notice %>
+<p class="notice"><%= notice %></p>
+<% end %>
 <div class = "mostrar">
 <p>
   <b>Titulo:</b>
@@ -20,6 +22,6 @@
   <%= @noticia.fecha.strftime("%d/%m/%Y") %>
 </p>
 </div>
-
+</ br>
 <%= link_to 'Editar', edit_noticia_path(@noticia), :id => "links" %> &nbsp
 <%= link_to 'Regresar', noticias_path, :id => "links" %>

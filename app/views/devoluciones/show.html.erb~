@@ -1,4 +1,6 @@
-
+<% if notice %>
+<p class="notice"><%= notice %></p>
+<% end %>
 <p>
   <b>Alquiler:</b>
   <%= @devolucion.alquiler %>
@@ -19,6 +21,6 @@
   <%= @devolucion.line_item %>
 </p>
 
-
+<br />
 <%= link_to 'Edit', edit_devolucion_path(@devolucion) %> |
 <%= link_to 'Back', devoluciones_path %>

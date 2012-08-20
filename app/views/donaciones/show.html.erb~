@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+<p class="notice"><%= notice %></p>
+<% end %>
 
 <p>
   <b>Ejemplar:</b>

@@ -3,16 +3,22 @@
 <div class ="titulo"><h1>Listado de areas de conocimientos</h1></div>
 <div class ="busqueda">
   <%= form_for @search do |f| %>
-    <%= f.label :Buscar, :class => "buscar" %>
     <%= f.text_field :nombre_contains, :value => "Buscar por nombre", :onfocus =>"this.value=''", :onblur =>"this.value='Buscar por nombre'", :class => "campo_busqueda" %>
     <!-- etc... -->
     <%= f.submit :buscar%>
   <% end %>
 </div>
 
-<%= will_paginate @areas_conocimientos , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
+<div style="line-height:25px;display: block;margin-bottom:30px;margin-top:20px;">
 
-<table class="tabla_scaffold" width="98%">
+	<%= will_paginate(@libros, :renderer => PaginationListLinkRenderer, :first_label => "Primera",
+	  :previous_label => "Anterior",
+	  :summary_label => "%d - %d de %d",
+	  :next_label => "Siguiente",
+	  :last_label => "Última") %>
+</div>
+
+<table class="tabla_scaffold" width="100%">
 <% @areas_conocimientos.each do |area_conocimiento| %>
 <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
 <td class="list_description">

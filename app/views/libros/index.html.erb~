@@ -1,11 +1,19 @@
 <% if notice %>
 	<p class="notice"><%= notice %></p>
 <% end %>
-
+<script>
+      $(document).ready(function () {
+          $("#search_cota_or_isbn_or_titulo_contains").onfocus(function () {
+              var value = $(this).val();
+              $("#search_cota_or_isbn_or_titulo_contains").val(value);
+          });
+      });
+</script>
 <div class ="busqueda">
   <%= form_for @search do |f| %>
-    <%= f.autocomplete_field :cota_or_isbn_or_titulo_contains, autocomplete_libro_titulo_libros_path, :value => "Buscar por cota, isbn o título", :onfocus =>"this.value=''", :onblur =>"this.value='Buscar por cota, isbn o título'", :class => "campo_busqueda", :size => 75 %>   
- 
+
+    <%= f.autocomplete_field :cota_or_isbn_or_titulo_contains, autocomplete_libro_titulo_libros_path, :value => "Buscar por cota, isbn o título", :onfocus =>"this.value=''", :onblur =>"this.value='Buscar por cota, isbn o título'", :size => 60 %>   
+
     <%= f.submit :buscar %>
 
   <% end %>
@@ -16,7 +24,7 @@
 <div style="line-height:25px;display: block;margin-bottom:30px;margin-top:20px;">
 
 
-	<div style="font-size:12px;float:left;position:absolute;">
+	<div style="font-size:12px;float:left;">
 	  Ordenar por:
 	  <%= sort_link @search, :cota %> |
 	  <%= sort_link @search, :isbn %> |
@@ -71,7 +79,4 @@
 
 <%= will_paginate @libros , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
 
-<br />
-
-<%= link_to 'Nuevo Libro', new_libro_path, :id => "links" %>
 

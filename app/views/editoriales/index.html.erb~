@@ -2,7 +2,7 @@
 
 <div class ="busqueda">
   <%= form_for @search do |f| %>
-    <%= f.text_field :nombre_contains, :class => "campo_busqueda" %>
+    <%= f.text_field :nombre_contains, :value => "Buscar por nombre", :onfocus =>"this.value=''", :onblur =>"this.value='Buscar por nombre'", :class => "campo_busqueda" %>
     <!-- etc... -->
     <%= f.submit :buscar%>
   <% end %>
@@ -12,7 +12,7 @@
 
 <%= will_paginate @editoriales , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
 
-<table class="tabla_scaffold" width="98%">
+<table class="tabla_scaffold" width="100%">
 	<% @editoriales.each do |editorial| %>
 		<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
 			<td class="list_description">
@@ -31,6 +31,5 @@
 
 <%= will_paginate @editoriales , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
 
-<br />
 
 <%= link_to 'Nueva Editorial', new_editorial_path, :id => "links" %>

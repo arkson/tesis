@@ -14,7 +14,7 @@
 			<dd>Periodo: <%= configuracion.periodo %></dd>
 			<dd>Año: <%= configuracion.ano %></dd>
 			<dd>Fecha inicio: <%= configuracion.fecha_inicio.strftime("%d/%m/%Y") %></dd>
-			<dd>Fecha fin: <%= configuracion.fecha_fin %></dd>
+			<dd>Fecha fin: <%= configuracion.fecha_fin.strftime("%d/%m/%Y") %></dd>
 			<dd>Máx. num. libros: <%= configuracion.max_num_libro %></dd>
 			<dd>Tiempo prealquiler: <%= configuracion.tiempo_prealquiler %></dd>
 			<dd>Tipo periodo: <%= configuracion.tipo_periodo %></dd>

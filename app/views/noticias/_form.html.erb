@@ -19,14 +19,8 @@
 
   <div class="field">
 	<%= f.label :tipo_contenido, 'Tipo de contenido ' %><br />
-    <%= f.select "tipo_contenido",
-                         "<option value = 'Noticia'>Noticia</option>
-                          <option value = 'Historia'>Historia</option>
-                          <option value = 'Servicio'>Servicio</option>
-						  <option value = 'Normativa'>Normativa</option>	
-						  <option value = 'Horario'>Horario</option>"	
-	
-                          %>
+
+	<%= f.collection_select :id, Noticia.all, :id, :tipo_contenido %>
   </div>	
 
   <div class="field">

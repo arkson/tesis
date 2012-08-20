@@ -1,27 +1,29 @@
-<div class="informacion">
-<h1>Listado de librerias</h1>
 
-<table class="tabla_scaffold" width="85%">
-<% @librerias.each do |libreria| %>
-<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
-<td class="list_description">
-<dl>
-<dt><%= libreria.nombre %></dt>
-<dd><%= libreria.telefono %></dd>
-</dl>
-</td>
-<td class="list_actions" width="5%">
-<%= link_to image_tag("open.png", :alt => "Mostrar", :title => "Mostrar", :size => "18x18"), libreria %><br />
-<%= link_to image_tag("editpaste.png", :alt => "Editar", :title => "Editar", :size => "18x18"), edit_libreria_path(libreria) %><br />
-<%= link_to image_tag("cross.png", :alt => "Eliminar", :title => "Eliminar", :size => "18x18"), libreria, :confirm => '¿Estas seguro?', :method => :delete %>
-</td>
-</tr>
-<% end %>
-</table>
+<div class ="titulo"><h1>Listado de librerías</h1></div>
 
-<br />
+<div style="line-height:25px;display: block;margin-bottom:30px;margin-top:20px;">
 
-<button id="link"><%= link_to 'Nueva Libreria', new_libreria_path %></button>
+	<div style="font-size:12px;float:left;">		
+		<%= link_to 'Nueva Libreria', new_libreria_path, :id => "links" %>
+
+	</div>
+
 </div>
 
-
+<table class="tabla_scaffold" width="100%">
+	<% @librerias.each do |libreria| %>
+		<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+			<td class="list_description">
+				<dl>
+					<dt><%= libreria.nombre %></dt>
+					<dd><%= libreria.telefono %></dd>
+				</dl>
+			</td>
+			<td class="list_actions" width="5%">
+				<%= link_to image_tag("open.png", :alt => "Mostrar", :title => "Mostrar", :size => "18x18"), libreria %><br />
+<%= link_to image_tag("editpaste.png", :alt => "Editar", :title => "Editar", :size => "18x18"), edit_libreria_path(libreria) %><br />
+<%= link_to image_tag("cross.png", :alt => "Eliminar", :title => "Eliminar", :size => "18x18"), libreria, :confirm => '¿Estas seguro?', :method => :delete %>
+			</td>
+		</tr>
+	<% end %>
+</table>

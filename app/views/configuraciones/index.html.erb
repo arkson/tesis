@@ -2,8 +2,20 @@
 
 <div class ="titulo"><h1>Listado de configuraciones</h1></div>
 
+<div style="line-height:25px;display: block;margin-bottom:30px;margin-top:20px;">
 
-<%= will_paginate @configuraciones , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
+
+	<div style="font-size:12px;float:left;">
+		<%= link_to 'Nueva Configuración', new_configuracion_path, :id => "links" %>
+
+	</div>
+	
+	<%= will_paginate(@libros, :renderer => PaginationListLinkRenderer, :first_label => "Primera",
+	  :previous_label => "Anterior",
+	  :summary_label => "%d - %d de %d",
+	  :next_label => "Siguiente",
+	  :last_label => "Última") %>
+</div>
 
 <table class="tabla_scaffold" width="98%">
 	<% @configuraciones.each do |configuracion| %>
@@ -32,6 +44,4 @@
 
 <%= will_paginate @configuraciones , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
 
-<br />
 
-<%= link_to 'Nueva Configuración', new_configuracion_path, :id => "links" %>
