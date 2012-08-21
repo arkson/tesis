@@ -99,6 +99,10 @@ class PpalAdminController < ApplicationController
 	
 	params[:visible] = 1
 
+
+	@recaudado = total_recaudado
+
+
   end
 
 

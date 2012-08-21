@@ -1,8 +1,8 @@
-
-<div class ="titulo"><h1>Top 10 alquilados</h1></div>
+<div class="titulo" ><h1>Total recaudado: <%= number_to_currency(@recaudado[0].total, :unit => "Bs.") %></h1></div>
+<div class ="titulo"><h1>Libros más alquilados</h1></div>
 
 <% @cont = 1 %>
-<table class="tabla_scaffold" width="100%">
+<table class="tabla_scaffold" width="100%" >
 
 	<% @top_libros.each do |lib| %>
 	<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
