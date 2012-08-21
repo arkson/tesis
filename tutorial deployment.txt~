@@ -1,0 +1,97 @@
+To install Curl development headers with SSL support:
+   Please run apt-get install libcurl4-openssl-dev or libcurl4-gnutls-dev, whichever you prefer.
+
+ * To install OpenSSL development headers:
+   Please run apt-get install libssl-dev as root.
+
+ * To install Apache 2:
+   Please run apt-get install apache2-mpm-prefork as root.
+
+ * To install Apache 2 development headers:
+   Please run apt-get install apache2-prefork-dev as root.
+
+ * To install Apache Portable Runtime (APR) development headers:
+   Please run apt-get install libapr1-dev as root.
+
+ * To install Apache Portable Runtime Utility (APU) development headers:
+   Please run apt-get install libaprutil1-dev as root.
+
+
+
+LANGUAGE = en_US
+LC_ALL = en_US
+LANG = en_US
+LC_TYPE = en_US
+
+Tutorial para pasar a produccion aplicaciones rails.
+
+1. sudo gem install passenger
+
+2. configurar las variables en etc/environment:
+
+LANGUAGE="en_US"
+LC_ALL="en_US.UTF-8"
+LANG="en_US"
+LC_TYPE="en_US"
+
+NOTA: configurar las variables de idiomas dpkg-reconfigure locales
+
+3.sudo passenger-install-apache2-module e instalar posibles librerias faltantes.
+
+Luego de este proceso te indicara unas lineas que debes agregar en el archivo de configuracion de apache, por ejemplo:
+
+LoadModule passenger_module /usr/lib/ruby/gems/1.8/gems/passenger-3.0.15/ext/apache2/mod_passenger.so
+   PassengerRoot /usr/lib/ruby/gems/1.8/gems/passenger-3.0.15
+   PassengerRuby /usr/bin/ruby1.8
+
+Para saber cual es el archivo de configuracion de apache, escribe el siguiente comando:
+	apachectl -V | grep SERVER_CONFIG_FILE
+
+Al final del archivo de configuracion agregar la linea 
+	ServerName tudominio 
+---------------------- Archivo de configuracion para host virtual ---------------------------
+
+Suppose you have a Rails application in /somewhere. Add a virtual host to your
+Apache configuration file and set its DocumentRoot to /somewhere/public:
+
+   <VirtualHost *:80>
+      ServerName www.yourhost.com
+      # !!! Be sure to point DocumentRoot to 'public'!
+      DocumentRoot /somewhere/public    
+      <Directory /somewhere/public>
+         # This relaxes Apache security settings.
+         AllowOverride all
+         # MultiViews must be turned off.
+         Options -MultiViews
+      </Directory>
+   </VirtualHost>
+
+NOTA: para mas informacion /usr/lib/ruby/gems/1.8/gems/passenger-3.0.15/doc/Users guide Apache.html
+
+Enjoy Phusion Passenger, a product of Phusion (www.phusion.nl) :-)
+
+
+
+4. Duplicamos el archivo default en site-available y lo nombramos "bolsadellibro.com" 
+
+dentro de ese archivo colocamos lo siguiente 
+
+NameVirtualHost 190.169.94.40
+
+<VirtualHost 190.169.94.40>
+	ServerName www.bolsadelibro.com
+	DocumentRoot /opt/rails_app/tesis/public/
+	<Directory /opt/rails_app/tesis/public>
+		Order allow,deny
+		Allow from all
+	</Directory>
+</VirtualHost>
+
+ cambiamos el archivo host agregando lo siguiente
+190.169.94.40    bolsadellibro.com
+
+para habilitar el sitio por defecto escribimos el comando
+a2dissite default
+y para activar el nuevo dominio escribimos el comando
+a2ensite bolsadellibro.com
+
