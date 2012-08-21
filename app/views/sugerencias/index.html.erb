@@ -1,0 +1,27 @@
+<h1>Listing sugerencias</h1>
+
+<table>
+  <tr>
+    <th>Fecha</th>
+    <th>Usuario</th>
+    <th>Libro</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @sugerencias.each do |sugerencia| %>
+  <tr>
+    <td><%= sugerencia.fecha %></td>
+    <td><%= sugerencia.usuario %></td>
+    <td><%= sugerencia.libro %></td>
+    <td><%= link_to 'Show', sugerencia %></td>
+    <td><%= link_to 'Edit', edit_sugerencia_path(sugerencia) %></td>
+    <td><%= link_to 'Destroy', sugerencia, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Sugerencia', new_sugerencia_path %>

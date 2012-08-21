@@ -1,0 +1,29 @@
+<%= form_for(@sugerencia) do |f| %>
+  <% if @sugerencia.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sugerencia.errors.count, "error") %> prohibited this sugerencia from being saved:</h2>
+
+      <ul>
+      <% @sugerencia.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :fecha %><br />
+    <%= f.date_select :fecha %>
+  </div>
+  <div class="field">
+    <%= f.label :usuario %><br />
+    <%= f.text_field :usuario %>
+  </div>
+  <div class="field">
+    <%= f.label :libro %><br />
+    <%= f.text_field :libro %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

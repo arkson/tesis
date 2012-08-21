@@ -80,7 +80,7 @@ Tesis::Application.routes.draw do
   get "ejemplares/index"
 
   get "libros/index"
-
+  get "libros/busqueda"
   get "editoriales/index"
 
   get "areas_conocimientos/index"
@@ -112,7 +112,7 @@ Tesis::Application.routes.draw do
   resources :ejemplares
 
   resources :libros  do
-   get :autocomplete_libro_titulo_cota, :on => :collection
+   get :autocomplete_libro_titulo, :on => :collection
   end
 
   resources :editoriales

@@ -12,8 +12,7 @@ class LibrosController < ApplicationController
   # GET /libros.json
   def index
 
-	#@books = GoogleBooks.search('isbn:8420540021')	
-	#@imagen = @books.first.image_link 
+
 	add_breadcrumb "Listado de libros", :libros_index_path
 	@search = Libro.search(params[:search])
     @libros = @search.paginate(:page => params[:page], :per_page => 5)
@@ -45,6 +44,20 @@ class LibrosController < ApplicationController
       format.html # new.html.erb
       format.json { render :json => @libro }
     end
+  end
+
+  def busqueda
+
+    @isbn = params[:isbn]
+	@books = GoogleBooks.search('isbn:'+@isbn)	
+	first_book = @books.first
+	@imagen = first_book.image_link
+	@autor = first_book.authors 
+	@titulo = first_book.title
+	@editorial = first_book.publisher 
+	@isbn = first_book.isbn 	
+	@ano = first_book.published_date 
+
   end
 
   # GET /libros/1/edit

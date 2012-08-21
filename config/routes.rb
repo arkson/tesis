@@ -1,5 +1,7 @@
 Tesis::Application.routes.draw do
   
+  resources :sugerencias
+
   resources :auditorias
 
   resources :donaciones
@@ -80,7 +82,7 @@ Tesis::Application.routes.draw do
   get "ejemplares/index"
 
   get "libros/index"
-
+  post "libros/busqueda"
   get "editoriales/index"
 
   get "areas_conocimientos/index"
