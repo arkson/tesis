@@ -26,7 +26,12 @@ class Libro < ActiveRecord::Base
   end
 
  def precio_minimo 	
-	ejemplar.where("estatus_ejemplar = 'Disponible' or estatus_ejemplar = 'Solicitado'").order('costo_alquiler asc').first.costo_alquiler 
+	min = ejemplar.where("estatus_ejemplar = 'Disponible' or estatus_ejemplar = 'Solicitado'").order('costo_alquiler asc').first
+	if min.nil?
+		return 0
+	else
+		return min.costo_alquiler
+	end	
 
  end 	
  	

@@ -192,6 +192,24 @@ class ApplicationController < ActionController::Base
    end
 
 
+  def top_10
+		@config = current_config 
+ 		@top_libros = Libro.find_by_sql(['select count(e.id) as cantidad, b.id, b.titulo,b.cota
+											from alquileres a join lines_items l on (a.id = l.alquiler_id)
+											join devoluciones d on (l.id = d.line_item_id)
+											join ejemplares e on (l.ejemplar_id = e.id)
+											join libros b on (e.libro_id = b.id) 
+											where (a.estatus = ? or a.estatus = ?)
+											and a.configuracion_id = ?
+											group by b.id
+											order by cantidad desc
+											LIMIT 10 ', "Alquilado", "Alquiler Finalizado", @config[0].id ])
+
+#	@top_libros.each do |lib|	
+#	 print "#{lib.titulo}  #{lib.cantidad} \n"
+#	end
+  end	
+
 end
 
 

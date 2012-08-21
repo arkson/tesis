@@ -1,0 +1,20 @@
+
+<div class ="titulo"><h1>Top 10 alquilados</h1></div>
+
+<% @cont = 1 %>
+<table class="tabla_scaffold" width="100%">
+
+	<% @top_libros.each do |lib| %>
+	<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+	  <td class="list_actions" width="5%" >
+		<b> <%=@cont %> </b>
+	  </td>	
+	  <td class="list_description">
+		<dl>	
+		<dd> <%= lib.titulo %> - <%= lib.cota %>	(<%=lib.cantidad %>)</dd>
+		<% @cont = @cont + 1 %>
+		</dl>
+	  </td>	
+	</tr>
+	<%end%>
+</table>

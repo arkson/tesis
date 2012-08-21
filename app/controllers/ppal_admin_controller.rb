@@ -10,8 +10,6 @@ class PpalAdminController < ApplicationController
 #theme => keynote, thirty7signals, pastel, greyscale   
 
 ###Libros alquilados agrupados por area de conocimiento
-
-	
   @ejemplares_area = Ejemplar.find_by_sql("select count(e.id) as cantidad, b.area_conocimiento_id, c.nombre
 											from alquileres a join lines_items l on (a.id = l.alquiler_id)
 											join devoluciones d on (l.id = d.line_item_id)
@@ -21,7 +19,7 @@ class PpalAdminController < ApplicationController
 											where a.estatus = 'Alquilado'
 											and d.estatus = 'Sin devolver'
 											group by b.area_conocimiento_id")	
-# #{user.name} (#{total == 0 ? 0 : (100.0 * number / total).round}%)"
+
 
   	 total = @ejemplares_area.to_a.sum{|ejem| ejem.cantidad}   
 	 @datos = Array.new
@@ -92,9 +90,14 @@ class PpalAdminController < ApplicationController
 	 end	
 
 	
-	 @pie_chart3 = Gchart.pie_3d(:data => @datos, :title => "Ejemplares entregados a cada escuela", :labels => @label, :legend => @legend, :theme => :greyscale,:size => '550x150')	
+	 @pie_chart3 = Gchart.pie_3d(:data => @datos, :title => "Cantidad de usuarios por escuela", :labels => @label, :legend => @legend, :theme => :greyscale,:size => '550x150')	
+
+######################################################################################################################
 
 
+	@top_libros = top_10
+	
+	params[:visible] = 1
 
   end
 

@@ -31,8 +31,9 @@
 			<div id="columns">
 
 				<div id="side">
-					<div>
-					</div>			
+ 				  	<% if(params[:visible] == 1)%>
+						<%= render(:partial => "ppal_admin/top_libros") %>		
+					<% end%>
 				</div>
 
 				<div id="main">
