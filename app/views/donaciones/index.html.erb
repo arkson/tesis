@@ -1,25 +1,31 @@
-<h1>Listing donaciones</h1>
 
-<table>
-  <tr>
-    <th>Ejemplar</th>
-    <th>Usuario</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class ="titulo"><h1>Listado de Donaciones</h1></div>
 
-<% @donaciones.each do |donacion| %>
-  <tr>
-    <td><%= donacion.ejemplar %></td>
-    <td><%= donacion.usuario %></td>
-    <td><%= link_to 'Show', donacion %></td>
-    <td><%= link_to 'Edit', edit_donacion_path(donacion) %></td>
-    <td><%= link_to 'Destroy', donacion, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+<div style="line-height:25px;display: block;margin-bottom:30px;margin-top:20px;">
+
+	<div style="font-size:12px;float:left;">		
+		<%= link_to 'Nueva Libreria', new_donacion_path, :id => "links" %>
+
+	</div>
+
+</div>
+
+<table class="tabla_scaffold" width="100%">
+	<% @donaciones.each do |donacion| %>
+		<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+			<td class="list_description">
+				<dl>
+					<dt>Cédula: <%= link_to donacion.usuario.cedula, donacion.usuario %></dt>
+					<dd>Nombre: <%= donacion.usuario.nombre %></dt>
+					<dt>Cota: <%= link_to donacion.ejemplar.cota, donacion.ejemplar %></dd>
+					<dd>Ejemplar: <%= donacion.ejemplar.libro.titulo %></dt>
+				</dl>
+			</td>
+			<td class="list_actions" width="5%">
+				<%= link_to image_tag("open.png", :alt => "Mostrar", :title => "Mostrar", :size => "18x18"), donacion %><br />
+<%= link_to image_tag("editpaste.png", :alt => "Editar", :title => "Editar", :size => "18x18"), edit_donacion_path(donacion) %><br />
+<%= link_to image_tag("cross.png", :alt => "Eliminar", :title => "Eliminar", :size => "18x18"), donacion, :confirm => '¿Estas seguro?', :method => :delete %>
+			</td>
+		</tr>
+	<% end %>
 </table>
-
-<br />
-
-<%= link_to 'New Donacion', new_donacion_path %>

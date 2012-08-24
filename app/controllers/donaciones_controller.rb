@@ -1,6 +1,7 @@
 class DonacionesController < ApplicationController
- 
+
   before_filter :es_adminitrador
+
   layout "administrador"
 
 
@@ -45,7 +46,7 @@ class DonacionesController < ApplicationController
   # POST /donaciones
   # POST /donaciones.json
   def create
-    @donacion = Donacion.new
+    @donacion = Donacion.new(params[:donacion])
 
     respond_to do |format|
       if @donacion.save
@@ -98,13 +99,6 @@ class DonacionesController < ApplicationController
 
   end
 
-#select_tag :category, 
-#       options_for_select(
-#           Category.find(:all,:select=>"name,id").collect{|c| [c.name,c.id]}),
-#       :onchange => remote_function(:url => {:controller => "posts", 
-#                                             :action => "filter_post",
-#                                             :filter =>"category"}, 
-#                                    :with=>"'category_id=' + $('#category').val()") %>
 
 
 end

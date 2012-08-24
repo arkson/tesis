@@ -2,16 +2,30 @@
 <p class="notice"><%= notice %></p>
 <% end %>
 
+<div class ="mostrar">
+<p>
+  <b>Cédula:</b>
+  <%= link_to @donacion.usuario.cedula,@donacion.usuario %>
+</p>
+
+<p>
+  <b>Nombre:</b>
+  <%= @donacion.usuario.nombre %>
+</p>
+
+<p>
+  <b>Cota:</b>
+  <%= link_to @donacion.ejemplar.cota, @donacion.ejemplar %>
+</p>
 <p>
   <b>Ejemplar:</b>
-  <%= @donacion.ejemplar %>
+  <%= @donacion.ejemplar.libro.titulo %>
 </p>
 
-<p>
-  <b>Usuario:</b>
-  <%= @donacion.usuario %>
-</p>
 
-<br />
-<%= link_to 'Editar', edit_donacion_path(@donacion) %> |
-<%= link_to 'Regresar', donaciones_path %>
+</div>
+
+<%= link_to 'Edtar', edit_donacion_path(@donacion), :id => "links" %> &nbsp
+<%= link_to 'Regresar', donaciones_path, :id => "links" %>
+
+

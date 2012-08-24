@@ -18,7 +18,7 @@ $(function (){
 
 		$("#accordion").accordion();
 	
-		$("#accordion").accordion("activate", 2);
+		$("#accordion").accordion("activate", 1);
 
         $('#calendario').datepicker({
 			nextText: "Sig.",

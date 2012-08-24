@@ -1,6 +1,10 @@
-<h1>Editing donacion</h1>
+<div class = "editar">
+	<div class = "editar_titulo"><h1>Editar donación</h1></div>
 
-<%= render 'form' %>
+	<div class = "editar_opciones">
+	<%= link_to 'Regresar', :back, :id => "links" %>
+	</div>
+	<div class="clear"></div>
+</div>
 
-<%= link_to 'Show', @donacion %> |
-<%= link_to 'Back', donaciones_path %>
+<div class = "mostrar"><%= render 'form' %></div>
