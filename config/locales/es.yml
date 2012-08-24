@@ -116,5 +116,7 @@ es:
     form:   
       submit: "Guardar"
 
-
+  donaciones:
+    form:
+      submit: "Guardar"
  
