@@ -1,7 +1,7 @@
 <%= form_for(@editorial) do |f| %>
   <% if @editorial.errors.any? %>
     <div id="error_explanation">
-     <h2><%= t('errors.template.header', :count=>@editorial.errors.size,:model=>t('activerecord.models.editorial')) %>.</h2>
+     <h2><%= t('errors.template.header', :count=>@editorial.errors.size, :model=>t('activerecord.models.editorial') ) %>.</h2>
 	 <p><%= t('errors.template.body') %></p>
 
       <ul>

@@ -108,8 +108,8 @@ Tesis::Application.routes.draw do
   post "reportes/solvencia"
 
   get "reportes/deudores"
-
-  get "donaciones/buscar_usuario"
+   
+  
 
   resources :ejemplares
 
@@ -192,8 +192,7 @@ Tesis::Application.routes.draw do
 	  resources :librerias  
       resources :usuarios  
       resources :lines_items
-
-  resources :carts	
+  	  resources :carts	
 	   root :to => 'inicio#index'
   end	
 

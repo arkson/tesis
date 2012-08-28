@@ -12,9 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :ejemplar %><br />
-    <%= f.number_field :ejemplar_id %>
+   <%= f.label :ejemplar %><br />
+   <%= f.number_field :ejemplar_id %>
+   <%= link_to ("Verificar",{:controller => "donaciones", :action => "buscar_usuario"},:usuario_id => 1, :remote => true) %> 
   </div>
+ <div id = "usuario_des"></div> 
+	
   <div class="field">
     <%= f.label :usuario %><br />
     <%= f.number_field :usuario_id %>

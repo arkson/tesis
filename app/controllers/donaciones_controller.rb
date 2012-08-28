@@ -19,8 +19,9 @@ class DonacionesController < ApplicationController
   # GET /donaciones/1
   # GET /donaciones/1.json
   def show
-    @donacion = Donacion.find(params[:id])
-
+    #@donacion = Donacion.find(params[:id])
+	@donacion = Donacion.find(4)
+	
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @donacion }
@@ -88,11 +89,13 @@ class DonacionesController < ApplicationController
   end
 
 
+
+  private
   def buscar_usuario
-	@usuario = Usuario.find_by_cedula(params[:cedula])
+	@usuario = Usuario.find_by_cedula("17532444")
     print("asaaddddddddddddddddddddddddd")
     respond_to do |format|
-      #format.html { redirect_to ppal_estudiante_index_path}
+     format.html  { redirect_to :controller => 'donaciones', :action => "edit", :id => @usuario.id }  
 	 format.js 
 	 #format.json { render format.json , :status => :created, :location => @lin_items }
     end
