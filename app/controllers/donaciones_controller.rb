@@ -90,16 +90,18 @@ class DonacionesController < ApplicationController
 
 
 
-  private
+  
   def buscar_usuario
 	@usuario = Usuario.find_by_cedula("17532444")
     print("asaaddddddddddddddddddddddddd")
     respond_to do |format|
-     format.html  { redirect_to :controller => 'donaciones', :action => "edit", :id => @usuario.id }  
+     format.html  { redirect_to :controller => 'donaciones', :action => "edit", :id => 4}  
 	 format.js 
+	 format.json { render format.json }	
 	 #format.json { render format.json , :status => :created, :location => @lin_items }
     end
-
+#	reportes_total_libros_alquilados_path
+# <%= link_to ("Verificar",{:controller => "donaciones", :action => "buscar_usuario"},:usuario_id => 1, :remote => true) %> 
   end
 
 

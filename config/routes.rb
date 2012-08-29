@@ -109,7 +109,7 @@ Tesis::Application.routes.draw do
 
   get "reportes/deudores"
    
-  
+  get "donaciones/buscar_usuario"
 
   resources :ejemplares
 

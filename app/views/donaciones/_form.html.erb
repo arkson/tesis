@@ -13,15 +13,19 @@
 
   <div class="field">
    <%= f.label :ejemplar %><br />
-   <%= f.number_field :ejemplar_id %>
-   <%= link_to ("Verificar",{:controller => "donaciones", :action => "buscar_usuario"},:usuario_id => 1, :remote => true) %> 
-  </div>
- <div id = "usuario_des"></div> 
+   <%= f.collection_select :ejemplar_id, Ejemplar.joins(:libro).order('libros.cota asc'), :id, :cota %> 
+   
+    </div>
+ 
 	
   <div class="field">
     <%= f.label :usuario %><br />
-    <%= f.number_field :usuario_id %>
+	<%= f.collection_select :usuario_id, Usuario.order('cedula asc'), :id, :cedula, :onchange => 'this.form.submit()'  %>
+	
+
   </div>
+  <div id = "usuario_des"></div> 	
+
   <div class="actions">
     <%= f.submit t('.submit') %>
   </div>
