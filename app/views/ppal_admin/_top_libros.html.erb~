@@ -7,9 +7,9 @@
 	<% @cont = 1 %>
 
 	<% @top_libros.each do |lib| %>
-		
+		<b> <%=@cont %>. </b>
 		<dl>	
-		<dd><b> <%=@cont %>. </b> <%= lib.titulo %> - <%= lib.cota %>	(<%=lib.cantidad %>)</dd>
+		<dd> <%= lib.titulo %> - <%= lib.cota %>	(<%=lib.cantidad %>)</dd>
 		<% @cont = @cont + 1 %>
 		</dl>
 	

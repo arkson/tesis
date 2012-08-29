@@ -30,7 +30,7 @@
 				<%= render(:partial => "layouts/menu_administrador") %>				
 			<div id="columns">
 
-				<div id="side">
+				<div id="lateral">
  				  	<% if(params[:visible] == 1)%>
 						<%= render(:partial => "ppal_admin/top_libros") %>		
 					<% end%>
@@ -40,8 +40,6 @@
 					<div class = "migas">Usted está aquí: <%= render_breadcrumbs :separator => ' / ' %></div>
 					<%= yield %>
 				</div>
-
-
 
 			</div>
 		</div>

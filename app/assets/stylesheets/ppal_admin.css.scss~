@@ -19,6 +19,10 @@
 	}
 
 
+	  .toplibros
+	  { 
+	  width:200px;
+	  }
 	  .toplibros h3
 	  {
 	   padding:10px 0 0 15px;

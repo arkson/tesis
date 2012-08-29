@@ -1,4 +1,9 @@
-<p><%= render_breadcrumbs :separator => ' / ' %></p>	
-<p>Menu principal del modulo de administrador</p> 
-
-
+<table width="100%" border=1>
+<tr>
+	<td><%= image_tag( @pie_chart1, :class => "torta") %> 
+	<%= image_tag( @pie_chart2, :class => "torta") %></td> 
+</tr>
+<tr align="center">
+	<td><%= image_tag( @pie_chart3, :class => "torta2") %></td> 
+</tr>
+</table>

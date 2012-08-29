@@ -1,0 +1,28 @@
+<%= form_for(@donacion) do |f| %>
+  <% if @donacion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@donacion.errors.count, "error") %> prohibited this donacion from being saved:</h2>
+
+      <ul>
+      <% @donacion.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+   <%= f.label :ejemplar %><br />
+   <%= f.number_field :ejemplar_id %>
+   <%= link_to ("Verificar",{:controller => "donaciones", :action => "buscar_usuario"},:usuario_id => 1999, :remote => true) %> 
+  </div>
+ <div id = "usuario_des"></div> 
+	
+  <div class="field">
+    <%= f.label :usuario %><br />
+    <%= f.number_field :usuario_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit t('.submit') %>
+  </div>
+<% end %>
