@@ -3,7 +3,7 @@ class PpalEstudianteController < ApplicationController
   layout "estudiante"
   add_breadcrumb "Inicio", :ppal_estudiante_index_path
   
-  autocomplete :libro, :titulo
+  
 
   def index
  	add_breadcrumb "Listado de libros", :libros_index_path	
@@ -35,6 +35,16 @@ class PpalEstudianteController < ApplicationController
 	respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @libros }
+    end
+  end
+
+  def realizar_sugerencia
+	add_breadcrumb "Realizar sugerencia", :ppal_estudiante_ver_alquiler_path
+	@sugerencia = Sugerencia.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render :json => @sugerencia }
     end
   end
 

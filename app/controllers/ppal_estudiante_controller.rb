@@ -38,6 +38,19 @@ class PpalEstudianteController < ApplicationController
     end
   end
 
+  def realizar_sugerencia
+	add_breadcrumb "Realizar sugerencia", :ppal_estudiante_ver_alquiler_path
+	@sugerencia = Sugerencia.new
+	@cart = current_cart 
+	@configuracion = current_config
+	@categorias = categorias
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render :json => @sugerencia }
+    end
+  end
+
   def ver_alquiler
 	add_breadcrumb "Alquileres realizados", :ppal_estudiante_ver_alquiler_path
 	@cart = current_cart 

@@ -75,6 +75,8 @@ Tesis::Application.routes.draw do
 
   get "ppal_estudiante/confirmar_alquiler"
 
+  get "ppal_estudiante/realizar_sugerencia"
+
   get "ppal_estudiante/ver_solvencias"
 
   get "ppal_estudiante/enviar_solicitud_solvencia"
@@ -192,7 +194,8 @@ Tesis::Application.routes.draw do
 	  resources :librerias  
       resources :usuarios  
       resources :lines_items
-  	  resources :carts	
+  	  resources :carts
+  	  resources :sugerencias	
 	   root :to => 'inicio#index'
   end	
 

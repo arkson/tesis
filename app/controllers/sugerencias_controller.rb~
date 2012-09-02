@@ -1,14 +1,14 @@
 class SugerenciasController < ApplicationController
-
-  before_filter :es_adminitrador
-  layout "administrador"
-
-  add_breadcrumb "listado de sugerencias", :auditorias_path
   # GET /sugerencias
   # GET /sugerencias.json
+  layout "administrador"
+  add_breadcrumb "Mantenimiento", :ppal_admin_index_path
+  
   def index
-    @sugerencias = Sugerencia.all
 
+	add_breadcrumb "Listado de sugerencias", :sugerencia_index_path
+
+    @sugerencias = Sugerencia.paginate(:page => params[:page], :per_page => 5)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @sugerencias }

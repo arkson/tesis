@@ -119,3 +119,7 @@ es:
   donaciones:
     form:
       submit: "Guardar"
+
+  sugerencias:
+    form:
+      submit: "Guardar"

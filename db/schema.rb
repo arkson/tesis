@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120821155123) do
+ActiveRecord::Schema.define(:version => 20120830004101) do
 
   create_table "alquileres", :force => true do |t|
     t.integer  "usuario_id"
@@ -192,15 +192,11 @@ ActiveRecord::Schema.define(:version => 20120821155123) do
   add_index "solvencias", ["usuario_id"], :name => "index_solvencias_on_usuario_id"
 
   create_table "sugerencias", :force => true do |t|
-    t.date     "fecha"
-    t.integer  "usuario_id"
-    t.integer  "libro_id"
+    t.string   "usuario"
+    t.text     "listado"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "sugerencias", ["libro_id"], :name => "index_sugerencias_on_libro_id"
-  add_index "sugerencias", ["usuario_id"], :name => "index_sugerencias_on_usuario_id"
 
   create_table "usuarios", :force => true do |t|
     t.string   "nombre"

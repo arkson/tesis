@@ -1,3 +1,5 @@
+<% usuario = Usuario.find(session[:usuario_id]) %>
+
 <%= form_for(@sugerencia) do |f| %>
   <% if @sugerencia.errors.any? %>
     <div id="error_explanation">
@@ -13,13 +15,14 @@
 
   <div class="field">
     <%= f.label :usuario %><br />
-    <%= f.text_field :usuario %>
+    <%= f.text_field :usuario, :value => usuario.nombre %>
   </div>
   <div class="field">
     <%= f.label :listado %><br />
-    <%= f.text_area :listado %>
+    <%= f.text_area :listado, :id => "textarea" %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+

@@ -20,4 +20,4 @@
 	<% end %>
 </table>
 
-<%= will_paginate @sugerencias , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
+<%= will_paginate @sugerencia , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>

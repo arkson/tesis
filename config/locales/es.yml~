@@ -3,7 +3,7 @@ es:
   number:
     currency:
       format:
-        unit:      "$US"
+        unit:      "Bs."
         precision: 2
         separator: ","
         delimiter: "."
@@ -59,18 +59,18 @@ es:
         password_digest: "Clave"
     errors:
       messages:
-        inclusion: "no est&aacute; incluido en la lista"
+        inclusion: "no está incluido en la lista"
         blank:     "no puede quedar en blanco"
         not_a_number: "tiene que ser un número"
         greater_than: "tiene que ser un número mayor"	
         greater_than_or_equal_to: "tiene que ser un número mayor"
-        taken: "no puede existri otro registro igual" 	  
+        taken: "no puede existir otro registro igual" 	  
   errors:
     template:
       body:        "Hay problemas con los siguientes campos:"
       header:
         one:       "1 error ha impedido que este %{model} se guarde"
-        other:     "%{count} errores han impedido que este %{model} se guarde"
+        other:     "%{count} errores han impedido que %{model} se guarde"
   
   date:
     formats:
@@ -78,7 +78,7 @@ es:
       long: "%e %B %Y"
       short: "%d/%M/%y"
     order: [:day, :month, :year ]
-    month_names: [~, Enero, Febrero, Marzo, Abril, Mayo, Junio, Juillet,Julio, Septiembre, Octubre, Noviembre, Diciembre]
+    month_names: [~, Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre]
   
   usuarios:
     form:   
@@ -116,5 +116,6 @@ es:
     form:   
       submit: "Guardar"
 
-
- 
+  donaciones:
+    form:
+      submit: "Guardar"
