@@ -11,9 +11,9 @@
   <% end %>
 </div>
 
-<div class ="titulo"><h1>Catalogo de libros</h1></div>
+<div class ="titulo"><h1><%= link_to 'Catalogo de libros', ppal_estudiante_index_path %></h1></div>
 <div style="line-height:25px;display: block;margin-bottom:30px;">
-	<%= render(:partial => "layouts/ecategorias") %>
+	<%= render(:partial => "layouts/ecategorias", :locals => {:areas => @areas}) %>
 
 	<div style="font-size:12px;float:left;position:absolute;">
 	  Ordenar por:

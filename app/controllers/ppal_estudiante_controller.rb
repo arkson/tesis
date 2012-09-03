@@ -11,7 +11,7 @@ class PpalEstudianteController < ApplicationController
 	@query = Libro.where(" id in (select libro_id from ejemplares where estatus_ejemplar = 'Disponible' or estatus_ejemplar = 'Solicitado' )").order('cota asc')
 	@search = @query.search(params[:search])
 	@libros = @search.paginate(:page => params[:page], :per_page =>5)
-
+	@areas = AreaConocimiento.all	
 	@cart = current_cart 
 	@configuracion = current_config
 	@categorias = categorias
@@ -28,7 +28,7 @@ class PpalEstudianteController < ApplicationController
 	@count = @query.count
 	@search = @query.search(params[:search])
     @libros = @search.paginate(:page => params[:page], :per_page => 5)
-
+	@areas = AreaConocimiento.all
 	@cart = current_cart 
 	@configuracion = current_config
 	@categorias = categorias

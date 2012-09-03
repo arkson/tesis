@@ -36,5 +36,4 @@
 </table>
 <%= will_paginate @areas_conocimientos , :previous_label => "Anterior", :next_label => "Siguiente", :class => "paginacion" %>
 <br />
-
-<button id="link"><%= link_to 'Nueva Area de conocimiento', new_area_conocimiento_path %></button>
+<%= link_to 'Nueva Area de conocimiento', new_area_conocimiento_path, :id => "links	" %>

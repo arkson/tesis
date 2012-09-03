@@ -11,7 +11,8 @@ class PpalEstudianteController < ApplicationController
 	@query = Libro.where(" id in (select libro_id from ejemplares where estatus_ejemplar = 'Disponible' or estatus_ejemplar = 'Solicitado' )").order('cota asc')
 	@search = @query.search(params[:search])
 	@libros = @search.paginate(:page => params[:page], :per_page =>5)
-
+	@libro = Libro.all
+	@areas = AreaConocimiento.all	
 	@cart = current_cart 
 	@configuracion = current_config
 	@categorias = categorias
@@ -28,7 +29,7 @@ class PpalEstudianteController < ApplicationController
 	@count = @query.count
 	@search = @query.search(params[:search])
     @libros = @search.paginate(:page => params[:page], :per_page => 5)
-
+	@areas = AreaConocimiento.all
 	@cart = current_cart 
 	@configuracion = current_config
 	@categorias = categorias
@@ -41,6 +42,9 @@ class PpalEstudianteController < ApplicationController
   def realizar_sugerencia
 	add_breadcrumb "Realizar sugerencia", :ppal_estudiante_ver_alquiler_path
 	@sugerencia = Sugerencia.new
+	@cart = current_cart 
+	@configuracion = current_config
+	@categorias = categorias
 
     respond_to do |format|
       format.html # new.html.erb
