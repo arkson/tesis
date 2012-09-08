@@ -14,7 +14,6 @@ class PpalEstudianteController < ApplicationController
 	@areas = AreaConocimiento.all	
 	@cart = current_cart 
 	@configuracion = current_config
-	@categorias = categorias
 	respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @libros }
@@ -25,7 +24,7 @@ class PpalEstudianteController < ApplicationController
 
   def ecatalogo_categorias
 	@query = Libro.where('area_conocimiento_id = :param',{:param => params[:param]})
-	@count = @query.count
+
 	@search = @query.search(params[:search])
     @libros = @search.paginate(:page => params[:page], :per_page => 5)
 	@areas = AreaConocimiento.all

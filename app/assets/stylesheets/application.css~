@@ -284,7 +284,8 @@ select, textarea, input[type=file], input[type=checkbox] {
 	.ui-autocomplete
 	  {      
 		background:#fafafa;
-		border:1px dotted #77d;line-height:20px;
+		border:1px dotted #77d;
+		line-height:20px;
 	  }
 	.ui-menu-item:hover
 	  {      

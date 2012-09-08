@@ -85,15 +85,6 @@ class ApplicationController < ActionController::Base
   end	
 
   public
-  def categorias
-
-	@query = Libro.where("area_conocimiento_id = 1").count
-	@query2 = Libro.where("area_conocimiento_id = 2").count
-	@query3 = Libro.where("area_conocimiento_id = 3").count
-	@query4 = Libro.where("area_conocimiento_id = 4").count
-	@query5 = Libro.where("area_conocimiento_id = 5").count
-
-  end
 
 #  public
 #  def get_proximo_ejemplar(libro_id)

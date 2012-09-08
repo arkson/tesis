@@ -14,7 +14,6 @@ class InicioController < ApplicationController
   end
   
   def catalogo
-	@categorias = categorias
 	@search = Libro.search(params[:search])
     @libros = @search.paginate(:page => params[:page], :per_page => 5)
 
@@ -25,10 +24,9 @@ class InicioController < ApplicationController
   end
 
   def catalogo_categorias
-	@categorias = categorias
-	@query = Libro.where('area_conocimiento_id = :param',{:param => params[:param]})
-	@count = @query.count
-	@search = @query.search(params[:search])
+	@result = Libro.where('area_conocimiento_id = :param',{:param => params[:param]})
+	@areas = AreaConocimiento.all
+	@search = @result.search(params[:search])
     @libros = @search.paginate(:page => params[:page], :per_page => 5)
 
 	respond_to do |format|

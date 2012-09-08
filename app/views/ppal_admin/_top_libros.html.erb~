@@ -1,22 +1,21 @@
 <div class = "toplibros">
 
-	<h3><a>Total recaudado</a></h3>
-	<div><%= number_to_currency(@recaudado[0].total, :unit => "Bs.") %></div>
+	<h3><a>Total recaudado: <%= number_to_currency(@recaudado[0].total, :unit => "Bs.") %></a></h3>
 
 	<h3><a>Libros más alquilados</a></h3>
 	<div>
-		
-	<% @cont = 1 %>
-
-	<% @top_libros.each do |lib| %>
-		
-		<dl>	
-		<dd><b> <%=@cont %>. </b> <%= lib.titulo %> - <%= lib.cota %>	(<%=lib.cantidad %>)</dd>
-		<% @cont = @cont + 1 %>
-		</dl>
+		<ul>	
+		<% @cont = 1 %>
+			
+				<% @top_libros.each do |lib| %>		
+				<%= link_to(@lib) do %>
+				<li><b> <%=@cont %>. </b> <%= lib.titulo %> - <%= lib.cota %>	(<%=lib.cantidad %>)</li>
+				<% end %>
+				<% @cont = @cont + 1 %>
 	
-	<% end %>
-		
+				<% end %>
+			
+		</ul>
 	</div>
 
 </div>

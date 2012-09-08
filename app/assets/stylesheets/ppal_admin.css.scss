@@ -22,11 +22,16 @@
 	   background:#0070ba;
 	   margin:1px;
 	   font-size: 12px;
+	   border-radius:3px;
 	  }
 	  .toplibros h3 a
 	  { 
 	   color:#ffffff;
 	   line-height:20px;
+	  }
+	  .toplibros li
+	  {
+	   padding:0 0 0 15px;			
 	  }
 	  .toplibros a
 	  {
@@ -42,7 +47,7 @@
 	
 	  .torta
 	  {
-		width:49%;float:left;
+		width:50%;float:left;
 	  }
 	  .torta2
 	  {

@@ -2,15 +2,15 @@
 
 <div class ="busqueda">
   <%= form_for @search, :url => inicio_catalogo_path, :html => {:method => :get} do |f| %>
-    <%= f.text_field :titulo_or_cota_or_isbn_contains, :value => "Buscar por cota, isbn o título", :onfocus =>"this.value=''", :onblur =>"this.value='Buscar por cota, isbn o título'", :class => "campo_busqueda" %> 
+    <%= f.autocomplete_field :titulo_or_cota_contains, autocomplete_libro_titulo_libros_path, :value => "Buscar por título o cota", :onfocus =>"this.value=''", :size => 60 %> 
   
     <%= f.submit :buscar %>
   <% end %>
 </div>
 
 <div class ="titulo"><h1><%= link_to 'Catalogo de libros', inicio_catalogo_path %></h1></div>
-
-<%= render(:partial => "layouts/categorias") %>
+<div style="margin-bottom:30px;">
+	<%= render(:partial => "layouts/categorias") %>
 
 
 	<div style="font-size:12px;float:left;">
@@ -26,7 +26,7 @@
 	  :summary_label => "%d - %d de %d",
 	  :next_label => "Siguiente",
 	  :last_label => "Última") %>
-
+</div>
 
 <table class="tabla_scaffold" width="100%">
 	<% @libros.each do |libro| %>

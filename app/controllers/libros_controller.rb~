@@ -51,11 +51,11 @@ class LibrosController < ApplicationController
     @isbn = params[:isbn]
 	@books = GoogleBooks.search('isbn:'+@isbn)	
 	first_book = @books.first
-	@imagen = first_book.image_link
 	@autor = first_book.authors 
 	@titulo = first_book.title
 	@editorial = first_book.publisher 
 	@isbn = first_book.isbn 	
+	@ano = first_book.published_date 
 
   end
 

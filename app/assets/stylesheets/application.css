@@ -175,24 +175,6 @@ select, textarea, input[type=file], input[type=checkbox] {
 		}
 /* Fin Cabecera */	
 
-/* Inicio bordes */	
-	.borde_superior
-	{
-	width:200px;
-	height:20px;
-	float:right; 
-	margin-right:40px;
-	background:#0070ba;
-	border-radius: 0 0 5px 5px;
-	}
-	.borde_inferior
-	{
-	width:200px;
-	height:20px;
-	margin-left:40px;
-	background:#0071bc;
-	border-radius: 5px 5px 0 0;
-	}
 /* Inicio Contenido */
 .Contenido
 {

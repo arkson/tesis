@@ -14,10 +14,9 @@ class InicioController < ApplicationController
   end
   
   def catalogo
-	@categorias = categorias
 	@search = Libro.search(params[:search])
     @libros = @search.paginate(:page => params[:page], :per_page => 5)
-
+	@areas = AreaConocimiento.all
 	respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @libros }
@@ -25,9 +24,8 @@ class InicioController < ApplicationController
   end
 
   def catalogo_categorias
-	@categorias = categorias
 	@result = Libro.where('area_conocimiento_id = :param',{:param => params[:param]})
-
+	@areas = AreaConocimiento.all
 	@search = @result.search(params[:search])
     @libros = @search.paginate(:page => params[:page], :per_page => 5)
 
