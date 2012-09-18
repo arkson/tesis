@@ -1,5 +1,6 @@
 es:
-
+  will_paginate:
+    page_gap: "..."
   number:
     currency:
       format:
@@ -117,5 +118,9 @@ es:
       submit: "Guardar"
 
   donaciones:
+    form:
+      submit: "Guardar"
+
+  sugerencias:
     form:
       submit: "Guardar"

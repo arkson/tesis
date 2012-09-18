@@ -5,8 +5,8 @@
 
 <div class ="busqueda">
   <%= form_for @search, :url => ppal_estudiante_index_path, :html => {:method => :get} do |f| %>
-    <%= f.autocomplete_field :titulo_or_cota_contains, autocomplete_libro_titulo_libros_path, :value => "Buscar por título o cota", :onfocus =>"this.value=''" :size => 60 %>      
-    <%= f.submit :Buscar %>
+    <%= f.autocomplete_field :titulo_or_cota_contains, autocomplete_libro_titulo_libros_path, :value => "Buscar por título o cota", :onfocus =>"this.value=''", :id => "buscar" %>	      
+    <%= f.submit :Buscar, :id => "btn_buscar", :value => "Buscar" %>
   <% end %>
 </div>
 
@@ -14,7 +14,7 @@
 <div style="line-height:25px;display: block;margin-bottom:30px;">
 	<%= render(:partial => "layouts/ecategorias") %>
 
-	<div style="font-size:12px;float:left;position:absolute;">
+	<div style="font-size:12px;float:left;position:absolute;padding-left:10px;">
 	  Ordenar por:
 	  <%= sort_link @search, :cota %> |
 	  <%= sort_link @search, :isbn %> |
@@ -50,7 +50,7 @@
 		<div class="price_line"> 
 			<span class="price">Costo: <%= number_to_currency(libro.precio_minimo, :unit => "Bs.") %>  </span>		
 			<% if not @configuracion.empty? %>
-				<%= button_to 'Agregar', lines_items_path(:libro_id => libro.id,:cont => @cont ), :remote => true %>
+				<%= button_to 'Agregar', lines_items_path(:libro_id => libro.id,:cont => @cont ), :remote => true, :id => 'toggle' %>
 		    <% end %>	
 		</div>
 	</div>

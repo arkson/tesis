@@ -8,24 +8,14 @@
     padding: 5px;
     vertical-align: top;
   }
-
+ .titulo {
+	margin-bottom: 20px;
+  }
  .titulo h1{
-	padding-bottom:20px;
+	padding-top: 5px;
 	font-size:16px;
   }
 
-  .busqueda {
-    float:right;
-	padding-right:20px;
-  }
-
-  .buscar
-  {
-	margin:0;
-	padding:0;
-	width:40px;
-	font-size: 12px;
-  }
 
   #link
   {
@@ -105,7 +95,18 @@
 	border-top: 1px dotted #77d;
 	min-height: 100px;
   }
-
+  .buscar_isbn
+  {
+	padding-bottom: 1em;
+	border-bottom: 1px dotted #77d;
+  }
+  .buscar_imagen
+  {
+	float:left;
+	border:#77d solid 1px;
+	position:absolute;
+	margin:15px 0 0 10px;
+  }
   .editar
   {
 	border:fafafa solid 1px;

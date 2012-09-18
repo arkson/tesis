@@ -12,9 +12,9 @@
 <div class ="busqueda">
   <%= form_for @search do |f| %>
 
-    <%= f.autocomplete_field :cota_or_isbn_or_titulo_contains, autocomplete_libro_titulo_libros_path, :value => "Buscar por cota, isbn o título", :onfocus =>"this.value=''", :size => 60 %>   
+    <%= f.autocomplete_field :cota_or_isbn_or_titulo_contains, autocomplete_libro_titulo_libros_path, :value => "Buscar por cota, isbn o título", :onfocus =>"this.value=''", :id => "buscar" %>   
 
-    <%= f.submit :buscar %>
+    <%= f.submit :buscar, :id => "btn_buscar" %>
 
   <% end %>
 </div>
@@ -48,7 +48,7 @@
 					<% @isbn = ('isbn:' + libro.isbn) %>
 					<% @books = GoogleBooks.search('isbn:'+libro.isbn.gsub("-","")) %>
 					<% if @books.first.nil? %>
-						<%= image_tag("libro.png",:class => 'list_image') %>						
+						<%= image_tag("libro.png",:class => 'list_image') %>				
 				
 					<% else %>
 						<%= image_tag(@books.first.image_link,:class => 'list_image' )  %>

@@ -13,6 +13,21 @@
 //= require_tree .
 
 
+$(document).ready(function() {
+    // if text input field value is not empty show the "X" button
+    $("#btn_buscar").keyup(function() {
+        $("#x").fadeIn();
+        if ($.trim($("#btn_buscar").val()) == "") {
+            $("#x").fadeOut();
+        }
+    });
+    // on click of "X", delete input field value and hide "X"
+    $("#x").click(function() {
+        $("#btn_buscar").val("");
+        $(this).hide();
+    });
+});
+
 $(function (){		
 		
 
@@ -73,35 +88,7 @@ $(function (){
 				$( "#dialog-form" ).dialog( "close" );
 			});
 
-		var availableTags = [
-			"ActionScript",
-			"AppleScript",
-			"Asp",
-			"BASIC",
-			"C",
-			"C++",
-			"Clojure",
-			"COBOL",
-			"ColdFusion",
-			"Erlang",
-			"Fortran",
-			"Groovy",
-			"Haskell",
-			"Java",
-			"JavaScript",
-			"Lisp",
-			"Perl",
-			"PHP",
-			"Python",
-			"Ruby",
-			"Scala",
-			"Scheme"
-		];
-		$( "#tags" ).autocomplete({	
-    
-			source: availableTags
 
-		});
 
 
 });

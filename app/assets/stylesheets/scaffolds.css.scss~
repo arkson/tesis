@@ -8,23 +8,19 @@
     padding: 5px;
     vertical-align: top;
   }
-
+ .titulo {
+	margin-bottom: 20px;
+  }
  .titulo h1{
-	padding-bottom:20px;
+	padding-top: 5px;
 	font-size:16px;
   }
 
   .busqueda {
     float:right;
-	padding-right:20px;
   }
 
-  .buscar
-  {
-	margin:0;
-	padding:0;
-	width:40px;
-  }
+
 
   #link
   {
@@ -66,7 +62,7 @@
   }
 
   .list_description {
-    width: 80%;
+   
 
     dl {
       margin: 0;
@@ -99,17 +95,22 @@
 
   .mostrar
   {
- 	background: #fafafa;
-  	border-radius: 5px;	
-	margin:10px 0 10px 0;
+	overflow: auto;
+	margin-top: 1em;
+	border-top: 1px dotted #77d;
+	min-height: 100px;
   }
-  .mostrar p 
+  .buscar_isbn
   {
- 	padding: 5px 0 5px 20px;
-  }  
-  .mostrar p b
+	padding-bottom: 1em;
+	border-bottom: 1px dotted #77d;
+  }
+  .buscar_imagen
   {
-	font-size:14px;
+	float:left;
+	border:#77d solid 1px;
+	position:absolute;
+	margin:15px 0 0 10px;
   }
   .editar
   {
@@ -146,12 +147,17 @@
   .nicEdit-panelContain
   {
 	margin-top:20px;
+	
   }
   .nicEdit-panel
   {
+	
   }
   .nicEdit-main
   {
+	max-height : 100px;
+	resize: none;
+	
   }
 
 .alquilar input[type=submit]{background:#ffffff;}

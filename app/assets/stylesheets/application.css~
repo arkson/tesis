@@ -175,24 +175,6 @@ select, textarea, input[type=file], input[type=checkbox] {
 		}
 /* Fin Cabecera */	
 
-/* Inicio bordes */	
-	.borde_superior
-	{
-	width:200px;
-	height:20px;
-	float:right; 
-	margin-right:40px;
-	background:#0070ba;
-	border-radius: 0 0 5px 5px;
-	}
-	.borde_inferior
-	{
-	width:200px;
-	height:20px;
-	margin-left:40px;
-	background:#0071bc;
-	border-radius: 5px 5px 0 0;
-	}
 /* Inicio Contenido */
 .Contenido
 {
@@ -277,26 +259,67 @@ select, textarea, input[type=file], input[type=checkbox] {
 		  float: left;
 		  margin:0 6px 0 6px;
 		}
+
+  	.busqueda {
+      float:right;
+  	}
 	.campo_busqueda
 	  {      
 		font-size:16px;
 	  }
+	#buscar {
+		float:left; 
+		width:300px; 
+		height:27px; 
+		line-height:27px;
+		text-indent:10px; 
+		font-family:arial, sans-serif; 
+		font-size:1em; 
+		color:#333; 
+		background: #fff; 
+		border:solid 1px #d9d9d9; 
+		border-top:solid 1px #c0c0c0; 
+		border-right:none;
+	}
+
+	#btn_buscar{
+	    cursor:pointer; 
+		width:70px; 
+		height: 31px; 
+		line-height:0; 
+		font-size:0; 
+		text-indent:-999px;
+		color: transparent;  
+		background: url(ico-search.png) no-repeat #888888 center; 
+		border: 1px solid #888888; 
+		border-radius: 0 5px 5px 0; 
+	}
+	#btn_buscar:hover {
+		background: #777777;
+		color: transparent;  
+	}
 	.ui-autocomplete
 	  {      
 		background:#fafafa;
 		border:1px dotted #77d;
 		line-height:20px;
 	  }
-	.ui-menu-item:hover
+	.ui-menu-item
 	  {      
-		background:#ebf3ff;
-		cursor:pointer;
+		padding-left:10px;
 	  }
 	.ui-menu-item:focus
 	  {      
 		background:#ebf3ff;
 		cursor:pointer;
+		left: 0;
 	  }
+	.ui-menu-item:hover
+	  {      
+		background:#ebf3ff;
+		cursor:pointer;
+	  }
+
 /* end LayoutCell */
 
 /* Inicio accordion */

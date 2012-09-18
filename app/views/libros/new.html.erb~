@@ -16,11 +16,11 @@
 
 	<%= form_tag url_for (:controller => "libros",:action => "busqueda") do %>
 
-	<div class="field">
-		<%= label :isbn, 'Buscar por ISBN' %><br />
-		<%= text_field_tag :isbn, params[:isbn] %>
-		<%= submit_tag "buscar", :id => 'links' %>
-	</div>
+		<div class="buscar_isbn">
+			<%= label :isbn, 'Buscar por ISBN' %><br />
+			<%= text_field_tag :isbn, params[:isbn], :size => "30" %>
+			<%= submit_tag "buscar", :id => 'links' %>
+		</div>
 	<% end %>
 
 	<%= render 'form' %>

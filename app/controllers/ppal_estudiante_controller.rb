@@ -30,7 +30,7 @@ class PpalEstudianteController < ApplicationController
 	@areas = AreaConocimiento.all
 	@cart = current_cart 
 	@configuracion = current_config
-	@categorias = categorias
+	
 	respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @libros }

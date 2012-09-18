@@ -1,5 +1,6 @@
 es:
-
+  will_paginate:
+    page_gap: "..."
   number:
     currency:
       format:
@@ -111,7 +112,8 @@ es:
   libros:
     form:   
       submit: "Guardar"
-
+    busqueda:   
+      submit: "Guardar"
   noticias:
     form:   
       submit: "Guardar"

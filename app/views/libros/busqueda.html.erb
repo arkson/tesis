@@ -1,31 +1,103 @@
-  <div class = "editar_titulo"><h1>Resultados de la búsqueda</h1></div><br /><br />
-  <%= image_tag(@imagen,:class => 'list_image' )  %><br />
-  <div class="field">
-    <%= label :titulo, 'título' %><br />
-    <%= text_field_tag 'titulo', @titulo %>
-  </div>
-  <div class="field">
-    <%= label :autor, 'autor' %><br />
-    <%= text_field_tag 'autor', @autor %>
-  </div>
-  <div class="field">
-    <%= label :isbn, 'imagen' %><br />
-    <%= text_field_tag 'imagen', @imagen %>
-  </div>
-  <div class="field">
-    <%= label :isbn, 'año' %><br />
-    <%= text_field_tag 'ano', @ano %>
-  </div>
-  <div class="field">
-    <%= label :isbn, 'isbn' %><br />
-    <%= text_field_tag 'isbn', @isbn %>
-  </div>
-  <div class="field">
-    <%= label :isbn, 'editorial' %><br />
-    <%= text_field_tag 'editorial', @editorial %>
-  </div>
+<div class = "editar">
+
+	<div class = "editar_titulo"><h1>Resultados de la búsqueda</h1></div>
+
+	<div class = "editar_opciones">
+		<%= link_to 'Regresar', :back, :id => "links" %>
+	</div>
+
+	<div class="clear"></div>
+
+</div>
+<% if @imagen.nil? %>
+	<div class = "notice"><p>No se encontraron resultados.</p></div>
+
+<% else %>
+
+<div class = "mostrar"><br /><br />
+
+	<div class="buscar_imagen">
+	<% if @imagen.nil? %>
+	 <%= image_tag("libro.png",:class => 'list_image') %>
+	<% else %>
+	 <%= image_tag(@imagen,:class => 'list_image' )  %>
+	<% end %>
+	</div>
+
+	<%= form_for(@libro) do |f| %>
+
+	  <% if @libro.errors.any? %>
+		<div id="error_explanation">
+		 <h2><%= t('errors.template.header', :count=>@libro.errors.size,:model=>t('activerecord.models.libro')) %>.</h2>
+		 <p><%= t('errors.template.body') %></p>
+
+		  <ul>
+		  <% @libro.errors.full_messages.each do |msg| %>
+		    <li><%= msg %></li>
+		  <% end %>
+		  </ul>
+		</div>
+	  <% end %>
 
 
+	  <div class="field">
+		<%= f.label :cota %><br />
+		<%= f.text_field :cota %>
+	  </div>
+	  <div class="field">
+		<%= f.label :titulo %><br />
+		<%= f.text_field :titulo, :value => @titulo %>
+	  </div>
+	  <div class="field">
+		<%= f.label :autor %><br />
+		<%= f.text_field :autor, :value =>  @autor %>
+	  </div>
+	  <div class="field">
+		<%= f.label :imagen %><br />
+		<% if @imagen.nil? %>
+		<%= f.file_field :imagen %>
+		<% else %>
+		<%= f.text_field :imagen, :value =>  @imagen %>
+		<% end %>
+	  </div>
+	  <div class="field">
+		<%= f.label :edicion %><br />
+		<%= f.number_field :edicion %>
+	  </div>
+	  <div class="field">
+		<%= f.label :lugar_impresion %><br />
+		<%= f.text_field :lugar_impresion %>
+	  </div>
+	  <div class="field">
+		<%= f.label :ano %><br />
+		<%= f.number_field :ano, :value =>  @ano %>
+	  </div>
+	  <div class="field">
+		<%= f.label :isbn %><br />
+		<%= f.text_field :isbn, :value =>  @isbn %>
+	  </div>
+	  <div class="field">
+		<%= f.label :editorial %><br />
+		<% if @editorial.nil? %>
+		 <%= f.collection_select :editorial_id, Editorial.all, :id, :nombre %>
+		<% else %>
+		 <%= f.text_field :editorial_id, :value =>  @editorial %>
+		<% end %>
+	  </div>
+	  <div class="field">
+		<%= f.label :area_conocimiento %><br />
+		<%= f.collection_select :area_conocimiento_id, AreaConocimiento.all, :id, :nombre %>
+	  </div>
+	  <div class="field">
+		<%= f.label :dependencia %><br />
+		<%= f.collection_select :dependencia_id, Dependencia.all, :id, :nombre %>
+	  </div>
+	  <div class="actions">
+		<%= f.submit t('.submit') %>
+	  </div>
 
+	<% end %>
 
+</div>
 
+<% end %>

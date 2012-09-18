@@ -58,6 +58,13 @@ class LibrosController < ApplicationController
 	@isbn = first_book.isbn 	
 	@ano = first_book.published_date 
 
+	add_breadcrumb "Nuevo libro", :new_libro_path
+    @libro = Libro.new
+	
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render :json => @libro }
+    end
   end
 
   # GET /libros/1/edit
