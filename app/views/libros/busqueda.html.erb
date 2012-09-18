@@ -9,12 +9,13 @@
 	<div class="clear"></div>
 
 </div>
-<% if @imagen.nil? %>
+<% if @books.first.nil? %>
 	<div class = "notice"><p>No se encontraron resultados.</p></div>
 
 <% else %>
 
 <div class = "mostrar"><br /><br />
+
 
 	<div class="buscar_imagen">
 	<% if @imagen.nil? %>

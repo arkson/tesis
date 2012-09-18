@@ -47,7 +47,13 @@
 	
 	  .torta
 	  {
+		border:red solid 1px;
 	  }
 	  .torta2
 	  {
+		border:red solid 1px;float:right;position:absolute;margin-bottom:20px;		
+	  }
+	  .torta3
+	  {
+		border:red solid 1px;		
 	  }

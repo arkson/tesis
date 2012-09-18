@@ -49,15 +49,16 @@ class LibrosController < ApplicationController
   def busqueda
 
     @isbn = params[:isbn]
-	@books = GoogleBooks.search('isbn:'+@isbn)	
-	first_book = @books.first
-	@imagen = first_book.image_link
-	@autor = first_book.authors 
-	@titulo = first_book.title
-	@editorial = first_book.publisher 
-	@isbn = first_book.isbn 	
-	@ano = first_book.published_date 
-
+	@books = GoogleBooks.search('isbn:'+@isbn)
+	if !@books.first.nil?	
+		first_book = @books.first
+		@imagen = first_book.image_link
+		@autor = first_book.authors 
+		@titulo = first_book.title
+		@editorial = first_book.publisher 
+		@isbn = first_book.isbn 	
+		@ano = first_book.published_date 
+	end
 	add_breadcrumb "Nuevo libro", :new_libro_path
     @libro = Libro.new
 	
