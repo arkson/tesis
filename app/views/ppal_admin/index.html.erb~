@@ -1,11 +1,11 @@
 
-<div class="torta">
-	<%= image_tag( @pie_chart1, :style => "border:blue solid 1px;") %> 
+<div>
+	<%= image_tag( @pie_chart1, :class => "torta") %> 
 </div>
-<div class="torta2">
-	<%= image_tag( @pie_chart2) %>
+<div>
+	<%= image_tag( @pie_chart2, :class => "torta2") %>
 </div>
-<div class="torta3">
-	<%= image_tag( @pie_chart3) %>
+<div>
+	<%= image_tag( @pie_chart3, :class => "torta3") %>
 </div>
 
