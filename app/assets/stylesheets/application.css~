@@ -295,7 +295,7 @@ select, textarea, input[type=file], input[type=checkbox] {
 		border-radius: 0 5px 5px 0; 
 	}
 	#btn_buscar:hover {
-background: url(ico-search.png) no-repeat #777777 center;  
+		background: url(ico-search.png) no-repeat #777777 center;  
 	}
 	.ui-autocomplete
 	  {      
