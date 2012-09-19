@@ -1,11 +1,12 @@
-
 <div>
-	<%= image_tag( @pie_chart1, :class => "torta") %> 
+	<div style="border-bottom: 1px dotted #77d;">
+		<%= image_tag( @pie_chart1, :class => "torta") %> 
+	</div>
+	<div style="float:right;">
+		<%= image_tag( @pie_chart2, :class => "torta2") %>
+	</div>
+	<div style="border-top: 1px dotted #77d;">
+		<%= image_tag( @pie_chart3, :class => "torta3") %>
+	</div>
+	
 </div>
-<div>
-	<%= image_tag( @pie_chart2, :class => "torta2") %>
-</div>
-<div>
-	<%= image_tag( @pie_chart3, :class => "torta3") %>
-</div>
-

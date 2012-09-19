@@ -47,13 +47,13 @@
 	
 	  .torta
 	  {
-		border:red solid 1px;
+		width:70%;
 	  }
 	  .torta2
 	  {
-		border:red solid 1px;float:right;position:absolute;margin-bottom:20px;		
+		width:70%;text-align:right;		
 	  }
 	  .torta3
 	  {
-		border:red solid 1px;		
+		width:70%	
 	  }
