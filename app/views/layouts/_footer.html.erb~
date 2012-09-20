@@ -3,11 +3,11 @@
 				<ul>
 					<li class ="nolink">Información General</li>
 					<li class="link"><%= link_to "Inicio", inicio_index_path %></li>
-					<li class="link"><%= link_to "Catálogo de libros", inicio_catalogo_path %></li>
 					<li class="link"><%= link_to "Historia", informacion_historia_path %></li>
 					<li class="link"><%= link_to "Servicios", informacion_servicios_path %></li>
 					<li class="link"><%= link_to "Normativas", informacion_normativas_path %></li>
 					<li class="link"><%= link_to "Horarios", informacion_horarios_path %></li>
+					<li class="link"><%= link_to "Catálogo de libros", inicio_catalogo_path %></li>
 				</ul>
 				<ul>
 					<li class ="nolink">Enlaces de Interés:</li>
@@ -28,4 +28,5 @@
 					<li class ="nolink">Teléfono: (58212) 6051671/ 1665 / 2136 (FAX)</li>
 				</ul>					
 			</div>
+			<div></div>
 	</div>

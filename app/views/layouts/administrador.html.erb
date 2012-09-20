@@ -15,16 +15,16 @@
 		<div class="Header">
 
 			<div class="logo"><%= link_to "", ppal_admin_index_path %></div> 
-			<div class="titulo_banner"><p>Bolsa del Libro</p></ br><p>Servicio de Prestamo Rental</p></div>
+			<div class="titulo_banner"><%= button_to 'Cerrar Sesion', logout_path, :method => :delete, :id => "csesion" %></div>
 			<div class="panel">
 				<% if session[:usuario_id] %>
-					<a class = "usuario">Usuario: <%= usuario.nombre %></a> <%= button_to 'Cerrar Sesion', logout_path, :method => :delete, :class => 'cerrar-sesion' %>
+					<a class = "usuario">Usuario: <%= usuario.nombre %></a> 
 				<% end %>
-		</div>
-
-		</div>
+			</div>
 
 		<%= render(:partial => "layouts/menu") %>
+		</div>
+
         <!--<div class = "borde_superior"></div>-->
 		<div class="Contenido_admin">
 				<%= render(:partial => "layouts/menu_administrador") %>				

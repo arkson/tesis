@@ -4,32 +4,7 @@
 
 
 /* Estilos para la informacion del inicio */
-	.panel
-	{
-	  padding: 140px 40px 0 0;
-	  text-align:right;
-	}
-	.panel #acceder
-	{
-	  border:0;
-      background: #888888;  	
-  	  height:25px;
-  	  border-radius: 5px;
-      text-decoration:none;
-	  cursor:pointer;
-	  font-size: 12px;
-	}
-	.panel span
-	{
-	  color:#ffffff;
-	  font-size: 12px;
-	}
-	.panel a
-	{
-	  color:#ffffff;
-	  text-decoration:none;
-	  font-size: 12px;
-	}
+
 	#olvido
 	{
 	  border:0;

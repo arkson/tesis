@@ -32,7 +32,7 @@ class PpalAdminController < ApplicationController
 		@legend << area.nombre + " (#{area.cantidad})"
 	 end	
 	 
-      @pie_chart1 = Gchart.pie_3d(:data => @datos, :title => "Libros alquilados por area de conocimiento", :labels => @label, :legend => @legend, :theme => :thirty7signals, :size => '550x250')	
+      @pie_chart1 = Gchart.pie_3d(:data => @datos, :title => "Libros alquilados por area de conocimiento", :labels => @label, :legend => @legend, :theme => :thirty7signals, :size => '550x150')	
 
 
 ##################################################################################################################
@@ -90,7 +90,7 @@ class PpalAdminController < ApplicationController
 	 end	
 
 	
-	 @pie_chart3 = Gchart.pie_3d(:data => @datos, :title => "Cantidad de usuarios por escuela", :labels => @label, :legend => @legend, :theme => :greyscale,:size => '550x250')	
+	 @pie_chart3 = Gchart.pie_3d(:data => @datos, :title => "Cantidad de usuarios por escuela", :labels => @label, :legend => @legend, :theme => :greyscale,:size => '550x150')	
 
 ######################################################################################################################
 
