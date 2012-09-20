@@ -165,7 +165,7 @@ select, textarea, input[type=file], input[type=checkbox] {
 	.titulo_banner
 	{
 	  float:right;
-	  padding: 40px 40px 0 0;
+	  padding: 30px 40px 0 0;
 	}
 		.titulo_banner p{
 		  color:#ffffff;
@@ -175,7 +175,7 @@ select, textarea, input[type=file], input[type=checkbox] {
 		}
 	.panel
 	{
-	  padding: 143px 40px 0 0;
+	  padding: 144px 40px 0 0;
 	  text-align:right;
 	}
 	.panel #acceder

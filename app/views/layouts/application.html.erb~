@@ -9,38 +9,35 @@
 </head>
 <body>
 
-	<div class="wrapper">
+	
 
 		
+
 		<div class="Header">
 			<div class="logo"><%= link_to "", inicio_index_path %></div>
-			<div class="titulo_banner">
-			<%= button_to 'Cerrar Sesion', logout_path, :method => :delete, :class => 'cerrar-sesion' %>
-			</div> 
+			<div class="titulo_banner"><p>Bolsa del Libro</p></ br><p>Servicio de Prestamo Rental</p></div> 
 			<div class="panel">
 
+			<% if session[:usuario_id] %>
+				<% if Usuario.find(session[:usuario_id]).rol == "Administrador" %>
+					<%= link_to "Usuario:" + (session[:usuario_nombre]), ppal_admin_index_path, :class => "usuario" %>
 				<% else %>
 					<%= link_to "Usuario:" + (session[:usuario_nombre]), ppal_estudiante_index_path, :class => "usuario" %>	  
-				<% end %>
-				
+				<% end %>>
+				<%= button_to 'Cerrar Sesion', logout_path, :method => :delete, :class => 'cerrar-sesion' %>
 			<% else %>
 				<button id="acceder">Iniciar sesión</button>			
 				<%= link_to "Catálogo de libros", inicio_catalogo_path, :id => "links" %>
 			<% end %>	
     		
 			</div>
-			<%= render(:partial => "layouts/menu") %>
+		<%= render(:partial => "layouts/menu") %>
 		</div>
 
 
 		<div class="Contenido">			
 			<%= yield %>
 		</div>
-
-	
-		
-		
-	</div>
 
 	<%= render(:partial => "layouts/footer") %>
 
