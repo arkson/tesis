@@ -5,7 +5,7 @@ class LineItem < ActiveRecord::Base
   has_one :devolucion
 
   def total_price
-	ejemplar.costo_alquiler * quantity
+	(ejemplar.costo_alquiler.nil? ? 0: ejemplar.costo_alquiler)* quantity
   end
 
   def estatus_devolucion

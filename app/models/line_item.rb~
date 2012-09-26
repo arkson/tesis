@@ -5,7 +5,7 @@ class LineItem < ActiveRecord::Base
   has_one :devolucion
 
   def total_price
-	ejemplar.costo_alquiler * quantity
+	ejemplar.libro.precio_minimo * quantity
   end
 
   def estatus_devolucion
@@ -15,5 +15,6 @@ class LineItem < ActiveRecord::Base
 		"En proceso"
 	end
   end
+
 
 end
