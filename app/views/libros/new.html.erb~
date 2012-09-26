@@ -5,7 +5,7 @@
 	<div class = "editar_titulo"><h1>Nuevo libro</h1></div>
 
 	<div class = "editar_opciones">
-		<%= link_to 'Regresar', :back, :id => "links" %>
+		<%= link_to 'Regresar', ppal_admin_index_path, :id => "links" %>
 	</div>
 
 	<div class="clear"></div>
@@ -18,8 +18,8 @@
 
 		<div class="buscar_isbn">
 			<%= label :isbn, 'Buscar por ISBN' %><br />
-			<%= text_field_tag :isbn, params[:isbn], :size => "30" %>
-			<%= submit_tag "buscar", :id => 'links' %>
+			<%= text_field_tag :isbn, params[:isbn], :id => "buscar" %>
+			<%= submit_tag "buscar", :id => 'btn_buscar' %>
 		</div>
 	<% end %>
 

@@ -184,7 +184,8 @@ class ApplicationController < ActionController::Base
 
 
   def top_10
-		@config = current_config 
+	@config = current_config 
+	if !@config.empty?   	 
  		@top_libros = Libro.find_by_sql(['select count(e.id) as cantidad, b.id, b.titulo,b.cota
 											from alquileres a join lines_items l on (a.id = l.alquiler_id)
 											join devoluciones d on (l.id = d.line_item_id)
@@ -195,17 +196,18 @@ class ApplicationController < ActionController::Base
 											group by b.id
 											order by cantidad desc
 											LIMIT 10 ', "Alquilado", "Alquiler Finalizado", @config[0].id ])
-
+	end
   end	
 
   def total_recaudado
-	@config = current_config 
-	@total = Alquiler.find_by_sql(['select sum(e.costo_alquiler) as total
-										from alquileres a join lines_items l on (a.id = l.alquiler_id)
-										join ejemplares e on (l.ejemplar_id = e.id)
-										where (a.estatus = ? or a.estatus = ?)
-										and a.configuracion_id = ?',"Alquilado", "Alquiler Finalizado", @config[0].id ])
-
+	@config = current_config
+	if !@config.empty?	
+		@total = Alquiler.find_by_sql(['select sum(e.costo_alquiler) as total
+											from alquileres a join lines_items l on (a.id = l.alquiler_id)
+											join ejemplares e on (l.ejemplar_id = e.id)
+											where (a.estatus = ? or a.estatus = ?)
+											and a.configuracion_id = ?',"Alquilado", "Alquiler Finalizado", @config[0].id ])
+	end
   end	
 
   

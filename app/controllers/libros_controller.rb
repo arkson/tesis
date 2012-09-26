@@ -116,11 +116,11 @@ class LibrosController < ApplicationController
   # DELETE /libros/1.json
   def destroy
     @libro = Libro.find(params[:id])
-	@temp = @libro.dump
+	@temp = @libro.dup
     @libro.destroy
 	guardar_log(session[:usuario_id], self.class.name,__method__.to_s, @temp,nil )
     respond_to do |format|
-      format.html { redirect_to libros_url }
+      format.html { redirect_to libros_url, :notice => 'Libro eliminado exitosamente.'  }
       format.json { head :ok }
     end
   end
