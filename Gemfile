@@ -14,7 +14,7 @@ gem 'pdf-writer'
 gem 'therubyracer'
 gem 'will_paginate', '~> 3.0.3'
 gem 'meta_search', '~> 1.1.3'
-gem "paperclip", "~> 2.7.0"
+gem "paperclip", "~> 4.2.2"
 gem "bcrypt-ruby", "~> 3.0.1"
 gem "galetahub-simple_captcha", :require => "simple_captcha"
 gem "rmagick", "~> 2.13.1"
